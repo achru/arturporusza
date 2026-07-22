@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artur Chruszcz — Integracja Funkcjonalna · Metoda Feldenkraisa</title>
+<meta name="description" content="Indywidualne sesje metodą Feldenkraisa w Gdańsku i online. Lżej, uważniej, z większym wyborem — komfort w działaniu jako umiejętność, której można się uczyć.">
+<meta name="theme-color" content="#F1E9DC">
+<link rel="canonical" href="https://arturporusza.pl/indywidualnie/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="Integracja Funkcjonalna — indywidualne sesje Feldenkraisa | Artur Chruszcz">
+<meta property="og:description" content="Indywidualne sesje metodą Feldenkraisa w Gdańsku i online. Lżej, uważniej, z większym wyborem.">
+<meta property="og:url" content="https://arturporusza.pl/indywidualnie/">
+<meta property="og:image" content="https://arturporusza.pl/indywidualnie/images/1.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   DESIGN TOKENS
+   Brand-derived. Swap values here to re-skin.
+   ============================================ */
+:root {
+  /* Paper & ink */
+  --paper:        #F1E9DC;
+  --paper-warm:   #ECE2D2;
+  --paper-shade:  #E5DBC9;
+  --rose-wash:    #E8D5DA;    /* section 06 background, derived from brand pink */
+  --rose-wash-2:  #D9C2C9;
+  --ink:          #1A1612;    /* deep warm ink, never pure black */
+  --ink-soft:     #423A30;
+  --ink-muted:    #7A6F62;
+
+  /* Accents — from the brand flyers */
+  --rose:         #B5879A;    /* dusty rose — primary italic accent */
+  --rose-deep:    #8E6275;
+  --blue:         #8DA3B1;    /* slate blue — secondary */
+  --lavender:     #9C9DBE;
+
+  /* Lines */
+  --hairline:      rgba(26, 22, 18, 0.13);
+  --hairline-soft: rgba(26, 22, 18, 0.07);
+
+  /* Type */
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans:  'Instrument Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --mono:  'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+
+  /* Spacing */
+  --pad:           clamp(1.25rem, 4vw, 2.5rem);
+  --gutter:        clamp(2rem, 6vw, 5rem);
+  --section:       clamp(5.5rem, 12vw, 10rem);
+  --section-tight: clamp(3.5rem, 8vw, 6rem);
+  --max:           76rem;
+  --max-prose:     40rem;
+  --max-narrow:    34rem;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-feature-settings: "ss01", "ss02", "kern";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Paper-grain overlay — signature brand texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.085 0 0 0 0 0.07 0 0 0 0.32 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+}
+
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+::selection { background: var(--rose); color: var(--paper); }
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+.eyebrow, .meta {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+.section-meta {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.section-meta::before {
+  content: "";
+  width: clamp(2.5rem, 5vw, 4.5rem);
+  height: 1px;
+  background: var(--ink);
+  flex-shrink: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 380;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  margin: 0;
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7.2vw, 5.75rem);
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+}
+
+h2 {
+  font-size: clamp(1.85rem, 4.6vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+em, i, .italic {
+  font-style: italic;
+  color: var(--rose-deep);
+  font-variation-settings: "opsz" 96, "SOFT" 80;
+}
+
+p { margin: 0 0 1.15em; max-width: var(--max-prose); }
+p:last-child { margin-bottom: 0; }
+
+.lead {
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: var(--max-narrow);
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-inline: var(--pad);
+}
+
+section { padding-block: var(--section); position: relative; }
+section.tight { padding-block: var(--section-tight); }
+
+.grid-5-7 {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+.grid-7-5 {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  margin: 0;
+}
+
+/* ============================================
+   NAV
+   ============================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  background: rgba(241, 233, 220, 0.78);
+  border-bottom: 1px solid var(--hairline-soft);
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.1rem var(--pad);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-inner a {
+  max-width: 220px;
+  min-width: 90px;
+  height: 22px;
+}
+.brandmark {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+}
+.brandmark svg { width: 22px; height: 22px; flex-shrink: 0; }
+.brandmark .mark-text em { color: var(--ink); font-style: italic; }
+.nav-links {
+  display: flex;
+  gap: 2.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.nav-links a {
+  color: var(--ink-muted);
+  position: relative;
+  transition: color 0.25s var(--ease);
+  padding-block: 0.25rem;
+}
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+.nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6em;
+  padding: 1.05rem 1.7rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  border-radius: 0;
+  transition: all 0.35s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.btn .arrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15em;
+  font-weight: 300;
+  display: inline-block;
+  transition: transform 0.4s var(--ease);
+}
+.btn:hover .arrow, .btn:focus-visible .arrow { transform: translateX(6px); }
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  background: var(--ink-soft);
+  border-color: var(--ink-soft);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+.btn-ghost:hover, .btn-ghost:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--rose-deep);
+  outline-offset: 3px;
+}
+
+.cta-meta {
+  display: block;
+  margin-top: 0.85rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ============================================
+   01 — HERO
+   ============================================ */
+.hero {
+  padding-top: clamp(4rem, 9vw, 7rem);
+  padding-bottom: var(--section);
+  position: relative;
+  overflow: hidden;
+}
+.hero-eyebrow { margin-bottom: clamp(2rem, 4.5vw, 3.5rem); }
+.hero-title {
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+  max-width: 18ch;
+}
+.hero-lead {
+  font-size: clamp(1.1rem, 1.55vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 36rem;
+  margin-bottom: clamp(2.25rem, 4vw, 3rem);
+}
+.hero-cta { margin-bottom: clamp(2.75rem, 6vw, 4.5rem); }
+.hero-signature {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  color: var(--rose-deep);
+  letter-spacing: -0.01em;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--hairline);
+  display: inline-block;
+  padding-right: 3rem;
+}
+
+/* Decorative polygonal shape — brand echo */
+.hero-shape {
+  position: absolute;
+  top: 18%;
+  right: -8%;
+  width: clamp(22rem, 38vw, 38rem);
+  aspect-ratio: 1 / 0.95;
+  background: var(--rose-wash);
+  clip-path: polygon(20% 0%, 92% 8%, 100% 55%, 78% 100%, 12% 88%, 0% 38%);
+  z-index: -1;
+  opacity: 0.5;
+  filter: contrast(1.02);
+}
+.hero-shape-2 {
+  position: absolute;
+  bottom: 8%;
+  right: 12%;
+  width: clamp(14rem, 22vw, 22rem);
+  aspect-ratio: 1 / 0.85;
+  background: var(--blue);
+  clip-path: polygon(8% 12%, 100% 0%, 92% 78%, 18% 100%, 0% 52%);
+  z-index: -1;
+  opacity: 0.32;
+}
+
+/* ============================================
+   02 — CO SIĘ DZIEJE
+   ============================================ */
+.problem-body p {
+  font-size: 1.075rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.pullquote {
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 3vw, 2.3rem);
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+  font-weight: 360;
+  font-style: italic;
+  color: var(--ink);
+  max-width: 30ch;
+  margin: clamp(3rem, 6vw, 4.5rem) 0 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--ink);
+  position: relative;
+}
+.pullquote em { color: var(--rose-deep); }
+
+/* ============================================
+   03 — CO SIĘ OTWIERA
+   ============================================ */
+.opens-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 38rem;
+}
+.opens-list li {
+  font-family: var(--serif);
+  font-weight: 380;
+  font-size: clamp(1.3rem, 2.1vw, 1.65rem);
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--hairline);
+  display: flex;
+  gap: 1.25rem;
+  align-items: baseline;
+}
+.opens-list li::before {
+  content: "—";
+  color: var(--rose-deep);
+  font-style: italic;
+  flex-shrink: 0;
+}
+.opens-list li:first-child { border-top: 1px solid var(--hairline); }
+.opens-list li em {
+  color: var(--rose-deep);
+  font-style: italic;
+}
+
+.opens-closer {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 36rem;
+}
+
+.monument {
+  text-align: center;
+  margin-top: clamp(5rem, 9vw, 8rem);
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  position: relative;
+}
+.monument::before, .monument::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(3rem, 6vw, 5rem);
+  height: 1px;
+  background: var(--ink);
+}
+.monument::before { top: 0; }
+.monument::after  { bottom: 0; }
+.monument h3 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 7vw, 5.25rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  font-weight: 360;
+}
+.monument h3 .line-2 {
+  display: block;
+  font-style: italic;
+  color: var(--rose-deep);
+}
+
+/* ============================================
+   04 — Z KIM PRACUJESZ
+   ============================================ */
+.guide { background: var(--paper-shade); }
+.guide-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+.portrait {
+  aspect-ratio: 4 / 5;
+  background:
+    linear-gradient(135deg, var(--rose-wash) 0%, var(--blue) 100%);
+  clip-path: polygon(8% 0%, 100% 4%, 96% 92%, 4% 100%, 0% 30%);
+  position: relative;
+  overflow: hidden;
+}
+.portrait::after {
+  content: "Portret";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.35;
+}
+
+/* Mini-galeria w sekcji "Z kim pracujesz" */
+.guide-gallery {
+  display: grid;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+.guide-photo {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--rose-wash) 0%, var(--blue) 100%);
+  isolation: isolate;
+}
+.guide-photo-main {
+  aspect-ratio: 4 / 5;
+  clip-path: polygon(8% 0%, 100% 4%, 96% 92%, 4% 100%, 0% 30%);
+}
+.guide-photo-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+.guide-photo-small {
+  aspect-ratio: 1 / 1;
+  clip-path: polygon(0% 8%, 92% 0%, 100% 88%, 12% 100%, 4% 50%);
+}
+.guide-photo-small-2 {
+  aspect-ratio: 1 / 1;
+  clip-path: polygon(12% 0%, 100% 8%, 88% 100%, 0% 92%);
+}
+.guide-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  transition: transform 1.2s var(--ease);
+}
+.guide-photo img[src=""],
+.guide-photo img:not([src]) {
+  display: none;
+}
+.guide-photo:hover img,
+.guide-photo:focus-within img {
+  transform: scale(1.04);
+}
+.guide-photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.45;
+  z-index: 1;
+  text-align: center;
+  padding: 0.5rem;
+  pointer-events: none;
+}
+.guide-headline {
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+.guide-body p {
+  margin-bottom: 1.4em;
+  color: var(--ink-soft);
+}
+
+.guide-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--hairline);
+}
+.guide-meta dt {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.45rem;
+}
+.guide-meta dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* ============================================
+   05 — JAK TO WYGLĄDA
+   ============================================ */
+.plan-intro {
+  max-width: 40rem;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+  font-size: 1.075rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--ink);
+}
+.plan-stage {
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 2.5vw, 2rem) clamp(2.25rem, 4vw, 3rem) 0;
+  border-right: 1px solid var(--hairline);
+  position: relative;
+}
+.plan-stage:last-child { border-right: 0; padding-right: 0; }
+.plan-numeral {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(3rem, 5.5vw, 4.5rem);
+  line-height: 1;
+  color: var(--rose-deep);
+  letter-spacing: -0.04em;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+.plan-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 1.25rem;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+.plan-label .dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--ink-muted);
+}
+.plan-title {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2vw, 1.55rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+.plan-body {
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* ============================================
+   06 — PIERWSZA SESJA (accent section)
+   ============================================ */
+.first-session {
+  background: var(--rose-wash);
+  position: relative;
+  overflow: hidden;
+}
+.first-session::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n2'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.38 0 0 0 0 0.45 0 0 0 0.4 0'/></filter><rect width='100%' height='100%' filter='url(%23n2)'/></svg>");
+  background-size: 220px 220px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.first-session > .wrap { position: relative; z-index: 1; }
+.first-session .section-meta { color: var(--rose-deep); }
+.first-session .section-meta::before { background: var(--rose-deep); }
+.first-session h2 { color: var(--ink); }
+
+.first-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+.first-body {
+  font-size: 1.075rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  max-width: 36rem;
+}
+.pricing-card {
+  background: var(--paper);
+  padding: clamp(2rem, 3.5vw, 2.75rem);
+  border: 1px solid var(--hairline);
+  position: relative;
+}
+.pricing-price {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5.5vw, 4.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 380;
+  margin-bottom: 0.25rem;
+}
+.pricing-price .currency {
+  font-style: italic;
+  color: var(--rose-deep);
+  font-size: 0.55em;
+  vertical-align: 0.4em;
+  margin-left: 0.1em;
+}
+.pricing-label {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.pricing-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+.pricing-list li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1rem;
+  font-size: 0.95rem;
+  align-items: baseline;
+}
+.pricing-list dt, .pricing-list .dt {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.pricing-list dd, .pricing-list .dd {
+  margin: 0;
+  color: var(--ink);
+}
+.pricing-card .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ============================================
+   07 — DLACZEGO TO DZIAŁA
+   ============================================ */
+.why-body p {
+  font-size: 1.075rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+/* ============================================
+   08 — KOMU TO PASUJE
+   ============================================ */
+.fits-list {
+  border-top: 1px solid var(--ink);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+.fits-row {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--gutter);
+  padding: clamp(2rem, 4vw, 2.75rem) 0;
+  border-bottom: 1px solid var(--hairline);
+  align-items: start;
+}
+.fits-title {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 1.85vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.fits-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.fits-closer {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink-muted);
+  max-width: 38rem;
+}
+
+/* ============================================
+   09 — FAQ
+   ============================================ */
+.faq-list {
+  border-top: 1px solid var(--ink);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+details {
+  border-bottom: 1px solid var(--hairline);
+  position: relative;
+}
+details > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: clamp(1.5rem, 2.8vw, 2.25rem) 3rem clamp(1.5rem, 2.8vw, 2.25rem) 0;
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  position: relative;
+  transition: color 0.25s var(--ease);
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background-image:
+    linear-gradient(var(--ink), var(--ink)),
+    linear-gradient(var(--ink), var(--ink));
+  background-size: 18px 1px, 1px 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+  transition: transform 0.4s var(--ease), background-size 0.3s var(--ease);
+}
+details[open] > summary { color: var(--rose-deep); }
+details[open] > summary::after {
+  background-size: 18px 1px, 0 18px;
+  transform: translateY(-50%) rotate(180deg);
+}
+details > summary:hover, details > summary:focus-visible {
+  color: var(--rose-deep);
+}
+details > summary:focus-visible { outline: none; }
+details > summary:focus-visible::before {
+  content: "";
+  position: absolute;
+  left: -0.5rem; right: -0.5rem; top: 0.25rem; bottom: 0.25rem;
+  border: 1px solid var(--rose-deep);
+}
+.faq-answer {
+  padding: 0 3rem 1.75rem 0;
+  max-width: 50rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  animation: fadein 0.4s var(--ease);
+}
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   TESTIMONIALS — "Po sesji"
+   ============================================ */
+.testimonials {
+  border-top: 1px solid var(--ink);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+.testimonial {
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: clamp(2.75rem, 5vw, 3.75rem) 0;
+  border-bottom: 1px solid var(--hairline);
+  align-items: start;
+}
+.testimonial-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  color: var(--rose-deep);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.testimonial-content { max-width: 40rem; }
+.testimonial blockquote {
+  margin: 0 0 1.25rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.1vw, 1.65rem);
+  line-height: 1.32;
+  letter-spacing: -0.012em;
+  font-weight: 380;
+  color: var(--ink);
+  text-indent: -0.4em;
+}
+.testimonial blockquote em {
+  color: var(--rose-deep);
+  font-style: italic;
+}
+.testimonial cite {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-style: normal;
+}
+
+/* ============================================
+   SESSION FLOW — narracja "jak wygląda sesja"
+   ============================================ */
+.session-flow {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  padding-top: clamp(1.75rem, 3vw, 2.25rem);
+  border-top: 1px solid var(--hairline);
+  display: grid;
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  max-width: 38rem;
+}
+.session-step {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.25rem;
+  align-items: baseline;
+}
+.session-step-time {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  padding-top: 0.15em;
+}
+.session-step p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.session-step p strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ============================================
+   10 — ZAPROSZENIE
+   ============================================ */
+.invite { text-align: left; padding-bottom: var(--section); }
+.invite-headline {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  font-weight: 360;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  max-width: 14ch;
+}
+.invite-headline .line-em {
+  display: block;
+  font-style: italic;
+  color: var(--rose-deep);
+}
+.invite-lead {
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  color: var(--ink-soft);
+  max-width: 32rem;
+  margin-bottom: clamp(2.25rem, 4vw, 3rem);
+}
+.invite-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  border-top: 1px solid var(--hairline);
+  padding: 2.25rem 0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-inline: var(--pad);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ============================================
+   SCROLL REVEALS
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero stagger on load */
+.hero .reveal-stagger {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: stagger 1s var(--ease) forwards;
+}
+.hero .reveal-stagger.s1 { animation-delay: 0.05s; }
+.hero .reveal-stagger.s2 { animation-delay: 0.2s; }
+.hero .reveal-stagger.s3 { animation-delay: 0.45s; }
+.hero .reveal-stagger.s4 { animation-delay: 0.65s; }
+.hero .reveal-stagger.s5 { animation-delay: 0.85s; }
+
+@keyframes stagger {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .grid-5-7, .grid-7-5, .first-grid, .guide-grid, .fits-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .plan-grid { grid-template-columns: 1fr; }
+  .plan-stage {
+    border-right: 0;
+    border-bottom: 1px solid var(--hairline);
+    padding: 2.25rem 0;
+  }
+  .plan-stage:last-child { border-bottom: 0; }
+  .portrait { max-width: 30rem; margin: 0 auto; }
+  .guide-gallery { max-width: 30rem; margin: 0 auto; width: 100%; }
+  .hero-shape { right: -25%; opacity: 0.4; }
+  .hero-shape-2 { right: -10%; opacity: 0.25; }
+  .testimonial {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2.25rem 0;
+  }
+  .session-step {
+    grid-template-columns: 3rem 1fr;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links { gap: 1.25rem; font-size: 0.65rem; }
+  .nav-links a:nth-child(n+4) { display: none; }
+  .pricing-list li { grid-template-columns: 4.5rem 1fr; }
+  .invite-ctas { flex-direction: column; align-items: stretch; }
+  .invite-ctas .btn { width: 100%; justify-content: center; }
+  .fits-row { padding: 1.75rem 0; }
+  .pullquote { font-size: 1.55rem; }
+  .hero-signature { padding-right: 1rem; }
+}
+
+@media (max-width: 540px) {
+  .nav-links { gap: 1rem; }
+  .nav-links a:nth-child(n+3) { display: none; }
+  .brandmark .mark-text-long { display: none; }
+  body { font-size: 1rem; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .hero .reveal-stagger { opacity: 1; transform: none; animation: none; }
+}
+
+/* Print */
+@media print {
+  body::before, .hero-shape, .hero-shape-2, .nav { display: none; }
+  body { background: white; color: black; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     NAV
+     ============================================ -->
+<nav class="nav" aria-label="Nawigacja główna">
+  <div class="nav-inner">
+    <a href="#top" class="brandmark" aria-label="Artur Chruszcz — strona główna">
+      <img src="images/logo2.png" alt="Logo Artura Chruszcza" class="mark-logo" loading="lazy" class="logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#proces">Proces</a></li>
+      <li><a href="#sesja">Sesja</a></li>
+      <li><a href="#pytania">Pytania</a></li>
+      <li><a href="https://arturchruszcz.booksy.com/h/" rel="noopener">Rezerwacja</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ============================================
+     01 — HERO
+     ============================================ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-shape" aria-hidden="true"></div>
+  <div class="hero-shape-2" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow hero-eyebrow reveal-stagger s1">Metoda Feldenkraisa · Gdańsk · Online</p>
+    <h1 id="hero-title" class="hero-title reveal-stagger s2">
+      Lżej. Uważniej.<br>
+      Z większym <em>wyborem.</em>
+    </h1>
+    <p class="hero-lead reveal-stagger s3">
+      Komfort w działaniu to umiejętność. W chodzeniu, w relacjach, w pracy, w sporcie, w sztuce — można się jej uczyć.
+    </p>
+    <div class="hero-cta reveal-stagger s4">
+      <a class="btn btn-primary" href="https://arturchruszcz.booksy.com/h/" rel="noopener">
+        <span>Zarezerwuj sesję</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <span class="cta-meta">Pierwsza sesja · 250&nbsp;zł · 50&nbsp;min</span>
+    </div>
+    <p class="hero-signature reveal-stagger s5">Zdrowie to zakres.</p>
+  </div>
+</section>
+
+<!-- ============================================
+     01 — DZIAŁANIE JEST UCZENIEM
+     ============================================ -->
+<section id="proces" aria-labelledby="learn-title">
+  <div class="wrap">
+    <div class="grid-5-7">
+      <div class="reveal">
+        <h2 id="learn-title">Każdy ruch, który robisz, <em>kiedyś nie był automatyczny.</em></h2>
+      </div>
+      <div class="problem-body reveal">
+        <p>Wstawanie z krzesła. Chodzenie. Sięganie po kubek. Mówienie. Te ruchy są dziś tak oczywiste, że ich nie zauważasz. Ale każdy z nich kiedyś był nową umiejętnością — uczyłeś się go, kiedy byłeś dzieckiem.</p>
+        <p>Kiedy umiejętność staje się automatyczna, przestajesz wybierać. Zostaje jeden wariant — ten, który raz zadziałał. Wstajesz tak samo od dwudziestu lat. Sięgasz po telefon w taki sam sposób tysiąc razy dziennie. Działa nadal — ale to nie znaczy, że jest jedyny, ani najlepszy.</p>
+        <p>Dobrą wiadomością jest, że uczenie się nie skończyło się w dzieciństwie. Nadal się uczysz — za każdym razem, kiedy zauważasz, jak działasz.</p>
+        <blockquote class="pullquote">
+          Lekkość to <em>umiejętność.</em>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="monument reveal">
+      <h3>
+        Mniej wysiłku.
+        <span class="line-2">Więcej możliwości.</span>
+      </h3>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     04 — Z KIM PRACUJESZ
+     ============================================ -->
+<section class="guide" aria-labelledby="guide-title">
+  <div class="wrap">
+    <div class="guide-grid">
+      <!--
+        MINI-GALERIA: Aby podmienić zdjęcia, zastąp wartość src="" w każdym <img>.
+        Przykład: src="zdjecia/portret.jpg" lub pełny URL.
+        Layout: 1 duże portretowe (4:5) + 2 mniejsze kwadratowe (1:1).
+        Dobre proporcje przy podmianie: portretowy + dwa kwadratowe / square crop.
+      -->
+      <div class="guide-gallery reveal">
+        <figure class="guide-photo guide-photo-main">
+          <img src="images/1.jpg" alt="Artur Chruszcz — praktyk metody Feldenkraisa" loading="lazy">
+          <span class="guide-photo-placeholder">Portret</span>
+        </figure>
+        <div class="guide-photo-row">
+          <figure class="guide-photo guide-photo-small">
+            <img src="images/2.jpg" alt="Sesja Feldenkraisa — uwaga w dotyku" loading="lazy">
+            <span class="guide-photo-placeholder">Sesja</span>
+          </figure>
+          <figure class="guide-photo guide-photo-small-2">
+            <img src="images/3.jpg" alt="Gabinet w Gdańsku Wrzeszczu" loading="lazy">
+            <span class="guide-photo-placeholder">Gabinet</span>
+          </figure>
+        </div>
+      </div>
+      <div class="guide-body reveal">
+        <h2 id="guide-title" class="guide-headline">Artur <em>Chruszcz.</em></h2>
+        <p>Pracuję z ludźmi, którzy są ciekawi, jak działają. Którzy chcą mieć więcej wyboru w tym, co robią — w sporcie, w sztuce, w pracy, w codziennym ruchu. Nie potrzebują kolejnej diagnozy ani protokołu. Potrzebują warunków, w których naprawdę zauważą, co robią.</p>
+        <p>Pracuję metodą Feldenkraisa od trzynastu lat. Łączę ją z tym, co dziś rozumiemy o uczeniu się, predykcji, zachowaniu i bólu. Pracowałem ze sportowcami, artystami, ludźmi w bólu i osobami zarządzającymi dużymi organizacjami. Różne konteksty, ta sama zasada.</p>
+        <blockquote class="pullquote">
+          Kiedy <em>wiesz,</em> co robisz — możesz robić to, <em>czego chcesz.</em>
+        </blockquote>
+        <dl class="guide-meta">
+          <div>
+            <dt>Praktyka</dt>
+            <dd>13+ lat pracy z ruchem</dd>
+          </div>
+          <div>
+            <dt>Studio</dt>
+            <dd>Gdańsk Wrzeszcz</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     05 — JAK TO WYGLĄDA
+     ============================================ -->
+<section aria-labelledby="plan-title">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 id="plan-title">Trzy etapy <em>uczenia się.</em></h2>
+    </div>
+    <p class="plan-intro reveal">
+      Nie obiecuję efektu po jednej sesji — choć jedna już dużo pokazuje. Głębsza zmiana to proces, bo dotyczy tego, jak organizujesz siebie w działaniu, a tego nie da się przeprogramować w 50&nbsp;minut.
+    </p>
+
+    <div class="plan-grid reveal">
+      <article class="plan-stage">
+        <span class="plan-numeral">01</span>
+        <p class="plan-label"><span>1 spotkanie</span><span class="dot"></span><span>Poznanie</span></p>
+        <h3 class="plan-title">Pierwsza sesja</h3>
+        <p class="plan-body">Patrzymy, jak organizujesz ruch teraz. Nie diagnozuję — obserwuję. Wychodzisz wiedząc więcej o tym, co robisz.</p>
+      </article>
+
+      <article class="plan-stage">
+        <span class="plan-numeral">02</span>
+        <p class="plan-label"><span>4–12 sesji</span><span class="dot"></span><span>Uczenie się różnicy</span></p>
+        <h3 class="plan-title">Proces</h3>
+        <p class="plan-body">Systematyczna praca z ruchem, dotykiem i uwagą. Uczysz się odróżniać. Zmiany zaczynają być widoczne poza sesjami — w chodzeniu, oddechu, w tym, jak siedzisz przy biurku.</p>
+      </article>
+
+      <article class="plan-stage">
+        <span class="plan-numeral">03</span>
+        <p class="plan-label"><span>13+ sesji</span><span class="dot"></span><span>Integracja</span></p>
+        <h3 class="plan-title">Komfort w działaniu</h3>
+        <p class="plan-body">Cel to nie dobre odczucie tylko na stole. Cel to żeby łatwiej chodzić, oddychać, pracować, tworzyć i żyć — z większą lekkością.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     06 — PIERWSZA SESJA (accent section)
+     ============================================ -->
+<section class="first-session" id="sesja" aria-labelledby="first-title">
+  <div class="wrap">
+    <div class="first-grid">
+      <div class="reveal">
+        <h2 id="first-title">Pierwsze <em>spotkanie.</em></h2>
+        <p class="first-body">
+          Czas na poznanie Twojego sposobu działania. Spokojnie, bez wysiłku, bez celu, który trzeba osiągnąć. Nie boli, nie wymaga sprawności — wystarczy, że przyjdziesz w wygodnym ubraniu.
+        </p>
+
+        <div class="session-flow">
+          <div class="session-step">
+            <span class="session-step-time">10 min</span>
+            <p><strong>Rozmowa.</strong> Pytam, z czym przychodzisz. Co cię zaciekawiło, co cię uwiera, czego szukasz. Nie diagnozuję — słucham.</p>
+          </div>
+          <div class="session-step">
+            <span class="session-step-time">5 min</span>
+            <p><strong>Obserwacja w ruchu.</strong> Wstajesz, siadasz, robisz kilka prostych rzeczy. Patrzymy razem, jak organizujesz ruch.</p>
+          </div>
+          <div class="session-step">
+            <span class="session-step-time">30 min</span>
+            <p><strong>Praca na stole.</strong> Leżysz w ubraniu, najczęściej na plecach. Prowadzę cię delikatnym dotykiem i drobnym ruchem — czasem ja poruszam, czasem proszę, żebyś zrobił coś sam. Powoli, bez wysiłku. Możesz mówić, jeśli chcesz, ale rozmowa nie jest tu centralna — uważność jest.</p>
+          </div>
+          <div class="session-step">
+            <span class="session-step-time">5 min</span>
+            <p><strong>Ponowna obserwacja.</strong> Wstajesz, idziesz kilka kroków. Zauważasz, co zmieniło się w tym, jak się ruszasz. Najczęściej różnica jest wyraźna od razu.</p>
+          </div>
+          <div class="session-step">
+            <span class="session-step-time">Po</span>
+            <p>Czasem zostawiam ci coś prostego do zauważania w codziennym ruchu — zależy, z czym przyszedłeś. Czasem nie. Efekt często sam się integruje przez następne dni.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="pricing-card reveal" aria-label="Cennik pierwszej sesji">
+        <p class="pricing-price">250<span class="currency">zł</span></p>
+        <p class="pricing-label">Sesja indywidualna</p>
+        <ul class="pricing-list">
+          <li><span class="dt">Czas</span><span class="dd">50 minut</span></li>
+          <li><span class="dt">Miejsce</span><span class="dd">Gdańsk Wrzeszcz</span></li>
+          <li><span class="dt">Forma</span><span class="dd">Stacjonarnie / online</span></li>
+        </ul>
+        <a class="btn btn-primary" href="https://arturchruszcz.booksy.com/h/" rel="noopener">
+          <span>Zarezerwuj termin</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     07 — DLACZEGO TO DZIAŁA
+     ============================================ -->
+<section aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="grid-5-7">
+      <div class="reveal">
+        <h2 id="why-title">Nie pracuję z <em>ciałem.</em><br>Pracuję z tym, <em>jak działasz.</em></h2>
+      </div>
+      <div class="why-body reveal">
+        <p>Większość metod uczy nowych instrukcji — <em>siedź prosto, oddychaj brzuchem, schodź ze schodów inaczej.</em> Tyle że żeby je wykonać, musisz pamiętać. A pamiętanie wymaga wysiłku. Wysiłek z czasem dokłada się do tego, co już robisz.</p>
+        <p>Praca, którą prowadzę, jest inna. Zamiast dokładać kolejne polecenia, uczę zauważać to, co już robisz — to, co dla ciebie samego stało się niewidoczne. Wtedy zmiana nie przychodzi przez korektę. Przychodzi przez to, że masz wybór, którego wcześniej nie miałeś.</p>
+        <blockquote class="pullquote">
+          <em>Uczenie się.</em> Zamiast ciągłego poprawiania się.
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     07 — KOMU TO PASUJE
+     ============================================ -->
+<section aria-labelledby="fits-title">
+  <div class="wrap">
+    <div class="reveal" style="max-width: 50rem;">
+      <h2 id="fits-title">To dla ludzi, którzy chcą <em>rozumieć,</em> jak działają.</h2>
+    </div>
+
+    <div class="fits-list reveal">
+      <article class="fits-row">
+        <h3 class="fits-title">Osoby ciekawe siebie</h3>
+        <p class="fits-body">Już dużo wiedzą — z terapii, z medytacji, z lektury. Szukają warunków, w których to, co rozumieją, zacznie się przekładać na to, jak realnie działają.</p>
+      </article>
+      <article class="fits-row">
+        <h3 class="fits-title">Sportowcy, performerzy, osoby aktywne</h3>
+        <p class="fits-body">Szukają większej precyzji, lepszej koordynacji, mniej zbędnego wysiłku w tym, co robią. Chcą rozumieć swoje działanie głębiej — żeby działać dokładniej.</p>
+      </article>
+      <article class="fits-row">
+        <h3 class="fits-title">Mężczyźni szukający kontaktu ze sobą</h3>
+        <p class="fits-body">Dla tych, którzy są zmęczeni ciągłym spinaniem się, graniem roli i działaniem bez czucia, czego naprawdę chcą.</p>
+      </article>
+      <article class="fits-row">
+        <h3 class="fits-title">Seniorzy</h3>
+        <p class="fits-body">Chcą zachować swobodę w ruchu i pewność w codziennych działaniach — w schodach, w spacerach, w sięganiu, w tym, co po prostu lubią robić. Sprawność, która zostaje na dłużej.</p>
+      </article>
+      <article class="fits-row">
+        <h3 class="fits-title">Ludzie z przewlekłym dyskomfortem</h3>
+        <p class="fits-body">Chcą odzyskać wpływ. Lepiej zrozumieć, co robią ze sobą w codziennym ruchu. Przestać kręcić się tylko wokół objawów.</p>
+      </article>
+    </div>
+
+    <p class="fits-closer reveal">
+      Łączy ich ciekawość. Nie chcą być pacjentami — chcą rozumieć, jak działają.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================
+     09 — PO SESJI (testimoniale)
+     ============================================ -->
+<section aria-labelledby="voices-title">
+  <div class="wrap">
+    <div class="grid-5-7">
+      <div class="reveal">
+        <h2 id="voices-title">Co zostaje <em>po.</em></h2>
+      </div>
+      <div class="reveal">
+        <p class="opens-closer" style="margin: 0; max-width: 38rem;">
+          Słowa osób, z którymi pracowałem. Każde z innym wątkiem — lekkością, uważnością, sposobem szukania własnych rozwiązań.
+        </p>
+      </div>
+    </div>
+
+    <div class="testimonials reveal">
+      <article class="testimonial">
+        <span class="testimonial-num" aria-hidden="true">01</span>
+        <div class="testimonial-content">
+          <blockquote>„Po godzinie pracy, przy moim minimalnym wysiłku, poczułem głębokie odprężenie i taką ucieleśnioną <em>lekkość</em> między miednicą a czubkiem głowy."</blockquote>
+          <cite>— Tomasz L.</cite>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <span class="testimonial-num" aria-hidden="true">02</span>
+        <div class="testimonial-content">
+          <blockquote>„To są spotkania z moją uważnością i poznawaniem siebie. Każda wersja jest dobra, bo moja — <em>z możliwością zmiany.</em>"</blockquote>
+          <cite>— Katarzyna S.</cite>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <span class="testimonial-num" aria-hidden="true">03</span>
+        <div class="testimonial-content">
+          <blockquote>„Wskazuje kierunki, zachęca do poszukiwania <em>najbardziej naturalnych, wygodnych i optymalnych</em> dla siebie rozwiązań."</blockquote>
+          <cite>— Andrzej P.</cite>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     10 — PYTANIA (FAQ)
+     ============================================ -->
+<section id="pytania" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="grid-5-7">
+      <div class="reveal">
+        <h2 id="faq-title">Jeśli coś jest <em>niejasne.</em></h2>
+      </div>
+      <div class="reveal">
+        <div class="faq-list">
+          <details>
+            <summary>Na czym polega sesja?</summary>
+            <div class="faq-answer">To indywidualna praca przez ruch, dotyk i uwagę. Czasem leżąc, czasem siedząc, czasem w prostych działaniach. Nie chodzi o wysiłek — chodzi o jakość odczuwania i organizacji.</div>
+          </details>
+          <details>
+            <summary>Czym to się różni od masażu czy fizjoterapii?</summary>
+            <div class="faq-answer">Masaż pracuje z mięśniami. Fizjoterapia daje ćwiczenia do wykonania. Ja pracuję z tym, jak organizujesz ruch — z układem, który stoi za każdym mięśniem i każdym ruchem. Nie naprawiam, nie rozluźniam, nie koryguję postawy. Uczę zauważać, co robisz — żebyś mógł wybierać inaczej. Inne narzędzia, inny cel.</div>
+          </details>
+          <details>
+            <summary>Jak wygląda dotyk podczas sesji?</summary>
+            <div class="faq-answer">Delikatny. Powolny. Bez nacisku, bez naciągania, bez forsowania. Czasem jest to lekkie podtrzymanie głowy, czasem uważne prowadzenie ruchu w stawie. Nie boli, nie ma „rozluźniania spięć". Dotyk służy do tego, żebyś zauważył coś, czego inaczej byś nie zauważył.</div>
+          </details>
+          <details>
+            <summary>Czy muszę mieć konkretny problem?</summary>
+            <div class="faq-answer">Nie. Niektórzy przychodzą z bólem, inni ze sztywnością albo poczuciem odłączenia. Można też przyjść po to, żeby lepiej się ruszać i działać z większą lekkością.</div>
+          </details>
+          <details>
+            <summary>Czy to pomaga przy bólu?</summary>
+            <div class="faq-answer">Często tak — ale nie obiecuję cudów. Ból bywa związany z przeciążeniem, nawykami, stresem, historią urazu. Ta praca pomaga odzyskać więcej możliwości i mniej zbędnego wysiłku. To często robi realną różnicę.</div>
+          </details>
+          <details>
+            <summary>Ile sesji warto zrobić?</summary>
+            <div class="faq-answer">Jedna sesja może już dużo pokazać. Jeśli chcesz wejść głębiej, najlepiej działa proces kilkunastu spotkań.</div>
+          </details>
+          <details>
+            <summary>Czy pracujesz też online?</summary>
+            <div class="faq-answer">Tak, w zależności od tego, z czym przychodzisz. Nie wszystko trzeba robić na żywo — ale nie wszystko dobrze robi się zdalnie. Jeśli masz wątpliwość, napisz.</div>
+          </details>
+          <details>
+            <summary>Jak się przygotować?</summary>
+            <div class="faq-answer">Wystarczy wygodne ubranie i gotowość, żeby trochę zwolnić. Sesja odbywa się bez butów.</div>
+          </details>
+          <details>
+            <summary>Jak szybko poczuję różnicę?</summary>
+            <div class="faq-answer">Większość osób czuje coś już po pierwszej sesji — nie zawsze dramatycznie, ale wyraźnie. Głębsza zmiana wymaga czasu. Dlatego proces, nie jednorazowe spotkanie.</div>
+          </details>
+          <details>
+            <summary>Co dzieje się po sesji?</summary>
+            <div class="faq-answer">Najczęściej wychodzisz w innym stanie niż przyszedłeś — lżejszy, spokojniejszy, czasem zaskoczony tym, jak się ruszasz. Czasem zostawiam coś prostego do zauważania w codzienności, ale to zależy od tego, z czym przyszedłeś. Nie ma „zadania domowego" — jest jakość uwagi, która zostaje na trochę dłużej.</div>
+          </details>
+          <details>
+            <summary>Czy to jest dla osób aktywnych fizycznie?</summary>
+            <div class="faq-answer">Tak. Punktem wyjścia nie jest poziom sprawności — punktem wyjścia jest to, jak działasz teraz.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     10 — ZAPROSZENIE
+     ============================================ -->
+<section class="invite" aria-labelledby="invite-title">
+  <div class="wrap">
+    <h2 id="invite-title" class="invite-headline reveal">
+      Możesz dalej<br>
+      działać na <em>autopilocie.</em><br>
+      Albo zacząć<br>
+      <span class="line-em">wybierać.</span>
+    </h2>
+    <p class="invite-lead reveal">
+      Pierwsza sesja pokaże Ci, jak możesz zacząć zauważać, co robisz. To już dużo — ale to dopiero początek. Jeśli chcesz mieć więcej wyboru w tym, jak działasz, zapraszam do pracy.
+    </p>
+    <div class="invite-ctas reveal">
+      <a class="btn btn-primary" href="https://arturchruszcz.booksy.com/h/" rel="noopener">
+        <span>Umów pierwszą sesję</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/artur_porusza" rel="noopener">
+        <span>Instagram</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 · Artur Chruszcz · Gdańsk, Polska</span>
+    <span>Integracja Funkcjonalna · Metoda Feldenkraisa</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll-triggered reveals — IntersectionObserver
+  (function () {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  })();
+
+  // Single-open accordion behaviour for FAQ
+  (function () {
+    var details = document.querySelectorAll('.faq-list details');
+    details.forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (d.open) {
+          details.forEach(function (other) {
+            if (other !== d) other.open = false;
+          });
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>

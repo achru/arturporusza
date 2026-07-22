@@ -9,3 +9,17 @@
   for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# 301 ze starych subdomen — zadziałają, gdy te domeny zostaną
+# dodane jako aliasy tego site'u (etap przełączenia DNS).
+[[redirects]]
+  from = "https://kreatywnynauczyciel.arturchruszcz.pl/*"
+  to = "https://arturporusza.pl/kreatywnynauczyciel/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://indywidualnie.arturchruszcz.pl/*"
+  to = "https://arturporusza.pl/indywidualnie/:splat"
+  status = 301
+  force = true

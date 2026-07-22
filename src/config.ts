@@ -20,7 +20,7 @@ export const CONTACT = {
 };
 
 // Oferta dla nauczycieli ruchu (nav + sekcja „Znajdź swoją drogę").
-export const NAUCZYCIELE_URL = 'https://kreatywnynauczyciel.arturchruszcz.pl';
+export const NAUCZYCIELE_URL = '/kreatywnynauczyciel/';
 
 // Sesje indywidualne — szczegóły. Puste pola się nie renderują.
 export const SESJE = {

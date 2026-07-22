@@ -1,0 +1,3017 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Kreatywny Nauczyciel - szkolenie dla nauczycieli ruchu | 2027</title>
+<meta name="description" content="30-godzinny program stacjonarny dla nauczycieli jogi, pilatesu, ruchu i edukacji somatycznej. Dwa weekendy w lipcu i sierpniu 2027, w Gdańsku." />
+
+<link rel="canonical" href="https://arturporusza.pl/kreatywnynauczyciel/" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Artur Chruszcz" />
+<meta name="theme-color" content="#F5F0E5" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pl_PL" />
+<meta property="og:site_name" content="Artur Chruszcz" />
+<meta property="og:title" content="Kreatywny Nauczyciel - stacjonarny program dla nauczycieli ruchu, 2027" />
+<meta property="og:description" content="30 godzin, dwa intensywne weekendy, maksymalnie 12 osób. Ucz ruchu tak, żeby ludzie naprawdę się uczyli - nie tylko wykonywali instrukcje." />
+<meta property="og:url" content="https://arturporusza.pl/kreatywnynauczyciel/" />
+<meta property="og:image" content="https://arturporusza.pl/kreatywnynauczyciel/images/opt/arturportretyswietlica-20.jpg" />
+<meta property="og:image:width" content="1600" />
+<meta property="og:image:height" content="1066" />
+<meta property="og:image:alt" content="Artur Chruszcz prowadzący zajęcia ruchowe" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Kreatywny Nauczyciel - stacjonarny program dla nauczycieli ruchu, 2027" />
+<meta name="twitter:description" content="30 godzin, dwa intensywne weekendy, maksymalnie 12 osób. Zaawansowany rozwój warsztatu nauczyciela ruchu." />
+<meta name="twitter:image" content="https://arturporusza.pl/kreatywnynauczyciel/images/opt/arturportretyswietlica-20.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- Archivo Black for the heavy display, Archivo for body -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet" />
+
+<style>
+/* =========================================================
+   PALETTE - pulled directly from the brand designs
+   Powder blue, dusty pink/lilac, sage, off-white, near-black
+   ========================================================= */
+:root {
+  --paper:       #F5F0E5;     /* warm off-white background */
+  --ink:         #1A1814;     /* nearly black */
+  --ink-2:       #3A352C;
+  --ink-3:       #7A7060;
+
+  --blue:        #C5D4DC;     /* powder blue */
+  --blue-2:      #B6C7D0;     /* deeper powder blue */
+  --pink:        #D9B3BD;     /* dusty pink */
+  --pink-2:      #C99FAA;     /* deeper dusty pink */
+  --lilac:       #BDB4D0;     /* dusty lilac */
+  --sage:        #BAC2B8;     /* muted sage grey */
+
+  --rule:        rgba(26, 24, 20, 0.10);
+
+  --sans: "Archivo", -apple-system, BlinkMacSystemFont, sans-serif;
+  --display: "Archivo Black", "Archivo", sans-serif;
+
+  --pad:    clamp(1.25rem, 4vw, 3rem);
+  --sec-y:  clamp(5rem, 10vw, 9rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Global safety net - prevent any heading from breaking layout */
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+::selection { background: var(--ink); color: var(--paper); }
+
+img { max-width: 100%; display: block; }
+
+/* =========================================================
+   GRAIN - heavy, like risograph noise on the brand's shapes.
+   This is critical to the look.
+   ========================================================= */
+/* NOTE: grain intentionally uses NO mix-blend-mode. A multiplied grain layer
+   on every clipped shape forces the compositor to re-blend each one against
+   its backdrop on every scroll frame, which stalls scrolling on long pages.
+   A normally-blended, low-opacity dark-noise tile gives the same riso texture
+   at a fraction of the paint cost. */
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.09 0 0 0 0 0.06 0 0 0 0.28 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+/* Lighter grain for use on the dark (ink) final section shapes */
+.grain--dark {
+  opacity: 0.3;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.10 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.28 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Subtle paper-wide grain.
+   NOTE: intentionally NOT mix-blend-mode:multiply and NOT position:fixed.
+   A fixed, multiplied full-viewport layer forces the compositor to re-blend
+   the entire (very tall) page on every scroll frame, which tanks scroll
+   performance. A static, absolutely-positioned, normally-blended layer gives
+   the same texture at a fraction of the cost. */
+body::before {
+  content: ""; position: fixed; inset: 0;
+  pointer-events: none; z-index: 200;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.10 0 0 0 0 0.07 0 0 0 0.09 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* =========================================================
+   POLYGON CLIP-PATHS - these are the brand's signature shapes
+   ========================================================= */
+/* Each polygon has slight asymmetry / irregularity */
+.poly-1 { clip-path: polygon(8% 0%, 100% 4%, 96% 96%, 0% 88%); }
+.poly-2 { clip-path: polygon(0% 12%, 92% 0%, 100% 88%, 6% 100%); }
+.poly-3 { clip-path: polygon(4% 6%, 100% 0%, 100% 84%, 88% 100%, 0% 92%); }
+.poly-4 { clip-path: polygon(12% 0%, 100% 0%, 96% 100%, 0% 96%, 4% 12%); }
+.poly-5 { clip-path: polygon(0% 8%, 100% 0%, 100% 100%, 8% 92%); }
+.poly-pentagon { clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); }
+
+/* =========================================================
+   NAV - minimal, fixed, transparent
+   ========================================================= */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.1rem var(--pad);
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  background: rgba(245, 240, 229, 0.88);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+}
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav__brand-mark {
+  height: 32px;
+  width: auto;
+  flex-shrink: 0;
+  display: block;
+}
+.nav__cta {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 0.7rem 1.1rem;
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+.nav__cta:hover { background: var(--ink-2); }
+
+/* =========================================================
+   FRAME
+   ========================================================= */
+.frame {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  position: relative;
+}
+
+/* =========================================================
+   TYPOGRAPHY PRIMITIVES
+   The brand voice: heavy black uppercase display + tiny tracked meta
+   ========================================================= */
+.h-display {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 6.5vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--ink);
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.h-section {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3.6vw, 2.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.012em;
+  text-transform: uppercase;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.h-card {
+  font-family: var(--display);
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.meta {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+}
+.meta--mute { color: var(--ink-3); }
+
+.lede {
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.55;
+  color: var(--ink-2);
+  font-weight: 400;
+}
+
+.prose p {
+  margin: 0 0 1em;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.prose p:last-child { margin: 0; }
+.prose strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.4rem;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--paper);
+  background: var(--ink);
+  border: 1.5px solid var(--ink);
+  transition: background 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+}
+.btn:hover { background: var(--paper); color: var(--ink); }
+.btn .arr { font-size: 1.1em; line-height: 0; }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+}
+.btn--ghost:hover { background: var(--ink); color: var(--paper); }
+
+/* =========================================================
+   SIGNATURE MARKS - the cloud icon + pentagon-with-number
+   These appear in corners throughout the brand work
+   ========================================================= */
+.mark-cloud {
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+}
+
+.mark-pentagon {
+  width: 52px; height: 52px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.mark-pentagon svg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+}
+.mark-pentagon span {
+  position: relative;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+/* =========================================================
+   SECTION FRAMING
+   ========================================================= */
+.sec {
+  padding: var(--sec-y) 0;
+  position: relative;
+}
+
+/* =========================================================
+   HERO
+   This is the central "poster" piece - uses the brand's
+   visual logic: clipped photo + overlapping color polygons +
+   bold uppercase title + corner metadata + signature marks
+   ========================================================= */
+.hero {
+  padding: 7rem var(--pad) 4rem;
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero__poster {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  gap: 0;
+  align-items: stretch;
+  min-height: 70vh;
+}
+@media (max-width: 900px) {
+  .hero__poster { grid-template-columns: 1fr; min-height: 0; }
+}
+
+/* Left side - the title block, on a pink polygon */
+.hero__title-zone {
+  position: relative;
+  padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  z-index: 2;
+}
+
+.hero__title-bg {
+  position: absolute;
+  inset: 0 -1rem 0 -4rem;
+  background: var(--pink);
+  z-index: -1;
+}
+.hero__title-bg.poly-3 { z-index: -1; }
+@media (max-width: 900px) {
+  .hero__title-bg { inset: 0 -1rem 0 -1rem; }
+  .hero__title-zone { padding: 3rem 1rem; }
+}
+
+.hero__edition {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+}
+.hero__edition::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--ink);
+  border-radius: 50%;
+}
+
+.hero__title {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 7vw, 5.8rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--ink);
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.hero__sub {
+  font-family: var(--display);
+  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 900;
+  max-width: 28ch;
+  line-height: 1.25;
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.hero__lede {
+  max-width: 42ch;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 1rem 0 0;
+}
+
+.hero__actions {
+  display: flex; gap: 0.85rem; flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* Right side - the photo, clipped, on a powder blue polygon */
+.hero__image-zone {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 900px) {
+  .hero__image-zone { min-height: 450px; margin-top: -3rem; }
+}
+
+.hero__image-bg {
+  position: absolute;
+  inset: -2rem -4rem -2rem 0;
+  background: var(--blue);
+  z-index: 0;
+}
+@media (max-width: 900px) {
+  .hero__image-bg { inset: 0 -1rem 0 -1rem; }
+}
+
+.hero__photo {
+  position: relative;
+  z-index: 1;
+  width: 80%;
+  aspect-ratio: 4/5;
+  background: var(--pink-2);
+  overflow: hidden;
+}
+.hero__photo img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+/* Corner marks - top-left URL, bottom-left cloud */
+.poster-tl, .poster-tr, .poster-bl, .poster-br {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.poster-tl { top: 1.5rem; left: 1.5rem; }
+.poster-tr { top: 1.5rem; right: 1.5rem; }
+.poster-bl { bottom: 1.5rem; left: 1.5rem; }
+.poster-br { bottom: 1.5rem; right: 1.5rem; }
+
+/* =========================================================
+   STATS BAND
+   ========================================================= */
+.stats {
+  padding: clamp(2.5rem, 4vw, 3.5rem) var(--pad);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+  position: relative;
+}
+.stats__inner {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.stat__num {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-weight: 900;
+  color: var(--ink);
+}
+.stat__label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+@media (max-width: 700px) {
+  .stats__inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+
+/* =========================================================
+   §1 - TENSION (poster-style: clipped photo + tilted color block + heavy title)
+   ========================================================= */
+.tension {
+  position: relative;
+}
+.tension__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  gap: clamp(1rem, 4vw, 3rem);
+  align-items: center;
+}
+@media (max-width: 900px) { .tension__grid { grid-template-columns: 1fr; } }
+
+.tension__visual {
+  position: relative;
+  aspect-ratio: 5/6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tension__bg-1 {
+  position: absolute;
+  inset: 0;
+  background: var(--lilac);
+  z-index: 0;
+}
+.tension__bg-2 {
+  position: absolute;
+  inset: 8% 12% 14% 10%;
+  background: var(--blue);
+  z-index: 1;
+}
+.tension__photo {
+  position: relative;
+  z-index: 2;
+  width: 70%;
+  aspect-ratio: 4/5;
+  background: var(--pink-2);
+  overflow: hidden;
+}
+.tension__photo img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.tension__corner {
+  position: absolute;
+  bottom: 1rem; left: 1rem;
+  z-index: 5;
+}
+
+.tension__text { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* =========================================================
+   §2 - ABOUT
+   ========================================================= */
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+@media (max-width: 820px) { .about__grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   §3 - FIVE SHIFTS - heavy uppercase poetic list
+   ========================================================= */
+.shifts {
+  list-style: none; margin: 0; padding: 0;
+}
+.shift {
+  padding: clamp(1.2rem, 2.5vw, 1.75rem) 0;
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: baseline;
+  border-top: 1px solid var(--ink);
+}
+.shift:last-child { border-bottom: 1px solid var(--ink); }
+
+.shift__num {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--ink-3);
+}
+.shift__from {
+  font-family: var(--display);
+  font-size: clamp(1rem, 2vw, 1.7rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--ink-3);
+  font-weight: 900;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.shift__from::before {
+  content: "OD ";
+  font-size: 0.55em;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  margin-right: 0.4em;
+  vertical-align: 0.15em;
+  font-family: var(--sans);
+  font-weight: 600;
+}
+.shift__to {
+  font-family: var(--display);
+  font-size: clamp(1.15rem, 2.4vw, 2rem);
+  text-transform: uppercase;
+  letter-spacing: -0.012em;
+  line-height: 1.05;
+  color: var(--ink);
+  font-weight: 900;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.shift__to::before {
+  content: "DO ";
+  font-size: 0.5em;
+  letter-spacing: 0.12em;
+  color: var(--pink-2);
+  margin-right: 0.4em;
+  vertical-align: 0.2em;
+  font-family: var(--sans);
+  font-weight: 600;
+}
+@media (max-width: 700px) {
+  .shift { grid-template-columns: 2rem 1fr; }
+  .shift__to { grid-column: 2; }
+}
+
+/* =========================================================
+   §4 - BENEFITS (cards with poster aesthetic)
+   ========================================================= */
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 900px) { .benefits { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .benefits { grid-template-columns: 1fr; } }
+
+.benefit {
+  position: relative;
+  padding: 1.75rem 1.5rem 1.75rem 1.5rem;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 240px;
+  transition: transform 0.3s cubic-bezier(.2,.7,.2,1), background 0.3s ease;
+}
+.benefit:hover { transform: translateY(-4px); }
+.benefit:nth-child(3n+1):hover { background: var(--blue); }
+.benefit:nth-child(3n+2):hover { background: var(--pink); }
+.benefit:nth-child(3n+3):hover { background: var(--lilac); }
+
+.benefit__num {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  color: var(--ink-3);
+  text-transform: uppercase;
+}
+.benefit__title {
+  font-family: var(--display);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+.benefit__body {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+/* =========================================================
+   §5 - CURRICULUM (8 weeks, brand-style)
+   ========================================================= */
+.curriculum__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: end;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+}
+@media (max-width: 820px) { .curriculum__intro { grid-template-columns: 1fr; } }
+
+.weeks {
+  list-style: none; margin: 0; padding: 0;
+  border-top: 1px solid var(--ink);
+}
+.week {
+  padding: clamp(1.5rem, 2.5vw, 2rem) 0;
+  display: grid;
+  grid-template-columns: 5rem 1fr 1.4fr;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: baseline;
+  border-bottom: 1px solid var(--ink);
+  transition: padding 0.3s cubic-bezier(.2,.7,.2,1), background 0.3s ease;
+  position: relative;
+}
+.week::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 100%;
+  background: var(--blue);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin: 0 -1rem;
+}
+.week:hover::before { opacity: 0.4; }
+.week:hover { padding-left: 1rem; }
+
+.week__num {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--ink);
+}
+.week__num small {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.36em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+.week__title {
+  font-family: var(--display);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+.week__sub {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+}
+@media (max-width: 820px) {
+  .week { grid-template-columns: 4rem 1fr; }
+  .week__sub { grid-column: 2; padding-top: 0.25rem; }
+}
+@media (max-width: 520px) {
+  .week { grid-template-columns: 1fr; gap: 0.5rem; }
+  .week__sub { grid-column: 1; }
+}
+
+/* =========================================================
+   §6 - FORMAT (asymmetric: poster image + spec list)
+   ========================================================= */
+.format {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+@media (max-width: 820px) { .format { grid-template-columns: 1fr; } }
+
+.format__visual {
+  position: relative;
+  aspect-ratio: 5/6;
+  display: flex;
+  align-items: center;
+}
+.format__bg-1 {
+  position: absolute;
+  inset: 5% 0 0 5%;
+  background: var(--blue);
+}
+.format__bg-2 {
+  position: absolute;
+  inset: 0 5% 5% 0;
+  background: var(--pink);
+}
+.format__photo {
+  position: relative;
+  z-index: 2;
+  width: 75%;
+  margin: auto;
+  aspect-ratio: 4/5;
+  background: var(--pink-2);
+  overflow: hidden;
+}
+.format__photo img { width: 100%; height: 100%; object-fit: cover; }
+.format__corner {
+  position: absolute;
+  bottom: 1rem; left: 1rem; z-index: 5;
+}
+.format__num-stamp {
+  position: absolute;
+  top: 1rem; right: 1rem; z-index: 5;
+}
+
+.format__list {
+  list-style: none; margin: 0; padding: 0;
+  border-top: 1px solid var(--ink);
+}
+.format__row {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+.format__row:last-child { border-bottom: 1px solid var(--ink); }
+.format__row dt {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+.format__row dd {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+@media (max-width: 600px) {
+  .format__row { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+
+/* =========================================================
+   §7 - INSTRUCTOR (brand-style portrait + bio)
+   ========================================================= */
+.instructor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+@media (max-width: 820px) { .instructor { grid-template-columns: 1fr; } }
+
+.instructor__visual {
+  position: relative;
+  aspect-ratio: 4/5;
+}
+.instructor__bg {
+  position: absolute;
+  inset: 0;
+  background: var(--pink);
+}
+.instructor__photo {
+  position: absolute;
+  z-index: 2;
+  inset: 8% 8% 8% 8%;
+  background: var(--blue-2);
+  overflow: hidden;
+}
+.instructor__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.instructor__name {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3.6vw, 3rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0 0 0.85rem;
+  overflow-wrap: break-word;
+}
+.instructor__role {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+  margin: 0 0 2rem;
+}
+
+.instructor__pull {
+  font-family: var(--display);
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  border-left: 4px solid var(--ink);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  margin: 0 0 2rem;
+  max-width: 32ch;
+  overflow-wrap: break-word;
+}
+
+.influences {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-3);
+}
+.influences::before {
+  content: "WPŁYWY - ";
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* =========================================================
+   §8 - AUDIENCE (for / not for)
+   ========================================================= */
+.audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 700px) { .audience-grid { grid-template-columns: 1fr; } }
+
+.aud-col {
+  position: relative;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  overflow: hidden;
+}
+.aud-col__bg {
+  position: absolute; inset: 0;
+  z-index: 0;
+}
+.aud-col--for .aud-col__bg { background: var(--blue); opacity: 0.4; }
+.aud-col--not .aud-col__bg { background: var(--pink); opacity: 0.35; }
+
+.aud-col > * { position: relative; z-index: 1; }
+.aud-col h3 {
+  font-family: var(--display);
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.aud-col--not h3 { color: var(--ink-3); }
+
+.aud-list { list-style: none; padding: 0; margin: 0; }
+.aud-list li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.96rem;
+  line-height: 1.4;
+  color: var(--ink);
+  font-weight: 400;
+  display: grid;
+  grid-template-columns: 1.3rem 1fr;
+  gap: 0.6rem;
+}
+.aud-list li:last-child { border-bottom: none; }
+.aud-col--for .aud-list li::before {
+  content: "→";
+  font-weight: 700;
+  color: var(--ink);
+}
+.aud-col--not .aud-list li::before {
+  content: "✕";
+  font-weight: 700;
+  color: var(--ink-3);
+  font-size: 0.85em;
+}
+.aud-col--not .aud-list li {
+  color: var(--ink-3);
+  text-decoration: line-through;
+  text-decoration-color: rgba(26, 24, 20, 0.3);
+}
+
+/* =========================================================
+   §9 - PRICING
+   ========================================================= */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+@media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+.price-rows {
+  border-top: 1.5px solid var(--ink);
+}
+.price-row {
+  padding: clamp(1.75rem, 3vw, 2.5rem) 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: baseline;
+  border-bottom: 1.5px solid var(--ink);
+  position: relative;
+}
+.price-row--featured::before {
+  content: "";
+  position: absolute;
+  inset: 0 -1rem;
+  background: var(--blue);
+  opacity: 0.45;
+  z-index: -1;
+}
+.price-row--featured > * { padding-left: 0; padding-right: 0; }
+.price-row--featured {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.price-row__name {
+  font-family: var(--display);
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.price-row__name small {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  color: var(--ink-3);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+}
+.price-row__note {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 36ch;
+}
+.price-row__amount {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 900;
+  line-height: 0.9;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  text-align: right;
+  white-space: nowrap;
+}
+.price-row__amount sub {
+  font-family: var(--sans);
+  font-size: 0.28em;
+  font-weight: 600;
+  color: var(--ink-3);
+  margin-left: 0.4em;
+  vertical-align: 0.7em;
+  letter-spacing: 0.18em;
+}
+
+.pricing__aside {
+  padding-top: 0.5rem;
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+.pricing__aside p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 36ch;
+}
+.pricing__cta {
+  margin-top: 0.5rem;
+  display: flex; flex-direction: column; gap: 0.85rem; align-items: flex-start;
+}
+
+/* =========================================================
+   §10 - SIGN UP FORM (poster style)
+   ========================================================= */
+.signup-poster {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 0;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  min-height: 600px;
+}
+@media (max-width: 900px) {
+  .signup-poster { grid-template-columns: 1fr; min-height: 0; }
+}
+
+/* Left side: pink polygon with intro copy */
+.signup-poster__intro {
+  position: relative;
+  padding: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  z-index: 1;
+  overflow: hidden;
+}
+.signup-poster__intro-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--pink);
+  z-index: -1;
+}
+.signup-poster__intro-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.signup-poster__heading {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.012em;
+  text-transform: uppercase;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.signup-poster__note {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 32ch;
+}
+.signup-poster__note strong { font-weight: 600; color: var(--ink); }
+.signup-poster__corner {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+/* Right side: the actual form */
+.signup-poster__form {
+  position: relative;
+  padding: clamp(2rem, 4vw, 3rem);
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.signup-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+@media (max-width: 600px) { .signup-row { grid-template-columns: 1fr; } }
+
+.signup-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.signup-field--full { grid-column: 1 / -1; }
+
+.signup-label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 600;
+}
+.signup-label span {
+  color: var(--ink-3);
+  font-weight: 500;
+  margin-left: 0.5em;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.signup-input,
+.signup-select,
+.signup-textarea {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  padding: 0.85rem 1rem;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.signup-input::placeholder,
+.signup-textarea::placeholder {
+  color: var(--ink-3);
+  font-style: italic;
+}
+.signup-input:focus,
+.signup-select:focus,
+.signup-textarea:focus {
+  outline: none;
+  background: var(--blue);
+  border-color: var(--ink);
+}
+.signup-textarea {
+  min-height: 110px;
+  resize: vertical;
+  font-family: var(--sans);
+  line-height: 1.5;
+}
+
+.signup-select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'><path d='M3 5 L 7 9 L 11 5' fill='none' stroke='%231A1814' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+/* Checkbox row */
+.signup-check {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+.signup-check input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+  margin: 0;
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.2s ease;
+}
+.signup-check input[type="checkbox"]:checked {
+  background: var(--ink);
+}
+.signup-check input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 11px;
+  border: solid var(--paper);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.signup-check__label {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.signup-check__label a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.signup-submit {
+  margin-top: 0.5rem;
+  width: 100%;
+  justify-content: center;
+  font-size: 0.8rem;
+  padding: 1.1rem 1.5rem;
+  border: 1.5px solid var(--ink);
+  cursor: pointer;
+}
+
+.signup-disclaimer {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--ink-3);
+  margin: 0;
+  text-align: center;
+}
+
+/* Success message */
+.signup-success {
+  display: none;
+  padding: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  background: var(--blue);
+  border: 1.5px solid var(--ink);
+}
+.signup-success.show { display: block; }
+.signup-success h3 {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+.signup-success p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 40ch;
+  margin-inline: auto;
+}
+
+/* =========================================================
+   §11 - FAQ
+   ========================================================= */
+details.faq-item {
+  border-bottom: 1px solid var(--ink);
+}
+details.faq-item:first-child { border-top: 1.5px solid var(--ink); }
+details.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.4rem 0;
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  gap: 1.25rem;
+  align-items: baseline;
+}
+details.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-num {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--ink-3);
+}
+.faq-q {
+  font-family: var(--display);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  transition: color 0.25s ease;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+.faq-item:hover .faq-q { color: var(--ink-2); }
+.faq-plus {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  color: var(--ink);
+  line-height: 1;
+  transition: transform 0.35s ease;
+}
+details[open] .faq-plus { transform: rotate(45deg); }
+.faq-a {
+  padding: 0 0 1.5rem 4.25rem;
+  max-width: 64ch;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+@media (max-width: 600px) {
+  details.faq-item > summary { grid-template-columns: 2rem 1fr auto; gap: 0.75rem; }
+  .faq-a { padding-left: 2.75rem; }
+}
+
+/* =========================================================
+   §11 - FINAL POSTER (full-bleed brand poster)
+   ========================================================= */
+.final {
+  position: relative;
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  overflow: hidden;
+}
+.final__shapes {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+.final__shape-1 {
+  position: absolute;
+  top: -10%; right: -8%;
+  width: 60%; height: 70%;
+  background: var(--pink);
+}
+.final__shape-2 {
+  position: absolute;
+  bottom: -15%; left: -10%;
+  width: 50%; height: 60%;
+  background: var(--blue);
+}
+
+.final__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 1.5rem;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+.final__title {
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 4.5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.018em;
+  text-transform: uppercase;
+  margin: 0;
+  max-width: 22ch;
+  margin-inline: auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+.final__title em {
+  font-style: normal;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0 0.2em;
+  display: inline-block;
+}
+.final__body {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(245, 240, 229, 0.78);
+  max-width: 50ch;
+  margin: 0 auto;
+}
+.final__cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+
+.final .btn {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+.final .btn:hover {
+  background: transparent;
+  color: var(--paper);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+  padding: 3rem 0 2.5rem;
+  border-top: 1px solid var(--ink);
+  background: var(--paper);
+}
+.footer__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+  align-items: center;
+}
+.footer__inner a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink-3);
+  padding-bottom: 1px;
+  transition: border-color 0.25s ease;
+}
+.footer__inner a:hover { border-color: var(--ink); }
+.footer__inner > div:nth-child(2) { text-align: center; }
+.footer__inner > div:nth-child(3) { text-align: right; }
+@media (max-width: 700px) {
+  .footer__inner { grid-template-columns: 1fr; gap: 1rem; text-align: left !important; }
+  .footer__inner > div:nth-child(2),
+  .footer__inner > div:nth-child(3) { text-align: left; }
+}
+
+/* =========================================================
+   ENTRANCE
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 0.9s cubic-bezier(.2,.7,.2,1);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+.hero__title-zone > *, .hero__photo {
+  opacity: 0;
+  animation: rise 1s cubic-bezier(.2,.7,.2,1) forwards;
+}
+.hero__title-zone > *:nth-child(1) { animation-delay: 0.1s; }
+.hero__title-zone > *:nth-child(2) { animation-delay: 0.2s; }
+.hero__title-zone > *:nth-child(3) { animation-delay: 0.3s; }
+.hero__title-zone > *:nth-child(4) { animation-delay: 0.4s; }
+.hero__title-zone > *:nth-child(5) { animation-delay: 0.5s; }
+.hero__photo { animation-delay: 0.25s; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* =========================================================
+   ADDED FOR 2027 IN-PERSON REDESIGN
+   New components layered on top of the existing brand system.
+   ========================================================= */
+
+/* --- Accessibility: skip link + focus states --- */
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: 999;
+  background: var(--ink); color: var(--paper);
+  padding: 0.75rem 1.1rem; font-size: 0.75rem;
+  letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* --- Nav extended: links + mobile toggle --- */
+.nav { grid-template-columns: auto 1fr auto; gap: 1rem; }
+.nav__links {
+  display: flex; justify-content: center; align-items: center;
+  gap: clamp(0.6rem, 1.4vw, 1.4rem);
+  list-style: none; margin: 0; padding: 0;
+}
+.nav__links a {
+  font-family: var(--sans);
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-2); text-decoration: none;
+  padding: 0.3rem 0;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+.nav__links a:hover { color: var(--ink); border-color: var(--ink); }
+.nav__toggle {
+  display: none;
+  background: transparent; border: 1.5px solid var(--ink);
+  color: var(--ink); padding: 0.5rem 0.7rem;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; cursor: pointer;
+}
+@media (max-width: 1080px) {
+  .nav__links { display: none; }
+  .nav__toggle { display: inline-flex; }
+  .nav { grid-template-columns: auto 1fr auto; }
+  .nav__cta--desktop { display: none; }
+  .nav__panel {
+    position: fixed; inset: 0 0 auto 0; top: 100%;
+    background: var(--paper); border-bottom: 1.5px solid var(--ink);
+    padding: 1.25rem var(--pad) 1.75rem;
+    display: none; flex-direction: column; gap: 0.25rem;
+    box-shadow: 0 20px 40px -24px rgba(26,24,20,0.4);
+  }
+  .nav__panel.open { display: flex; }
+  .nav__panel a {
+    font-family: var(--sans); font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    padding: 0.85rem 0; border-bottom: 1px solid var(--rule);
+  }
+  .nav__panel a.btn {
+    margin-top: 1rem; justify-content: center;
+    color: var(--paper); border-bottom: 1.5px solid var(--ink);
+  }
+  .nav__panel a.btn:hover { color: var(--ink); }
+}
+@media (min-width: 1081px) { .nav__panel { display: none; } }
+
+/* --- Sticky mobile CTA bar --- */
+.mobile-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+  display: none;
+  align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0.7rem var(--pad);
+  background: var(--ink); color: var(--paper);
+  padding-bottom: max(0.7rem, env(safe-area-inset-bottom));
+}
+.mobile-bar__meta {
+  font-family: var(--sans); font-size: 0.66rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(245,240,229,0.82); line-height: 1.3;
+}
+.mobile-bar__cta {
+  font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink); background: var(--paper);
+  padding: 0.7rem 1rem; text-decoration: none; white-space: nowrap;
+  flex-shrink: 0;
+}
+@media (max-width: 820px) { .mobile-bar { display: flex; } body { padding-bottom: 4.5rem; } }
+/* Compact brand on narrow screens so it never collides with the menu toggle */
+@media (max-width: 560px) {
+  .nav__brand span { display: none; }
+  .nav__brand-mark { height: 22px !important; }
+}
+
+/* --- Section head helper --- */
+.sec-head { max-width: 60ch; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.sec-head .h-section { margin-top: 1.25rem; }
+.sec-head .lede { margin-top: 1.25rem; }
+.sec-lead { max-width: 60ch; }
+
+/* --- Recognition list --- */
+.recog {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(2rem, 5vw, 4rem);
+  border-top: 1px solid var(--ink);
+}
+.recog li {
+  display: grid; grid-template-columns: 1.4rem 1fr; gap: 0.7rem;
+  padding: 1.05rem 0; border-bottom: 1px solid var(--rule);
+  font-size: 0.98rem; line-height: 1.45; color: var(--ink);
+  list-style: none;
+}
+.recog li::before { content: "—"; color: var(--pink-2); font-weight: 700; }
+.recog { padding: 0; margin: 0; }
+@media (max-width: 720px) { .recog { grid-template-columns: 1fr; } }
+.recog-note {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(1.1rem, 2vw, 1.6rem); line-height: 1.2;
+  letter-spacing: -0.01em; max-width: 30ch;
+}
+.recog-note em { font-style: normal; background: var(--blue); padding: 0 0.15em; }
+
+/* --- Core distinction --- */
+.distinction {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+  align-items: stretch;
+}
+@media (max-width: 760px) { .distinction { grid-template-columns: 1fr; } }
+.dist-col {
+  position: relative; padding: clamp(1.75rem, 3vw, 2.5rem);
+  border: 1.5px solid var(--ink); background: var(--paper);
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+.dist-col--to { background: var(--blue); }
+.dist-col__k {
+  font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
+}
+.dist-col h3 {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(1.15rem, 1.9vw, 1.55rem); line-height: 1.1;
+  letter-spacing: -0.008em; margin: 0;
+}
+.dist-col--from h3 { color: var(--ink-3); }
+.dist-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+.dist-list li {
+  font-size: 0.96rem; line-height: 1.4; color: var(--ink);
+  display: grid; grid-template-columns: 1.2rem 1fr; gap: 0.5rem;
+}
+.dist-col--from .dist-list li { color: var(--ink-2); }
+.dist-col--from .dist-list li::before { content: "·"; font-weight: 700; color: var(--ink-3); }
+.dist-col--to .dist-list li::before { content: "→"; font-weight: 700; color: var(--ink); }
+.dist-note {
+  margin-top: clamp(1.75rem, 3vw, 2.25rem);
+  max-width: 62ch; font-size: 1rem; line-height: 1.6; color: var(--ink-2);
+}
+.dist-note strong { color: var(--ink); font-weight: 600; }
+
+/* --- Process diagram (Weekend I -> practice -> Weekend II -> implementation) --- */
+.process {
+  display: grid; grid-auto-flow: column; gap: 0.5rem;
+  align-items: stretch; overflow-x: auto;
+}
+.proc-step {
+  position: relative; min-width: 0;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  border: 1.5px solid var(--ink);
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.proc-step:nth-child(1) { background: var(--pink); }
+.proc-step:nth-child(2) { background: var(--paper); }
+.proc-step:nth-child(3) { background: var(--blue); }
+.proc-step:nth-child(4) { background: var(--lilac); }
+.proc-step__k {
+  font-family: var(--sans); font-size: 0.66rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3);
+}
+.proc-step__t {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem); line-height: 1.12;
+  letter-spacing: -0.005em; margin: 0;
+}
+.proc-step__d { font-size: 0.88rem; line-height: 1.45; color: var(--ink-2); margin: 0; }
+.process { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 820px) {
+  .process { grid-auto-flow: row; grid-template-columns: 1fr; overflow: visible; }
+}
+
+/* --- Capabilities / do-work / included: checklist --- */
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--ink); }
+.checklist.two-col { grid-template-columns: 1fr 1fr; gap: 0 clamp(2rem, 5vw, 4rem); }
+@media (max-width: 720px) { .checklist.two-col { grid-template-columns: 1fr; } }
+.checklist li {
+  display: grid; grid-template-columns: 1.6rem 1fr; gap: 0.75rem;
+  padding: 1.05rem 0; border-bottom: 1px solid var(--rule);
+  font-size: 0.98rem; line-height: 1.5; color: var(--ink);
+}
+.checklist li::before {
+  content: ""; width: 12px; height: 12px; margin-top: 0.4em;
+  background: var(--ink); flex-shrink: 0;
+  clip-path: polygon(0 40%, 40% 100%, 100% 0, 85% 0, 38% 72%, 12% 40%);
+}
+
+.callout {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: var(--sage); border: 1.5px solid var(--ink);
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(1rem, 1.6vw, 1.35rem); line-height: 1.25;
+  letter-spacing: -0.008em; max-width: 52ch;
+}
+
+/* --- Shift example line --- */
+.shift__ex {
+  grid-column: 2 / -1; margin: 0.65rem 0 0;
+  font-size: 0.9rem; line-height: 1.5; color: var(--ink-2);
+  padding-left: 0.9rem; border-left: 3px solid var(--pink-2); max-width: 60ch;
+}
+.shift__ex b { font-weight: 600; color: var(--ink); }
+@media (max-width: 700px) { .shift__ex { grid-column: 1 / -1; } }
+
+/* --- Two-weekend timeline modules --- */
+.module { margin-top: clamp(2.5rem, 5vw, 4rem); }
+.module__head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+  padding-bottom: 1.1rem; border-bottom: 1.5px solid var(--ink); margin-bottom: 1.5rem;
+}
+.module__label {
+  font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
+}
+.module__title {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(1.3rem, 2.6vw, 2.2rem); line-height: 1; letter-spacing: -0.015em;
+  margin: 0.35rem 0 0;
+}
+.module__badge {
+  font-family: var(--sans); font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.4rem 0.7rem; border: 1.5px solid var(--ink); align-self: flex-start;
+}
+.days { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 820px) { .days { grid-template-columns: 1fr; } }
+.day {
+  border: 1.5px solid var(--ink); background: var(--paper);
+  padding: clamp(1.5rem, 2.5vw, 1.9rem);
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.day__k { font-family: var(--sans); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+.day__t {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.12; letter-spacing: -0.008em; margin: 0;
+}
+.day ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+.day li {
+  font-size: 0.9rem; line-height: 1.4; color: var(--ink-2);
+  display: grid; grid-template-columns: 0.9rem 1fr; gap: 0.4rem;
+}
+.day li::before { content: "·"; color: var(--pink-2); font-weight: 700; }
+
+/* --- Sample day --- */
+.sampleday { border-top: 1px solid var(--ink); margin: 0; padding: 0; list-style: none; }
+.sampleday li {
+  display: grid; grid-template-columns: 2.2rem 1fr; gap: 1rem;
+  padding: 1rem 0; border-bottom: 1px solid var(--rule); align-items: baseline;
+}
+.sampleday__n {
+  font-family: var(--display); font-size: 0.9rem; color: var(--ink-3); letter-spacing: 0.02em;
+}
+.sampleday__t {
+  font-family: var(--display); text-transform: uppercase; font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  letter-spacing: -0.005em; line-height: 1.2;
+}
+.sampleday__d { font-size: 0.9rem; color: var(--ink-2); margin-top: 0.2rem; line-height: 1.45; }
+
+/* --- Outcome card example line --- */
+.benefit__ex {
+  margin-top: auto; padding-top: 0.85rem; border-top: 1px solid var(--rule);
+  font-size: 0.85rem; line-height: 1.5; color: var(--ink-3);
+}
+.benefit__ex b { color: var(--ink); font-weight: 600; }
+
+/* --- Testimonials --- */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 900px) { .quotes { grid-template-columns: 1fr; } }
+.quote {
+  border: 1.5px solid var(--ink); background: var(--paper);
+  padding: clamp(1.75rem, 3vw, 2.25rem); display: flex; flex-direction: column; gap: 1.25rem;
+}
+.quote__mark { font-family: var(--display); font-size: 2.4rem; line-height: 0.6; color: var(--pink-2); }
+.quote__text { font-size: 1rem; line-height: 1.6; color: var(--ink); margin: 0; }
+.quote__who { margin-top: auto; }
+.quote__name { font-family: var(--display); text-transform: uppercase; font-size: 0.95rem; letter-spacing: -0.005em; }
+.quote__role { font-family: var(--sans); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-top: 0.35rem; }
+.quotes-note {
+  grid-column: 1 / -1;
+  border: 1.5px solid var(--ink); background: var(--blue);
+  padding: clamp(1.75rem, 3vw, 2.25rem);
+  display: grid; gap: 1rem; align-items: center;
+}
+.quotes-note p { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--ink); max-width: 62ch; }
+.quotes-note strong { font-weight: 600; }
+
+/* --- Why 12 --- */
+.why12 {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem); align-items: center;
+  padding: clamp(2.5rem, 5vw, 4rem); border: 1.5px solid var(--ink);
+  background: var(--lilac); position: relative; overflow: hidden;
+}
+@media (max-width: 780px) { .why12 { grid-template-columns: 1fr; } }
+.why12__big {
+  font-family: var(--display); font-weight: 900;
+  font-size: clamp(4rem, 14vw, 9rem); line-height: 0.85; letter-spacing: -0.03em;
+}
+.why12__big small {
+  display: block; font-family: var(--sans); font-size: 0.11em;
+  letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--ink-2); margin-top: 0.6em;
+}
+.why12__body p { font-size: 1rem; line-height: 1.6; color: var(--ink); margin: 0 0 1em; }
+.why12__body p:last-child { margin: 0; }
+
+/* --- Application steps --- */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; counter-reset: step; }
+@media (max-width: 820px) { .steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+.step {
+  border: 1.5px solid var(--ink); padding: clamp(1.5rem, 2.5vw, 1.9rem);
+  display: flex; flex-direction: column; gap: 0.85rem; background: var(--paper);
+}
+.step__n {
+  font-family: var(--display); font-weight: 900; font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 0.9; color: var(--pink-2); letter-spacing: -0.02em;
+}
+.step__t { font-size: 0.96rem; line-height: 1.5; color: var(--ink); }
+
+/* --- Pricing: payment options + included --- */
+.pay-options { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.pay-options li {
+  display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
+  padding: 0.7rem 0; border-bottom: 1px solid var(--rule); font-size: 0.95rem; color: var(--ink);
+}
+.pay-options .k { font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+.pay-options .v { font-family: var(--display); text-transform: uppercase; letter-spacing: -0.005em; }
+.included { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--ink); }
+.included li {
+  display: grid; grid-template-columns: 1.6rem 1fr; gap: 0.75rem;
+  padding: 0.95rem 0; border-bottom: 1px solid var(--rule);
+  font-size: 0.96rem; line-height: 1.45; color: var(--ink);
+}
+.included li::before {
+  content: ""; width: 12px; height: 12px; margin-top: 0.35em; background: var(--ink); flex-shrink: 0;
+  clip-path: polygon(0 40%, 40% 100%, 100% 0, 85% 0, 38% 72%, 12% 40%);
+}
+
+/* --- Section tint variants --- */
+.sec--tint { background: linear-gradient(0deg, rgba(197,212,220,0.18), rgba(197,212,220,0.18)); }
+
+/* --- CTA repeat block --- */
+.cta-band {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem;
+  padding-top: 1.75rem; border-top: 1.5px solid var(--ink);
+}
+.cta-band__meta { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" aria-label="Nawigacja główna">
+  <a class="nav__brand" href="#gora" aria-label="Kreatywny Nauczyciel - początek strony">
+    <img class="nav__brand-mark" src="images/logo2.png" width="4662" height="824" alt="" style="height:26px" />
+    <span>Kreatywny Nauczyciel</span>
+  </a>
+  <ul class="nav__links">
+    <li><a href="#o-programie" data-nav>O programie</a></li>
+    <li><a href="#efekty" data-nav>Efekty</a></li>
+    <li><a href="#program" data-nav>Program</a></li>
+    <li><a href="#format" data-nav>Format</a></li>
+    <li><a href="#prowadzacy" data-nav>Prowadzący</a></li>
+    <li><a href="#opinie" data-nav>Opinie</a></li>
+    <li><a href="#inwestycja" data-nav>Inwestycja</a></li>
+    <li><a href="#faq" data-nav>FAQ</a></li>
+  </ul>
+  <a class="nav__cta nav__cta--desktop" href="#zgloszenie" data-cta="nav">Zgłoś się do edycji 2027</a>
+  <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel">Menu</button>
+  <div class="nav__panel" id="nav-panel">
+    <a href="#o-programie" data-nav>O programie</a>
+    <a href="#efekty" data-nav>Efekty</a>
+    <a href="#program" data-nav>Program</a>
+    <a href="#format" data-nav>Format</a>
+    <a href="#prowadzacy" data-nav>Prowadzący</a>
+    <a href="#opinie" data-nav>Opinie</a>
+    <a href="#inwestycja" data-nav>Inwestycja</a>
+    <a href="#faq" data-nav>FAQ</a>
+    <a class="btn" href="#zgloszenie" data-cta="nav-panel">Zgłoś się do edycji 2027 <span class="arr">→</span></a>
+  </div>
+</nav>
+
+<main id="tresc">
+<span id="gora"></span>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" aria-label="Wprowadzenie">
+  <div class="hero__poster">
+
+    <div class="hero__title-zone">
+      <div class="hero__title-bg poly-3" aria-hidden="true"><div class="grain"></div></div>
+
+      <span class="hero__edition">Edycja stacjonarna 2027 · zaawansowany program dla nauczycieli ruchu</span>
+
+      <h1 class="hero__title">Kreatywny<br>Nauczyciel</h1>
+
+      <p class="hero__sub">Ucz ruchu tak, żeby ludzie naprawdę się uczyli - nie tylko wykonywali instrukcje.</p>
+
+      <p class="hero__lede">
+        30-godzinny program rozwoju warsztatu dla nauczycieli jogi, pilatesu, ruchu i&nbsp;edukacji somatycznej. Przez dwa intensywne weekendy rozwiniesz bardziej precyzyjny, elastyczny i&nbsp;adaptacyjny sposób prowadzenia - bez gotowych sekwencji, sztywnych korekt i&nbsp;pseudonaukowych wyjaśnień.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn" href="#zgloszenie" data-cta="hero">Zgłoś się do edycji 2027 <span class="arr">→</span></a>
+        <a class="btn btn--ghost" href="#program" data-cta="hero-secondary">Zobacz, jak wygląda program</a>
+      </div>
+
+      <p class="meta meta--mute" style="margin-top:0.5rem">Krótki formularz zgłoszeniowy. Odpowiadam osobiście.</p>
+    </div>
+
+    <div class="hero__image-zone">
+      <div class="hero__image-bg" aria-hidden="true"></div>
+      <div class="hero__photo poly-2">
+        <!-- PHOTO NOTE: docelowo mocne zdjęcie Artura prowadzącego grupę. -->
+        <img src="images/opt/1.jpg" width="933" height="1400" alt="Artur Chruszcz podczas pracy z ruchem" fetchpriority="high" decoding="async" />
+        <div class="grain" aria-hidden="true"></div>
+      </div>
+      <div class="poster-tl"><span class="meta">Kreatywny Nauczyciel</span></div>
+      <div class="poster-br"><span class="meta">2027</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== ESSENTIAL INFO STRIP ===================== -->
+<section class="stats" aria-label="Najważniejsze informacje">
+  <div class="stats__inner">
+    <div class="stat"><span class="stat__num">2</span><span class="stat__label">Weekendy · piątek-niedziela</span></div>
+    <div class="stat"><span class="stat__num">30 h</span><span class="stat__label">5 godzin dziennie · 6 dni</span></div>
+    <div class="stat"><span class="stat__num">VII-VIII</span><span class="stat__label">Lipiec i sierpień 2027 · Gdańsk</span></div>
+    <div class="stat"><span class="stat__num">maks. 12</span><span class="stat__label">Kameralna grupa · praca i feedback</span></div>
+  </div>
+</section>
+
+<!-- ===================== 3. RECOGNITION ===================== -->
+<section class="sec" id="o-programie">
+  <div class="frame">
+    <div class="sec-head reveal">
+      <span class="meta">01 · Rozpoznanie</span>
+      <h2 class="h-section">Uczysz dobrze.<br>Ale czasem utykasz w&nbsp;schematach.</h2>
+    </div>
+
+    <ul class="recog reveal">
+      <li>Wracasz do tych samych sekwencji.</li>
+      <li>Używasz tych samych wskazówek niezależnie od grupy.</li>
+      <li>Kiedy uczestnik czegoś nie rozumie, dodajesz kolejne instrukcje.</li>
+      <li>Chcesz prowadzić bardziej kreatywnie, ale nie chcesz improwizować bez kierunku.</li>
+      <li>Boisz się odejść od planu, bo zajęcia mogą stracić strukturę.</li>
+      <li>Uczestnicy często patrzą na Ciebie, żeby sprawdzić, czy wykonują ruch poprawnie.</li>
+      <li>Trudno Ci wyjaśnić, dlaczego wybierasz określone zadanie.</li>
+      <li>Czujesz opór wobec popularnych, ale nieprecyzyjnych wyjaśnień dotyczących ciała.</li>
+    </ul>
+
+    <p class="recog-note reveal">Problemem nie zawsze jest brak nowych ćwiczeń. Czasem potrzebujesz <em>innego sposobu patrzenia</em> na to, co dzieje się podczas uczenia.</p>
+  </div>
+</section>
+
+<!-- ===================== 4. CORE DISTINCTION ===================== -->
+<section class="sec sec--tint" aria-label="Dwa sposoby prowadzenia">
+  <div class="frame">
+    <div class="sec-head reveal">
+      <span class="meta">02 · Sedno</span>
+      <h2 class="h-section">Dwa sposoby prowadzenia tych samych zajęć.</h2>
+    </div>
+
+    <div class="distinction reveal">
+      <div class="dist-col dist-col--from">
+        <span class="dist-col__k">Podejście A</span>
+        <h3>Prowadzenie jako przekazywanie instrukcji</h3>
+        <ul class="dist-list">
+          <li>Pokaż formę.</li>
+          <li>Wyjaśnij.</li>
+          <li>Popraw błąd.</li>
+          <li>Powtórz.</li>
+          <li>Doprowadź do właściwego wykonania.</li>
+        </ul>
+      </div>
+      <div class="dist-col dist-col--to">
+        <span class="dist-col__k">Podejście B</span>
+        <h3>Prowadzenie jako projektowanie uczenia</h3>
+        <ul class="dist-list">
+          <li>Stwórz warunki do zauważenia różnicy.</li>
+          <li>Skieruj uwagę.</li>
+          <li>Zaproponuj ograniczenie lub możliwość.</li>
+          <li>Obserwuj odpowiedź.</li>
+          <li>Zmieniaj zadanie w zależności od tego, co się wydarza.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="dist-note reveal"><strong>Nie chodzi o to, żeby przestać instruować.</strong> Chodzi o to, żeby wiedzieć, kiedy instrukcja pomaga, a&nbsp;kiedy ogranicza uczenie.</p>
+  </div>
+</section>
+
+<!-- ===================== 5. CLEAR PROMISE ===================== -->
+<section class="sec" id="efekty">
+  <div class="frame">
+    <div class="sec-head reveal">
+      <span class="meta">03 · Obietnica</span>
+      <h2 class="h-section">Po programie nie będziesz mieć jednej nowej recepty. Będziesz mieć więcej możliwości.</h2>
+    </div>
+
+    <div class="benefits reveal">
+      <div class="benefit">
+        <span class="benefit__num">i</span>
+        <h3 class="benefit__title">Precyzyjniej obserwować</h3>
+        <p class="benefit__body">Zauważysz nie tylko to, czy ktoś wykonuje ruch, ale na co kieruje uwagę, jak organizuje wysiłek i&nbsp;jakie możliwości potrafi rozróżnić.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit__num">ii</span>
+        <h3 class="benefit__title">Świadomiej używać języka</h3>
+        <p class="benefit__body">Zrozumiesz, jak różne instrukcje, pytania i&nbsp;metafory wpływają na uwagę i&nbsp;działanie uczestników.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit__num">iii</span>
+        <h3 class="benefit__title">Projektować celową zmienność</h3>
+        <p class="benefit__body">Będziesz tworzyć sensowne warianty ćwiczeń bez dokładania przypadkowej złożoności.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit__num">iv</span>
+        <h3 class="benefit__title">Adaptować zajęcia</h3>
+        <p class="benefit__body">Zareagujesz na grupę, nie porzucając struktury ani intencji lekcji.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit__num">v</span>
+        <h3 class="benefit__title">Wspierać sprawczość</h3>
+        <p class="benefit__body">Pomożesz uczestnikom lepiej zauważać, wybierać i&nbsp;uczyć się, bez uzależnienia od ciągłej korekty.</p>
+      </div>
+      <div class="benefit" style="background:var(--blue)">
+        <span class="benefit__num">→</span>
+        <h3 class="benefit__title">Jeden spójny sposób pracy</h3>
+        <p class="benefit__body">Te umiejętności nie są osobnymi trikami. Składają się na spójne podejście, które zintegrujesz z&nbsp;własną metodą.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6. WHAT WE'LL DO ===================== -->
+<section class="sec sec--tint" aria-label="Co będziemy robić">
+  <div class="frame">
+    <div class="about__grid">
+      <div class="sec-lead reveal">
+        <span class="meta">04 · Praktyka</span>
+        <h2 class="h-section" style="margin-top:1.25rem">Co będziemy robić</h2>
+        <p class="lede" style="margin-top:1.25rem">To program pracy, nie wykładów. Każdy dzień łączy doświadczenie ruchowe, analizę, dyskusję, projektowanie i&nbsp;praktykę prowadzenia.</p>
+        <div class="callout reveal" style="margin-top:2rem">Nie spędzimy pięciu godzin dziennie na słuchaniu wykładów.</div>
+      </div>
+
+      <ul class="checklist reveal">
+        <li>Doświadczać zadań ruchowych z perspektywy ucznia.</li>
+        <li>Analizować, co dokładnie tworzy warunki do uczenia.</li>
+        <li>Przekształcać zamykające instrukcje w bardziej otwarte zadania.</li>
+        <li>Obserwować, jak język wpływa na sposób działania.</li>
+        <li>Projektować warianty bez przypadkowego mnożenia ćwiczeń.</li>
+        <li>Analizować realne sytuacje z własnych zajęć.</li>
+        <li>Prowadzić krótkie fragmenty zajęć.</li>
+        <li>Otrzymywać konkretną informację zwrotną.</li>
+        <li>Testować wybrane podejście między weekendami.</li>
+        <li>Stworzyć indywidualny plan dalszego rozwoju.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 7. FIVE SHIFTS ===================== -->
+<section class="sec" aria-label="Pięć zmian w prowadzeniu">
+  <div class="frame">
+    <div class="sec-head reveal">
+      <span class="meta">05 · Zmiana</span>
+      <h2 class="h-section">Pięć zmian w&nbsp;sposobie prowadzenia</h2>
+    </div>
+
+    <ul class="shifts reveal">
+      <li class="shift">
+        <span class="shift__num">01</span>
+        <span class="shift__from">Formy</span>
+        <span class="shift__to">Organizacji działania</span>
+        <p class="shift__ex">Zamiast pytać tylko, czy ruch wygląda poprawnie, przyglądasz się, jak człowiek organizuje uwagę, wysiłek, podparcie i&nbsp;kierunek. <b>Przykład:</b> uczestnik "spina bark" - zamiast go rozluźniać, zmieniasz punkt podparcia i&nbsp;napięcie znika samo.</p>
+      </li>
+      <li class="shift">
+        <span class="shift__num">02</span>
+        <span class="shift__from">Korekty</span>
+        <span class="shift__to">Różnicowania</span>
+        <p class="shift__ex">Zamiast od razu zastępować ruch "właściwą" wersją, pomagasz uczącemu się zauważyć istotne różnice. <b>Przykład:</b> prosisz o wykonanie ruchu raz z&nbsp;mniejszym, raz z&nbsp;większym zakresem - różnica staje się informacją.</p>
+      </li>
+      <li class="shift">
+        <span class="shift__num">03</span>
+        <span class="shift__from">Instrukcji</span>
+        <span class="shift__to">Środowiska uczenia</span>
+        <p class="shift__ex">Zamiast kontrolować każdy szczegół, projektujesz zadanie, w&nbsp;którym pojawia się użyteczna informacja. <b>Przykład:</b> zmieniasz ustawienie stóp tak, że uczestnik sam czuje, gdzie traci równowagę.</p>
+      </li>
+      <li class="shift">
+        <span class="shift__num">04</span>
+        <span class="shift__from">Odtwarzania</span>
+        <span class="shift__to">Adaptacji</span>
+        <p class="shift__ex">Zamiast realizować tę samą sekwencję niezależnie od sytuacji, zachowujesz intencję i&nbsp;zmieniasz środki. <b>Przykład:</b> część grupy nie jest gotowa na wariant leżący, więc przenosisz tę samą zasadę do pozycji siedzącej.</p>
+      </li>
+      <li class="shift">
+        <span class="shift__num">05</span>
+        <span class="shift__from">Zależności</span>
+        <span class="shift__to">Sprawczości</span>
+        <p class="shift__ex">Zamiast uzależniać ucznia od swojej akceptacji, pomagasz mu wypracować własne kryteria zauważania i&nbsp;wyboru. <b>Przykład:</b> zamiast "dobrze / źle" pytasz "która wersja była dla Ciebie lżejsza?".</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 8-10. PROGRAMME FORMAT (timeline) ===================== -->
+<section class="sec sec--tint" id="program">
+  <div class="frame">
+    <div class="sec-head reveal">
+      <span class="meta">06 · Program</span>
+      <h2 class="h-section">Dwa weekendy.<br>Jedna spójna droga uczenia.</h2>
+      <p class="lede">Między weekendami nie odkładasz materiału na później. Sprawdzasz wybrane podejścia podczas własnych zajęć, obserwujesz reakcje uczestników i&nbsp;wracasz z&nbsp;konkretnym doświadczeniem do dalszej pracy.</p>
+    </div>
+
+    <!-- Process diagram -->
+    <div class="process reveal" aria-label="Proces uczenia w programie">
+      <div class="proc-step"><span class="proc-step__k">Krok 1</span><h3 class="proc-step__t">Weekend I</h3><p class="proc-step__d">Poznajesz i&nbsp;ćwiczysz nowe ramy pracy.</p></div>
+      <div class="proc-step"><span class="proc-step__k">Krok 2</span><h3 class="proc-step__t">Praktyka w&nbsp;Twoich zajęciach</h3><p class="proc-step__d">Testujesz wybrane podejścia i&nbsp;obserwujesz, co się zmienia.</p></div>
+      <div class="proc-step"><span class="proc-step__k">Krok 3</span><h3 class="proc-step__t">Weekend II</h3><p class="proc-step__d">Analiza, praktyka prowadzenia i&nbsp;informacja zwrotna.</p></div>
+      <div class="proc-step"><span class="proc-step__k">Krok 4</span><h3 class="proc-step__t">Wdrożenie</h3><p class="proc-step__d">Wychodzisz z&nbsp;indywidualnym planem dalszej pracy.</p></div>
+    </div>
+
+    <!-- WEEKEND I -->
+    <!-- CONFIG: terminy wstępne, potwierdzić przed publikacją -->
+    <div class="module reveal">
+      <div class="module__head">
+        <div>
+          <span class="module__label">Weekend I · lipiec 2027</span>
+          <h3 class="module__title">Widzieć i&nbsp;prowadzić inaczej</h3>
+        </div>
+        <span class="module__badge">16-18 lipca 2027 · wstępnie</span>
+      </div>
+      <div class="days">
+        <div class="day">
+          <span class="day__k">Piątek</span>
+          <h4 class="day__t">Od ćwiczenia do środowiska uczenia</h4>
+          <ul>
+            <li>Czym różni się wykonywanie od uczenia.</li>
+            <li>Czego uczestnik może się nauczyć dzięki jednemu zadaniu.</li>
+            <li>Jak kierowanie uwagi zmienia działanie.</li>
+            <li>Jak rozpoznawać intencję ćwiczenia.</li>
+            <li>Jak przestać traktować zajęcia jako listę ruchów.</li>
+          </ul>
+        </div>
+        <div class="day">
+          <span class="day__k">Sobota</span>
+          <h4 class="day__t">Język, który otwiera</h4>
+          <ul>
+            <li>Różnica między instrukcją, pytaniem, obrazem i&nbsp;ograniczeniem.</li>
+            <li>Jak język wpływa na uwagę.</li>
+            <li>Kiedy instrukcja pomaga.</li>
+            <li>Kiedy instrukcja przeciąża lub zamyka.</li>
+            <li>Jak mówić precyzyjnie bez udawania naukowej pewności.</li>
+            <li>Jak ograniczać automatyczne poprawianie.</li>
+          </ul>
+        </div>
+        <div class="day">
+          <span class="day__k">Niedziela</span>
+          <h4 class="day__t">Różnicowanie i&nbsp;zmienność</h4>
+          <ul>
+            <li>Czym różni się celowa zmienność od przypadkowej improwizacji.</li>
+            <li>Jak używać kontrastu.</li>
+            <li>Jak tworzyć warianty wokół jednej intencji.</li>
+            <li>Jak dawkować trudność.</li>
+            <li>Jak pomagać uczestnikom zauważać różnice.</li>
+            <li>Jak projektować lekcje, które nie opierają się na jednej idealnej formie.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- BETWEEN WEEKENDS -->
+    <div class="module reveal">
+      <div class="module__head">
+        <div>
+          <span class="module__label">Między weekendami · lipiec-sierpień 2027</span>
+          <h3 class="module__title">Sprawdzasz materiał w&nbsp;praktyce</h3>
+        </div>
+      </div>
+      <div class="about__grid" style="align-items:start">
+        <ul class="checklist reveal">
+          <li>Wybierasz jeden lub dwa eksperymenty dydaktyczne.</li>
+          <li>Stosujesz je podczas własnych zajęć.</li>
+          <li>Obserwujesz reakcje uczestników.</li>
+          <li>Zapisujesz krótkie notatki.</li>
+          <li>Wybierasz jedną trudną lub ciekawą sytuację.</li>
+          <li>Przynosisz tę sytuację na Weekend II.</li>
+        </ul>
+        <p class="prose reveal" style="align-self:center">
+          <span style="display:block">Nie chodzi o wykonanie dużego zadania domowego. Chodzi o zebranie realnych danych z&nbsp;własnej pracy.</span>
+          <br>
+          <strong>Dzięki temu drugi weekend nie będzie tylko kontynuacją materiału. Będzie pracą na tym, co wydarzyło się w&nbsp;Twoim nauczaniu.</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- WEEKEND II -->
+    <div class="module reveal">
+      <div class="module__head">
+        <div>
+          <span class="module__label">Weekend II · sierpień 2027</span>
+          <h3 class="module__title">Adaptacja, sprawczość i&nbsp;własny sposób prowadzenia</h3>
+        </div>
+        <span class="module__badge">20-22 sierpnia 2027 · wstępnie</span>
+      </div>
+      <div class="days">
+        <div class="day">
+          <span class="day__k">Piątek</span>
+          <h4 class="day__t">Trudniejsze działania bez forsowania</h4>
+          <ul>
+            <li>Jak przygotowywać uczestników do bardziej złożonych działań.</li>
+            <li>Jak używać stopniowania i&nbsp;warunków wstępnych.</li>
+            <li>Jak zmieniać trudność bez upraszczania celu.</li>
+            <li>Jak odróżniać wyzwanie od przeciążenia.</li>
+            <li>Jak wspierać eksplorację bez obietnic idealnej techniki.</li>
+          </ul>
+        </div>
+        <div class="day">
+          <span class="day__k">Sobota</span>
+          <h4 class="day__t">Adaptacyjne prowadzenie i&nbsp;sprawczość ucznia</h4>
+          <ul>
+            <li>Jak reagować na różne odpowiedzi w&nbsp;grupie.</li>
+            <li>Jak modyfikować zadanie bez tracenia kierunku.</li>
+            <li>Jak zadawać pytania, które nie sugerują jedynej prawidłowej odpowiedzi.</li>
+            <li>Jak redukować zależność od korekty.</li>
+            <li>Krótkie laboratoria prowadzenia.</li>
+            <li>Informacja zwrotna od Artura i&nbsp;grupy.</li>
+          </ul>
+        </div>
+        <div class="day">
+          <span class="day__k">Niedziela</span>
+          <h4 class="day__t">Integracja i&nbsp;własny system pracy</h4>
+          <ul>
+            <li>Jak łączyć język, uwagę, zmienność i&nbsp;strukturę.</li>
+            <li>Jak projektować lekcję wokół intencji.</li>
+            <li>Jak oceniać, czy zadanie rzeczywiście wspiera uczenie.</li>
+            <li>Jak tworzyć własne kryteria decyzji.</li>
+            <li>Indywidualny plan wdrożenia.</li>
+            <li>Dalsze eksperymenty po zakończeniu programu.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-band reveal">
+      <a class="btn" href="#zgloszenie" data-cta="program">Zgłoś się do edycji 2027 <span class="arr">→</span></a>
+      <span class="cta-band__meta">Maksymalnie 12 osób · lipiec i sierpień 2027</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 11. SAMPLE DAY ===================== -->
+<section class="sec" id="format">
+  <div class="frame">
+    <div class="format">
+      <div class="format__visual reveal">
+        <div class="format__bg-1" aria-hidden="true"></div>
+        <div class="format__bg-2" aria-hidden="true"></div>
+        <div class="format__photo poly-4">
+          <img src="images/opt/IMG_1603.jpg" width="1600" height="1066" loading="lazy" decoding="async" alt="Uczestnicy w trakcie pracy z ruchem podczas warsztatu" />
+          <div class="grain" aria-hidden="true"></div>
+        </div>
+        <div class="format__num-stamp"><span class="meta">5 h / dzień</span></div>
+      </div>
+
+      <div class="reveal">
+        <span class="meta">07 · Jeden dzień</span>
+        <h2 class="h-section" style="margin:1.25rem 0 1.5rem">Jak wygląda jeden dzień</h2>
+        <p class="lede" style="margin-bottom:2rem">Każdy dzień łączy krótkie części koncepcyjne z&nbsp;doświadczeniem, rozmową i&nbsp;praktyką. Ruch nie jest ilustracją teorii - jest jednym z&nbsp;głównych sposobów badania tego, jak zachodzi uczenie.</p>
+
+        <ol class="sampleday">
+          <li><span class="sampleday__n">A</span><div><span class="sampleday__t">Krótkie wprowadzenie</span><p class="sampleday__d">Ramy dnia i&nbsp;pytanie, wokół którego pracujemy.</p></div></li>
+          <li><span class="sampleday__n">B</span><div><span class="sampleday__t">Doświadczenie ruchowe</span><p class="sampleday__d">Pracujesz z&nbsp;perspektywy ucznia.</p></div></li>
+          <li><span class="sampleday__n">C</span><div><span class="sampleday__t">Analiza doświadczenia</span><p class="sampleday__d">Co dokładnie stworzyło warunki do uczenia.</p></div></li>
+          <li><span class="sampleday__n">D</span><div><span class="sampleday__t">Praca w parach lub małych grupach</span><p class="sampleday__d">Testujesz i&nbsp;porównujesz podejścia.</p></div></li>
+          <li><span class="sampleday__n">E</span><div><span class="sampleday__t">Projektowanie zadań</span><p class="sampleday__d">Budujesz warianty wokół jednej intencji.</p></div></li>
+          <li><span class="sampleday__n">F</span><div><span class="sampleday__t">Laboratorium prowadzenia</span><p class="sampleday__d">Prowadzisz krótki fragment zajęć.</p></div></li>
+          <li><span class="sampleday__n">G</span><div><span class="sampleday__t">Informacja zwrotna</span><p class="sampleday__d">Konkretny feedback od Artura i&nbsp;grupy.</p></div></li>
+          <li><span class="sampleday__n">H</span><div><span class="sampleday__t">Integracja i przerwy</span><p class="sampleday__d">Czas na przyswojenie i&nbsp;odpoczynek.</p></div></li>
+        </ol>
+        <p class="meta meta--mute" style="margin-top:1.25rem">Pokazujemy strukturę dnia, nie sztywny harmonogram godzinowy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 12. OUTCOMES ===================== -->
+<section class="sec sec--tint" aria-label="Co może zmienić się w Twoim prowadzeniu">
+  <div class="frame">
+    <div class="sec-head reveal">
+      <span class="meta">08 · Efekty w praktyce</span>
+      <h2 class="h-section">Co może zmienić się w&nbsp;Twoim prowadzeniu</h2>
+    </div>
+
+    <div class="benefits reveal">
+      <div class="benefit">
+        <span class="benefit__num">01</span>
+        <h3 class="benefit__title">Precyzyjniejszy język</h3>
+        <p class="benefit__body">Wybierasz między instrukcją, pytaniem, obrazem i&nbsp;ograniczeniem zależnie od zamierzonego efektu.</p>
+        <p class="benefit__ex"><b>Przykład:</b> zamiast dodawać trzy korekty anatomiczne, zmieniasz to, na co uczestnik kieruje uwagę.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit__num">02</span>
+        <h3 class="benefit__title">Więcej możliwości adaptacji</h3>
+        <p class="benefit__body">Zmieniasz zadanie, zachowując jego intencję dydaktyczną.</p>
+        <p class="benefit__ex"><b>Przykład:</b> gdy proponowany ruch nie działa dla części grupy, masz opcje inne niż "zrób mniej" albo "pomiń".</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit__num">03</span>
+        <h3 class="benefit__title">Świadome używanie zmienności</h3>
+        <p class="benefit__body">Wiesz, dlaczego wprowadzasz wariant i&nbsp;jaką różnicę uczący się może zauważyć.</p>
+        <p class="benefit__ex"><b>Przykład:</b> nie dodajesz alternatyw tylko po to, żeby lekcja była ciekawsza.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit__num">04</span>
+        <h3 class="benefit__title">Mniejsza zależność od korekt</h3>
+        <p class="benefit__body">Projektujesz sytuacje, w&nbsp;których uczestnicy dostają więcej użytecznej informacji z&nbsp;samego zadania.</p>
+        <p class="benefit__ex"><b>Przykład:</b> zamiast wielokrotnie poprawiać pozycję, wprowadzasz kontrast, który czyni różnicę wyczuwalną.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit__num">05</span>
+        <h3 class="benefit__title">Własny, spójny sposób prowadzenia</h3>
+        <p class="benefit__body">Integrujesz materiał z&nbsp;własną metodą, zamiast kopiować styl Artura.</p>
+        <p class="benefit__ex"><b>Przykład:</b> nauczyciel jogi, nauczyciel pilatesu i&nbsp;praktyk Feldenkraisa zastosują te same zasady inaczej.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 13. TESTIMONIALS ===================== -->
+<section class="sec" id="opinie">
+  <div class="frame">
+    <div class="sec-head reveal">
+      <span class="meta">09 · Opinie</span>
+      <h2 class="h-section">Co zmienia się w&nbsp;sposobie prowadzenia</h2>
+    </div>
+
+    <div class="quotes reveal">
+      <!-- CONFIG / TESTIMONIALS: wstaw realne opinie osób, które pracowały z Arturem
+           (warsztaty dla nauczycieli, mentoring, szkolenie Feldenkraisa, dłuższe programy).
+           Dla każdej: imię, zawód, kontekst współpracy, konkretna zmiana w prowadzeniu.
+           NIE publikować wymyślonych opinii. Szablon karty poniżej. -->
+      <!--
+      <figure class="quote">
+        <span class="quote__mark" aria-hidden="true">”</span>
+        <blockquote class="quote__text">[konkretna zmiana w prowadzeniu - np. mniej odruchowego poprawiania, precyzyjniejszy język]</blockquote>
+        <figcaption class="quote__who">
+          <div class="quote__name">[Imię Nazwisko]</div>
+          <div class="quote__role">[zawód] · [kontekst współpracy z Arturem]</div>
+        </figcaption>
+      </figure>
+      -->
+
+      <div class="quotes-note">
+        <p><strong>To pierwsza stacjonarna edycja tego programu.</strong> Opinie uczestników pojawią się tutaj po pierwszym zjeździe - nie wstawiam wymyślonych rekomendacji.</p>
+        <p>Jeśli chcesz porozmawiać z&nbsp;kimś, kto pracował ze mną wcześniej - na warsztatach dla nauczycieli, w&nbsp;mentoringu lub w&nbsp;ramach szkolenia Feldenkraisa - napisz w&nbsp;zgłoszeniu, a&nbsp;chętnie połączę Cię z&nbsp;taką osobą.</p>
+        <div><a class="btn" href="#zgloszenie" data-cta="opinie">Napisz do mnie <span class="arr">→</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 14. FACILITATOR ===================== -->
+<section class="sec sec--tint" id="prowadzacy">
+  <div class="frame">
+    <div class="instructor">
+      <div class="instructor__visual reveal">
+        <div class="instructor__bg" aria-hidden="true"></div>
+        <div class="instructor__photo poly-1">
+          <img src="images/opt/arturportretyswietlica-13.jpg" width="933" height="1400" loading="lazy" decoding="async" alt="Portret Artura Chruszcza" />
+          <div class="grain" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="meta">10 · Prowadzący</span>
+        <h2 class="instructor__name" style="margin-top:1.25rem">Prowadzi Artur Chruszcz</h2>
+        <p class="instructor__role">Certyfikowany praktyk metody Feldenkraisa · 13+ lat pracy z ruchem</p>
+
+        <p class="instructor__pull">Nie chcę uczyć jednej poprawnej metody prowadzenia. Chcę pomóc Ci widzieć więcej możliwości i&nbsp;trafniej wybierać między nimi.</p>
+
+        <div class="prose">
+          <p>Stworzyłem ten program, ponieważ coraz częściej widzę, że nauczycielom nie brakuje ćwiczeń. Brakuje im języka i&nbsp;ram, które pozwalają podejmować dobre decyzje wtedy, gdy realna grupa nie reaguje tak, jak przewidywał plan.</p>
+          <p>Od ponad trzynastu lat uczę ruchu - indywidualnie, w&nbsp;grupach, na warsztatach i&nbsp;w&nbsp;pracy z&nbsp;nauczycielami. Jestem certyfikowanym praktykiem metody Feldenkraisa. Od lat interesuje mnie to, jak ludzie się uczą: uwaga, różnicowanie, zmienność i&nbsp;adaptacja.</p>
+          <p>Zależy mi na precyzyjnej i&nbsp;uczciwej komunikacji. W&nbsp;pracy łączę metodę Feldenkraisa z&nbsp;kontekstualnymi podejściami behawioralnymi i&nbsp;teorią uczenia się tam, gdzie rzeczywiście pomaga to lepiej rozumieć, co dzieje się na zajęciach.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 15. WHO IS IT FOR ===================== -->
+<section class="sec" aria-label="Dla kogo jest ten program">
+  <div class="frame">
+    <div class="sec-head reveal">
+      <span class="meta">11 · Dopasowanie</span>
+      <h2 class="h-section">Dla kogo jest ten program</h2>
+    </div>
+
+    <div class="audience-grid reveal">
+      <div class="aud-col aud-col--for">
+        <div class="aud-col__bg" aria-hidden="true"></div>
+        <h3>Ten program jest dla Ciebie, jeśli</h3>
+        <ul class="aud-list">
+          <li>Już uczysz ruchu.</li>
+          <li>Chcesz rozwijać metodykę, a nie zbierać sekwencje.</li>
+          <li>Chcesz adaptować zajęcia, nie tracąc struktury.</li>
+          <li>Interesuje Cię to, jak ludzie się uczą.</li>
+          <li>Chcesz komunikować się precyzyjniej.</li>
+          <li>Zależy Ci na większej samodzielności uczestników.</li>
+          <li>Cenisz praktyczne eksperymentowanie.</li>
+          <li>Nie boisz się kwestionować znanych założeń.</li>
+        </ul>
+      </div>
+      <div class="aud-col aud-col--not">
+        <div class="aud-col__bg" aria-hidden="true"></div>
+        <h3>Prawdopodobnie nie teraz, jeśli</h3>
+        <ul class="aud-list">
+          <li>Szukasz głównie gotowych planów zajęć.</li>
+          <li>Oczekujesz jednej idealnej techniki.</li>
+          <li>Chcesz szybkiego certyfikatu przy minimalnym udziale.</li>
+          <li>Nie chcesz ćwiczyć prowadzenia.</li>
+          <li>Wolisz system oparty na ścisłej korekcie i&nbsp;powtarzaniu.</li>
+          <li>Szukasz wyłącznie teoretycznego cyklu wykładów.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout reveal" style="max-width:70ch;background:var(--blue)">Program nie jest związany wyłącznie z&nbsp;jedną metodą ruchową. Dotyczy warstwy pod metodą: tego, jak ludzie kierują uwagę, rozróżniają, adaptują się i&nbsp;uczą.</div>
+  </div>
+</section>
+
+<!-- ===================== 16 + 17 + 18. PRICING ===================== -->
+<section class="sec sec--tint" id="inwestycja">
+  <div class="frame">
+    <div class="sec-head reveal">
+      <span class="meta">12 · Inwestycja</span>
+      <h2 class="h-section">Inwestycja we własny sposób prowadzenia</h2>
+      <p class="lede">To nie jest kurs z&nbsp;kolejnymi sekwencjami do zapisania. Przez dwa weekendy będziemy pracować nad tym, jak obserwujesz uczenie, jak projektujesz zadania, jak używasz języka i&nbsp;jak podejmujesz decyzje w&nbsp;kontakcie z&nbsp;realną grupą.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="reveal">
+        <div class="price-rows">
+          <div class="price-row price-row--featured">
+            <div>
+              <h3 class="price-row__name">Cena promocyjna <small>Pierwsze 4 miejsca</small></h3>
+              <p class="price-row__note">Dla pierwszych czterech przyjętych osób.</p>
+            </div>
+            <div class="price-row__amount">4 490 <sub>zł</sub></div>
+          </div>
+          <div class="price-row">
+            <div>
+              <h3 class="price-row__name">Cena regularna <small>Kolejne miejsca</small></h3>
+              <p class="price-row__note">Po wyczerpaniu miejsc promocyjnych.</p>
+            </div>
+            <div class="price-row__amount">4 990 <sub>zł</sub></div>
+          </div>
+        </div>
+
+        <ul class="pay-options">
+          <li><span class="k">Jednorazowo</span><span class="v">4 990 zł</span></li>
+          <li><span class="k">2 raty</span><span class="v">2 × 2 495 zł</span></li>
+          <li><span class="k">4 raty</span><span class="v">4 × 1 247,50 zł</span></li>
+        </ul>
+        <p class="meta meta--mute" style="margin-top:0.85rem">Raty bez dodatkowych kosztów. Przy cenie promocyjnej kwoty rat naliczamy proporcjonalnie. Szczegóły płatności i&nbsp;faktury ustalamy indywidualnie po przyjęciu zgłoszenia.</p>
+
+        <div class="cta-band reveal">
+          <a class="btn" href="#zgloszenie" data-cta="pricing">Zgłoś się do edycji 2027 <span class="arr">→</span></a>
+          <span class="cta-band__meta">Formularz nie zobowiązuje do płatności</span>
+        </div>
+      </div>
+
+      <div class="pricing__aside reveal">
+        <p><strong>Cena nie wynika wyłącznie z&nbsp;liczby godzin. Wynika z&nbsp;formatu</strong>, który pozwala każdej osobie eksperymentować, prowadzić i&nbsp;otrzymać konkretną informację zwrotną.</p>
+        <p style="font-weight:600;color:var(--ink);margin-top:0.5rem">Co składa się na tę cenę:</p>
+        <ul class="included">
+          <li>30 godzin pracy stacjonarnej.</li>
+          <li>Dwa trzydniowe moduły.</li>
+          <li>Mała grupa - maksymalnie 12 osób.</li>
+          <li>Doświadczenia ruchowe.</li>
+          <li>Analiza rzeczywistych sytuacji z Twoich zajęć.</li>
+          <li>Praktyczne laboratoria prowadzenia.</li>
+          <li>Konkretna informacja zwrotna.</li>
+          <li>Eksperyment wdrożeniowy między weekendami.</li>
+        </ul>
+        <p class="meta meta--mute">Program odbywa się w Gdańsku (dokładne miejsce wkrótce). Cena obejmuje udział w programie. Nie obejmuje noclegu, dojazdu ani wyżywienia.</p>
+      </div>
+    </div>
+
+    <!-- WHY 12 -->
+    <div class="why12 reveal" style="margin-top:clamp(2.5rem,5vw,4rem)">
+      <div class="grain" aria-hidden="true"></div>
+      <div class="why12__big">12<small>osób maksymalnie</small></div>
+      <div class="why12__body">
+        <p><strong>Dlaczego tylko 12 osób?</strong></p>
+        <p>Każdy uczestnik powinien mieć możliwość nie tylko słuchania i&nbsp;doświadczania ruchu, ale również zadawania pytań, prowadzenia, eksperymentowania i&nbsp;otrzymania konkretnej informacji zwrotnej.</p>
+        <p>To wymaga czasu, uwagi i&nbsp;grupy, w&nbsp;której można naprawdę zobaczyć sposób pracy każdej osoby.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 19. APPLICATION PROCESS ===================== -->
+<section class="sec" aria-label="Jak wygląda zgłoszenie">
+  <div class="frame">
+    <div class="sec-head reveal">
+      <span class="meta">13 · Zgłoszenie</span>
+      <h2 class="h-section">Jak wygląda zgłoszenie</h2>
+    </div>
+
+    <div class="steps reveal">
+      <div class="step"><span class="step__n">1</span><p class="step__t">Wypełniasz krótki formularz.</p></div>
+      <div class="step"><span class="step__n">2</span><p class="step__t">Artur czyta zgłoszenie i&nbsp;odpowiada osobiście.</p></div>
+      <div class="step"><span class="step__n">3</span><p class="step__t">Jeśli program jest dobrym dopasowaniem, otrzymujesz potwierdzenie i&nbsp;dane płatności.</p></div>
+      <div class="step"><span class="step__n">4</span><p class="step__t">Po opłaceniu udziału Twoje miejsce zostaje potwierdzone.</p></div>
+    </div>
+
+    <p class="callout reveal" style="margin-top:2.5rem;background:var(--pink);max-width:64ch">Formularz pomaga mi zadbać o to, żeby program odpowiadał doświadczeniu i&nbsp;potrzebom grupy. Nie jest egzaminem.</p>
+  </div>
+</section>
+
+<!-- ===================== 20. APPLICATION FORM ===================== -->
+<section class="sec sec--tint" id="zgloszenie">
+  <div class="frame">
+    <div class="sec-head reveal" style="max-width:56ch">
+      <span class="meta">14 · Formularz</span>
+      <h2 class="h-section">Zgłoś się do edycji 2027</h2>
+    </div>
+
+    <div class="signup-poster reveal">
+      <!-- Left intro panel -->
+      <div class="signup-poster__intro">
+        <div class="signup-poster__intro-bg poly-3" aria-hidden="true"><div class="grain"></div></div>
+        <div class="signup-poster__intro-content">
+          <span class="meta">Edycja stacjonarna · 2027</span>
+          <h3 class="signup-poster__heading">Dwa weekendy.<br>30 godzin.<br><span style="background:var(--paper);padding:0 0.15em;display:inline-block;margin-top:0.2em">Maks. 12 osób.</span></h3>
+          <p class="signup-poster__note">
+            <strong>Lipiec i sierpień 2027.</strong><br>
+            Piątek-niedziela, 5 godzin dziennie.<br>
+            Gdańsk. Grupa do 12 osób.
+          </p>
+        </div>
+        <div class="signup-poster__corner">
+          <span class="meta">Odpowiadam osobiście na każde zgłoszenie.</span>
+        </div>
+      </div>
+
+      <!-- Right form panel -->
+      <form class="signup-poster__form" id="signup-form" name="zgloszenie-2027" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="zgloszenie-2027" />
+        <p hidden><label>Nie wypełniaj: <input name="bot-field" /></label></p>
+
+        <div class="signup-row">
+          <div class="signup-field">
+            <label class="signup-label" for="f-firstname">Imię</label>
+            <input class="signup-input" type="text" id="f-firstname" name="firstname" required autocomplete="given-name" />
+          </div>
+          <div class="signup-field">
+            <label class="signup-label" for="f-lastname">Nazwisko</label>
+            <input class="signup-input" type="text" id="f-lastname" name="lastname" required autocomplete="family-name" />
+          </div>
+        </div>
+
+        <div class="signup-row">
+          <div class="signup-field">
+            <label class="signup-label" for="f-email">Email</label>
+            <input class="signup-input" type="email" id="f-email" name="email" required autocomplete="email" />
+          </div>
+          <div class="signup-field">
+            <label class="signup-label" for="f-phone">Telefon <span>opcjonalnie</span></label>
+            <input class="signup-input" type="tel" id="f-phone" name="phone" autocomplete="tel" />
+          </div>
+        </div>
+
+        <div class="signup-field signup-field--full">
+          <label class="signup-label" for="f-teach">Czego uczysz?</label>
+          <input class="signup-input" type="text" id="f-teach" name="teach" required placeholder="np. joga, pilates, ruch, Feldenkrais, taniec, edukacja somatyczna" />
+        </div>
+
+        <div class="signup-row">
+          <div class="signup-field">
+            <label class="signup-label" for="f-experience">Jak długo prowadzisz zajęcia?</label>
+            <input class="signup-input" type="text" id="f-experience" name="experience" required placeholder="np. 3 lata" />
+          </div>
+          <div class="signup-field">
+            <label class="signup-label" for="f-city">Miasto</label>
+            <input class="signup-input" type="text" id="f-city" name="city" required autocomplete="address-level2" />
+          </div>
+        </div>
+
+        <div class="signup-field signup-field--full">
+          <label class="signup-label" for="f-hard">Co obecnie jest dla Ciebie najtrudniejsze w prowadzeniu?</label>
+          <textarea class="signup-textarea" id="f-hard" name="hardest" required></textarea>
+        </div>
+
+        <div class="signup-field signup-field--full">
+          <label class="signup-label" for="f-goal">Czego chcesz nauczyć się podczas programu?</label>
+          <textarea class="signup-textarea" id="f-goal" name="goal" required></textarea>
+        </div>
+
+        <label class="signup-check signup-field--full">
+          <input type="checkbox" name="consent" required />
+          <span class="signup-check__label">Wyrażam zgodę na przetwarzanie moich danych osobowych w&nbsp;celu kontaktu w&nbsp;sprawie programu Kreatywny Nauczyciel. <a href="#">Polityka prywatności</a>.</span>
+        </label>
+
+        <button class="btn signup-submit" type="submit">Wyślij zgłoszenie <span class="arr">→</span></button>
+
+        <p class="signup-disclaimer">Wypełnienie formularza zajmuje kilka minut. Odpowiadam osobiście na każde zgłoszenie.</p>
+      </form>
+
+      <!-- Success state -->
+      <div class="signup-success" id="signup-success" role="status" aria-live="polite" style="grid-column:1 / -1">
+        <h3>Dziękuję za zgłoszenie.</h3>
+        <p>Przeczytam je i&nbsp;odpowiem osobiście na podany adres email.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 21. FAQ ===================== -->
+<section class="sec" id="faq">
+  <div class="frame">
+    <div class="sec-head reveal" style="max-width:56ch">
+      <span class="meta">15 · Najczęstsze pytania</span>
+      <h2 class="h-section">Zanim się zgłosisz</h2>
+    </div>
+
+    <div class="reveal" id="faq-list">
+      <details class="faq-item" open>
+        <summary><span class="faq-num">01</span><span class="faq-q">Czy program jest odpowiedni dla początkujących nauczycieli?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Jest pomyślany przede wszystkim dla osób, które mają już trochę doświadczenia, bo wiele ćwiczeń korzysta z&nbsp;realnych sytuacji z&nbsp;zajęć. Mniej doświadczeni nauczyciele również mogą się zgłosić, jeśli obecnie prowadzą zajęcia lub pracują indywidualnie z&nbsp;ruchem.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">02</span><span class="faq-q">Czy to kurs układania sekwencji?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Nie. Możesz projektować struktury lekcji, ale głównym tematem jest to, jak tworzyć warunki do uczenia, a&nbsp;nie jak budować bibliotekę sekwencji.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">03</span><span class="faq-q">Czy program będzie praktyczny?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Tak. Każdy weekend łączy doświadczenie ruchowe, analizę, projektowanie, praktykę prowadzenia i&nbsp;informację zwrotną.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">04</span><span class="faq-q">Czy program jest tylko dla nauczycieli jogi lub pilatesu?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Nie. Zasady, na których pracujemy, można stosować w&nbsp;różnych metodach ruchowych i&nbsp;somatycznych.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">05</span><span class="faq-q">Czy trzeba znać metodę Feldenkraisa?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Nie. Znajomość metody Feldenkraisa nie jest potrzebna.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">06</span><span class="faq-q">Jak wygląda pięciogodzinny dzień?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Dzień zawiera przerwy i&nbsp;przeplata doświadczenie ruchowe, rozmowę, analizę, projektowanie zadań i&nbsp;praktykę prowadzenia. To nie jest pięć godzin wykładu.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">07</span><span class="faq-q">Co dzieje się między weekendami?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Testujesz wybrane podejścia podczas własnych zajęć i&nbsp;przynosisz obserwacje na drugi weekend. To realne dane z&nbsp;Twojej pracy, nie duże zadanie domowe.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">08</span><span class="faq-q">Co, jeśli nie prowadzę zajęć między weekendami?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">To nie problem. Wybrane podejścia możesz sprawdzić w&nbsp;pracy indywidualnej albo z&nbsp;małą grupą testową - np. z&nbsp;innymi nauczycielami. Szczegóły ustalimy wspólnie.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">09</span><span class="faq-q">Czy zajęcia będą nagrywane?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Zasady nagrywania ustalimy wspólnie na początku programu. Laboratoria prowadzenia opierają się na swobodnym eksperymentowaniu, dlatego podchodzimy do nagrań ostrożnie.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">10</span><span class="faq-q">Czy można płacić w ratach?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Tak. Możesz zapłacić jednorazowo, w&nbsp;2 lub w&nbsp;4 ratach, bez dodatkowych kosztów. Konkretny harmonogram ustalamy po przyjęciu zgłoszenia.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">11</span><span class="faq-q">Gdzie odbędzie się program?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Program odbędzie się w&nbsp;Gdańsku. Dokładne miejsce podam wkrótce, przed otwarciem zapisów. Jeśli lokalizacja jest dla Ciebie istotna przy decyzji - napisz w&nbsp;zgłoszeniu, a&nbsp;dam znać, gdy tylko będzie potwierdzona.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">12</span><span class="faq-q">Czy cena obejmuje nocleg i wyżywienie?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Cena obejmuje udział w&nbsp;programie. Nocleg, dojazd i&nbsp;wyżywienie organizujesz we własnym zakresie. Szczegóły potwierdzimy wraz z&nbsp;informacją o miejscu.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-num">13</span><span class="faq-q">Co, jeśli nie jestem pewien, czy program jest dla mnie?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Wyślij zgłoszenie albo napisz do mnie przed decyzją. Formularz służy właśnie temu, żeby sprawdzić dopasowanie - odpowiadam osobiście i&nbsp;szczerze powiem, jeśli uznam, że to nie jest dobry moment.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 22. FINAL CTA ===================== -->
+<section class="final" aria-label="Zgłoszenie do programu">
+  <div class="final__shapes" aria-hidden="true">
+    <div class="final__shape-1 poly-3"><div class="grain grain--dark"></div></div>
+    <div class="final__shape-2 poly-1"><div class="grain grain--dark"></div></div>
+  </div>
+  <div class="frame">
+    <div class="final__inner reveal">
+      <h2 class="final__title">Nie potrzebujesz więcej ćwiczeń do <em>zapisania</em>.</h2>
+      <p class="final__body">Potrzebujesz sposobu, który pozwala widzieć więcej, podejmować lepsze decyzje i&nbsp;tworzyć realne warunki do uczenia.</p>
+      <p class="final__body" style="font-weight:600;color:var(--paper)">Dwa weekendy · lipiec i sierpień 2027 · Gdańsk · 30 godzin · maksymalnie 12 osób</p>
+      <p class="final__body" style="color:var(--paper)">4 490 zł · pierwsze 4 miejsca &nbsp;·&nbsp; 4 990 zł · cena regularna</p>
+      <div class="final__cta">
+        <a class="btn" href="#zgloszenie" data-cta="final">Zgłoś się do edycji 2027 <span class="arr">→</span></a>
+      </div>
+      <p class="meta" style="color:rgba(245,240,229,0.7);margin-top:0.5rem">Formularz nie zobowiązuje do płatności.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="frame">
+    <div class="footer__inner">
+      <div>Kreatywny Nauczyciel · 2027</div>
+      <div>Artur Chruszcz · <a href="mailto:kontakt@arturchruszcz.pl" data-track="email">kontakt@arturchruszcz.pl</a></div>
+      <div>Program dla nauczycieli ruchu</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== STICKY MOBILE CTA ===================== -->
+<div class="mobile-bar" aria-hidden="false">
+  <span class="mobile-bar__meta">Edycja 2027 · maks. 12 osób</span>
+  <a class="mobile-bar__cta" href="#zgloszenie" data-cta="mobile-bar">Zgłoś się</a>
+</div>
+
+<!-- ===================== STRUCTURED DATA ===================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Kreatywny Nauczyciel",
+  "description": "30-godzinny stacjonarny program rozwoju warsztatu dla doświadczonych nauczycieli jogi, pilatesu, ruchu, tańca i edukacji somatycznej. Dwa intensywne weekendy w lipcu i sierpniu 2027, maksymalnie 12 osób.",
+  "inLanguage": "pl",
+  "url": "https://arturporusza.pl/kreatywnynauczyciel/",
+  "provider": {
+    "@type": "Person",
+    "name": "Artur Chruszcz",
+    "url": "https://arturporusza.pl/"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "onsite",
+    "inLanguage": "pl",
+    "maximumAttendeeCapacity": 12,
+    "courseWorkload": "PT30H",
+    "location": {
+      "@type": "Place",
+      "name": "Gdańsk (dokładne miejsce wkrótce)",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gdańsk",
+        "addressCountry": "PL"
+      }
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Artur Chruszcz",
+  "url": "https://arturporusza.pl/",
+  "jobTitle": "Nauczyciel ruchu, certyfikowany praktyk metody Feldenkraisa",
+  "description": "Nauczyciel ruchu z ponad 13-letnim doświadczeniem, certyfikowany praktyk metody Feldenkraisa. Prowadzi program Kreatywny Nauczyciel dla nauczycieli ruchu i edukatorów somatycznych.",
+  "email": "kontakt@arturchruszcz.pl",
+  "knowsAbout": ["uczenie ruchu", "metoda Feldenkraisa", "edukacja somatyczna", "motor learning", "metodyka prowadzenia zajęć"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Czy program jest odpowiedni dla początkujących nauczycieli?","acceptedAnswer":{"@type":"Answer","text":"Jest pomyślany przede wszystkim dla osób z pewnym doświadczeniem, bo wiele ćwiczeń korzysta z realnych sytuacji z zajęć. Mniej doświadczeni nauczyciele mogą się zgłosić, jeśli obecnie prowadzą zajęcia lub pracują indywidualnie z ruchem."}},
+    {"@type":"Question","name":"Czy to kurs układania sekwencji?","acceptedAnswer":{"@type":"Answer","text":"Nie. Głównym tematem jest to, jak tworzyć warunki do uczenia, a nie jak budować bibliotekę sekwencji."}},
+    {"@type":"Question","name":"Czy trzeba znać metodę Feldenkraisa?","acceptedAnswer":{"@type":"Answer","text":"Nie. Znajomość metody Feldenkraisa nie jest potrzebna."}},
+    {"@type":"Question","name":"Czy można płacić w ratach?","acceptedAnswer":{"@type":"Answer","text":"Tak. Można zapłacić jednorazowo, w 2 lub 4 ratach bez dodatkowych kosztów. Harmonogram ustalamy po przyjęciu zgłoszenia."}},
+    {"@type":"Question","name":"Co dzieje się między weekendami?","acceptedAnswer":{"@type":"Answer","text":"Uczestnicy testują wybrane podejścia podczas własnych zajęć i przynoszą obserwacje na drugi weekend."}}
+  ]
+}
+</script>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  /* --- lightweight analytics helper (GA4 / dataLayer friendly) --- */
+  window.dataLayer = window.dataLayer || [];
+  function track(name, params) {
+    try {
+      window.dataLayer.push(Object.assign({ event: name }, params || {}));
+      if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+    } catch (e) {}
+  }
+
+  /* --- reveal on scroll --- */
+  (function() {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+
+  /* --- mobile nav toggle --- */
+  (function() {
+    var btn = document.getElementById('nav-toggle');
+    var panel = document.getElementById('nav-panel');
+    if (!btn || !panel) return;
+    btn.addEventListener('click', function() {
+      var open = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Zamknij' : 'Menu';
+    });
+    panel.addEventListener('click', function(e) {
+      if (e.target.closest('a')) {
+        panel.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = 'Menu';
+      }
+    });
+  })();
+
+  /* --- CTA + nav + contact tracking --- */
+  (function() {
+    document.querySelectorAll('[data-cta]').forEach(function(a) {
+      a.addEventListener('click', function() { track('cta_click', { location: a.getAttribute('data-cta') }); });
+    });
+    document.querySelectorAll('[data-nav]').forEach(function(a) {
+      a.addEventListener('click', function() { track('nav_click', { target: a.getAttribute('href') }); });
+    });
+    document.querySelectorAll('[data-track="email"]').forEach(function(a) {
+      a.addEventListener('click', function() { track('email_click'); });
+    });
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(a) {
+      a.addEventListener('click', function() { track('phone_click'); });
+    });
+    document.querySelectorAll('#faq-list details').forEach(function(d) {
+      d.addEventListener('toggle', function() { if (d.open) track('faq_expanded', { q: d.querySelector('.faq-q') ? d.querySelector('.faq-q').textContent : '' }); });
+    });
+  })();
+
+  /* --- section-in-view tracking (program timeline + pricing) --- */
+  (function() {
+    if (!('IntersectionObserver' in window)) return;
+    var once = {};
+    var targets = [
+      { el: document.getElementById('program'), ev: 'timeline_viewed' },
+      { el: document.getElementById('inwestycja'), ev: 'pricing_viewed' }
+    ];
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          var t = targets.filter(function(x){ return x.el === e.target; })[0];
+          if (t && !once[t.ev]) { once[t.ev] = true; track(t.ev); io.unobserve(e.target); }
+        }
+      });
+    }, { threshold: 0.2 });
+    targets.forEach(function(t){ if (t.el) io.observe(t.el); });
+  })();
+
+  /* --- application form: start, validation error, success (Netlify) --- */
+  (function() {
+    var form = document.getElementById('signup-form');
+    var success = document.getElementById('signup-success');
+    if (!form || !success) return;
+    var started = false;
+
+    form.addEventListener('input', function() {
+      if (!started) { started = true; track('application_form_started'); }
+    }, { once: false });
+
+    function encode(data) {
+      return Object.keys(data).map(function(k){ return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]); }).join('&');
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        track('application_form_error');
+        form.reportValidity();
+        var invalid = form.querySelector(':invalid');
+        if (invalid) invalid.focus();
+        return;
+      }
+      var submitBtn = form.querySelector('.signup-submit');
+      var originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Wysyłam... <span class="arr">→</span>';
+
+      var formData = new FormData(form);
+      var data = {};
+      formData.forEach(function(value, key){ data[key] = value; });
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode(data)
+      }).then(function(response) {
+        if (!response.ok) throw new Error('Network response was not ok');
+        track('application_submitted');
+        form.style.display = 'none';
+        success.classList.add('show');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }).catch(function(error) {
+        console.error('Form submission error:', error);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        alert('Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio: kontakt@arturchruszcz.pl');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
