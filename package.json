@@ -1,0 +1,21 @@
+{
+  "name": "arturporusza",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.4.1",
+    "@fontsource-variable/fraunces": "^5.2.6",
+    "@fontsource-variable/space-grotesk": "^5.2.6",
+    "astro": "^5.12.0",
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
+}

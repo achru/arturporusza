@@ -1,0 +1,312 @@
+@import './tokens.css';
+
+/* ============ baza ============ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--f-tekst);
+  font-weight: 300;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--m2);
+  color: var(--paper);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+strong {
+  font-weight: 500;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.7em 1.2em;
+}
+
+.skip:focus {
+  left: 0;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+/* ============ typografia ============ */
+
+h1,
+h2,
+h3 {
+  font-family: var(--f-display);
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+h1 {
+  font-size: clamp(2.3rem, 5.6vw, 4.2rem);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+}
+
+h1 em,
+h2 em,
+h3 em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.zloty {
+  color: var(--m2);
+}
+
+.kicker {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 1.3rem;
+}
+
+.lead {
+  font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+  color: var(--ink-soft);
+  max-width: 36em;
+}
+
+/* ============ przyciski, linki ============ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  background: var(--ink);
+  color: var(--paper);
+  font: 400 15px/1 var(--f-tekst);
+  letter-spacing: 0.02em;
+  padding: 0.95em 1.5em;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.btn:hover {
+  background: #3a403d;
+}
+
+.btn .strzalka {
+  transition: transform 0.25s ease;
+}
+
+.btn:hover .strzalka {
+  transform: translateX(4px);
+}
+
+.link-strzalka {
+  font: 400 15px var(--f-tekst);
+  text-decoration: none;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.link-strzalka .strzalka {
+  transition: transform 0.25s ease;
+}
+
+.link-strzalka:hover .strzalka {
+  transform: translateX(4px);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--m2);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============ plakietki typów i statusów ============ */
+
+.typ {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.typ::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--kolor-typu, var(--ink-soft));
+}
+
+.chip {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.4em 0.9em;
+  white-space: nowrap;
+}
+
+.chip.otwarty {
+  color: #7a5a06;
+  border: 1px solid var(--m2);
+  background: rgba(184, 134, 11, 0.08);
+}
+
+.chip.pilny {
+  color: var(--paper);
+  background: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.chip.neutral {
+  color: var(--ink-soft);
+  border: 1px solid var(--linia);
+}
+
+/* ============ formularz newslettera ============ */
+
+.ml-form {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.ml-form input[type='email'] {
+  flex: 1 1 230px;
+  font: 300 16px var(--f-tekst);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--linia);
+  border-radius: 999px;
+  padding: 0.95em 1.35em;
+}
+
+.ml-form input[type='email']::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.75;
+}
+
+.ml-form .bot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.ml-komunikat {
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  min-height: 1.4em;
+}
+
+.ml-komunikat.ok {
+  color: var(--m1);
+  font-weight: 400;
+}
+
+.ml-komunikat.blad {
+  color: var(--m3);
+}
+
+.drobne {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 0.7rem;
+}
+
+/* ============ sekcje ============ */
+
+section {
+  padding-block: clamp(4rem, 8vw, 7rem);
+  scroll-margin-top: 5rem;
+}
+
+.sekcja-krecha {
+  border-top: 1px solid var(--linia);
+}
+
+/* ============ wejścia sekcji ============ */
+
+/* Ukrywamy do animacji wyłącznie przy działającym JS (html.js z Base.astro) —
+   bez JS strona jest w pełni widoczna. */
+html.js [data-reveal] {
+  opacity: 0;
+  translate: 0 24px;
+  transition: opacity 640ms cubic-bezier(0.22, 1, 0.36, 1),
+    translate 640ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+html.js [data-reveal].in {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets';
+import portret from '../assets/photos/arturportretyswietlica-7.jpg';
+---
+
+<section id="omnie" aria-label="O mnie">
+  <div class="wrap omnie-siatka">
+    <figure class="foto" data-reveal>
+      <Image
+        src={portret}
+        alt="Artur Chruszcz leży na macie na podłodze jasnej sali i patrzy w obiektyw"
+        width={820}
+        widths={[360, 560, 820]}
+        sizes="(max-width: 860px) 92vw, 38vw"
+        loading="lazy"
+      />
+    </figure>
+    <div class="omnie-tekst" data-reveal>
+      <p class="kicker">O mnie</p>
+      <h2>Artur Chruszcz</h2>
+      <p>
+        Uczę metodą Feldenkraisa od trzynastu lat: ponad pięciuset klientów
+        indywidualnych, sto z górą warsztatów, kilkanaście wyjazdów. Drugą nogą
+        stoję w inżynierii oprogramowania — stąd słabość do systemów, które da
+        się zrozumieć.
+      </p>
+      <p>
+        Mniej mnie interesuje, jak ruch wygląda. A bardziej — czego przy okazji
+        się uczysz i co potem z tym robisz, kiedy dzień robi się nieprzewidywalny.
+      </p>
+      <p class="podpis">Artur</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .omnie-siatka {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  @media (max-width: 860px) {
+    .omnie-siatka {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .foto {
+    aspect-ratio: 4 / 5;
+    border-radius: 16px;
+    border: 1px solid var(--linia);
+    overflow: hidden;
+  }
+
+  .foto :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .omnie-tekst h2 {
+    margin-bottom: 1.25rem;
+  }
+
+  .omnie-tekst p {
+    color: var(--ink-soft);
+  }
+
+  .omnie-tekst p + p {
+    margin-top: 1.05rem;
+  }
+
+  .omnie-tekst .podpis {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.45rem;
+    color: var(--ink);
+    margin-top: 1.6rem;
+  }
+</style>

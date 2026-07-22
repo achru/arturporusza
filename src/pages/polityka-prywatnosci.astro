@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+import Footer from '../components/Footer.astro';
+import { CONTACT, LEGAL } from '../config';
+---
+
+<Base
+  title="Polityka prywatności — Artur Porusza"
+  description="Polityka prywatności serwisu arturporusza.pl - zasady przetwarzania danych zapisanych do newslettera."
+>
+  <main id="tresc" class="wrap policy">
+    <p class="kicker"><a href="/">← arturporusza.pl</a></p>
+    <h1>Polityka prywatności</h1>
+    <p class="policy-note">
+      Szkic do uzupełnienia przed startem produkcyjnym - fragmenty w nawiasach
+      kwadratowych wymagają danych (JDG, ewentualna analityka).
+    </p>
+
+    <h2>1. Administrator danych</h2>
+    <p>
+      Administratorem danych osobowych jest {LEGAL.owner}
+      {LEGAL.company && ` prowadzący działalność gospodarczą ${LEGAL.company}`}
+      {LEGAL.nip && ` (NIP ${LEGAL.nip})`}
+      {LEGAL.address ? `, ${LEGAL.address}.` : ` [adres do uzupełnienia].`}
+      Kontakt: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
+    </p>
+
+    <h2>2. Newsletter</h2>
+    <p>
+      Zapisując się na newsletter, podajesz adres e-mail, który przetwarzam w celu
+      wysyłki listów (podstawa: zgoda, art. 6 ust. 1 lit. a RODO). Zapis wymaga
+      potwierdzenia mailem (double opt-in). Zgodę możesz wycofać w każdej chwili -
+      link do wypisania się znajduje się w każdym liście. Wysyłkę obsługuje
+      MailerLite, któremu powierzam przetwarzanie adresów.
+    </p>
+
+    <h2>3. Kontakt mailowy</h2>
+    <p>
+      Gdy piszesz do mnie w sprawie zajęć lub sesji, przetwarzam Twoje dane w
+      zakresie potrzebnym do odpowiedzi i umówienia spotkania (art. 6 ust. 1
+      lit. b i f RODO).
+    </p>
+
+    <h2>4. Cookies i analityka</h2>
+    <p>
+      Strona nie używa cookies ani narzędzi śledzących. [Jeśli dojdzie analityka
+      bezcookiesowa (Plausible/Umami) - opisać tutaj.]
+    </p>
+
+    <h2>5. Twoje prawa</h2>
+    <p>
+      Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia
+      przetwarzania oraz wniesienia skargi do Prezesa UODO.
+    </p>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .policy {
+    max-width: 46rem;
+    padding-block: clamp(3rem, 7vw, 6rem);
+  }
+
+  .policy h1 {
+    margin-block: 1rem 1.5rem;
+  }
+
+  .policy h2 {
+    font-size: 1.4rem;
+    margin-block: 2.2rem 0.7rem;
+  }
+
+  .policy p {
+    color: var(--ink-soft);
+  }
+
+  .policy a {
+    color: var(--m1);
+  }
+
+  .policy-note {
+    font-size: 0.9rem;
+    color: var(--m3);
+    border: 1px dashed var(--m3);
+    border-radius: 12px;
+    padding: 0.8rem 1.1rem;
+  }
+</style>

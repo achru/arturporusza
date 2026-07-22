@@ -1,0 +1,131 @@
+---
+import NewsletterForm from './NewsletterForm.astro';
+---
+
+<section class="hero" aria-label="Wstęp">
+  <div class="wrap">
+    <p class="kicker" data-anim>Praktyka ruchu i uczenia się · Gdańsk / online</p>
+    <h1 data-anim>
+      Świat zmienia się szybciej niż twoje sposoby na niego.<br />
+      <em>A sposobów można się <span class="zloty">uczyć</span>.</em>
+    </h1>
+    <p class="lead" data-anim>
+      Jestem nauczycielem metody Feldenkraisa. Prowadzę warsztaty, cykle
+      i&nbsp;wyjazdy, na których ruch służy do uczenia się: jak spotykać
+      niepewność z&nbsp;zasobami i&nbsp;przechodzić od niejasności do klarowności.
+    </p>
+
+    <!-- linia: błądzi i zapętla się (niejasność), potem rozgałęzia w wiele dróg (zasoby) -->
+    <svg
+      class="linia-hero"
+      viewBox="0 0 1200 400"
+      role="img"
+      aria-label="Rysunek linii, która błądzi, a potem rozgałęzia się w cztery wyraźne drogi"
+      data-anim
+    >
+      <path
+        class="rys glowna"
+        d="M -10 305 C 90 300, 130 215, 205 222 C 265 228, 302 302, 252 324 C 206 344, 194 276, 250 258 C 322 236, 378 302, 458 282 C 538 262, 560 212, 640 202 C 698 195, 730 196, 758 196"
+        stroke="#565b56"
+        stroke-width="2.6"></path>
+      <path class="rys galaz" d="M 758 196 C 880 152, 1000 92, 1138 62" stroke="#1F5A5A" stroke-width="2.3" opacity=".9"></path>
+      <path class="rys galaz" d="M 758 196 C 882 182, 1012 156, 1142 142" stroke="#B8860B" stroke-width="2.3" opacity=".9"></path>
+      <path class="rys galaz" d="M 758 196 C 882 212, 1012 232, 1142 238" stroke="#A0522D" stroke-width="2.3" opacity=".9"></path>
+      <path class="rys galaz" d="M 758 196 C 880 246, 1000 292, 1138 322" stroke="#5F7052" stroke-width="2.3" opacity=".9"></path>
+      <circle class="kropka" cx="1138" cy="62" r="5" fill="#1F5A5A"></circle>
+      <circle class="kropka" cx="1142" cy="142" r="5" fill="#B8860B"></circle>
+      <circle class="kropka" cx="1142" cy="238" r="5" fill="#A0522D"></circle>
+      <circle class="kropka" cx="1138" cy="322" r="5" fill="#5F7052"></circle>
+    </svg>
+
+    <div class="hero-news" data-anim>
+      <p class="naglowek">Zacznij od newslettera</p>
+      <p class="opis-news">
+        Raz w tygodniu jeden pomysł do wypróbowania — o ruchu i uczeniu się.
+        Konkret zamiast wellnessowej waty.
+      </p>
+      <NewsletterForm />
+      <p class="drobne">Wypiszesz się jednym kliknięciem. Żadnych odsprzedanych adresów.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Rysowanie linii w hero po załadowaniu strony.
+  const zredukowanyRuch = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!zredukowanyRuch) {
+    try {
+      const sciezki = document.querySelectorAll<SVGPathElement>('.linia-hero .rys');
+      const kropki = document.querySelectorAll<SVGCircleElement>('.linia-hero .kropka');
+      sciezki.forEach((p) => {
+        const L = p.getTotalLength();
+        p.style.strokeDasharray = String(L);
+        p.style.strokeDashoffset = String(L);
+      });
+      kropki.forEach((k) => (k.style.opacity = '0'));
+      requestAnimationFrame(() => {
+        sciezki.forEach((p, i) => {
+          const glowna = p.classList.contains('glowna');
+          p.style.transition = `stroke-dashoffset ${glowna ? 1700 : 900}ms ease ${glowna ? 300 : 1750 + i * 140}ms`;
+          p.style.strokeDashoffset = '0';
+        });
+        kropki.forEach((k, i) => {
+          k.style.transition = `opacity 500ms ease ${2550 + i * 140}ms`;
+          k.style.opacity = '1';
+        });
+      });
+    } catch {
+      /* zostaw linię statycznie */
+    }
+  }
+</script>
+
+<style>
+  .hero {
+    padding: clamp(7rem, 14vh, 10rem) 0 clamp(3.5rem, 7vw, 5.5rem);
+  }
+
+  .hero h1 {
+    max-width: 15em;
+    margin-bottom: 1.4rem;
+  }
+
+  .hero .lead {
+    margin-bottom: 0.5rem;
+  }
+
+  .linia-hero {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: clamp(1rem, 3vw, 2rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .linia-hero path {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .hero-news {
+    max-width: 640px;
+    background: var(--paper-deep);
+    border: 1px solid var(--linia);
+    border-radius: 16px;
+    padding: 1.6rem 1.7rem;
+  }
+
+  .hero-news .naglowek {
+    font: 400 13px/1 var(--f-tekst);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--m2);
+    margin-bottom: 0.7rem;
+  }
+
+  .hero-news .opis-news {
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+  }
+</style>

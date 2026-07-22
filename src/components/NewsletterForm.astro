@@ -1,0 +1,91 @@
+---
+// Formularz zapisu do MailerLite. Skrypt obsługuje wszystkie instancje
+// (.ml-form) na stronie — Astro dokleja go tylko raz.
+import { MAILERLITE, CONTACT } from '../config';
+
+interface Props {
+  maxWidth?: string;
+}
+const { maxWidth } = Astro.props;
+---
+
+<form
+  class="ml-form"
+  novalidate
+  style={maxWidth ? `max-width:${maxWidth}` : undefined}
+  data-ml-account={MAILERLITE.accountId}
+  data-ml-form={MAILERLITE.formId}
+  data-email={CONTACT.email}
+>
+  <label class="bot" aria-hidden="true">
+    Nie wypełniaj tego pola <input type="text" name="botcheck" tabindex="-1" autocomplete="off" />
+  </label>
+  <input
+    type="email"
+    name="email"
+    placeholder="twój adres e-mail"
+    required
+    autocomplete="email"
+    inputmode="email"
+    aria-label="Adres e-mail"
+  />
+  <button class="btn" type="submit">Zapisuję się <span class="strzalka">→</span></button>
+</form>
+<p class="ml-komunikat" role="status" aria-live="polite"></p>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('.ml-form').forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const komunikat = form.parentElement!.querySelector('.ml-komunikat')!;
+      const email = (form.querySelector<HTMLInputElement>('input[name="email"]')!.value || '').trim();
+      const bot = form.querySelector<HTMLInputElement>('input[name="botcheck"]')!.value;
+      const { mlAccount, mlForm, email: kontakt } = form.dataset;
+
+      function pokaz(tekst: string, klasa: string) {
+        komunikat.textContent = tekst;
+        komunikat.className = `ml-komunikat ${klasa}`;
+      }
+
+      if (bot) {
+        pokaz('Prawie gotowe — sprawdź skrzynkę.', 'ok');
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        pokaz('Ten adres wygląda na niepełny — sprawdź go.', 'blad');
+        return;
+      }
+      if (!mlAccount || !mlForm) {
+        pokaz(`Zapisy ruszą lada moment. Do tego czasu napisz do mnie: ${kontakt}`, 'blad');
+        return;
+      }
+
+      const przycisk = form.querySelector('button')!;
+      przycisk.disabled = true;
+      pokaz('Zapisuję…', '');
+
+      const url = `https://assets.mailerlite.com/jsonp/${mlAccount}/forms/${mlForm}/subscribe`;
+      const dane = new URLSearchParams();
+      dane.append('fields[email]', email);
+      dane.append('ml-submit', '1');
+      dane.append('anticsrf', 'true');
+
+      fetch(url, { method: 'POST', body: dane })
+        .then((r) => r.json())
+        .then((odp) => {
+          if (odp && odp.success) {
+            form.reset();
+            pokaz('Prawie gotowe — sprawdź skrzynkę i kliknij potwierdzenie.', 'ok');
+          } else {
+            pokaz(`Nie udało się zapisać. Spróbuj ponownie albo napisz: ${kontakt}`, 'blad');
+          }
+        })
+        .catch(() => {
+          pokaz(`Nie udało się zapisać. Spróbuj ponownie albo napisz: ${kontakt}`, 'blad');
+        })
+        .finally(() => {
+          przycisk.disabled = false;
+        });
+    });
+  });
+</script>

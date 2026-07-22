@@ -1,0 +1,102 @@
+---
+import { CONTACT } from '../config';
+
+const sesjeHref =
+  CONTACT.sesjeLink ||
+  `mailto:${CONTACT.email}?subject=${encodeURIComponent('Sesja indywidualna')}`;
+---
+
+<section id="sesje" class="pas" aria-label="Praca indywidualna">
+  <div class="wrap sesje-siatka">
+    <div class="sesje-tekst" data-reveal>
+      <p class="kicker">Praca indywidualna</p>
+      <h2>Lekcje <em>indywidualne</em></h2>
+      <p>
+        Na zajęciach grupowych prowadzę uwagę słowami. A na sesji indywidualnej —
+        także dotykiem: praca w ciszy, w twoim tempie, wokół pytania, które
+        przynosisz. Na przykład siedzenie, po którym trudno się wyprostować. Albo
+        ruch, który kiedyś był prosty, a przestał.
+      </p>
+      <p>Pierwsze spotkanie kończy się konkretem: co dalej i po czym poznasz zmianę.</p>
+    </div>
+    <aside class="sesje-info" data-reveal>
+      <div class="rzad"><span class="etykieta">Gdzie</span><span>Gdańsk / online</span></div>
+      <div class="rzad"><span class="etykieta">Czas</span><span>ok. 60 minut</span></div>
+      <div class="rzad"><span class="etykieta">Forma</span><span>w ubraniu, bez przygotowania</span></div>
+      <a class="btn" href={sesjeHref}>Umów sesję <span class="strzalka">→</span></a>
+      <p class="drobne">Odpowiadam zwykle w 1–2 dni robocze.</p>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .pas {
+    background: var(--paper-deep);
+    border-block: 1px solid var(--linia);
+  }
+
+  .sesje-siatka {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(2rem, 4.5vw, 4rem);
+    align-items: center;
+  }
+
+  @media (max-width: 860px) {
+    .sesje-siatka {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .sesje-tekst h2 {
+    margin-bottom: 1.25rem;
+  }
+
+  .sesje-tekst p {
+    color: var(--ink-soft);
+  }
+
+  .sesje-tekst p + p {
+    margin-top: 1.05rem;
+  }
+
+  .sesje-info {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--linia);
+    border-radius: 16px;
+    padding: 1.4rem 1.5rem 1.5rem;
+  }
+
+  .sesje-info .rzad {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    border-top: 1px solid var(--linia);
+    font-size: 0.94rem;
+  }
+
+  .sesje-info .rzad:first-child {
+    border-top: none;
+    padding-top: 0.15rem;
+  }
+
+  .sesje-info .etykieta {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    align-self: center;
+  }
+
+  .sesje-info .btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1.15rem;
+  }
+
+  .sesje-info :global(.drobne) {
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+</style>

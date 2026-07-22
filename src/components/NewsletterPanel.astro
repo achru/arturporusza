@@ -1,0 +1,104 @@
+---
+import NewsletterForm from './NewsletterForm.astro';
+---
+
+<section id="newsletter" class="news-duzy" aria-label="Newsletter">
+  <div class="wrap">
+    <div class="news-panel" data-reveal>
+      <svg class="linia-rogu" viewBox="0 0 300 160" aria-hidden="true">
+        <path d="M 0 130 C 70 118, 120 96, 170 80 C 210 67, 250 45, 296 24" stroke-width="2"></path>
+        <path d="M 170 80 C 215 84, 255 92, 298 104" stroke-width="1.6" opacity=".7"></path>
+      </svg>
+      <p class="kicker">Newsletter</p>
+      <h2>Jeden pomysł <em>tygodniowo</em>.</h2>
+      <p class="lead">
+        Piszę o tym, jak drobna zmiana w sposobie ruchu zmienia sposób działania.
+        Praktycznie i po polsku — do wypróbowania tego samego dnia.
+      </p>
+      <NewsletterForm maxWidth="540px" />
+      <p class="czytaja">Czytają mnie nauczyciele ruchu i ludzie, którzy dużo siedzą.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .news-duzy {
+    padding-block: 0;
+  }
+
+  .news-panel {
+    background: var(--m1);
+    color: var(--paper);
+    border-radius: 20px;
+    padding: clamp(2.4rem, 5.5vw, 4rem);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .news-panel .kicker {
+    color: rgba(239, 237, 230, 0.65);
+  }
+
+  .news-panel h2 {
+    max-width: 13em;
+  }
+
+  .news-panel .lead {
+    color: rgba(239, 237, 230, 0.75);
+    margin: 1.1rem 0 2rem;
+  }
+
+  .news-panel :global(.ml-form input[type='email']) {
+    background: rgba(239, 237, 230, 0.12);
+    border-color: rgba(239, 237, 230, 0.3);
+    color: var(--paper);
+  }
+
+  .news-panel :global(.ml-form input[type='email']::placeholder) {
+    color: rgba(239, 237, 230, 0.6);
+  }
+
+  .news-panel :global(.ml-form .btn) {
+    background: var(--m2);
+    border-color: var(--m2);
+    color: #241d05;
+    font-weight: 400;
+  }
+
+  .news-panel :global(.ml-form .btn:hover) {
+    background: #cf9c1f;
+  }
+
+  .news-panel :global(.drobne) {
+    color: rgba(239, 237, 230, 0.55);
+  }
+
+  .news-panel :global(.ml-komunikat.ok) {
+    color: #e9c96a;
+  }
+
+  .news-panel :global(.ml-komunikat.blad) {
+    color: #e6b4a0;
+  }
+
+  .linia-rogu {
+    position: absolute;
+    right: -10px;
+    bottom: -6px;
+    width: min(300px, 40%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .linia-rogu path {
+    fill: none;
+    stroke: var(--paper);
+    stroke-linecap: round;
+  }
+
+  .czytaja {
+    margin-top: 1.8rem;
+    font-size: 0.88rem;
+    color: rgba(239, 237, 230, 0.6);
+  }
+</style>

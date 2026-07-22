@@ -1,0 +1,122 @@
+---
+import { CONTACT, LEGAL } from '../config';
+
+const year = new Date().getFullYear();
+const legalLine = [LEGAL.company, LEGAL.nip && `NIP ${LEGAL.nip}`, LEGAL.address]
+  .filter(Boolean)
+  .join(' · ');
+---
+
+<footer>
+  <div class="stopka-wrap">
+    <div class="stopka-gora">
+      <h2>Masz pytanie o zajęcia?<br /><em>Napisz.</em></h2>
+      <div class="stopka-kolumny">
+        <div>
+          <h4>Kontakt</h4>
+          <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+        </div>
+        <div>
+          <h4>Obserwuj</h4>
+          <a href={CONTACT.instagram} target="_blank" rel="me noopener">Instagram</a>
+          {CONTACT.youtube && <a href={CONTACT.youtube} target="_blank" rel="me noopener">YouTube</a>}
+        </div>
+        <div>
+          <h4>Więcej</h4>
+          <a href={CONTACT.platforma} target="_blank" rel="noopener">FeldenkraisOnline.pl</a>
+          <a href="/polityka-prywatnosci/">Polityka prywatności</a>
+        </div>
+      </div>
+    </div>
+    <p class="wielki-napis" aria-hidden="true">porusza.</p>
+    <hr class="stopka-linia" aria-hidden="true" />
+    <div class="stopka-dol">
+      <span>© {year} {LEGAL.owner} · {CONTACT.city}{legalLine && ` · ${legalLine}`}</span>
+      <span>Od niejasności do klarowności.</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--ink);
+    color: var(--paper);
+    margin-top: clamp(4rem, 8vw, 7rem);
+  }
+
+  .stopka-wrap {
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding: 4rem var(--pad) 2.2rem;
+  }
+
+  .stopka-gora {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .stopka-gora h2 {
+    max-width: 12em;
+  }
+
+  .stopka-kolumny {
+    display: flex;
+    gap: clamp(2rem, 5vw, 4rem);
+    flex-wrap: wrap;
+  }
+
+  .stopka-kolumny h4 {
+    font: 400 12px var(--f-tekst);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(239, 237, 230, 0.55);
+    margin-bottom: 0.85rem;
+  }
+
+  .stopka-kolumny a {
+    display: block;
+    text-decoration: none;
+    color: var(--paper);
+    font-size: 0.94rem;
+    padding: 0.22rem 0;
+    opacity: 0.85;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .stopka-kolumny a:hover {
+    opacity: 1;
+    color: var(--m2);
+  }
+
+  .wielki-napis {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(3.6rem, 13vw, 10rem);
+    line-height: 1;
+    text-align: center;
+    color: rgba(239, 237, 230, 0.14);
+    margin: 3.6rem 0 1rem;
+    user-select: none;
+  }
+
+  .stopka-linia {
+    height: 1px;
+    background: var(--m2);
+    border: none;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .stopka-dol {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: rgba(239, 237, 230, 0.5);
+  }
+</style>

@@ -1,0 +1,89 @@
+---
+---
+
+<header class="nav" id="gora">
+  <div class="nav-wrap">
+    <a class="logo" href="#gora">Artur Porusza</a>
+    <nav class="nav-linki" aria-label="Główna nawigacja">
+      <a href="#zapisy">Zapisy</a>
+      <a href="#kalendarz">Kalendarz</a>
+      <a href="#sesje">Indywidualnie</a>
+      <a href="#praktyka">O praktyce</a>
+      <a href="#omnie">O mnie</a>
+      <a class="btn" href="#newsletter">Newsletter</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const nav = document.querySelector('.nav')!;
+  function stanNav() {
+    nav.classList.toggle('przewinieta', window.scrollY > 24);
+  }
+  stanNav();
+  window.addEventListener('scroll', stanNav, { passive: true });
+</script>
+
+<style>
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 50;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Uwaga: bez backdrop-filter — blur na fixed elemencie potrafi zawiesić
+     kompozytor Chrome (podobnie jak kafelek feTurbulence). Kryjące tło
+     daje ten sam efekt wizualny. */
+  .nav:global(.przewinieta) {
+    background: rgba(239, 237, 230, 0.95);
+    box-shadow: 0 1px 0 var(--linia);
+  }
+
+  .nav-wrap {
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding: 18px var(--pad);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 19px;
+    text-decoration: none;
+  }
+
+  .nav-linki {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+
+  .nav-linki a:not(.btn) {
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.2s ease;
+  }
+
+  .nav-linki a:not(.btn):hover {
+    border-color: var(--ink);
+  }
+
+  .nav .btn {
+    padding: 0.7em 1.2em;
+    font-size: 14px;
+  }
+
+  @media (max-width: 860px) {
+    .nav-linki a:not(.btn) {
+      display: none;
+    }
+  }
+</style>

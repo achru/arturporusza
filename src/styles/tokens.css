@@ -1,0 +1,31 @@
+/* ============================================================
+   Tokeny design systemu „Artur Porusza" — jak w „Można inaczej":
+   papier, atrament, cztery semantyczne akcenty.
+   Współdzielone przez stronę główną i podstrony kursowe.
+   ============================================================ */
+
+:root {
+  color-scheme: light;
+
+  /* — papier i atrament — */
+  --paper: #efede6;
+  --paper-deep: #e6e3da;
+  --ink: #232826;
+  --ink-soft: #565b56;
+
+  /* — akcenty semantyczne — */
+  --m1: #1f5a5a; /* morska zieleń  • cykle        */
+  --m2: #b8860b; /* złoty          • sygnał, CTA  */
+  --m3: #a0522d; /* siena          • warsztaty    */
+  --m4: #5f7052; /* szałwia        • wyjazdy      */
+
+  --linia: rgba(35, 40, 38, 0.16);
+
+  /* — typografia — */
+  --f-display: 'Fraunces Variable', 'Fraunces', Georgia, serif;
+  --f-tekst: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
+
+  /* — rytm — */
+  --maxw: 1060px;
+  --pad: clamp(1.25rem, 4vw, 2.5rem);
+}
