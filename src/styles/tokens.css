@@ -1,7 +1,8 @@
 /* ============================================================
-   Tokeny design systemu „Artur Porusza" — jak w „Można inaczej":
-   papier, atrament, cztery semantyczne akcenty.
-   Współdzielone przez stronę główną i podstrony kursowe.
+   Tokeny design systemu „Artur Porusza".
+   Estetyka: nowoczesny magazyn / niezależne studio edukacyjne.
+   Ciepłe off-white + prawie czarny atrament + przygaszony fiolet
+   i lawenda jako akcent. Złoto służy WYŁĄCZNIE CTA i statusom.
    ============================================================ */
 
 :root {
@@ -10,22 +11,30 @@
   /* — papier i atrament — */
   --paper: #efede6;
   --paper-deep: #e6e3da;
-  --ink: #232826;
-  --ink-soft: #565b56;
+  --ink: #23221d;
+  --ink-soft: #5b5950;
 
-  /* — akcenty semantyczne — */
-  --m1: #1f5a5a; /* morska zieleń  • cykle        */
-  --m2: #b8860b; /* złoty          • sygnał, CTA  */
-  --m3: #a0522d; /* siena          • warsztaty    */
-  --m4: #5f7052; /* szałwia        • wyjazdy      */
+  /* — akcenty (detale, linie, diagramy, typy wydarzeń) — */
+  --akcent: #6e6390; /* przygaszony fiolet */
+  --akcent-deep: #524a75; /* panel newslettera, mocniejsze tło */
+  --lawenda: #a79bc7;
+  --blekit: #6f8da2; /* chłodny błękit wspierający */
 
-  --linia: rgba(35, 40, 38, 0.16);
+  /* — kolor działania: WYŁĄCZNIE CTA i statusy zapisów — */
+  --cta: #b8860b;
+  --cta-hover: #cf9c1f;
+  --cta-tekst: #241d05;
+
+  --linia: rgba(35, 34, 29, 0.16);
 
   /* — typografia — */
   --f-display: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   --f-tekst: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
 
   /* — rytm — */
-  --maxw: 1060px;
+  --maxw: 1100px;
   --pad: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* — detale — */
+  --radius: 10px; /* oszczędnie z zaokrągleniami */
 }

@@ -1,5 +1,5 @@
 {
-  "_komentarz": "Jedyne miejsce edycji wydarzeń: aktualizacja = jeden diff, commit, deploy. Pola: typ 'warsztat'|'cykl'|'wyjazd'; data RRRR-MM-DD (po tej dacie wydarzenie znika przy buildzie i u klienta); dataTekst - zapis pokazywany ludziom; status - tekst plakietki (slowa 'otwarte/przedsprzedaż/wczesne' dają złotą, 'ostatnie/brak' ciemną); link pusty = przycisk otwiera e-mail; wyrozniony true = duża karta w sekcji 'Zapisy trwają'.",
+  "_komentarz": "Jedyne miejsce edycji wydarzeń: aktualizacja = jeden diff, commit, deploy. Pola: typ 'warsztat'|'cykl'|'wyjazd'; data RRRR-MM-DD (po tej dacie wpis znika przy buildzie i u klienta); dataTekst - zapis pokazywany ludziom; obietnica - JEDNO zdanie na kartę wyróżnioną; opis - 1-2 zdania do kalendarza; status - tekst plakietki ('otwarte/przedsprzedaż/wczesne' = złota, 'ostatnie/brak' = ciemna); link pusty = przycisk otwiera e-mail; wyrozniony true = karta w sekcji 'Zapisy trwają' (pierwsza = główna, max 2 pokazywane); nauczyciele true = filtr 'Dla nauczycieli'.",
   "wydarzenia": [
     {
       "typ": "cykl",
@@ -8,10 +8,12 @@
       "data": "2026-08-31",
       "dataTekst": "start: 31 sierpnia 2026",
       "miejsce": "online, na żywo",
-      "opis": "Systematyczna praca nad tym, jak się uczysz — w ruchu i poza nim. Cztery moduły rozłożone na rok, w rytmie do utrzymania obok pracy i życia.",
+      "obietnica": "Systematyczna praca nad tym, jak się uczysz — w rytmie do utrzymania obok pracy i życia.",
+      "opis": "Cztery moduły rozłożone na rok: ruch, uwaga i uczenie się, tydzień po tygodniu.",
       "status": "zapisy otwarte",
       "link": "https://feldenkraisonline.pl",
-      "wyrozniony": true
+      "wyrozniony": true,
+      "nauczyciele": false
     },
     {
       "typ": "wyjazd",
@@ -20,10 +22,12 @@
       "data": "2026-10-08",
       "dataTekst": "8–11 października 2026",
       "miejsce": "Mazury",
-      "opis": "Cztery dni na styku Feldenkraisa i improwizacji ruchowej, współprowadzone z Agnieszką Sikorską. Mniej instrukcji, więcej badania.",
+      "obietnica": "Cztery dni na styku Feldenkraisa i improwizacji ruchowej — mniej instrukcji, więcej badania.",
+      "opis": "Wyjazd współprowadzony z Agnieszką Sikorską: ruch, improwizacja i woda.",
       "status": "wczesne zapisy do 31.08",
       "link": "",
-      "wyrozniony": true
+      "wyrozniony": true,
+      "nauczyciele": false
     },
     {
       "typ": "warsztat",
@@ -31,10 +35,12 @@
       "data": "2026-09-05",
       "dataTekst": "sobota, 5 września 2026",
       "miejsce": "Gdańsk + online",
-      "opis": "Trzy godziny wokół bioder i miednicy: jak siedzenie i chodzenie robią się lżejsze, kiedy przestajesz je trzymać.",
+      "obietnica": "Trzy godziny wokół bioder i miednicy — siedzenie i chodzenie mogą kosztować mniej.",
+      "opis": "Jak siedzenie i chodzenie robią się lżejsze, kiedy przestajesz je trzymać.",
       "status": "ostatnie miejsca",
       "link": "",
-      "wyrozniony": false
+      "wyrozniony": false,
+      "nauczyciele": false
     },
     {
       "typ": "cykl",
@@ -42,10 +48,12 @@
       "data": "2026-09-14",
       "dataTekst": "start: 14 września 2026",
       "miejsce": "online",
-      "opis": "Cotygodniowa lekcja na żywo plus nagranie. Godzina powolnego ruchu, po której inaczej siada się do biurka.",
+      "obietnica": "Godzina powolnego ruchu co tydzień — na żywo albo z nagrania.",
+      "opis": "Cotygodniowa lekcja na żywo plus nagranie, po której inaczej siada się do biurka.",
       "status": "lista oczekujących",
       "link": "",
-      "wyrozniony": false
+      "wyrozniony": false,
+      "nauczyciele": false
     },
     {
       "typ": "cykl",
@@ -53,10 +61,12 @@
       "data": "2026-10-01",
       "dataTekst": "start: październik 2026",
       "miejsce": "online",
-      "opis": "Program dla uczących ruchu: jak projektować lekcje, które uczą, a nie tylko ćwiczą.",
+      "obietnica": "Jak projektować lekcje, które uczą, a nie tylko ćwiczą.",
+      "opis": "Program dla uczących ruchu: projektowanie lekcji rozwijających uczenie się.",
       "status": "zapisy otwarte",
       "link": "https://kreatywnynauczyciel.arturchruszcz.pl",
-      "wyrozniony": false
+      "wyrozniony": false,
+      "nauczyciele": true
     }
   ]
 }

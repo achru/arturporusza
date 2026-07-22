@@ -1,112 +1,135 @@
 ---
+const kroki = [
+  {
+    tytul: 'Zaczynamy od prostego ruchu lub pytania',
+    opis: 'Na przykład: jak sięgasz, jak się obracasz, jak wstajesz. Nic, do czego trzeba się przygotowywać.',
+  },
+  {
+    tytul: 'Zmieniamy warunki',
+    opis: 'Tempo, kierunek, organizację ruchu albo sposób kierowania uwagi. Ten sam ruch przestaje być oczywisty.',
+  },
+  {
+    tytul: 'Porównujesz możliwości',
+    opis: 'Zauważasz, co daje większą swobodę lub klarowność — i to porównanie, nie instrukcja, robi robotę.',
+  },
+];
 ---
 
-<section id="praktyka" class="sekcja-krecha" aria-label="O praktyce">
+<section id="praktyka" class="sekcja-krecha" aria-label="Jak wygląda praktyka">
   <div class="wrap">
-    <p class="kicker" data-reveal>O praktyce</p>
-    <h2 data-reveal>Zasoby na spotkanie z&nbsp;<em>niepewnością</em></h2>
-    <div class="praktyka-siatka">
-      <div class="proza" data-reveal>
-        <p>
-          Metoda Feldenkraisa bywa mylona z gimnastyką albo relaksacją. A&nbsp;jest
-          bliżej <strong>laboratorium</strong>: prosty ruch i pytania, które
-          kierują uwagę. Na małej, bezpiecznej skali trenujesz to, czego świat
-          wymaga na dużej — działanie tam, gdzie nie ma gotowej instrukcji.
-        </p>
-        <p>
-          Ruszamy się powoli i mało, bo przy niskim wysiłku łatwiej zauważać
-          różnice. A <strong>różnica to jednostka uczenia się</strong>: z niej
-          powstają nowe opcje. Tak rośnie adaptacyjność — i&nbsp;to, co lubimy
-          nazywać odpornością, a co jest raczej sprężystością.
-        </p>
-        <p>
-          Tę pracę łączę z terapią akceptacji i zaangażowania (ACT). Feldenkrais
-          to dla mnie <strong>ACT w ruchu</strong>: praktyka elastyczności
-          psychologicznej, którą się robi, a nie tylko rozumie. Celem nie jest
-          lepszy stan, tylko większy wybór — szerszy repertuar odpowiedzi na to,
-          co przynosi dzień.
-        </p>
-      </div>
-      <aside class="nie-ma" data-reveal>
-        <h3>Czego u mnie <em>nie</em> znajdziesz</h3>
-        <ul>
-          <li>obietnic transformacji w jeden weekend</li>
-          <li>„jednego prostego triku" na cokolwiek</li>
-          <li>rozciągania na siłę i zaciskania zębów</li>
-          <li>mówienia do ciebie jak do dziecka</li>
-        </ul>
-        <p class="zamiast">Jest za to metoda uczenia się, która zostaje z tobą po zajęciach.</p>
-      </aside>
+    <p class="kicker" data-reveal>Jak pracuję</p>
+    <h2 data-reveal>Jak wygląda <em>praktyka</em></h2>
+
+    <ol class="kroki">
+      {
+        kroki.map((k, i) => (
+          <li class="krok" data-reveal style={`--reveal-delay:${i * 90}ms`}>
+            <span class="krok-numer" aria-hidden="true">{i + 1}</span>
+            <h3>{k.tytul}</h3>
+            <p>{k.opis}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="praktyka-info" data-reveal>
+      <p class="wazne">Nie musisz być sprawny, rozciągnięty ani mieć doświadczenia w ruchu.</p>
+      <p>
+        Większość zajęć grupowych odbywa się w spokojnym tempie, często na
+        podłodze, w wygodnym ubraniu. To lekcje uczenia się, nie trening —
+        i&nbsp;nie gimnastyka korekcyjna, fizjoterapia ani psychoterapia.
+      </p>
     </div>
+
+    <aside class="act" data-reveal>
+      <h3>Feldenkrais i ACT</h3>
+      <p>
+        W sposobie myślenia o uczeniu się inspiruję się również terapią
+        akceptacji i zaangażowania — szczególnie jej rozumieniem elastyczności
+        psychologicznej. Nie prowadzę psychoterapii. Interesuje mnie to, jak
+        w&nbsp;ruchu możemy ćwiczyć zauważanie możliwości i wybieranie
+        odpowiedzi odpowiedniej do sytuacji.
+      </p>
+    </aside>
   </div>
 </section>
 
 <style>
-  .praktyka-siatka {
+  .kroki {
+    list-style: none;
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: clamp(2rem, 5vw, 4.5rem);
-    align-items: start;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.4rem;
     margin-top: 2.4rem;
+    counter-reset: krok;
   }
 
-  @media (max-width: 860px) {
-    .praktyka-siatka {
-      grid-template-columns: 1fr;
-    }
+  .krok {
+    padding: 1.5rem 1.6rem 1.6rem;
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid var(--linia);
+    border-radius: var(--radius);
   }
 
-  .proza p {
+  .krok-numer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--akcent);
+    color: var(--akcent);
+    font: 500 0.95rem var(--f-tekst);
+    margin-bottom: 0.9rem;
+  }
+
+  .krok h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .krok p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .praktyka-info {
+    margin-top: 2.2rem;
+    max-width: 46em;
+  }
+
+  .praktyka-info .wazne {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.25rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .praktyka-info p:not(.wazne) {
     color: var(--ink-soft);
   }
 
-  .proza p + p {
-    margin-top: 1.15rem;
-  }
-
-  .proza strong {
-    color: var(--ink);
-  }
-
-  .nie-ma {
-    border-left: 2px solid var(--m2);
+  .act {
+    margin-top: 2.4rem;
+    max-width: 46em;
+    border-left: 2px solid var(--akcent);
     padding-left: 1.6rem;
   }
 
-  .nie-ma h3 {
-    margin-bottom: 1rem;
+  .act h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
   }
 
-  .nie-ma ul {
-    list-style: none;
-  }
-
-  .nie-ma li {
-    padding: 0.65rem 0 0.65rem 1.6rem;
-    position: relative;
+  .act p {
     color: var(--ink-soft);
-    border-top: 1px solid var(--linia);
-    font-size: 0.96rem;
+    font-size: 0.97rem;
   }
 
-  .nie-ma li:first-child {
-    border-top: none;
-  }
-
-  .nie-ma li::before {
-    content: '✕';
-    position: absolute;
-    left: 0;
-    top: 0.65rem;
-    font-size: 0.75rem;
-    color: var(--m3);
-  }
-
-  .nie-ma .zamiast {
-    margin-top: 1.1rem;
-    font-family: var(--f-display);
-    font-style: italic;
-    font-size: 1.15rem;
-    color: var(--ink);
+  @media (max-width: 860px) {
+    .kroki {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

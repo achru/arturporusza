@@ -1,5 +1,5 @@
 ---
-import { aktualne, NAZWY_TYPOW, KOLORY_TYPOW, klasaStatusu, linkWydarzenia } from '../lib/wydarzenia';
+import { aktualne, aktywneFiltry, NAZWY_TYPOW, KOLORY_TYPOW, klasaStatusu, linkWydarzenia } from '../lib/wydarzenia';
 import { CONTACT } from '../config';
 
 const eventsLd = aktualne
@@ -18,19 +18,35 @@ const eventsLd = aktualne
 <section id="kalendarz" class="sekcja-krecha" aria-label="Kalendarz wydarzeń">
   <div class="wrap">
     <p class="kicker" data-reveal>Kalendarz</p>
-    <h2 data-reveal>Warsztaty, cykle i <em>wyjazdy</em></h2>
+    <h2 data-reveal>Wszystkie <em>terminy</em></h2>
 
-    <div class="filtry" role="group" aria-label="Filtruj wydarzenia" data-reveal>
-      <button class="filtr aktywny" data-typ="wszystko" aria-pressed="true">Wszystko</button>
-      <button class="filtr" data-typ="warsztat" aria-pressed="false">Warsztaty</button>
-      <button class="filtr" data-typ="cykl" aria-pressed="false">Cykle</button>
-      <button class="filtr" data-typ="wyjazd" aria-pressed="false">Wyjazdy</button>
-    </div>
+    {
+      aktywneFiltry.length > 2 && (
+        <div class="filtry" role="group" aria-label="Filtruj wydarzenia" data-reveal>
+          {aktywneFiltry.map((f, i) => (
+            <button
+              class={`filtr${i === 0 ? ' aktywny' : ''}`}
+              data-typ={f.klucz}
+              aria-pressed={i === 0 ? 'true' : 'false'}
+            >
+              {f.etykieta} <span class="ile">{f.ile}</span>
+            </button>
+          ))}
+        </div>
+      )
+    }
 
     <div class="lista" id="listaWydarzen" data-reveal>
       {
         aktualne.map((w) => (
-          <a class="wiersz" href={linkWydarzenia(w)} data-typ={w.typ} data-data={w.data}>
+          <a
+            class="wiersz"
+            href={linkWydarzenia(w)}
+            data-typ={w.typ}
+            data-nauczyciele={w.nauczyciele ? 'tak' : 'nie'}
+            data-data={w.data}
+            data-track="cta-kalendarz-wiersz"
+          >
             <div class="data">
               {w.dataTekst}
               <br />
@@ -74,10 +90,6 @@ const eventsLd = aktualne
   const pusto = lista.querySelector<HTMLElement>('.pusto')!;
   const dzis = new Date();
 
-  wiersze.forEach((w) => {
-    const d = w.dataset.data;
-    if (d && new Date(`${d}T23:59:59`) < dzis) w.hidden = true;
-  });
   document.querySelectorAll<HTMLElement>('[data-data]').forEach((el) => {
     const d = el.dataset.data;
     if (d && new Date(`${d}T23:59:59`) < dzis) el.hidden = true;
@@ -85,24 +97,23 @@ const eventsLd = aktualne
 
   const zostale = wiersze.filter((w) => !w.hidden);
 
+  function pasuje(w: HTMLAnchorElement, typ: string) {
+    if (typ === 'wszystko') return true;
+    if (typ === 'nauczyciele') return w.dataset.nauczyciele === 'tak';
+    return w.dataset.typ === typ;
+  }
+
   function pokazTyp(typ: string) {
     let widoczne = 0;
     zostale.forEach((w) => {
-      const pasuje = typ === 'wszystko' || w.dataset.typ === typ;
-      w.hidden = !pasuje;
-      if (pasuje) widoczne++;
+      const ok = pasuje(w, typ);
+      w.hidden = !ok;
+      if (ok) widoczne++;
     });
     pusto.hidden = widoczne > 0;
   }
 
   filtry.forEach((b) => {
-    const typ = b.dataset.typ!;
-    const n = typ === 'wszystko' ? zostale.length : zostale.filter((w) => w.dataset.typ === typ).length;
-    const licznik = document.createElement('span');
-    licznik.className = 'ile';
-    licznik.textContent = String(n);
-    b.appendChild(licznik);
-
     b.addEventListener('click', () => {
       filtry.forEach((x) => {
         x.classList.remove('aktywny');
@@ -110,7 +121,7 @@ const eventsLd = aktualne
       });
       b.classList.add('aktywny');
       b.setAttribute('aria-pressed', 'true');
-      pokazTyp(typ);
+      pokazTyp(b.dataset.typ!);
     });
   });
 
@@ -147,7 +158,7 @@ const eventsLd = aktualne
     color: var(--paper);
   }
 
-  .filtr :global(.ile) {
+  .filtr .ile {
     opacity: 0.55;
     margin-left: 0.35em;
   }
@@ -201,7 +212,7 @@ const eventsLd = aktualne
   .wiersz .strzalka {
     font-size: 1.25rem;
     transition: transform 0.25s ease;
-    color: var(--m2);
+    color: var(--akcent);
   }
 
   .wiersz:hover .strzalka {
@@ -230,7 +241,7 @@ const eventsLd = aktualne
 
   .pusto {
     border: 1px dashed var(--linia);
-    border-radius: 16px;
+    border-radius: var(--radius);
     padding: 2.4rem;
     text-align: center;
     color: var(--ink-soft);
@@ -238,7 +249,7 @@ const eventsLd = aktualne
   }
 
   .pusto a {
-    color: var(--m1);
+    color: var(--akcent);
   }
 
   .platforma-nota {
@@ -249,5 +260,13 @@ const eventsLd = aktualne
 
   .platforma-nota :global(.link-strzalka) {
     margin-left: 0.25em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wiersz,
+    .wiersz .strzalka,
+    .filtr {
+      transition: none;
+    }
   }
 </style>

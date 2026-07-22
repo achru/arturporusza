@@ -8,10 +8,12 @@ export interface Wydarzenie {
   data: string;
   dataTekst: string;
   miejsce: string;
+  obietnica: string;
   opis: string;
   status: string;
   link: string;
   wyrozniony: boolean;
+  nauczyciele: boolean;
 }
 
 export const NAZWY_TYPOW: Record<string, string> = {
@@ -21,9 +23,9 @@ export const NAZWY_TYPOW: Record<string, string> = {
 };
 
 export const KOLORY_TYPOW: Record<string, string> = {
-  warsztat: 'var(--m3)',
-  cykl: 'var(--m1)',
-  wyjazd: 'var(--m4)',
+  warsztat: 'var(--akcent)',
+  cykl: 'var(--blekit)',
+  wyjazd: 'var(--lawenda)',
 };
 
 function czyPrzyszle(w: Wydarzenie): boolean {
@@ -38,7 +40,20 @@ export const aktualne: Wydarzenie[] = (dane.wydarzenia as Wydarzenie[])
   .filter(czyPrzyszle)
   .sort((a, b) => (a.data < b.data ? -1 : a.data > b.data ? 1 : 0));
 
-export const wyroznione = aktualne.filter((w) => w.wyrozniony);
+/** Karty „Zapisy trwają": maksymalnie dwie, pierwsza jest główna. */
+export const wyroznione = aktualne.filter((w) => w.wyrozniony).slice(0, 2);
+
+/** Filtry kalendarza — tylko te, które coś robią. */
+export const aktywneFiltry: { klucz: string; etykieta: string; ile: number }[] = (() => {
+  const filtry = [
+    { klucz: 'wszystko', etykieta: 'Wszystkie', ile: aktualne.length },
+    { klucz: 'warsztat', etykieta: 'Warsztaty', ile: aktualne.filter((w) => w.typ === 'warsztat').length },
+    { klucz: 'cykl', etykieta: 'Cykle', ile: aktualne.filter((w) => w.typ === 'cykl').length },
+    { klucz: 'wyjazd', etykieta: 'Wyjazdy', ile: aktualne.filter((w) => w.typ === 'wyjazd').length },
+    { klucz: 'nauczyciele', etykieta: 'Dla nauczycieli', ile: aktualne.filter((w) => w.nauczyciele).length },
+  ];
+  return filtry.filter((f) => f.ile > 0);
+})();
 
 export function klasaStatusu(s: string): 'pilny' | 'otwarty' | 'neutral' {
   const t = (s || '').toLowerCase();

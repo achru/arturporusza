@@ -1,5 +1,6 @@
 ---
 import NewsletterForm from './NewsletterForm.astro';
+import { NEWSLETTER_BONUS } from '../config';
 ---
 
 <section id="newsletter" class="news-duzy" aria-label="Newsletter">
@@ -10,11 +11,12 @@ import NewsletterForm from './NewsletterForm.astro';
         <path d="M 170 80 C 215 84, 255 92, 298 104" stroke-width="1.6" opacity=".7"></path>
       </svg>
       <p class="kicker">Newsletter</p>
-      <h2>Jeden pomysł <em>tygodniowo</em>.</h2>
+      <h2>Jeden pomysł do wypróbowania <em>w tygodniu</em>.</h2>
       <p class="lead">
-        Piszę o tym, jak drobna zmiana w sposobie ruchu zmienia sposób działania.
-        Praktycznie i po polsku — do wypróbowania tego samego dnia.
+        Piszę o ruchu, uczeniu się i adaptacyjności. Konkretnie i po polsku —
+        bez motywacyjnej waty i obietnic naprawienia życia.
       </p>
+      {NEWSLETTER_BONUS && <p class="bonus">{NEWSLETTER_BONUS}</p>}
       <NewsletterForm maxWidth="540px" />
       <p class="czytaja">Czytają mnie nauczyciele ruchu i ludzie, którzy dużo siedzą.</p>
     </div>
@@ -23,13 +25,13 @@ import NewsletterForm from './NewsletterForm.astro';
 
 <style>
   .news-duzy {
-    padding-block: 0;
+    padding-block: 0 clamp(4rem, 8vw, 6.5rem);
   }
 
   .news-panel {
-    background: var(--m1);
+    background: var(--akcent-deep);
     color: var(--paper);
-    border-radius: 20px;
+    border-radius: 16px;
     padding: clamp(2.4rem, 5.5vw, 4rem);
     position: relative;
     overflow: hidden;
@@ -40,12 +42,18 @@ import NewsletterForm from './NewsletterForm.astro';
   }
 
   .news-panel h2 {
-    max-width: 13em;
+    max-width: 15em;
   }
 
   .news-panel .lead {
     color: rgba(239, 237, 230, 0.75);
     margin: 1.1rem 0 2rem;
+  }
+
+  .bonus {
+    color: rgba(239, 237, 230, 0.9);
+    font-size: 0.95rem;
+    margin: -1.1rem 0 1.6rem;
   }
 
   .news-panel :global(.ml-form input[type='email']) {
@@ -58,23 +66,12 @@ import NewsletterForm from './NewsletterForm.astro';
     color: rgba(239, 237, 230, 0.6);
   }
 
-  .news-panel :global(.ml-form .btn) {
-    background: var(--m2);
-    border-color: var(--m2);
-    color: #241d05;
-    font-weight: 400;
-  }
-
-  .news-panel :global(.ml-form .btn:hover) {
-    background: #cf9c1f;
-  }
-
   .news-panel :global(.drobne) {
     color: rgba(239, 237, 230, 0.55);
   }
 
   .news-panel :global(.ml-komunikat.ok) {
-    color: #e9c96a;
+    color: #cfc4e8;
   }
 
   .news-panel :global(.ml-komunikat.blad) {
@@ -86,7 +83,7 @@ import NewsletterForm from './NewsletterForm.astro';
     right: -10px;
     bottom: -6px;
     width: min(300px, 40%);
-    opacity: 0.5;
+    opacity: 0.45;
     pointer-events: none;
   }
 

@@ -1,0 +1,134 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import portret from '../assets/photos/artur-chruszcz-ruch-siad-skret.jpg';
+---
+
+<Base
+  title="O mnie — Artur Chruszcz, nauczyciel metody Feldenkraisa | Artur Porusza"
+  description="Artur Chruszcz: trzynaście lat uczenia metodą Feldenkraisa w Gdańsku i online, ponad pięciuset klientów indywidualnych, tło w inżynierii oprogramowania."
+>
+  <Nav />
+  <main id="tresc" class="wrap omnie-strona">
+    <p class="kicker">O mnie</p>
+    <h1>Artur Chruszcz</h1>
+
+    <div class="omnie-uklad">
+      <div class="omnie-tresc">
+        <p>
+          Uczę metodą Feldenkraisa od trzynastu lat. Pracowałem indywidualnie
+          z ponad pięciuset osobami, poprowadziłem ponad sto warsztatów
+          i kilkanaście wyjazdów — w Gdańsku, w Polsce i online.
+        </p>
+        <p>
+          Do ruchu trafiłem z inżynierii oprogramowania i to tło zostało ze mną
+          do dziś. Mniej interesują mnie gotowe recepty, a bardziej systemy,
+          które potrafią się uczyć: zauważać błędy, porównywać warianty
+          i znajdować inne rozwiązania, kiedy pierwsze przestaje działać.
+          Metoda Feldenkraisa jest dla mnie właśnie takim systemem —
+          stosowanym do codziennego poruszania się i działania.
+        </p>
+        <p>
+          W sposobie myślenia o uczeniu się inspiruję się również terapią
+          akceptacji i zaangażowania (ACT) — szczególnie jej rozumieniem
+          elastyczności psychologicznej. Nie prowadzę psychoterapii. Interesuje
+          mnie to, jak w ruchu możemy ćwiczyć zauważanie możliwości
+          i wybieranie odpowiedzi odpowiedniej do sytuacji.
+        </p>
+
+        <h2>Przygotowanie</h2>
+        <p class="do-uzupelnienia">
+          [DO UZUPEŁNIENIA — pełna ścieżka szkolenia: nazwa i lata treningu
+          Feldenkraisa, nauczyciele (m.in. Jeff Haller), kursy uzupełniające,
+          superwizje. Bez danych od Artura ta sekcja celowo pozostaje pusta.]
+        </p>
+
+        <p>
+          Najszybciej znajdziesz mnie na
+          <a href="/#kalendarz">aktualnych zajęciach</a> albo na
+          <a href="/#sesje">sesji indywidualnej</a>.
+        </p>
+      </div>
+
+      <figure class="omnie-foto">
+        <Image
+          src={portret}
+          alt="Artur Chruszcz w ruchu: siad na podłodze ze skrętem tułowia i ręką prowadzoną po łuku"
+          width={760}
+          widths={[360, 560, 760]}
+          sizes="(max-width: 860px) 92vw, 34vw"
+          loading="lazy"
+        />
+      </figure>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .omnie-strona {
+    padding-block: clamp(7rem, 13vh, 9rem) clamp(4rem, 8vw, 6.5rem);
+  }
+
+  .omnie-strona h1 {
+    margin-bottom: 2rem;
+  }
+
+  .omnie-uklad {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  .omnie-tresc p {
+    color: var(--ink-soft);
+    max-width: 42em;
+  }
+
+  .omnie-tresc p + p,
+  .omnie-tresc h2 + p {
+    margin-top: 1.1rem;
+  }
+
+  .omnie-tresc h2 {
+    font-size: 1.5rem;
+    margin-top: 2.2rem;
+  }
+
+  .omnie-tresc a {
+    color: var(--akcent);
+  }
+
+  .do-uzupelnienia {
+    border: 1px dashed var(--akcent);
+    border-radius: var(--radius);
+    padding: 0.9rem 1.1rem;
+    font-size: 0.9rem;
+  }
+
+  .omnie-foto {
+    border-radius: var(--radius);
+    border: 1px solid var(--linia);
+    overflow: hidden;
+  }
+
+  .omnie-foto :global(img) {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  @media (max-width: 860px) {
+    .omnie-uklad {
+      grid-template-columns: 1fr;
+    }
+
+    .omnie-foto {
+      order: -1;
+      max-width: 22rem;
+    }
+  }
+</style>

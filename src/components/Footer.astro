@@ -24,7 +24,9 @@ const legalLine = [LEGAL.company, LEGAL.nip && `NIP ${LEGAL.nip}`, LEGAL.address
         <div>
           <h4>Więcej</h4>
           <a href={CONTACT.platforma} target="_blank" rel="noopener">FeldenkraisOnline.pl</a>
+          <a href="/o-mnie/">O mnie</a>
           <a href="/polityka-prywatnosci/">Polityka prywatności</a>
+          {LEGAL.regulaminUrl && <a href={LEGAL.regulaminUrl}>Zasady zapisów i rezygnacji</a>}
         </div>
       </div>
     </div>
@@ -41,7 +43,6 @@ const legalLine = [LEGAL.company, LEGAL.nip && `NIP ${LEGAL.nip}`, LEGAL.address
   footer {
     background: var(--ink);
     color: var(--paper);
-    margin-top: clamp(4rem, 8vw, 7rem);
   }
 
   .stopka-wrap {
@@ -88,7 +89,7 @@ const legalLine = [LEGAL.company, LEGAL.nip && `NIP ${LEGAL.nip}`, LEGAL.address
 
   .stopka-kolumny a:hover {
     opacity: 1;
-    color: var(--m2);
+    color: var(--lawenda);
   }
 
   .wielki-napis {
@@ -105,10 +106,10 @@ const legalLine = [LEGAL.company, LEGAL.nip && `NIP ${LEGAL.nip}`, LEGAL.address
 
   .stopka-linia {
     height: 1px;
-    background: var(--m2);
+    background: var(--lawenda);
     border: none;
     margin-bottom: 1.5rem;
-    opacity: 0.8;
+    opacity: 0.6;
   }
 
   .stopka-dol {

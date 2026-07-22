@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import portret from '../assets/photos/arturportretyswietlica-7.jpg';
+import portret from '../assets/photos/artur-chruszcz-feldenkrais-portret.jpg';
 ---
 
 <section id="omnie" aria-label="O mnie">
@@ -8,7 +8,7 @@ import portret from '../assets/photos/arturportretyswietlica-7.jpg';
     <figure class="foto" data-reveal>
       <Image
         src={portret}
-        alt="Artur Chruszcz leży na macie na podłodze jasnej sali i patrzy w obiektyw"
+        alt="Artur Chruszcz, nauczyciel metody Feldenkraisa, leży na macie w jasnej sali i patrzy w obiektyw"
         width={820}
         widths={[360, 560, 820]}
         sizes="(max-width: 860px) 92vw, 38vw"
@@ -19,16 +19,22 @@ import portret from '../assets/photos/arturportretyswietlica-7.jpg';
       <p class="kicker">O mnie</p>
       <h2>Artur Chruszcz</h2>
       <p>
-        Uczę metodą Feldenkraisa od trzynastu lat: ponad pięciuset klientów
-        indywidualnych, sto z górą warsztatów, kilkanaście wyjazdów. Drugą nogą
-        stoję w inżynierii oprogramowania — stąd słabość do systemów, które da
-        się zrozumieć.
+        Uczę metodą Feldenkraisa od trzynastu lat. Pracowałem indywidualnie
+        z&nbsp;ponad pięciuset osobami, poprowadziłem ponad sto warsztatów
+        i&nbsp;kilkanaście wyjazdów.
       </p>
       <p>
-        Mniej mnie interesuje, jak ruch wygląda. A bardziej — czego przy okazji
-        się uczysz i co potem z tym robisz, kiedy dzień robi się nieprzewidywalny.
+        Drugą nogą stoję w inżynierii oprogramowania. Być może dlatego mniej
+        interesują mnie gotowe recepty, a bardziej systemy, które potrafią się
+        uczyć, zauważać błędy i znajdować inne rozwiązania.
       </p>
-      <p class="podpis">Artur</p>
+      <p>
+        Nie uczę jednej poprawnej formy ruchu. Tworzę warunki, w których możesz
+        zauważyć więcej i wybrać lepiej.
+      </p>
+      <a class="link-strzalka" href="/o-mnie/" data-track="cta-omnie-wiecej">
+        Więcej o mnie i moim przygotowaniu <span class="strzalka">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -41,15 +47,9 @@ import portret from '../assets/photos/arturportretyswietlica-7.jpg';
     align-items: center;
   }
 
-  @media (max-width: 860px) {
-    .omnie-siatka {
-      grid-template-columns: 1fr;
-    }
-  }
-
   .foto {
     aspect-ratio: 4 / 5;
-    border-radius: 16px;
+    border-radius: var(--radius);
     border: 1px solid var(--linia);
     overflow: hidden;
   }
@@ -64,7 +64,7 @@ import portret from '../assets/photos/arturportretyswietlica-7.jpg';
     margin-bottom: 1.25rem;
   }
 
-  .omnie-tekst p {
+  .omnie-tekst p:not(.kicker) {
     color: var(--ink-soft);
   }
 
@@ -72,11 +72,13 @@ import portret from '../assets/photos/arturportretyswietlica-7.jpg';
     margin-top: 1.05rem;
   }
 
-  .omnie-tekst .podpis {
-    font-family: var(--f-display);
-    font-style: italic;
-    font-size: 1.45rem;
-    color: var(--ink);
-    margin-top: 1.6rem;
+  .omnie-tekst .link-strzalka {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 860px) {
+    .omnie-siatka {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

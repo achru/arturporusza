@@ -1,31 +1,82 @@
 ---
-import { CONTACT } from '../config';
+import { CONTACT, SESJE } from '../config';
 
 const sesjeHref =
   CONTACT.sesjeLink ||
   `mailto:${CONTACT.email}?subject=${encodeURIComponent('Sesja indywidualna')}`;
+
+const formaty = [
+  {
+    tytul: 'Sesje w Gdańsku',
+    opis: 'Indywidualna lekcja Feldenkraisa prowadzona przez ruch, uwagę i delikatny dotyk. Pracujemy w ubraniu, zwykle na specjalnym stole, bez forsowania i narzucania jednej poprawnej formy.',
+    dlaKogo: 'Dobry wybór, jeśli wolisz uczyć się przez dotyk i mieć przestrzeń przygotowaną do pracy.',
+    miejsce: 'Gdańsk',
+    cena: SESJE.cenaGdansk,
+    track: 'cta-sesja-gdansk',
+  },
+  {
+    tytul: 'Sesje online',
+    opis: 'Indywidualna lekcja ruchowa prowadzona słowami. Pracujemy wokół konkretnego pytania, a ruch wykonujesz we własnej przestrzeni i tempie.',
+    dlaKogo: 'Dobry wybór, jeśli jesteś poza Trójmiastem albo chcesz pracować u siebie.',
+    miejsce: 'online',
+    cena: SESJE.cenaOnline,
+    track: 'cta-sesja-online',
+  },
+];
 ---
 
-<section id="sesje" class="pas" aria-label="Praca indywidualna">
-  <div class="wrap sesje-siatka">
-    <div class="sesje-tekst" data-reveal>
-      <p class="kicker">Praca indywidualna</p>
-      <h2>Lekcje <em>indywidualne</em></h2>
-      <p>
-        Na zajęciach grupowych prowadzę uwagę słowami. A na sesji indywidualnej —
-        także dotykiem: praca w ciszy, w twoim tempie, wokół pytania, które
-        przynosisz. Na przykład siedzenie, po którym trudno się wyprostować. Albo
-        ruch, który kiedyś był prosty, a przestał.
-      </p>
-      <p>Pierwsze spotkanie kończy się konkretem: co dalej i po czym poznasz zmianę.</p>
+<section id="sesje" class="pas" aria-label="Sesje indywidualne">
+  <div class="wrap">
+    <p class="kicker" data-reveal>Praca indywidualna</p>
+    <h2 data-reveal>Sesje <em>indywidualne</em></h2>
+    <p class="lead sesje-lead" data-reveal>
+      Praca wokół pytania, które przynosisz: ruchu, który stał się trudny,
+      przewlekłego wysiłku albo sposobu działania, który przestał pomagać.
+      Pierwsze spotkanie kończy się konkretem: co dalej i po czym poznasz zmianę.
+    </p>
+
+    <div class="formaty">
+      {
+        formaty.map((f, i) => (
+          <article class="format" data-reveal style={`--reveal-delay:${i * 90}ms`}>
+            <h3>{f.tytul}</h3>
+            <p class="format-opis">{f.opis}</p>
+            <p class="format-dla">{f.dlaKogo}</p>
+            <dl class="format-info">
+              <div class="rzad">
+                <dt>Gdzie</dt>
+                <dd>{f.miejsce}</dd>
+              </div>
+              <div class="rzad">
+                <dt>Czas</dt>
+                <dd>{SESJE.czas}</dd>
+              </div>
+              {f.cena && (
+                <div class="rzad">
+                  <dt>Cena</dt>
+                  <dd>{f.cena}</dd>
+                </div>
+              )}
+              {!f.cena && SESJE.cennikUrl && (
+                <div class="rzad">
+                  <dt>Cena</dt>
+                  <dd>
+                    <a href={SESJE.cennikUrl}>zobacz cennik</a>
+                  </dd>
+                </div>
+              )}
+            </dl>
+            <a class="btn-cta" href={sesjeHref} data-track={f.track}>
+              Umów sesję <span class="strzalka">→</span>
+            </a>
+          </article>
+        ))
+      }
     </div>
-    <aside class="sesje-info" data-reveal>
-      <div class="rzad"><span class="etykieta">Gdzie</span><span>Gdańsk / online</span></div>
-      <div class="rzad"><span class="etykieta">Czas</span><span>ok. 60 minut</span></div>
-      <div class="rzad"><span class="etykieta">Forma</span><span>w ubraniu, bez przygotowania</span></div>
-      <a class="btn" href={sesjeHref}>Umów sesję <span class="strzalka">→</span></a>
-      <p class="drobne">Odpowiadam zwykle w 1–2 dni robocze.</p>
-    </aside>
+
+    <p class="sesje-nota" data-reveal>
+      Napisz, z czym przychodzisz. Odpowiadam zwykle w ciągu 1–2 dni roboczych.
+    </p>
   </div>
 </section>
 
@@ -35,53 +86,51 @@ const sesjeHref =
     border-block: 1px solid var(--linia);
   }
 
-  .sesje-siatka {
+  .sesje-lead {
+    margin-top: 0.3rem;
+  }
+
+  .formaty {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: clamp(2rem, 4.5vw, 4rem);
-    align-items: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+    margin-top: 2.4rem;
   }
 
-  @media (max-width: 860px) {
-    .sesje-siatka {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .sesje-tekst h2 {
-    margin-bottom: 1.25rem;
-  }
-
-  .sesje-tekst p {
-    color: var(--ink-soft);
-  }
-
-  .sesje-tekst p + p {
-    margin-top: 1.05rem;
-  }
-
-  .sesje-info {
+  .format {
     background: rgba(255, 255, 255, 0.6);
     border: 1px solid var(--linia);
-    border-radius: 16px;
-    padding: 1.4rem 1.5rem 1.5rem;
+    border-radius: var(--radius);
+    padding: 1.7rem 1.7rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
   }
 
-  .sesje-info .rzad {
+  .format-opis {
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+  }
+
+  .format-dla {
+    font-size: 0.9rem;
+    color: var(--akcent);
+  }
+
+  .format-info {
+    margin-top: 0.2rem;
+  }
+
+  .format-info .rzad {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.7rem 0;
+    padding: 0.6rem 0;
     border-top: 1px solid var(--linia);
     font-size: 0.94rem;
   }
 
-  .sesje-info .rzad:first-child {
-    border-top: none;
-    padding-top: 0.15rem;
-  }
-
-  .sesje-info .etykieta {
+  .format-info dt {
     font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -89,14 +138,24 @@ const sesjeHref =
     align-self: center;
   }
 
-  .sesje-info .btn {
-    width: 100%;
-    justify-content: center;
-    margin-top: 1.15rem;
+  .format-info a {
+    color: var(--akcent);
   }
 
-  .sesje-info :global(.drobne) {
-    text-align: center;
-    margin-top: 0.75rem;
+  .format .btn-cta {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  .sesje-nota {
+    margin-top: 1.6rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 860px) {
+    .formaty {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
