@@ -2,7 +2,7 @@ import dane from '../data/wydarzenia.json';
 import { CONTACT } from '../config';
 
 export interface Wydarzenie {
-  typ: 'warsztat' | 'cykl' | 'wyjazd';
+  typ: 'warsztat' | 'cykl' | 'kurs' | 'wyjazd';
   tytul: string;
   podtytul?: string;
   data: string;
@@ -19,12 +19,14 @@ export interface Wydarzenie {
 export const NAZWY_TYPOW: Record<string, string> = {
   warsztat: 'Warsztat',
   cykl: 'Cykl',
+  kurs: 'Kurs',
   wyjazd: 'Wyjazd',
 };
 
 export const KOLORY_TYPOW: Record<string, string> = {
   warsztat: 'var(--akcent)',
   cykl: 'var(--blekit)',
+  kurs: 'var(--akcent-deep)',
   wyjazd: 'var(--lawenda)',
 };
 
@@ -49,6 +51,7 @@ export const aktywneFiltry: { klucz: string; etykieta: string; ile: number }[] =
     { klucz: 'wszystko', etykieta: 'Wszystkie', ile: aktualne.length },
     { klucz: 'warsztat', etykieta: 'Warsztaty', ile: aktualne.filter((w) => w.typ === 'warsztat').length },
     { klucz: 'cykl', etykieta: 'Cykle', ile: aktualne.filter((w) => w.typ === 'cykl').length },
+    { klucz: 'kurs', etykieta: 'Kursy', ile: aktualne.filter((w) => w.typ === 'kurs').length },
     { klucz: 'wyjazd', etykieta: 'Wyjazdy', ile: aktualne.filter((w) => w.typ === 'wyjazd').length },
     { klucz: 'nauczyciele', etykieta: 'Dla nauczycieli', ile: aktualne.filter((w) => w.nauczyciele).length },
   ];

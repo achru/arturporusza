@@ -15,7 +15,7 @@ export const CONTACT = {
   instagram: 'https://instagram.com/artur_porusza',
   youtube: '', // TODO: link do kanału YouTube (puste = link się nie wyświetla)
   platforma: 'https://feldenkraisonline.pl',
-  sesjeLink: '', // link do umawiania sesji (np. kalendarz rezerwacji); puste = przycisk otwiera e-mail
+  sesjeLink: 'https://arturchruszcz.booksy.com', // link do umawiania sesji (np. kalendarz rezerwacji); puste = przycisk otwiera e-mail
   city: 'Gdańsk',
 };
 
@@ -24,7 +24,7 @@ export const NAUCZYCIELE_URL = '/kreatywnynauczyciel/';
 
 // Sesje indywidualne — szczegóły. Puste pola się nie renderują.
 export const SESJE = {
-  czas: 'ok. 60 minut',
+  czas: 'ok. 50 minut',
   cenaGdansk: '', // TODO: np. "250 zł" — bez danych wiersz ceny się nie pokazuje
   cenaOnline: '', // TODO
   cennikUrl: '', // TODO: alternatywnie link do cennika

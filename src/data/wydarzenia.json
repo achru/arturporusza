@@ -1,5 +1,5 @@
 {
-  "_komentarz": "Jedyne miejsce edycji wydarzeń: aktualizacja = jeden diff, commit, deploy. Pola: typ 'warsztat'|'cykl'|'wyjazd'; data RRRR-MM-DD (po tej dacie wpis znika przy buildzie i u klienta); dataTekst - zapis pokazywany ludziom; obietnica - JEDNO zdanie na kartę wyróżnioną; opis - 1-2 zdania do kalendarza; status - tekst plakietki ('otwarte/przedsprzedaż/wczesne' = złota, 'ostatnie/brak' = ciemna); link pusty = przycisk otwiera e-mail; wyrozniony true = karta w sekcji 'Zapisy trwają' (pierwsza = główna, max 2 pokazywane); nauczyciele true = filtr 'Dla nauczycieli'.",
+  "_komentarz": "Jedyne miejsce edycji wydarzeń: aktualizacja = jeden diff, commit, deploy. Pola: typ 'warsztat'|'cykl'|'kurs'|'wyjazd'; data RRRR-MM-DD (po tej dacie wpis znika przy buildzie i u klienta); dataTekst - zapis pokazywany ludziom; obietnica - JEDNO zdanie na kartę wyróżnioną; opis - 1-2 zdania do kalendarza; status - tekst plakietki ('otwarte/przedsprzedaż/wczesne' = złota, 'ostatnie/brak' = ciemna); link pusty = przycisk otwiera e-mail; wyrozniony true = karta w sekcji 'Zapisy trwają' (pierwsza = główna, max 2 pokazywane); nauczyciele true = filtr 'Dla nauczycieli'.",
   "wydarzenia": [
     {
       "typ": "cykl",
@@ -30,7 +30,7 @@
       "nauczyciele": false
     },
     {
-      "typ": "cykl",
+      "typ": "kurs",
       "tytul": "Kreatywny Nauczyciel",
       "data": "2027-07-01",
       "dataTekst": "start: lipiec 2027",
