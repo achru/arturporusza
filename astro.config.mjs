@@ -9,6 +9,7 @@ export default defineConfig({
       customPages: [
         'https://arturporusza.pl/kreatywnynauczyciel/',
         'https://arturporusza.pl/indywidualnie/',
+        'https://arturporusza.pl/mezczyzni/',
       ],
     }),
   ],

@@ -23,3 +23,9 @@
   to = "https://arturporusza.pl/indywidualnie/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "https://mezczyzni.arturchruszcz.pl/*"
+  to = "https://arturporusza.pl/mezczyzni/:splat"
+  status = 301
+  force = true

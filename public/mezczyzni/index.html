@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osiem tygodni na bycie — kameralna grupa Feldenkraisowska dla mężczyzn · Artur Chruszcz</title>
+<meta name="description" content="Ośmiotygodniowa kameralna grupa Feldenkraisowska dla mężczyzn. Trzy osoby, czwartki w studio w Gdańsku Wrzeszczu — grupa poranna 9:00 lub wieczorna 19:30. Praktyka obecności, ruchu i sprawczości — zamiast produkowania.">
+<meta name="theme-color" content="#1F1E18">
+<link rel="canonical" href="https://arturporusza.pl/mezczyzni/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="Osiem tygodni na bycie — kameralna grupa Feldenkraisowska dla mężczyzn">
+<meta property="og:description" content="Trzy osoby, czwartki w studio w Gdańsku Wrzeszczu — grupa poranna 9:00 lub wieczorna 19:30. Praktyka obecności, ruchu i sprawczości.">
+<meta property="og:url" content="https://arturporusza.pl/mezczyzni/">
+<meta property="og:image" content="https://arturporusza.pl/mezczyzni/images/ja.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   DESIGN TOKENS — earth-toned masculine
+   ============================================ */
+:root {
+  /* Paper & ink — DARK MODE earth-toned, late-evening grounded */
+  --paper:        #1F1E18;    /* deep olive-charcoal — ciemna ziemia */
+  --paper-warm:   #26241D;
+  --paper-shade:  #2C2A22;    /* odrobinę jaśniejszy dla "Z kim pracujesz" */
+  --olive-wash:   #3A3A2C;    /* deep olive wash dla form/akcent */
+  --olive-wash-2: #46472F;
+
+  /* Tekst — ciepły off-white linen */
+  --ink:          #E5DFD2;
+  --ink-soft:     #BFB8A9;
+  --ink-muted:    #8A8474;
+
+  /* Akcenty — podniesione luminance dla ciemnego tła */
+  --olive:        #B5B58E;    /* mid olive rozjaśniona */
+  --olive-deep:   #C9C99A;    /* główny italic accent — jasna oliwka */
+  --terra:        #C97A52;    /* terracotta podniesiona */
+  --moss:         #A0A582;    /* moss rozjaśniony */
+
+  /* Lines — wyższa alpha bo na ciemnym tle hairlines giną */
+  --hairline:      rgba(229, 223, 210, 0.14);
+  --hairline-soft: rgba(229, 223, 210, 0.07);
+
+  /* Type — bez zmian */
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans:  'Instrument Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --mono:  'Instrument Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  --pad:           clamp(1.25rem, 4vw, 2.5rem);
+  --gutter:        clamp(2rem, 6vw, 5rem);
+  --section:       clamp(5.5rem, 12vw, 10rem);
+  --section-tight: clamp(3.5rem, 8vw, 6rem);
+  --max:           76rem;
+  --max-prose:     40rem;
+  --max-narrow:    34rem;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-feature-settings: "ss01", "ss02", "kern";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* All elements using --mono now route to Instrument Sans;
+   500 weight + uppercase + letter-spacing emulates monospaced caps look */
+[style*="font-family: var(--mono)"],
+.eyebrow, .meta, .section-meta,
+.nav-links, .cta-meta, .calendar-meta,
+.testimonial cite, .session-step-time,
+.guide-meta dt, .form-meta-row dt,
+.pricing-list .dt, .pricing-tier-label,
+.what-list-label, .field label,
+.footer, .gallery-placeholder,
+.guide-photo-placeholder {
+  font-weight: 500;
+}
+
+/* Paper-grain — DARK MODE: jasne ziarno na ciemnym tle, screen blend */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.16;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.75 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+}
+
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+::selection { background: var(--olive-deep); color: var(--paper); }
+
+/* TYPOGRAPHY */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 380;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  margin: 0;
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+}
+h2 {
+  font-size: clamp(1.85rem, 4.6vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+h3 {
+  font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+em, i, .italic {
+  font-style: italic;
+  color: var(--olive-deep);
+  font-variation-settings: "opsz" 96, "SOFT" 80;
+}
+p { margin: 0 0 1.15em; max-width: var(--max-prose); }
+p:last-child { margin-bottom: 0; }
+
+.lead {
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: var(--max-narrow);
+}
+
+/* LAYOUT */
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-inline: var(--pad);
+}
+section { padding-block: var(--section); position: relative; }
+section.tight { padding-block: var(--section-tight); }
+.grid-5-7 {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  background: rgba(31, 30, 24, 0.85);
+  border-bottom: 1px solid var(--hairline-soft);
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.1rem var(--pad);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.brandmark {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+}
+.brandmark .brand-logo {
+  height: 26px;
+  width: auto;
+  max-width: 140px;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+}
+.brandmark .brand-logo[src=""],
+.brandmark .brand-logo:not([src]) { display: none; }
+.brandmark .mark-text em { color: var(--ink); font-style: italic; }
+
+.nav-links {
+  display: flex;
+  gap: 2.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.nav-links a {
+  color: var(--ink-muted);
+  position: relative;
+  transition: color 0.25s var(--ease);
+  padding-block: 0.25rem;
+}
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+.nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6em;
+  padding: 1.05rem 1.7rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  border-radius: 0;
+  transition: all 0.35s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.btn .arrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15em;
+  font-weight: 300;
+  display: inline-block;
+  transition: transform 0.4s var(--ease);
+}
+.btn:hover .arrow, .btn:focus-visible .arrow { transform: translateX(6px); }
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  background: var(--ink-soft);
+  border-color: var(--ink-soft);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+.btn-ghost:hover, .btn-ghost:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--terra);
+  outline-offset: 3px;
+}
+.cta-meta {
+  display: block;
+  margin-top: 0.85rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* HERO */
+.hero {
+  padding-top: clamp(4rem, 9vw, 7rem);
+  padding-bottom: var(--section);
+  position: relative;
+  overflow: hidden;
+}
+.hero-eyebrow { margin-bottom: clamp(2rem, 4.5vw, 3.5rem); }
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5.25rem);
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  font-family: var(--serif);
+  font-weight: 380;
+  margin: 0;
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+}
+.hero-title {
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+  max-width: 14ch;
+}
+.hero-lead {
+  font-size: clamp(1.1rem, 1.55vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 36rem;
+  margin-bottom: clamp(2.25rem, 4vw, 3rem);
+}
+.hero-cta { margin-bottom: clamp(2.75rem, 6vw, 4.5rem); }
+.hero-signature {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  color: var(--olive-deep);
+  letter-spacing: -0.01em;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--hairline);
+  display: inline-block;
+  padding-right: 3rem;
+}
+
+/* HERO SHAPES — organiczne, mineralne formy
+   Echo: kamień, łuk gór, dno doliny
+*/
+.hero-shape {
+  position: absolute;
+  top: 16%;
+  right: -10%;
+  width: clamp(22rem, 36vw, 36rem);
+  aspect-ratio: 1 / 0.9;
+  background: var(--olive-wash);
+  /* Kamień / mineralna forma — zaokrąglone wgłębienia */
+  clip-path: polygon(35% 0%, 75% 5%, 100% 35%, 95% 75%, 65% 100%, 25% 95%, 0% 65%, 8% 25%);
+  z-index: -1;
+  opacity: 0.85;
+}
+.hero-shape-2 {
+  position: absolute;
+  bottom: 14%;
+  right: 8%;
+  width: clamp(11rem, 18vw, 18rem);
+  aspect-ratio: 1 / 1.1;
+  background: var(--terra);
+  /* Mineralna kropla / pestka */
+  clip-path: polygon(50% 0%, 80% 15%, 95% 45%, 80% 80%, 50% 100%, 20% 80%, 5% 45%, 20% 15%);
+  z-index: -1;
+  opacity: 0.22;
+}
+
+/* PROSE */
+.prose-body p {
+  font-size: 1.075rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+/* PULL-QUOTE */
+.pullquote {
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 3vw, 2.3rem);
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+  font-weight: 360;
+  font-style: italic;
+  color: var(--ink);
+  max-width: 30ch;
+  margin: clamp(3rem, 6vw, 4.5rem) 0 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--ink);
+}
+.pullquote em { color: var(--olive-deep); }
+
+/* CO TO JEST — lista z hairline */
+.what-list {
+  list-style: none;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+  max-width: 42rem;
+}
+.what-list li {
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) 0;
+  border-bottom: 1px solid var(--hairline);
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+}
+.what-list-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--terra);
+  padding-top: 0.3em;
+}
+.what-list-content {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  line-height: 1.35;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.what-list-content em {
+  font-style: italic;
+  color: var(--olive-deep);
+}
+
+/* CALENDAR */
+.calendar {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: clamp(2.25rem, 4vw, 3rem);
+  border-top: 1px solid var(--ink);
+}
+/* Drugi kalendarz (gdy obok pierwszego) — lżejszy separator */
+.calendar + .calendar {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--hairline);
+}
+.calendar-meta {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 1.75rem;
+}
+.calendar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--hairline);
+}
+.calendar-list li {
+  padding: 1.5rem 1rem 1.5rem 0;
+  border-bottom: 1px solid var(--hairline);
+  border-right: 1px solid var(--hairline);
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-family: var(--serif);
+}
+.calendar-list li:nth-child(4n),
+.calendar-list li:last-child {
+  border-right: 0;
+}
+.calendar-list .week {
+  font-style: italic;
+  color: var(--terra);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  letter-spacing: -0.03em;
+  flex-shrink: 0;
+  min-width: 2.5rem;
+  font-weight: 320;
+  line-height: 1;
+}
+.calendar-list .date {
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+/* GUIDE */
+.guide { background: var(--paper-shade); }
+.guide-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+.guide-photo {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--olive-wash) 0%, var(--terra) 120%);
+  aspect-ratio: 4 / 5;
+  /* Mineralna forma — taka sama logika co hero shape */
+  clip-path: polygon(20% 0%, 80% 5%, 100% 30%, 95% 75%, 75% 100%, 25% 95%, 0% 70%, 5% 25%);
+}
+.guide-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.guide-photo img[src=""],
+.guide-photo img:not([src]) { display: none; }
+.guide-photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.4;
+}
+.guide-headline { margin-bottom: clamp(1.75rem, 3vw, 2.5rem); }
+.guide-body p { margin-bottom: 1.4em; color: var(--ink-soft); }
+.guide-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--hairline);
+}
+.guide-meta dt {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.45rem;
+}
+.guide-meta dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* FORM SECTION */
+.form-section {
+  background: var(--olive-wash);
+  position: relative;
+  overflow: hidden;
+}
+.form-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n2'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.75 0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n2)'/></svg>");
+  background-size: 220px 220px;
+  mix-blend-mode: screen;
+  opacity: 0.22;
+  pointer-events: none;
+}
+.form-section > .wrap { position: relative; z-index: 1; }
+.form-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+.form-intro {
+  font-size: 1.075rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  max-width: 32rem;
+}
+.form-meta {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--hairline);
+  display: grid;
+  gap: 0.85rem;
+}
+.form-meta-row {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  align-items: baseline;
+  font-size: 0.95rem;
+}
+.form-meta-row dt {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0;
+}
+.form-meta-row dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink);
+}
+.form-card {
+  background: var(--paper-shade);
+  padding: clamp(2rem, 3.5vw, 2.75rem);
+  border: 1px solid var(--hairline);
+}
+.form-card h3 {
+  margin-bottom: 0.75rem;
+}
+.form-card .form-card-intro {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+  line-height: 1.55;
+}
+.field {
+  margin-bottom: 1.5rem;
+  display: grid;
+  gap: 0.4rem;
+}
+.field label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.field label .req {
+  color: var(--terra);
+  margin-left: 0.2em;
+}
+.field input,
+.field textarea {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  padding: 0.6rem 0;
+  width: 100%;
+  font-feature-settings: "ss01", "ss02", "kern";
+  transition: border-color 0.25s var(--ease);
+}
+.field textarea {
+  resize: vertical;
+  min-height: 4.5rem;
+  line-height: 1.5;
+  padding-top: 0.75rem;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--terra);
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--ink-muted);
+  opacity: 0.7;
+}
+
+/* Radio group — wybór grupy (rano/wieczorem) */
+.field-radio {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+.field-radio > legend {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.field-radio > legend .req {
+  color: var(--terra);
+  margin-left: 0.2em;
+}
+.radio-options {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+}
+.radio-option {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  cursor: pointer;
+  border-bottom: 1px solid var(--hairline);
+  transition: color 0.25s var(--ease);
+}
+.radio-option:last-child { border-bottom: 0; }
+.radio-option input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.25s var(--ease);
+  margin: 0;
+  transform: translateY(2px);
+}
+.radio-option input[type="radio"]:checked {
+  border-color: var(--terra);
+}
+.radio-option input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: var(--terra);
+  border-radius: 50%;
+}
+.radio-option input[type="radio"]:focus-visible {
+  outline: 2px solid var(--terra);
+  outline-offset: 3px;
+}
+.radio-option-label {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.3;
+  flex: 1;
+}
+.radio-option-label em {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+  margin-top: 0.15em;
+}
+.form-card .btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.form-note {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  font-family: var(--serif);
+  font-style: italic;
+}
+.form-success {
+  display: none;
+  padding: clamp(1.75rem, 3vw, 2.25rem) 0;
+  text-align: left;
+}
+.form-success h3 {
+  color: var(--olive-deep);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+.form-success p {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.form-card.submitted .field,
+.form-card.submitted .btn,
+.form-card.submitted .form-card-intro,
+.form-card.submitted .form-note { display: none; }
+.form-card.submitted .form-success { display: block; }
+
+/* KOMU TO PASUJE */
+.fits-list {
+  border-top: 1px solid var(--ink);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+.fits-row {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--gutter);
+  padding: clamp(2rem, 4vw, 2.75rem) 0;
+  border-bottom: 1px solid var(--hairline);
+  align-items: start;
+}
+.fits-title {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 1.85vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.fits-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* FAQ */
+.faq-list {
+  border-top: 1px solid var(--ink);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+details {
+  border-bottom: 1px solid var(--hairline);
+  position: relative;
+}
+details > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: clamp(1.5rem, 2.8vw, 2.25rem) 3rem clamp(1.5rem, 2.8vw, 2.25rem) 0;
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  position: relative;
+  transition: color 0.25s var(--ease);
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background-image:
+    linear-gradient(var(--ink), var(--ink)),
+    linear-gradient(var(--ink), var(--ink));
+  background-size: 18px 1px, 1px 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+  transition: transform 0.4s var(--ease), background-size 0.3s var(--ease);
+}
+details[open] > summary { color: var(--olive-deep); }
+details[open] > summary::after {
+  background-size: 18px 1px, 0 18px;
+  transform: translateY(-50%) rotate(180deg);
+}
+details > summary:hover, details > summary:focus-visible { color: var(--olive-deep); }
+details > summary:focus-visible { outline: none; }
+.faq-answer {
+  padding: 0 3rem 1.75rem 0;
+  max-width: 50rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  animation: fadein 0.4s var(--ease);
+}
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* INVITE */
+.invite { text-align: left; padding-bottom: var(--section); }
+.invite-headline {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  font-weight: 360;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  max-width: 14ch;
+}
+.invite-headline .line-em {
+  display: block;
+  font-style: italic;
+  color: var(--olive-deep);
+}
+.invite-lead {
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  color: var(--ink-soft);
+  max-width: 32rem;
+  margin-bottom: clamp(2.25rem, 4vw, 3rem);
+}
+.invite-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* FOOTER */
+.footer {
+  border-top: 1px solid var(--hairline);
+  padding: 2.25rem 0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-inline: var(--pad);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* REVEALS */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero .reveal-stagger {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: stagger 1s var(--ease) forwards;
+}
+.hero .reveal-stagger.s1 { animation-delay: 0.05s; }
+.hero .reveal-stagger.s2 { animation-delay: 0.2s; }
+.hero .reveal-stagger.s3 { animation-delay: 0.45s; }
+.hero .reveal-stagger.s4 { animation-delay: 0.65s; }
+.hero .reveal-stagger.s5 { animation-delay: 0.85s; }
+@keyframes stagger {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .grid-5-7, .form-grid, .guide-grid, .fits-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .calendar-list { grid-template-columns: repeat(2, 1fr); }
+  .guide-photo { max-width: 30rem; margin: 0 auto; }
+  .hero-shape { right: -25%; opacity: 0.45; }
+  .hero-shape-2 { right: -10%; opacity: 0.25; }
+  .what-list li {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .nav-links { gap: 1.25rem; font-size: 0.65rem; }
+  .nav-links a:nth-child(n+4) { display: none; }
+  .brandmark .brand-logo { height: 22px; max-width: 110px; }
+  .invite-ctas { flex-direction: column; align-items: stretch; }
+  .invite-ctas .btn { width: 100%; justify-content: center; }
+  .form-meta-row { grid-template-columns: 6rem 1fr; }
+}
+@media (max-width: 540px) {
+  .nav-links { gap: 1rem; }
+  .brandmark .mark-text-long { display: none; }
+  body { font-size: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .hero .reveal-stagger { opacity: 1; transform: none; animation: none; }
+}
+
+@media print {
+  body::before, .hero-shape, .hero-shape-2, .nav { display: none; }
+  body { background: white; color: black; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" aria-label="Nawigacja główna">
+  <div class="nav-inner">
+    <a href="#top" class="brandmark" aria-label="Artur Chruszcz — strona główna">
+      <!--
+        LOGO: podmień src na ścieżkę do pliku PNG. Logo skaluje się
+        do wysokości 26px (mobile: 22px). Dla retina dodaj srcset.
+      -->
+      <img src="" alt="Artur Chruszcz" class="brand-logo">
+      <span class="mark-text">Artur <em>Chruszcz</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#czym-jest">O grupie</a></li>
+      <li><a href="#proces">Proces</a></li>
+      <li><a href="#zapis">Zapis</a></li>
+      <li><a href="#pytania">Pytania</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-shape" aria-hidden="true"></div>
+  <div class="hero-shape-2" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow hero-eyebrow reveal-stagger s1">Kameralna grupa Feldenkraisowska · 3 mężczyzn · Gdańsk Wrzeszcz · Czwartki rano lub wieczorem</p>
+    <h1 id="hero-title" class="hero-title reveal-stagger s2">
+      Osiem tygodni<br>
+      na <em>bycie.</em>
+    </h1>
+    <p class="hero-lead reveal-stagger s3">
+      Świat ceni mężczyzn za to, co produkują. Te spotkania są o czymś innym. Przez osiem tygodni uczymy się być obecni — w ruchu, w sobie, w tym, co robimy. Bez wykonywania, bez celu do osiągnięcia.
+    </p>
+    <div class="hero-cta reveal-stagger s4">
+      <a class="btn btn-primary" href="#zapis">
+        <span>Zgłoś się</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <span class="cta-meta">3 miejsca · Rozmowa wstępna</span>
+    </div>
+    <p class="hero-signature reveal-stagger s5">Obecność zamiast produkowania.</p>
+  </div>
+</section>
+
+<!-- CZYM JEST -->
+<section id="czym-jest" aria-labelledby="what-title">
+  <div class="grid-5-7 wrap">
+    <div class="reveal">
+      <h2 id="what-title">Praca <em>od środka.</em></h2>
+    </div>
+    <div class="prose-body reveal">
+      <p>Większość rzeczy, które robimy w życiu, robimy <em>dla</em> czegoś. Pracujemy, żeby coś osiągnąć. Ćwiczymy, żeby się rozwijać. Nawet odpoczywamy, żeby lepiej pracować. Z czasem ta logika produkcji wchodzi pod skórę — przestajemy zauważać, że jesteśmy w niej zawsze.</p>
+      <p>Ta grupa jest o czymś innym. Przez osiem tygodni uczymy się ruchu, który nie ma celu poza samym ruchem. Uważności, która nie ma celu poza zauważaniem. Bycia w ciele i w towarzystwie innych mężczyzn — bez wykonywania żadnej pracy.</p>
+      <p>Z tego prostego doświadczenia często wraca coś, co dawno znikło: lekkość, ciekawość, sprawczość. Nie jako efekt do osiągnięcia, ale jako naturalne wyłonienie się z bycia obecnym.</p>
+      <blockquote class="pullquote">
+        Działanie zaczyna się <em>od bycia.</em>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- CO DOSTAJESZ — what list -->
+<section aria-labelledby="get-title">
+  <div class="wrap">
+    <div class="reveal" style="max-width: 50rem;">
+      <h2 id="get-title">Co się <em>otwiera</em> przez osiem tygodni.</h2>
+    </div>
+    <ul class="what-list reveal">
+      <li>
+        <span class="what-list-label">Ruch</span>
+        <p class="what-list-content">Mniej napięcia w tym, jak chodzisz, siedzisz, sięgasz. <em>Lekkość</em> jako jakość codziennego działania.</p>
+      </li>
+      <li>
+        <span class="what-list-label">Obecność</span>
+        <p class="what-list-content">Bycie w sobie — bez wykonywania, bez performance. <em>Spokój,</em> który nie jest osiągnięciem.</p>
+      </li>
+      <li>
+        <span class="what-list-label">Sprawczość</span>
+        <p class="what-list-content">Działanie, które wynika z wyboru, nie z nawyku. <em>Spójność</em> intencji z tym, co realnie robisz.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROCES -->
+<section id="proces" aria-labelledby="proces-title">
+  <div class="grid-5-7 wrap">
+    <div class="reveal">
+      <h2 id="proces-title">Osiem <em>tygodni.</em></h2>
+    </div>
+    <div class="prose-body reveal">
+      <p>Spotykamy się raz w tygodniu w moim studio w Gdańsku Wrzeszczu, przez półtorej godziny. Grupa jest mała — trzy osoby. To znaczy, że nikt nie znika w tle, każdy jest widziany, każdy ma czas i przestrzeń.</p>
+      <p>Każde spotkanie ma podobny rytm: krótka rozmowa, dwie lekcje przez ruch (leżąc, w komfortowych pozycjach), refleksja, zamknięcie. Między spotkaniami żyjesz swoim życiem — i obserwujesz, co się zmienia.</p>
+      <p>Otwieram dwie tury: <em>poranną</em> w czwartki o 9:00 i <em>wieczorną</em> w czwartki o 19:30. Wybierasz tę, która lepiej pasuje do twojego rytmu.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- Z KIM PRACUJESZ -->
+<section class="guide" aria-labelledby="guide-title">
+  <div class="guide-grid wrap">
+    <figure class="guide-photo reveal">
+      <img src="images/ja.jpg" alt="Artur Chruszcz — praktyk metody Feldenkraisa">
+      <span class="guide-photo-placeholder">Portret</span>
+    </figure>
+    <div class="guide-body reveal">
+      <h2 id="guide-title" class="guide-headline">Artur <em>Chruszcz.</em></h2>
+      <p>Pracuję metodą Feldenkraisa od trzynastu lat. Łączę ją z tym, co dziś rozumiemy o uczeniu się, predykcji i zachowaniu — z motor learning, contextual behavioral science, embodied cognition.</p>
+      <p>Tę grupę prowadzę dla mężczyzn, bo wiem, że ten obszar — kontakt ze sobą, obecność, spowolnienie — często nie był częścią naszej edukacji. Nie był dla mnie i nie jest dla wielu mężczyzn, których spotykam w pracy. Można się tego uczyć — i często łatwiej, kiedy obok pracują inni mężczyźni nad tym samym.</p>
+      <blockquote class="pullquote">
+        Kiedy <em>jesteś,</em> łatwiej jest <em>działać.</em>
+      </blockquote>
+      <dl class="guide-meta">
+        <div>
+          <dt>Praktyka</dt>
+          <dd>13+ lat metody Feldenkraisa</dd>
+        </div>
+        <div>
+          <dt>Studio</dt>
+          <dd>Gdańsk Wrzeszcz</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ZAPIS — formularz -->
+<section class="form-section" id="zapis" aria-labelledby="zapis-title">
+  <div class="form-grid wrap">
+    <div class="reveal">
+      <h2 id="zapis-title">Zgłoś <em>się.</em></h2>
+      <p class="form-intro">
+        Grupa jest mała — trzy miejsca. Zapis odbywa się w dwóch krokach: zgłaszasz się przez ten formularz, potem rozmawiamy 10–15 minut przez telefon, żeby sprawdzić, czy to dobre dopasowanie. Bez zobowiązania — z obu stron.
+      </p>
+      <dl class="form-meta">
+        <div class="form-meta-row">
+          <dt>Format</dt>
+          <dd>8 spotkań × 1,5 godziny</dd>
+        </div>
+        <div class="form-meta-row">
+          <dt>Grupa</dt>
+          <dd>3 osoby</dd>
+        </div>
+        <div class="form-meta-row">
+          <dt>Miejsce</dt>
+          <dd>Studio · Gdańsk Wrzeszcz</dd>
+        </div>
+        <div class="form-meta-row">
+          <dt>Termin</dt>
+          <dd>Czwartki · grupa rano 9:00 lub wieczorem 19:30</dd>
+        </div>
+        <div class="form-meta-row">
+          <dt>Cena</dt>
+          <dd>900 zł za cały cykl</dd>
+        </div>
+      </dl>
+    </div>
+
+    <aside class="form-card reveal" aria-label="Formularz zgłoszeniowy">
+      <h3>Formularz <em>zgłoszenia.</em></h3>
+      <p class="form-card-intro">
+        Odpowiem mailem w ciągu dwóch dni i umówimy rozmowę.
+      </p>
+      <form id="zgloszenie" name="zgloszenie-mezczyzni" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="zgloszenie-mezczyzni">
+        <p class="ukryte-pole" style="position:absolute;left:-9999px;" aria-hidden="true">
+          <label>Nie wypełniaj tego pola <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
+        <div class="field" data-field="imie">
+          <label for="imie">Imię<span class="req">*</span></label>
+          <input type="text" id="imie" name="imie" required autocomplete="given-name" placeholder="Jak się do ciebie zwracać">
+        </div>
+        <div class="field" data-field="email">
+          <label for="email">Email<span class="req">*</span></label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="adres@email.pl">
+        </div>
+        <div class="field" data-field="telefon">
+          <label for="telefon">Telefon</label>
+          <input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder="Do rozmowy wstępnej (opcjonalnie)">
+        </div>
+        <fieldset class="field-radio" data-field="grupa">
+          <legend>Która grupa?<span class="req">*</span></legend>
+          <div class="radio-options">
+            <label class="radio-option">
+              <input type="radio" name="grupa" value="rano" required>
+              <span class="radio-option-label">Grupa poranna<em>Czwartki 9:00–10:30</em></span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="grupa" value="wieczor" required>
+              <span class="radio-option-label">Grupa wieczorna<em>Czwartki 19:30–21:00</em></span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="grupa" value="obie" required>
+              <span class="radio-option-label">Każda mi pasuje<em>Wybierzmy razem podczas rozmowy</em></span>
+            </label>
+          </div>
+        </fieldset>
+        <div class="field" data-field="dlaczego">
+          <label for="dlaczego">Dlaczego ta grupa?<span class="req">*</span></label>
+          <textarea id="dlaczego" name="dlaczego" required rows="4" placeholder="Co cię tutaj przyprowadziło. Krótko, swoimi słowami."></textarea>
+        </div>
+        <button type="submit" id='submitBtn'class="btn btn-primary">
+          <span>Wyślij zgłoszenie</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </button>
+      </form>
+      <p class="form-note">
+        Twoje dane służą wyłącznie do kontaktu w sprawie tej grupy. Nie zapisuję cię do żadnej listy mailingowej.
+      </p>
+      <div id='success' class="form-success" role="status" aria-live="polite">
+        <h3>Dziękuję<span id="successName"></span>.</h3>
+        <p>Zgłoszenie dotarło. Odezwę się mailem w ciągu dwóch dni roboczych — z propozycją terminu krótkiej rozmowy. Do usłyszenia.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- KOMU TO PASUJE -->
+<section aria-labelledby="fits-title">
+  <div class="wrap">
+    <div class="reveal" style="max-width: 50rem;">
+      <h2 id="fits-title">Dla mężczyzn, którzy chcą <em>być, nie tylko działać.</em></h2>
+    </div>
+
+    <div class="fits-list reveal">
+      <article class="fits-row">
+        <h3 class="fits-title">Czujesz, że dużo robisz — i coraz mniej czujesz</h3>
+        <p class="fits-body">Funkcjonujesz dobrze. Pracujesz, dowozisz, ogarniasz. Ale od dłuższego czasu masz wrażenie, że coraz słabiej zauważasz, jak naprawdę się masz. Ta grupa jest o tym, żeby zwolnić — w prostych warunkach, raz w tygodniu, bez wielkiego rytuału.</p>
+      </article>
+      <article class="fits-row">
+        <h3 class="fits-title">Próbowałeś medytacji, jogi, terapii — i czegoś jeszcze szukasz</h3>
+        <p class="fits-body">Wiesz, jak działa uważność. Wiesz, jak działa rozmowa o emocjach. Ale nigdy nie pracowałeś z ruchem jako drogą do obecności. To inne wejście — przez to, jak się ruszasz, a nie co czujesz.</p>
+      </article>
+      <article class="fits-row">
+        <h3 class="fits-title">Masz dystans do "duchowości" — i to dobrze</h3>
+        <p class="fits-body">Ta praca jest oparta na uczeniu motorycznym i nauce o układzie nerwowym. Nie wymaga wiary. Nie ma tu energii, czakr, męskich kręgów, bębnów. Jest dotyk, ruch, uwaga.</p>
+      </article>
+      <article class="fits-row">
+        <h3 class="fits-title">Wolisz pracować w małym formacie</h3>
+        <p class="fits-body">Większe grupy, kursy, warsztaty — gubią cię. Lepiej działa ci coś bliższego: trzy osoby, prowadzący, który cię zauważy, regularny rytm. Bez zobowiązań do dzielenia się więcej, niż chcesz.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PYTANIA -->
+<section id="pytania" aria-labelledby="faq-title">
+  <div class="grid-5-7 wrap">
+    <div class="reveal">
+      <h2 id="faq-title">Jeśli coś jest <em>niejasne.</em></h2>
+    </div>
+    <div class="reveal">
+      <div class="faq-list">
+        <details>
+          <summary>Czemu tylko trzy miejsca?</summary>
+          <div class="faq-answer">Bo to nie jest kurs, to mała grupa. W trzech osobach plus prowadzący każdy jest widziany. Można iść głębiej w pracy z ruchem, niż w grupie piętnastoosobowej, bez tracenia indywidualnej uwagi. Mała liczba to nie marketing, to format, w którym ten rodzaj pracy działa.</div>
+        </details>
+        <details>
+          <summary>Czemu tylko mężczyźni?</summary>
+          <div class="faq-answer">Bo niektóre tematy są inne, kiedy mówimy o nich między sobą. Kontakt z odczuwaniem, spowolnienie, bycie bez celu — to obszary, których wielu mężczyzn nie ćwiczyło wcześniej. Niemieszane grono pozwala na trochę inne tempo i inny rodzaj rozmowy.</div>
+        </details>
+        <details>
+          <summary>Gdzie odbywają się spotkania?</summary>
+          <div class="faq-answer">W moim studio w Gdańsku Wrzeszczu. Przyjazna, kameralna przestrzeń. Dokładny adres dostaniesz po zakwalifikowaniu się do grupy. Spotkania są tylko stacjonarne — to nie jest format online.</div>
+        </details>
+        <details>
+          <summary>Grupa poranna czy wieczorna?</summary>
+          <div class="faq-answer">Otwieram dwie tury w czwartki: o 9:00 i o 19:30. Każda ma trzy miejsca. Wybierz tę, która lepiej pasuje do twojego rytmu — dla niektórych poranek przed pracą jest najczystszą porą dnia, dla innych wieczorem dopiero udaje się zwolnić. Jeśli któraś jest pełna, druga jest naturalną alternatywą. W formularzu możesz zaznaczyć "każda mi pasuje" i ustalimy podczas rozmowy.</div>
+        </details>
+        <details>
+          <summary>Czy potrzebuję doświadczenia z Feldenkraisem?</summary>
+          <div class="faq-answer">Nie. Ten format jest pomyślany jako wprowadzenie. Wszystko, czego potrzebujesz, dostaniesz w trakcie spotkań.</div>
+        </details>
+        <details>
+          <summary>Czy potrzebuję sprawności fizycznej?</summary>
+          <div class="faq-answer">Nie. Ruchy są powolne, drobne, prawie zawsze leżąc. Nigdy nie wchodzimy w skrajne zakresy. Jeśli możesz leżeć i powoli się poruszać, możesz uczestniczyć.</div>
+        </details>
+        <details>
+          <summary>Czy to jest grupa terapeutyczna?</summary>
+          <div class="faq-answer">Nie. To nie jest grupa wsparcia ani warsztat psychologiczny. Pracujemy z ruchem, uwagą i dotykiem — i to często ma głębsze konsekwencje, ale to nie terapia.</div>
+        </details>
+        <details>
+          <summary>Czy będę musiał coś mówić w grupie?</summary>
+          <div class="faq-answer">Refleksja w grupie jest zaproszeniem, nie obowiązkiem. Możesz słuchać przez całe spotkanie. Wielu uczestników mówi tylko wtedy, kiedy ma na to ochotę.</div>
+        </details>
+        <details>
+          <summary>Co jeśli nie mogę być na jakimś spotkaniu?</summary>
+          <div class="faq-answer">Lekcje przez ruch nagrywam w wersji audio — możesz wrócić do nich w dowolnym momencie do końca cyklu. Rozmów grupowych nie nagrywam, dla intymności pracy. Jedna albo dwie nieobecności w cyklu są normalne i nie psują procesu.</div>
+        </details>
+        <details>
+          <summary>Jak wygląda rozmowa wstępna?</summary>
+          <div class="faq-answer">Krótka, 10–15 minut przez telefon. Pytam, co cię przyprowadziło, opowiadam, jak wygląda praca, sprawdzamy, czy to dobre dopasowanie. Bez zobowiązania — możesz wybrać, że nie chcesz, ja mogę powiedzieć, że to nie ten format dla ciebie. Po rozmowie decydujemy.</div>
+        </details>
+        <details>
+          <summary>Jakie są warunki zwrotu?</summary>
+          <div class="faq-answer">Po rozmowie wstępnej i opłaceniu cyklu rezerwujesz miejsce, które nie wraca już do puli. Zwroty po starcie kursu nie są możliwe — bo grupa jest mała, a twoje miejsce ma wpływ na pozostałych. Dlatego rozmowa wstępna istnieje: żebyśmy oboje upewnili się, że to dobry moment, zanim się zdecydujesz.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZAPROSZENIE -->
+<section class="invite" aria-labelledby="invite-title">
+  <div class="wrap">
+    <h2 id="invite-title" class="invite-headline reveal">
+      Trzy miejsca.<br>
+      Studio we Wrzeszczu.<br>
+      <span class="line-em">Osiem tygodni.</span>
+    </h2>
+    <p class="invite-lead reveal">
+      Jeśli czujesz, że to dla ciebie — wypełnij krótki formularz. Odezwę się w ciągu dwóch dni.
+    </p>
+    <div class="invite-ctas reveal">
+      <a class="btn btn-primary" href="#zapis">
+        <span>Zgłoś się do grupy</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/artur_porusza" rel="noopener">
+        <span>Instagram</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 · Artur Chruszcz · Gdańsk, Polska</span>
+    <span>Grupa Feldenkraisowska · Dla mężczyzn · Gdańsk Wrzeszcz</span>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  (function () {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  })();
+
+  // Single-open accordion
+  (function () {
+    var details = document.querySelectorAll('.faq-list details');
+    details.forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (d.open) {
+          details.forEach(function (other) {
+            if (other !== d) other.open = false;
+          });
+        }
+      });
+    });
+  })();
+
+  // Form handling — currently client-side only, swap submit URL for production
+  (function () {
+   const form = document.getElementById('zgloszenie');
+  const success = document.getElementById('success');
+  const successName = document.getElementById('successName');
+  const submitBtn = document.getElementById('submitBtn');
+
+  const fields = ['imie', 'email', 'dlaczego'];
+  const handleSubmit = event => {
+  event.preventDefault();
+
+  const myForm = event.target;
+  const formData = new FormData(myForm);
+  console.log('Submitting form with data:', Object.fromEntries(formData.entries()));
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString()
+  })
+    .then(() => {
+      const name = form.imie.value.trim().split(' ')[0];
+      successName.textContent = (name ? ', ' + name : '');
+      form.style.display = 'none';
+      success.classList.add('show');
+      success.scrollIntoView && success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })
+    .catch(error => alert(error));
+};
+  const validate = (showAll = false) => {
+    let ok = true;
+    const name = form.imie.value.trim();
+    const email = form.email.value.trim();
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    const setErr = (k, bad) => {
+      const f = document.querySelector('[data-field="' + k + '"]');
+      if (bad && showAll) f.classList.add('has-error');
+      else if (!bad) f.classList.remove('has-error');
+      if (bad) ok = false;
+    };
+
+    setErr('imie', !name);
+    setErr('email', !emailOk);
+    return ok;
+  };
+
+  // Live clearing of errors
+  fields.forEach(k => {
+    const inp = form[k];
+    if (inp) {
+      inp.addEventListener('input', () => {
+        const f = document.querySelector('[data-field="' + k + '"]');
+        f.classList.remove('has-error');
+      });
+    }
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!validate(true)) {
+      return;
+    }
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    submitBtn.querySelector('span').textContent = 'Wysyłam…';
+    handleSubmit(e);
+  });
+
+  })();
+</script>
+</body>
+</html>
