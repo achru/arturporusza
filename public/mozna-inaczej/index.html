@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Można inaczej — roczny program oparty na Metodzie Feldenkraisa · Gdańsk + online</title>
-<meta name="description" content="Autorski roczny program uczenia się przez ruch, oparty na Metodzie Feldenkraisa. Cztery moduły po 8 lekcji, Gdańsk lub online. Start: wrzesień 2026.">
+<meta name="description" content="Autorski roczny program uczenia się przez ruch, oparty na Metodzie Feldenkraisa. Cztery moduły po 8 lekcji, Gdańsk lub online. Start: 15 września 2026.">
 <link rel="canonical" href="https://arturporusza.pl/mozna-inaczej/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:title" content="Można inaczej — roczny program oparty na Metodzie Feldenkraisa">
-<meta property="og:description" content="Cztery moduły po 8 lekcji, Gdańsk lub online. Start: wrzesień 2026. Więcej sposobów reagowania tam, gdzie do tej pory był jeden.">
+<meta property="og:description" content="Cztery moduły po 8 lekcji, Gdańsk lub online. Start: 15 września 2026. Więcej sposobów reagowania tam, gdzie do tej pory był jeden.">
 <meta property="og:url" content="https://arturporusza.pl/mozna-inaczej/">
 <meta property="og:image" content="https://arturporusza.pl/og.jpg">
 <script type="application/ld+json">
@@ -24,14 +24,16 @@
     {
       "@type": "CourseInstance",
       "courseMode": "onsite",
-      "location": { "@type": "Place", "name": "Gdańsk" },
-      "startDate": "2026-09",
+      "location": { "@type": "Place", "name": "Studio", "address": { "@type": "PostalAddress", "streetAddress": "Politechniczna 9/5", "addressLocality": "Gdańsk", "addressCountry": "PL" } },
+      "startDate": "2026-09-15",
+      "endDate": "2027-05-25",
       "offers": { "@type": "Offer", "price": "3390", "priceCurrency": "PLN", "url": "https://arturporusza.pl/mozna-inaczej/#cennik" }
     },
     {
       "@type": "CourseInstance",
       "courseMode": "online",
-      "startDate": "2026-09",
+      "startDate": "2026-09-15",
+      "endDate": "2027-05-25",
       "offers": { "@type": "Offer", "price": "1890", "priceCurrency": "PLN", "url": "https://arturporusza.pl/mozna-inaczej/#cennik" }
     }
   ]
@@ -270,16 +272,13 @@
   .org .cell{background:#fff;border-radius:18px;padding:20px 22px}
   .org dt{font-family:'Baloo 2',cursive;font-weight:600;font-size:15px;color:var(--ink-soft);margin-bottom:4px}
   .org dd{font-size:16px;font-weight:600}
+  .org a{color:var(--m1d)}
 
   /* ---------- ABOUT / TRUST ---------- */
   .about{padding:80px 0}
   .about .inner{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:start;max-width:860px;margin:0 auto}
   @media(max-width:680px){.about .inner{grid-template-columns:1fr;justify-items:center;text-align:center}}
-  .about .photo{
-    width:220px;height:260px;border-radius:26px;background:var(--bg-soft);
-    border:2px dashed #D9D4CB;display:flex;align-items:center;justify-content:center;
-    color:var(--ink-soft);font-weight:700;font-size:14px;text-align:center;padding:12px;
-  }
+  .about .photo{width:220px;height:320px;border-radius:26px;object-fit:cover;object-position:top;display:block}
   .about h2{font-size:clamp(26px,3.8vw,36px);margin-bottom:16px}
   .about p{margin-bottom:14px}
   .about ul{list-style:none;margin:0 0 14px}
@@ -290,13 +289,20 @@
   .about .sig{font-family:'Baloo 2',cursive;font-weight:600;font-size:19px;color:var(--m4d);margin-top:8px}
 
   .voices{padding:0 0 80px}
-  .voices h2{font-size:clamp(24px,3.6vw,32px);margin-bottom:30px;text-align:center}
-  .voices .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .voices h2{font-size:clamp(24px,3.6vw,32px);margin-bottom:10px;text-align:center}
+  .voices .sub{color:var(--ink-soft);text-align:center;max-width:60ch;margin:0 auto 30px;font-size:15.5px}
+  .voices .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:700px){.voices .grid{grid-template-columns:1fr}}
   .voice{
     background:var(--bg-soft);border-radius:22px;padding:26px;
-    font-style:italic;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;
-    min-height:140px;text-align:center;border:2px dashed #D9D4CB;font-weight:600;
+    display:flex;flex-direction:column;gap:14px;
   }
+  .voice blockquote{font-style:italic;color:var(--ink-soft);font-size:15.5px;flex:1}
+  .voice .who{font-family:'Baloo 2',cursive;font-weight:600;font-size:15px;display:flex;align-items:center;gap:9px}
+  .voice .who::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--lav);flex-shrink:0}
+  .voice:nth-child(2) .who::before{background:var(--pink)}
+  .voice:nth-child(3) .who::before{background:var(--mint)}
+  .voice:nth-child(4) .who::before{background:var(--ochre)}
 
   /* ---------- FAQ ---------- */
   .practical{padding:80px 0;background:var(--bg-soft)}
@@ -378,7 +384,7 @@
       <span class="w2"><span>i</span><span>n</span><span>a</span><span>c</span><span>z</span><span>e</span><span>j</span></span>
     </h1>
     <p class="lead">Ten sam sposób siedzenia przy trudnej rozmowie, to samo spięcie przed wysłaniem maila, ta sama pętla myśli o trzeciej w nocy. Wiesz, że można inaczej - między wiedzieć a umieć jest cała praktyka. Ten program jest po to, żeby w miejscach, w których do tej pory była jedna reakcja, pojawił się wybór.</p>
-    <p class="facts"><span>Start: wrzesień 2026</span><span>·</span><span>4 moduły × 8 lekcji po 75 minut</span><span>·</span><span>Gdańsk lub online</span></p>
+    <p class="facts"><span>Start: 15 września 2026</span><span>·</span><span>4 moduły × 8 lekcji po 75 minut</span><span>·</span><span>Gdańsk lub online</span></p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#zapisy">Zgłaszam się do cyklu</a>
       <a class="btn btn-ghost" href="#moduly">Zobacz program</a>
@@ -472,7 +478,7 @@
       <article class="mcard c1">
         <span class="badge">Moduł 1</span>
         <h3>Wsparcie w niepewności</h3>
-        <div class="dates">wrzesień — listopad</div>
+        <div class="dates">15 września — 3 listopada 2026</div>
         <p>Kiedy nie wiem, co będzie, planuję wszystko na zapas albo zamieram. Oba te ruchy szukają pewności na zewnątrz. W lekcjach szukamy wsparcia gdzie indziej - w szkielecie, w oddechu, w kontakcie z podłogą - i w ruchu, w którym celowo nie wszystko jest z góry wiadome.</p>
         <p class="praktyka">W praktyce może to oznaczać:</p>
         <ul>
@@ -485,7 +491,7 @@
       <article class="mcard c2">
         <span class="badge">Moduł 2</span>
         <h3>Od ruminacji do orientacji</h3>
-        <div class="dates">listopad — styczeń</div>
+        <div class="dates">17 listopada 2026 — 19 stycznia 2027</div>
         <p>Ruminacja kręci się w kółko, bo nie dopływają do niej nowe dane - myślę o sytuacji, zamiast patrzeć na sytuację. W lekcjach pracujemy nad koordynacją oczu, głowy i kręgosłupa, patrzeniem szerokim i wąskim, obracaniem się w przestrzeni. To jedne z mechanizmów, które pomagają przenosić uwagę z pętli myśli z powrotem do sytuacji.</p>
         <p class="praktyka">W praktyce może to oznaczać:</p>
         <ul>
@@ -498,7 +504,7 @@
       <article class="mcard c3">
         <span class="badge">Moduł 3</span>
         <h3>Od perfekcji do żywego działania</h3>
-        <div class="dates">luty — kwiecień</div>
+        <div class="dates">2 lutego — 23 marca 2027</div>
         <p>Czekam, aż będę gotowy. Doszlifowuję. Efekt: działam rzadko, a uczę się jeszcze rzadziej, bo uczenie się wymaga błędów. W tych lekcjach „dobrze" nie jest kryterium - kryterium jest: czy mogę lżej, wolniej, inaczej, w drugą stronę.</p>
         <p class="praktyka">W praktyce może to oznaczać:</p>
         <ul>
@@ -511,7 +517,7 @@
       <article class="mcard c4">
         <span class="badge">Moduł 4</span>
         <h3>Repertuar łatwości</h3>
-        <div class="dates">kwiecień — czerwiec</div>
+        <div class="dates">6 kwietnia — 25 maja 2027</div>
         <p>Przez trzy moduły budujesz umiejętności - wsparcie, orientację, gotowość do niedoskonałego działania. Tutaj składamy je w jedno: elastyczne działanie w wielu sytuacjach. Lekcje, które zaczynały się na podłodze, przenosimy do siedzenia, chodzenia, mówienia, reagowania. Celem nie jest lepszy stan. Celem jest szerszy repertuar - więcej sposobów reagowania tam, gdzie do tej pory był jeden.</p>
         <p class="praktyka">W praktyce może to oznaczać:</p>
         <ul>
@@ -549,9 +555,9 @@
       <div class="fcard">
         <h3 class="gd">Kameralnie w Gdańsku</h3>
         <ul>
-          <li>grupa do <span class="ph">[UZUPEŁNIJ: liczba osób]</span> osób</li>
-          <li>spotkania co tydzień: <span class="ph">[UZUPEŁNIJ: dzień i godzina]</span></li>
-          <li>miejsce: <span class="ph">[UZUPEŁNIJ: adres sali w Gdańsku]</span></li>
+          <li>grupa do 3 osób</li>
+          <li>spotkania w każdy wtorek o 19:00</li>
+          <li>miejsce: studio przy ul. Politechnicznej 9/5</li>
           <li>każda lekcja trwa 75 minut</li>
           <li>po każdej lekcji dostajesz jej nagranie</li>
         </ul>
@@ -561,10 +567,10 @@
         <h3 class="on">Online</h3>
         <ul>
           <li>bez limitu miejsc</li>
-          <li>udział na żywo przez kamerkę razem z grupą - kamera nie jest obowiązkowa</li>
+          <li>udział na żywo przez Zooma razem z grupą - kamera nie jest obowiązkowa</li>
           <li>albo praktyka z nagraniem lekcji z sali, w dogodnym momencie</li>
           <li>nagrania zostają z Tobą po zakończeniu modułu</li>
-          <li>pytania: na żywo w trakcie lekcji albo <span class="ph">[UZUPEŁNIJ: kanał na pytania, np. e-mail]</span></li>
+          <li>pytania: na żywo w trakcie lekcji albo mailem - kontakt@arturchruszcz.pl</li>
         </ul>
         <p>To ta sama lekcja, którą przechodzi grupa w Gdańsku - nie osobny kurs wideo. Program i tempo są wspólne dla obu form.</p>
       </div>
@@ -584,7 +590,7 @@
         <div class="price-card featured">
           <div class="tag">Cały rok · rekomendowane</div>
           <div class="amount">3390 zł</div>
-          <div class="per">32 lekcje · ok. 106 zł za lekcję</div>
+          <div class="per">32 lekcje</div>
           <ul>
             <li>Pierwszeństwo miejsca we wszystkich modułach</li>
             <li>Wersja online w cenie</li>
@@ -595,7 +601,7 @@
         <div class="price-card mini">
           <div class="tag">Jeden moduł</div>
           <div class="amount">990 zł</div>
-          <div class="per">8 lekcji · ok. 124 zł za lekcję</div>
+          <div class="per">8 lekcji</div>
           <ul>
             <li>Dobra opcja, jeśli nie chcesz od razu deklarować całego roku</li>
           </ul>
@@ -608,7 +614,7 @@
         <div class="price-card featured">
           <div class="tag">Cały rok · rekomendowane</div>
           <div class="amount">1890 zł</div>
-          <div class="per">32 lekcje · ok. 59 zł za lekcję</div>
+          <div class="per">32 lekcje</div>
           <ul>
             <li>Wszystkie nagrania i udział hybrydowy na żywo</li>
             <li>Możliwość płatności w 2 ratach</li>
@@ -635,14 +641,14 @@
   <div class="wrap">
     <h2>Informacje organizacyjne</h2>
     <dl>
-      <div class="cell"><dt>Start</dt><dd>wrzesień 2026</dd></div>
-      <div class="cell"><dt>Miejsce w Gdańsku</dt><dd><span class="ph">[UZUPEŁNIJ: adres sali]</span></dd></div>
-      <div class="cell"><dt>Dzień i godzina</dt><dd><span class="ph">[UZUPEŁNIJ: dzień i godzina]</span></dd></div>
-      <div class="cell"><dt>Dokładne daty modułów</dt><dd><span class="ph">[UZUPEŁNIJ: daty]</span></dd></div>
-      <div class="cell"><dt>Liczba miejsc w grupie</dt><dd><span class="ph">[UZUPEŁNIJ: liczba miejsc]</span></dd></div>
-      <div class="cell"><dt>Zapisy do</dt><dd><span class="ph">[UZUPEŁNIJ: termin zapisów]</span></dd></div>
-      <div class="cell"><dt>Płatność</dt><dd>przelew, możliwość rat · <span class="ph">[UZUPEŁNIJ: szczegóły]</span></dd></div>
-      <div class="cell"><dt>Rezygnacja</dt><dd><span class="ph">[UZUPEŁNIJ: zasady rezygnacji]</span></dd></div>
+      <div class="cell"><dt>Start</dt><dd>15 września 2026</dd></div>
+      <div class="cell"><dt>Miejsce w Gdańsku</dt><dd>studio, ul. Politechniczna 9/5</dd></div>
+      <div class="cell"><dt>Dzień i godzina</dt><dd>wtorki, godz. 19:00</dd></div>
+      <div class="cell"><dt>Dokładne daty modułów</dt><dd>Moduł 1: 15 września — 3 listopada<br>Moduł 2: 17 listopada — 19 stycznia<br>Moduł 3: 2 lutego — 23 marca<br>Moduł 4: 6 kwietnia — 25 maja</dd></div>
+      <div class="cell"><dt>Liczba miejsc w grupie</dt><dd>Gdańsk: 3 · online: bez limitu</dd></div>
+      <div class="cell"><dt>Zapisy do</dt><dd>Gdańsk: do 8 września 2026<br>online: do dnia startu danego modułu</dd></div>
+      <div class="cell"><dt>Płatność</dt><dd>przelew · cały rok: możliwość 4 rat (Gdańsk) lub 2 rat (online)</dd></div>
+      <div class="cell"><dt>Rezygnacja</dt><dd>pełny zwrot do 14 dni przed startem modułu · <a href="#pytania">szczegóły w Pytaniach</a></dd></div>
     </dl>
   </div>
 </section>
@@ -650,7 +656,7 @@
 <section class="about" id="prowadzacy">
   <div class="wrap">
     <div class="inner">
-      <div class="photo">[WSTAW ZDJĘCIE:<br>Artur Chruszcz]</div>
+      <img class="photo" src="ja.jpg" alt="Artur Chruszcz" width="220" height="320" loading="lazy">
       <div>
         <h2>Kto prowadzi</h2>
         <p>Nazywam się Artur Chruszcz.</p>
@@ -669,10 +675,24 @@
 <section class="voices">
   <div class="wrap">
     <h2>Głosy uczestników</h2>
+    <p class="sub">Pierwsza edycja programu rusza we wrześniu, więc to nie są opinie o nim - tak uczestnicy piszą o mojej dotychczasowej pracy, indywidualnej i grupowej.</p>
     <div class="grid">
-      <div class="voice">[WSTAW PRAWDZIWĄ OPINIĘ UCZESTNIKA]</div>
-      <div class="voice">[WSTAW PRAWDZIWĄ OPINIĘ UCZESTNIKA]</div>
-      <div class="voice">[WSTAW PRAWDZIWĄ OPINIĘ UCZESTNIKA]</div>
+      <figure class="voice">
+        <blockquote>„Brałam udział w prowadzonych przez Artura zajęciach zarówno indywidualnych, jak i grupowych - każda z form okazała się ciekawym doświadczeniem pozwalającym mi poczuć siebie w ciele w sposób bardziej świadomy, z zaangażowaniem, ale bez presji i napięcia, w atmosferze akceptacji i szacunku. Polecam każdemu!"</blockquote>
+        <figcaption class="who">Renata</figcaption>
+      </figure>
+      <figure class="voice">
+        <blockquote>„To są spotkania z moją uważnością i poznawaniem siebie. W jaki sposób się poruszam, gdzie generuję napięcia lub gdzie zdecydowanie utrudniam, choć mogę prościej. Każda wersja jest dobra, bo moja - z możliwością zmiany. Bardzo polecam ten sposób odkrywania siebie."</blockquote>
+        <figcaption class="who">Katarzyna</figcaption>
+      </figure>
+      <figure class="voice">
+        <blockquote>„Serdecznie polecam pracę z Arturem, szczególnie osobom z różnego rodzaju bólami o niejasnej etiologii, gdzie medycyna konwencjonalna i fizjoterapia standardowa nie dają oczekiwanych rezultatów. (…) Artura cechuje pełen profesjonalizm, przeogromna wiedza, cierpliwość, empatia i uważność na drugiego człowieka, dlatego zajęcia są w pełni dopasowane do indywidualnych potrzeb każdej osoby."</blockquote>
+        <figcaption class="who">Monika</figcaption>
+      </figure>
+      <figure class="voice">
+        <blockquote>„Uważam, że to fachowiec wysokiej klasy - z głębokim zrozumieniem ciała, jego budowy i funkcji. Pan Artur jest osobą ciepłą, cierpliwą, uważnie słuchającą i nienarzucającą swojego zdania. Wskazuje kierunki, zachęca do doświadczania własnego ciała i do poszukiwania najbardziej naturalnych, wygodnych i optymalnych dla siebie rozwiązań. (…) Jestem naprawdę zadowolony. Polecam."</blockquote>
+        <figcaption class="who">Andrzej</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -694,11 +714,22 @@
     </details>
     <details>
       <summary>Czym różni się wersja online od stacjonarnej?</summary>
-      <p>To ta sama lekcja. Stacjonarnie jesteś w sali i pracuję z tym, co widzę - z Twoim konkretnym sposobem ruszania się. Online możesz dołączyć na żywo przez kamerkę (kamera nie jest obowiązkowa) albo praktykować z nagraniem w dogodnym momencie. Obie wersje prowadzą przez ten sam program, w tym samym tempie.</p>
+      <p>To ta sama lekcja. Stacjonarnie jesteś w sali i pracuję z tym, co widzę - z Twoim konkretnym sposobem ruszania się. Online możesz dołączyć na żywo przez Zooma (kamera nie jest obowiązkowa) albo praktykować z nagraniem w dogodnym momencie. Obie wersje prowadzą przez ten sam program, w tym samym tempie.</p>
     </details>
     <details>
       <summary>Kiedy startujemy i jak wygląda kalendarz?</summary>
-      <p>Moduł 1 zaczyna się we wrześniu 2026. Kolejne moduły: listopad, luty, kwiecień. Przerwy wypadają w okolicach świąt i ferii - dokładny kalendarz dostajesz przed startem.</p>
+      <p>Wszystkie lekcje odbywają się we wtorki o 19:00. Między modułami jest tydzień przerwy, a przerwa po trzecim module wypada w tygodniu wielkanocnym.</p>
+      <p>Moduł 1: 15, 22, 29 września, 6, 13, 20, 27 października i 3 listopada 2026.</p>
+      <p>Moduł 2: 17 i 24 listopada, 1, 8, 15 grudnia oraz 5, 12 i 19 stycznia. 22 i 29 grudnia - przerwa świąteczna.</p>
+      <p>Moduł 3: 2, 9, 16, 23 lutego oraz 2, 9, 16, 23 marca 2027.</p>
+      <p>Moduł 4: 6, 13, 20, 27 kwietnia oraz 4, 11, 18, 25 maja 2027.</p>
+    </details>
+    <details>
+      <summary>Jak wygląda rezygnacja i zwroty?</summary>
+      <p>Do 14 dni przed startem modułu możesz zrezygnować z pełnym zwrotem wpłaty. Później - i po rozpoczęciu modułu - wpłata za ten moduł nie podlega już zwrotowi. Nagrania lekcji, które zdążyły się odbyć, zostają z Tobą do końca modułu.</p>
+      <p>Przy pakiecie rocznym rozliczenie wygląda tak: moduły rozpoczęte liczę po cenie pojedynczego modułu, a za te, które jeszcze się nie zaczęły (przy zachowaniu terminu 14 dni), zwracam różnicę.</p>
+      <p>Zamiast rezygnować, możesz przekazać swoje miejsce innej osobie - wystarczy, że dasz mi znać mailem, rozliczacie się wtedy między sobą.</p>
+      <p>Jeśli to ja odwołam moduł przed startem, zwracam całość wpłaty. Niezależnie od powyższego masz ustawowe 14 dni na odstąpienie od umowy zawartej na odległość, liczone od dnia zakupu - jeśli w tym czasie odbyły się już lekcje, zwrot pomniejszam o ich wartość.</p>
     </details>
   </div>
 </section>
