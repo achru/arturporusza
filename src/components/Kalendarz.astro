@@ -1,5 +1,6 @@
 ---
 import { aktualne, NAZWY_TYPOW, KOLORY_TYPOW, klasaStatusu, linkWydarzenia } from '../lib/wydarzenia';
+import { CONTACT } from '../config';
 
 const eventsLd = aktualne
   .filter((w) => w.data)
@@ -53,6 +54,13 @@ const eventsLd = aktualne
         Nowe terminy wkrótce. <a href="#newsletter">Zapisz się na newsletter</a> — informuję najpierw tam.
       </div>
     </div>
+
+    <p class="platforma-nota" data-reveal>
+      Cykle i lekcje online zbieram na
+      <a class="link-strzalka" href={CONTACT.platforma} target="_blank" rel="noopener"
+        >FeldenkraisOnline.pl <span class="strzalka">→</span></a
+      >
+    </p>
   </div>
 </section>
 
@@ -231,5 +239,15 @@ const eventsLd = aktualne
 
   .pusto a {
     color: var(--m1);
+  }
+
+  .platforma-nota {
+    margin-top: 1.8rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .platforma-nota :global(.link-strzalka) {
+    margin-left: 0.25em;
   }
 </style>
