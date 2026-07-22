@@ -10,6 +10,7 @@ export default defineConfig({
         'https://arturporusza.pl/kreatywnynauczyciel/',
         'https://arturporusza.pl/indywidualnie/',
         'https://arturporusza.pl/mezczyzni/',
+        'https://arturporusza.pl/mozna-inaczej/',
       ],
     }),
   ],

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Można inaczej — roczny program oparty na Metodzie Feldenkraisa · Gdańsk + online</title>
+<meta name="description" content="Autorski roczny program uczenia się przez ruch, oparty na Metodzie Feldenkraisa. Cztery moduły po 8 lekcji, Gdańsk lub online. Start: wrzesień 2026.">
+<link rel="canonical" href="https://arturporusza.pl/mozna-inaczej/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="Można inaczej — roczny program oparty na Metodzie Feldenkraisa">
+<meta property="og:description" content="Cztery moduły po 8 lekcji, Gdańsk lub online. Start: wrzesień 2026. Więcej sposobów reagowania tam, gdzie do tej pory był jeden.">
+<meta property="og:url" content="https://arturporusza.pl/mozna-inaczej/">
+<meta property="og:image" content="https://arturporusza.pl/og.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Można inaczej",
+  "description": "Roczny program uczenia się przez ruch oparty na Metodzie Feldenkraisa. Cztery moduły po 8 lekcji po 75 minut, Gdańsk lub online.",
+  "url": "https://arturporusza.pl/mozna-inaczej/",
+  "provider": { "@type": "Person", "name": "Artur Chruszcz", "url": "https://arturporusza.pl/" },
+  "hasCourseInstance": [
+    {
+      "@type": "CourseInstance",
+      "courseMode": "onsite",
+      "location": { "@type": "Place", "name": "Gdańsk" },
+      "startDate": "2026-09",
+      "offers": { "@type": "Offer", "price": "3390", "priceCurrency": "PLN", "url": "https://arturporusza.pl/mozna-inaczej/#cennik" }
+    },
+    {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "startDate": "2026-09",
+      "offers": { "@type": "Offer", "price": "1890", "priceCurrency": "PLN", "url": "https://arturporusza.pl/mozna-inaczej/#cennik" }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-soft:#FBF9F4;
+    --ink:#403A4E;
+    --ink-soft:#655F72;
+    --lav:#B5A8C9;
+    --pink:#F2B8C6;
+    --ochre:#F0C060;
+    --mint:#9DD5C0;
+    --green:#A8D08D;
+    --coral:#F4A08C;
+    --blue:#7FB5D5;
+    --m1:#7FB5D5;
+    --m2:#F0C060;
+    --m3:#F4A08C;
+    --m4:#A8D08D;
+    --m1d:#3F7EA3;
+    --m2d:#A67C1F;
+    --m3d:#BC6047;
+    --m4d:#5F8C45;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Nunito',sans-serif;
+    line-height:1.7;
+    font-size:17px;
+  }
+  h1,h2,h3{font-family:'Baloo 2',cursive;font-weight:600;line-height:1.15}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{
+    outline:3px solid var(--lav);outline-offset:3px;border-radius:6px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:14px;flex-wrap:wrap}
+  .logo{font-family:'Baloo 2',cursive;font-weight:700;font-size:20px;letter-spacing:.01em}
+  .logo span:nth-child(1){color:var(--lav)}
+  .logo span:nth-child(2){color:var(--pink)}
+  .logo span:nth-child(3){color:var(--ochre)}
+  .logo span:nth-child(4){color:var(--mint)}
+  .logo span:nth-child(5){color:var(--green)}
+  nav .links{display:flex;gap:24px;font-size:15px;font-weight:700;flex-wrap:wrap}
+  nav a{color:var(--ink);text-decoration:none}
+  nav a:hover{color:var(--m1d)}
+  @media(max-width:640px){
+    nav{justify-content:center}
+    nav .links{gap:16px;font-size:14px;justify-content:center}
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-block;padding:14px 30px;font-size:16px;font-weight:700;
+    font-family:'Baloo 2',cursive;cursor:pointer;
+    text-decoration:none;border-radius:999px;transition:transform .15s;border:none;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-ghost{border:2.5px solid var(--ink);color:var(--ink);background:transparent}
+  .cta-mid{text-align:center;margin-top:44px}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:36px 0 64px;text-align:center}
+  #brain{width:min(320px,64vw);height:auto;display:block;margin:0 auto 6px}
+  #brain circle{opacity:0;animation:pop .45s ease-out forwards}
+  #brain line{opacity:0;animation:fadeline .8s ease-out forwards}
+  @keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+  @keyframes fadeline{to{opacity:1}}
+  .hero .kicker{
+    font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:700;margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(44px,8vw,84px);font-weight:700;max-width:12ch;margin:0 auto}
+  .hero h1 .w1 span:nth-child(1){color:var(--lav)}
+  .hero h1 .w1 span:nth-child(2){color:var(--pink)}
+  .hero h1 .w1 span:nth-child(3){color:var(--ochre)}
+  .hero h1 .w1 span:nth-child(4){color:var(--mint)}
+  .hero h1 .w1 span:nth-child(5){color:var(--green)}
+  .hero h1 .w2 span:nth-child(1){color:var(--pink)}
+  .hero h1 .w2 span:nth-child(2){color:var(--mint)}
+  .hero h1 .w2 span:nth-child(3){color:var(--green)}
+  .hero h1 .w2 span:nth-child(4){color:var(--lav)}
+  .hero h1 .w2 span:nth-child(5){color:var(--coral)}
+  .hero h1 .w2 span:nth-child(6){color:var(--blue)}
+  .hero h1 .w2 span:nth-child(7){color:var(--ochre)}
+  .hero p.lead{max-width:58ch;margin:24px auto 0;font-size:clamp(17px,2.2vw,19.5px)}
+  .hero .facts{
+    margin-top:20px;font-size:15px;font-weight:700;color:var(--ink-soft);
+    display:flex;gap:8px;justify-content:center;flex-wrap:wrap;
+  }
+  .hero .cta-row{margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  .journey{margin:56px auto 0;max-width:920px;display:block;width:100%;height:auto}
+  .journey .dot{opacity:0;animation:pop .4s ease-out forwards}
+  .journey path{stroke-dasharray:2200;stroke-dashoffset:2200;animation:draw 3s ease-out forwards .2s}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .journey-caption{font-size:14px;color:var(--ink-soft);margin-top:12px;text-align:center;font-weight:600}
+  @media(prefers-reduced-motion:reduce){
+    #brain circle,#brain line,.journey .dot{animation:none;opacity:1}
+    .journey path{animation:none;stroke-dashoffset:0}
+  }
+
+  /* ---------- INTRO ---------- */
+  .intro{padding:64px 0;background:var(--bg-soft)}
+  .intro .wrap{max-width:700px}
+  .intro p{margin-bottom:20px}
+  .intro p:last-child{margin-bottom:0}
+
+  /* ---------- DLA KOGO / TO NIE JEST ---------- */
+  .fit{padding:80px 0}
+  .fit h2{font-size:clamp(26px,4vw,38px);margin-bottom:26px;text-align:center}
+  .fit .cols{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;align-items:start}
+  @media(max-width:760px){.fit .cols{grid-template-columns:1fr}}
+  .fit-card{border-radius:26px;padding:34px 30px;background:var(--bg-soft)}
+  .fit-card.no{background:#fff;border:2px dashed #D9D4CB}
+  .fit-card h3{font-size:21px;margin-bottom:16px}
+  .fit-card ul{list-style:none}
+  .fit-card li{padding:8px 0 8px 30px;position:relative;font-size:16px}
+  .fit-card.yes li::before{
+    content:"";position:absolute;left:0;top:16px;width:13px;height:13px;border-radius:50%;background:var(--mint);
+  }
+  .fit-card.yes li:nth-child(2n)::before{background:var(--ochre)}
+  .fit-card.yes li:nth-child(3n)::before{background:var(--coral)}
+  .fit-card.no li::before{
+    content:"—";position:absolute;left:2px;top:8px;color:#B7B1A6;font-weight:700;
+  }
+  .fit .note{font-size:15px;color:var(--ink-soft);margin-top:18px;text-align:center}
+
+  /* ---------- MODULES ---------- */
+  .modules{padding:80px 0;background:var(--bg-soft)}
+  .modules h2{font-size:clamp(30px,4.5vw,44px);margin-bottom:12px;text-align:center}
+  .modules .sub{color:var(--ink-soft);max-width:56ch;margin:0 auto 52px;text-align:center}
+  .mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media(max-width:760px){.mod-grid{grid-template-columns:1fr}}
+  .mcard{border-radius:26px;padding:34px 30px;background:#fff;border:3px solid transparent}
+  .mcard.c1{border-color:var(--m1)} .mcard.c2{border-color:var(--m2)}
+  .mcard.c3{border-color:var(--m3)} .mcard.c4{border-color:var(--m4)}
+  .mcard .badge{
+    display:inline-block;font-family:'Baloo 2',cursive;font-weight:700;font-size:13.5px;
+    padding:5px 14px;border-radius:999px;color:var(--ink);margin-bottom:14px;
+  }
+  .c1 .badge{background:var(--m1)} .c2 .badge{background:var(--m2)}
+  .c3 .badge{background:var(--m3)} .c4 .badge{background:var(--m4)}
+  .mcard h3{font-size:clamp(22px,3vw,27px);margin-bottom:6px}
+  .c1 h3{color:var(--m1d)} .c2 h3{color:var(--m2d)}
+  .c3 h3{color:var(--m3d)} .c4 h3{color:var(--m4d)}
+  .mcard .dates{font-size:13.5px;font-weight:700;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+  .mcard p{font-size:16px;margin-bottom:14px}
+  .mcard .praktyka{font-family:'Baloo 2',cursive;font-weight:600;font-size:15.5px;margin-bottom:6px}
+  .mcard ul{list-style:none}
+  .mcard li{padding:5px 0 5px 26px;position:relative;font-size:15.5px}
+  .mcard li::before{content:"";position:absolute;left:0;top:13px;width:11px;height:11px;border-radius:50%}
+  .c1 li::before{background:var(--m1)} .c2 li::before{background:var(--m2)}
+  .c3 li::before{background:var(--m3)} .c4 li::before{background:var(--m4)}
+
+  /* ---------- LEARNING ---------- */
+  .learn{padding:80px 0}
+  .learn .wrap{max-width:760px}
+  .learn h2{font-size:clamp(26px,4vw,38px);margin-bottom:14px;text-align:center}
+  .learn .sub{color:var(--ink-soft);text-align:center;margin-bottom:36px}
+  .learn ul{list-style:none}
+  .learn li{padding:10px 0 10px 32px;position:relative;font-size:16.5px;border-bottom:1px dashed #E8E4DB}
+  .learn li:last-child{border-bottom:none}
+  .learn li::before{content:"";position:absolute;left:0;top:19px;width:13px;height:13px;border-radius:50%}
+  .learn li:nth-child(7n+1)::before{background:var(--blue)}
+  .learn li:nth-child(7n+2)::before{background:var(--ochre)}
+  .learn li:nth-child(7n+3)::before{background:var(--coral)}
+  .learn li:nth-child(7n+4)::before{background:var(--green)}
+  .learn li:nth-child(7n+5)::before{background:var(--lav)}
+  .learn li:nth-child(7n+6)::before{background:var(--pink)}
+  .learn li:nth-child(7n+7)::before{background:var(--mint)}
+
+  /* ---------- FORMAT ---------- */
+  .format{padding:80px 0;background:var(--bg-soft)}
+  .format h2{font-size:clamp(28px,4vw,40px);margin-bottom:44px;text-align:center}
+  .format .cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media(max-width:720px){.format .cols{grid-template-columns:1fr}}
+  .fcard{background:#fff;border-radius:26px;padding:34px 30px;box-shadow:0 2px 14px rgba(64,58,78,.07)}
+  .fcard h3{font-size:22px;margin-bottom:14px}
+  .fcard h3.gd{color:var(--m1d)} .fcard h3.on{color:var(--m4d)}
+  .fcard p{margin-bottom:12px;font-size:16px}
+  .fcard ul{list-style:none;margin-bottom:12px}
+  .fcard li{padding:5px 0 5px 26px;position:relative;font-size:15.5px}
+  .fcard li::before{content:"";position:absolute;left:0;top:13px;width:11px;height:11px;border-radius:50%}
+  .fcard:first-child li::before{background:var(--blue)}
+  .fcard:last-child li::before{background:var(--green)}
+  .ph{
+    display:inline-block;background:#FFF3D6;border:1.5px dashed var(--m2d);color:var(--m2d);
+    border-radius:8px;padding:0 8px;font-weight:700;font-size:14.5px;
+  }
+
+  /* ---------- PRICING ---------- */
+  .pricing{padding:90px 0}
+  .pricing h2{font-size:clamp(28px,4vw,40px);margin-bottom:10px;text-align:center}
+  .pricing .sub{color:var(--ink-soft);margin:0 auto 46px;max-width:56ch;text-align:center}
+  .paths{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+  @media(max-width:820px){.paths{grid-template-columns:1fr}}
+  .path h3{font-size:23px;text-align:center;margin-bottom:18px}
+  .path.gd h3{color:var(--m1d)} .path.on h3{color:var(--m4d)}
+  .price-card{background:var(--bg-soft);border-radius:26px;padding:30px 26px;display:flex;flex-direction:column}
+  .price-card.featured{background:#fff;border:3px solid var(--green);box-shadow:0 4px 18px rgba(64,58,78,.08)}
+  .path.gd .price-card.featured{border-color:var(--blue)}
+  .price-card + .price-card{margin-top:16px}
+  .price-card .tag{font-family:'Baloo 2',cursive;font-weight:700;font-size:14px;color:var(--ink-soft);margin-bottom:10px}
+  .price-card .amount{font-family:'Baloo 2',cursive;font-weight:700;font-size:38px;line-height:1}
+  .path.gd .featured .amount{color:var(--m1d)}
+  .path.on .featured .amount{color:var(--m4d)}
+  .price-card .per{font-size:13.5px;color:var(--ink-soft);margin-top:6px;font-weight:700}
+  .price-card ul{list-style:none;margin:16px 0 22px;font-size:15px;flex:1}
+  .price-card li{padding:5px 0 5px 26px;position:relative}
+  .price-card li::before{content:"";position:absolute;left:0;top:13px;width:11px;height:11px;border-radius:50%}
+  .path.gd li::before{background:var(--blue)}
+  .path.on li::before{background:var(--green)}
+  .price-card.mini{padding:22px 26px}
+  .price-card.mini .amount{font-size:28px}
+  .price-card.mini ul{margin:10px 0 14px}
+  .price-card .btn{text-align:center}
+  .pricing .note{font-size:15px;color:var(--ink-soft);margin-top:26px;max-width:66ch;text-align:center;margin-left:auto;margin-right:auto}
+
+  /* ---------- ORG INFO ---------- */
+  .org{padding:80px 0;background:var(--bg-soft)}
+  .org h2{font-size:clamp(26px,4vw,38px);margin-bottom:36px;text-align:center}
+  .org dl{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:900px;margin:0 auto;
+  }
+  .org .cell{background:#fff;border-radius:18px;padding:20px 22px}
+  .org dt{font-family:'Baloo 2',cursive;font-weight:600;font-size:15px;color:var(--ink-soft);margin-bottom:4px}
+  .org dd{font-size:16px;font-weight:600}
+
+  /* ---------- ABOUT / TRUST ---------- */
+  .about{padding:80px 0}
+  .about .inner{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:start;max-width:860px;margin:0 auto}
+  @media(max-width:680px){.about .inner{grid-template-columns:1fr;justify-items:center;text-align:center}}
+  .about .photo{
+    width:220px;height:260px;border-radius:26px;background:var(--bg-soft);
+    border:2px dashed #D9D4CB;display:flex;align-items:center;justify-content:center;
+    color:var(--ink-soft);font-weight:700;font-size:14px;text-align:center;padding:12px;
+  }
+  .about h2{font-size:clamp(26px,3.8vw,36px);margin-bottom:16px}
+  .about p{margin-bottom:14px}
+  .about ul{list-style:none;margin:0 0 14px}
+  .about li{padding:4px 0 4px 26px;position:relative;font-size:16px;text-align:left}
+  .about li::before{content:"";position:absolute;left:0;top:12px;width:11px;height:11px;border-radius:50%;background:var(--lav)}
+  .about li:nth-child(2n)::before{background:var(--pink)}
+  .about li:nth-child(3n)::before{background:var(--mint)}
+  .about .sig{font-family:'Baloo 2',cursive;font-weight:600;font-size:19px;color:var(--m4d);margin-top:8px}
+
+  .voices{padding:0 0 80px}
+  .voices h2{font-size:clamp(24px,3.6vw,32px);margin-bottom:30px;text-align:center}
+  .voices .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .voice{
+    background:var(--bg-soft);border-radius:22px;padding:26px;
+    font-style:italic;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;
+    min-height:140px;text-align:center;border:2px dashed #D9D4CB;font-weight:600;
+  }
+
+  /* ---------- FAQ ---------- */
+  .practical{padding:80px 0;background:var(--bg-soft)}
+  .practical h2{font-size:clamp(26px,3.8vw,36px);margin-bottom:36px;text-align:center}
+  .practical .wrap{max-width:760px}
+  details{border-radius:20px;background:#fff;padding:18px 24px;margin-bottom:14px}
+  summary{
+    font-family:'Baloo 2',cursive;font-weight:600;font-size:18px;cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:26px;color:var(--lav);flex-shrink:0}
+  details[open] summary::after{content:"−"}
+  details p{margin-top:12px;color:var(--ink-soft);font-size:15.5px}
+
+  /* ---------- SIGNUP ---------- */
+  .signup{padding:90px 0 100px}
+  .signup .wrap{max-width:640px}
+  .signup h2{font-size:clamp(28px,4.4vw,42px);text-align:center;margin-bottom:14px}
+  .signup .sub{text-align:center;color:var(--ink-soft);margin-bottom:36px}
+  form{background:var(--bg-soft);border-radius:26px;padding:34px 30px}
+  .field{margin-bottom:20px}
+  label{display:block;font-family:'Baloo 2',cursive;font-weight:600;font-size:15.5px;margin-bottom:6px}
+  input[type=text],input[type=email],textarea{
+    width:100%;padding:12px 16px;border-radius:14px;border:2px solid #E3DFD5;
+    font-family:'Nunito',sans-serif;font-size:16px;color:var(--ink);background:#fff;
+  }
+  textarea{min-height:90px;resize:vertical}
+  fieldset{border:none;margin-bottom:20px}
+  legend{font-family:'Baloo 2',cursive;font-weight:600;font-size:15.5px;margin-bottom:8px}
+  .radio-row{display:flex;gap:12px;flex-wrap:wrap}
+  .radio-row label{
+    display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:15.5px;
+    background:#fff;border:2px solid #E3DFD5;border-radius:999px;padding:10px 18px;cursor:pointer;margin:0;
+  }
+  .radio-row input{accent-color:var(--m1d)}
+  .form-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:6px}
+  .form-note{font-size:14.5px;color:var(--ink-soft);margin-top:18px}
+  .form-status{display:none;margin-top:16px;font-weight:700;color:var(--m4d)}
+
+  footer{
+    padding:30px 0;border-top:2px solid var(--bg-soft);
+    font-size:14px;color:var(--ink-soft);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+
+  /* ---------- MOBILE STICKY CTA ---------- */
+  .mobile-cta{display:none}
+  @media(max-width:640px){
+    body{padding-bottom:74px}
+    .mobile-cta{
+      display:block;position:fixed;left:0;right:0;bottom:0;z-index:50;
+      padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+      background:rgba(255,255,255,.95);box-shadow:0 -2px 14px rgba(64,58,78,.14);
+      text-align:center;
+    }
+    .mobile-cta .btn{width:100%;padding:13px 20px}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav aria-label="Nawigacja główna">
+    <span class="logo"><span>Mo</span><span>żna</span> <span>ina</span><span>cz</span><span>ej</span></span>
+    <span class="links">
+      <a href="#moduly">Program</a>
+      <a href="#format">Format</a>
+      <a href="#cennik">Cennik</a>
+      <a href="#zapisy">Zapisy</a>
+    </span>
+  </nav>
+
+  <header class="hero">
+    <svg id="brain" viewBox="0 0 320 280" aria-hidden="true"></svg>
+    <p class="kicker">Autorski roczny program oparty na Metodzie Feldenkraisa · uczenie się przez ruch</p>
+    <h1>
+      <span class="w1"><span>M</span><span>o</span><span>ż</span><span>n</span><span>a</span></span>
+      <span class="w2"><span>i</span><span>n</span><span>a</span><span>c</span><span>z</span><span>e</span><span>j</span></span>
+    </h1>
+    <p class="lead">Ten sam sposób siedzenia przy trudnej rozmowie, to samo spięcie przed wysłaniem maila, ta sama pętla myśli o trzeciej w nocy. Wiesz, że można inaczej - między wiedzieć a umieć jest cała praktyka. Ten program jest po to, żeby w miejscach, w których do tej pory była jedna reakcja, pojawił się wybór.</p>
+    <p class="facts"><span>Start: wrzesień 2026</span><span>·</span><span>4 moduły × 8 lekcji po 75 minut</span><span>·</span><span>Gdańsk lub online</span></p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#zapisy">Zgłaszam się do cyklu</a>
+      <a class="btn btn-ghost" href="#moduly">Zobacz program</a>
+    </div>
+
+    <svg class="journey" viewBox="0 0 920 150" fill="none" aria-hidden="true">
+      <path d="M30 100 C 90 40, 150 130, 230 85 S 380 40, 460 90 S 620 140, 700 80 S 840 45, 895 75"
+            stroke="#DCD6E6" stroke-width="3" stroke-linecap="round"/>
+      <circle class="dot" style="animation-delay:.15s" cx="30" cy="100" r="9" fill="#7FB5D5"/>
+      <circle class="dot" style="animation-delay:.25s" cx="60" cy="76" r="9" fill="#7FB5D5"/>
+      <circle class="dot" style="animation-delay:.35s" cx="90" cy="63" r="9" fill="#7FB5D5"/>
+      <circle class="dot" style="animation-delay:.45s" cx="120" cy="70" r="9" fill="#7FB5D5"/>
+      <circle class="dot" style="animation-delay:.55s" cx="150" cy="88" r="9" fill="#7FB5D5"/>
+      <circle class="dot" style="animation-delay:.65s" cx="178" cy="99" r="9" fill="#7FB5D5"/>
+      <circle class="dot" style="animation-delay:.75s" cx="205" cy="95" r="9" fill="#7FB5D5"/>
+      <circle class="dot" style="animation-delay:.85s" cx="230" cy="85" r="9" fill="#7FB5D5"/>
+      <circle class="dot" style="animation-delay:.95s" cx="260" cy="72" r="9" fill="#F0C060"/>
+      <circle class="dot" style="animation-delay:1.05s" cx="290" cy="61" r="9" fill="#F0C060"/>
+      <circle class="dot" style="animation-delay:1.15s" cx="320" cy="55" r="9" fill="#F0C060"/>
+      <circle class="dot" style="animation-delay:1.25s" cx="350" cy="55" r="9" fill="#F0C060"/>
+      <circle class="dot" style="animation-delay:1.35s" cx="380" cy="60" r="9" fill="#F0C060"/>
+      <circle class="dot" style="animation-delay:1.45s" cx="408" cy="68" r="9" fill="#F0C060"/>
+      <circle class="dot" style="animation-delay:1.55s" cx="435" cy="79" r="9" fill="#F0C060"/>
+      <circle class="dot" style="animation-delay:1.65s" cx="460" cy="90" r="9" fill="#F0C060"/>
+      <circle class="dot" style="animation-delay:1.75s" cx="490" cy="102" r="9" fill="#F4A08C"/>
+      <circle class="dot" style="animation-delay:1.85s" cx="520" cy="112" r="9" fill="#F4A08C"/>
+      <circle class="dot" style="animation-delay:1.95s" cx="550" cy="118" r="9" fill="#F4A08C"/>
+      <circle class="dot" style="animation-delay:2.05s" cx="580" cy="119" r="9" fill="#F4A08C"/>
+      <circle class="dot" style="animation-delay:2.15s" cx="610" cy="114" r="9" fill="#F4A08C"/>
+      <circle class="dot" style="animation-delay:2.25s" cx="640" cy="106" r="9" fill="#F4A08C"/>
+      <circle class="dot" style="animation-delay:2.35s" cx="670" cy="94" r="9" fill="#F4A08C"/>
+      <circle class="dot" style="animation-delay:2.45s" cx="700" cy="80" r="9" fill="#F4A08C"/>
+      <circle class="dot" style="animation-delay:2.55s" cx="728" cy="68" r="9" fill="#A8D08D"/>
+      <circle class="dot" style="animation-delay:2.65s" cx="756" cy="59" r="9" fill="#A8D08D"/>
+      <circle class="dot" style="animation-delay:2.75s" cx="784" cy="54" r="9" fill="#A8D08D"/>
+      <circle class="dot" style="animation-delay:2.85s" cx="812" cy="53" r="9" fill="#A8D08D"/>
+      <circle class="dot" style="animation-delay:2.95s" cx="838" cy="56" r="9" fill="#A8D08D"/>
+      <circle class="dot" style="animation-delay:3.05s" cx="862" cy="62" r="9" fill="#A8D08D"/>
+      <circle class="dot" style="animation-delay:3.15s" cx="880" cy="68" r="9" fill="#A8D08D"/>
+      <circle class="dot" style="animation-delay:3.25s" cx="895" cy="75" r="11" fill="#A8D08D"/>
+    </svg>
+    <p class="journey-caption">32 lekcje · cztery moduły · jedna droga</p>
+  </header>
+</div>
+
+<section class="intro">
+  <div class="wrap">
+    <p>To nie jest kurs technik relaksacyjnych ani trening. Uczymy się czegoś bardziej podstawowego: zauważać, co robię - jak siedzę, jak oddycham, jak zaczynam rozmowę, jak reaguję pod presją - i znajdować w tym miejscu więcej niż jedną możliwość.</p>
+    <p>Pracujemy w ruchu, głównie na podłodze, powoli i z uwagą. Lekcje są prowadzone tak, żeby można było zmniejszać zakres ruchu, odpoczywać, zatrzymywać się i dostosowywać praktykę do siebie. Nie musisz wykonywać ruchu, który powoduje wyraźny ból lub dyskomfort.</p>
+    <p>Moduły można przechodzić osobno. Najwięcej dzieje się, kiedy przejdziesz całą drogę.</p>
+  </div>
+</section>
+
+<section class="fit" id="dla-kogo">
+  <div class="wrap">
+    <h2>Czy to jest dla Ciebie?</h2>
+    <div class="cols">
+      <div class="fit-card yes">
+        <h3>Ten cykl może być dla Ciebie, jeśli…</h3>
+        <ul>
+          <li>rozumiesz swoje reakcje, ale w trudnej sytuacji i tak wracasz do starych sposobów działania</li>
+          <li>dużo analizujesz i trudno Ci wrócić do tego, co faktycznie dzieje się teraz</li>
+          <li>napinasz się przed rozmową, decyzją albo wysłaniem wiadomości</li>
+          <li>odkładasz działanie, dopóki nie poczujesz się wystarczająco gotowy</li>
+          <li>chcesz pracować przez doświadczenie i ruch, a nie tylko przez kolejne wyjaśnienia</li>
+          <li>wiesz już dużo - i nie zawsze umiesz z tej wiedzy skorzystać</li>
+        </ul>
+      </div>
+      <div class="fit-card no">
+        <h3>To nie jest…</h3>
+        <ul>
+          <li>trening fitness ani rozciąganie</li>
+          <li>kurs poprawnej postawy</li>
+          <li>zestaw technik relaksacyjnych</li>
+          <li>terapia ani zastępstwo psychoterapii</li>
+          <li>program obiecujący szybkie usunięcie stresu lub bólu</li>
+          <li>nauka jednego prawidłowego sposobu poruszania się</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">Jeśli nie masz pewności, czy to dobry moment - napisz w formularzu na dole. Odpowiem szczerze, także wtedy, gdy uznam, że lepszy będzie inny rodzaj pracy.</p>
+  </div>
+</section>
+
+<section class="modules" id="moduly">
+  <div class="wrap">
+    <h2>Cztery moduły, jedna droga</h2>
+    <p class="sub">Każdy moduł to osiem cotygodniowych lekcji po 75 minut. Kolejność nie jest przypadkowa - każdy kolejny opiera się na poprzednim.</p>
+    <div class="mod-grid">
+
+      <article class="mcard c1">
+        <span class="badge">Moduł 1</span>
+        <h3>Wsparcie w niepewności</h3>
+        <div class="dates">wrzesień — listopad</div>
+        <p>Kiedy nie wiem, co będzie, planuję wszystko na zapas albo zamieram. Oba te ruchy szukają pewności na zewnątrz. W lekcjach szukamy wsparcia gdzie indziej - w szkielecie, w oddechu, w kontakcie z podłogą - i w ruchu, w którym celowo nie wszystko jest z góry wiadome.</p>
+        <p class="praktyka">W praktyce może to oznaczać:</p>
+        <ul>
+          <li>zauważasz, że przed trudną rozmową szukasz kontaktu stóp z podłogą, zamiast unosić barki</li>
+          <li>wyłapujesz moment, w którym wstrzymujesz oddech przy podejmowaniu decyzji</li>
+          <li>łatwiej Ci pobyć chwilę z „nie wiem", zanim odpowiesz</li>
+        </ul>
+      </article>
+
+      <article class="mcard c2">
+        <span class="badge">Moduł 2</span>
+        <h3>Od ruminacji do orientacji</h3>
+        <div class="dates">listopad — styczeń</div>
+        <p>Ruminacja kręci się w kółko, bo nie dopływają do niej nowe dane - myślę o sytuacji, zamiast patrzeć na sytuację. W lekcjach pracujemy nad koordynacją oczu, głowy i kręgosłupa, patrzeniem szerokim i wąskim, obracaniem się w przestrzeni. To jedne z mechanizmów, które pomagają przenosić uwagę z pętli myśli z powrotem do sytuacji.</p>
+        <p class="praktyka">W praktyce może to oznaczać:</p>
+        <ul>
+          <li>łapiesz moment, w którym zaczynasz analizować, i rozglądasz się po pokoju, zamiast wpatrywać się w jeden punkt</li>
+          <li>w rozmowie częściej patrzysz na rozmówcę niż w scenariusz w głowie</li>
+          <li>po pracy szybciej zauważasz, że wciąż „jesteś w mailach"</li>
+        </ul>
+      </article>
+
+      <article class="mcard c3">
+        <span class="badge">Moduł 3</span>
+        <h3>Od perfekcji do żywego działania</h3>
+        <div class="dates">luty — kwiecień</div>
+        <p>Czekam, aż będę gotowy. Doszlifowuję. Efekt: działam rzadko, a uczę się jeszcze rzadziej, bo uczenie się wymaga błędów. W tych lekcjach „dobrze" nie jest kryterium - kryterium jest: czy mogę lżej, wolniej, inaczej, w drugą stronę.</p>
+        <p class="praktyka">W praktyce może to oznaczać:</p>
+        <ul>
+          <li>wysyłasz wiadomość w wersji wystarczającej, a nie czwartej poprawionej</li>
+          <li>próbujesz nowej rzeczy wolniej i w mniejszym zakresie, zamiast od razu „na całość"</li>
+          <li>zaczynasz odróżniać staranie się od robienia</li>
+        </ul>
+      </article>
+
+      <article class="mcard c4">
+        <span class="badge">Moduł 4</span>
+        <h3>Repertuar łatwości</h3>
+        <div class="dates">kwiecień — czerwiec</div>
+        <p>Przez trzy moduły budujesz umiejętności - wsparcie, orientację, gotowość do niedoskonałego działania. Tutaj składamy je w jedno: elastyczne działanie w wielu sytuacjach. Lekcje, które zaczynały się na podłodze, przenosimy do siedzenia, chodzenia, mówienia, reagowania. Celem nie jest lepszy stan. Celem jest szerszy repertuar - więcej sposobów reagowania tam, gdzie do tej pory był jeden.</p>
+        <p class="praktyka">W praktyce może to oznaczać:</p>
+        <ul>
+          <li>w znajomej sytuacji zauważasz drugą możliwość, zanim zareagujesz po staremu</li>
+          <li>te same zasady - mniej wysiłku, więcej wariantów - stosujesz przy biurku, w kolejce, w rozmowie</li>
+          <li>łatwość, jeśli przychodzi, przychodzi przy okazji</li>
+        </ul>
+      </article>
+
+    </div>
+    <div class="cta-mid"><a class="btn btn-primary" href="#zapisy">Zgłaszam się do cyklu</a></div>
+  </div>
+</section>
+
+<section class="learn">
+  <div class="wrap">
+    <h2>Czego możesz uczyć się przez ten rok?</h2>
+    <p class="sub">Bez obietnic, że coś zniknie. Uczenie się to kierunek, w którym idziemy - każdy we własnym tempie.</p>
+    <ul>
+      <li>wcześniej zauważać moment narastania wysiłku lub napięcia - przy klawiaturze, w rozmowie, przed decyzją</li>
+      <li>rozpoznawać więcej niż jeden sposób reagowania w znajomych sytuacjach</li>
+      <li>wracać z analizowania do kontaktu z tym, co faktycznie dzieje się teraz</li>
+      <li>zaczynać działanie bez pełnej pewności, że wyjdzie</li>
+      <li>lepiej korzystać z podparcia, oddechu i ruchu w codziennych pozycjach</li>
+      <li>eksperymentować bez ciągłego sprawdzania, czy robisz coś poprawnie</li>
+      <li>przenosić to, czego uczysz się na podłodze, do codziennego działania</li>
+    </ul>
+  </div>
+</section>
+
+<section class="format" id="format">
+  <div class="wrap">
+    <h2>Jak pracujemy</h2>
+    <div class="cols">
+      <div class="fcard">
+        <h3 class="gd">Kameralnie w Gdańsku</h3>
+        <ul>
+          <li>grupa do <span class="ph">[UZUPEŁNIJ: liczba osób]</span> osób</li>
+          <li>spotkania co tydzień: <span class="ph">[UZUPEŁNIJ: dzień i godzina]</span></li>
+          <li>miejsce: <span class="ph">[UZUPEŁNIJ: adres sali w Gdańsku]</span></li>
+          <li>każda lekcja trwa 75 minut</li>
+          <li>po każdej lekcji dostajesz jej nagranie</li>
+        </ul>
+        <p>Kameralny format oznacza, że widzę, jak się ruszasz, i mogę pracować z tym, co faktycznie robisz - nie z tym, co robi „przeciętny uczestnik". Nieobecność nadrabiasz z nagraniem przed kolejnym tygodniem; przy dłuższej przerwie umawiamy się indywidualnie.</p>
+      </div>
+      <div class="fcard">
+        <h3 class="on">Online</h3>
+        <ul>
+          <li>bez limitu miejsc</li>
+          <li>udział na żywo przez kamerkę razem z grupą - kamera nie jest obowiązkowa</li>
+          <li>albo praktyka z nagraniem lekcji z sali, w dogodnym momencie</li>
+          <li>nagrania zostają z Tobą po zakończeniu modułu</li>
+          <li>pytania: na żywo w trakcie lekcji albo <span class="ph">[UZUPEŁNIJ: kanał na pytania, np. e-mail]</span></li>
+        </ul>
+        <p>To ta sama lekcja, którą przechodzi grupa w Gdańsku - nie osobny kurs wideo. Program i tempo są wspólne dla obu form.</p>
+      </div>
+    </div>
+    <div class="cta-mid"><a class="btn btn-ghost" href="#cennik">Zobacz cennik</a></div>
+  </div>
+</section>
+
+<section class="pricing" id="cennik">
+  <div class="wrap">
+    <h2>Cennik</h2>
+    <p class="sub">Dwie ścieżki: kameralna grupa w Gdańsku albo online. W każdej możesz przejść cały rok albo zacząć od jednego modułu.</p>
+    <div class="paths">
+
+      <div class="path gd">
+        <h3>Gdańsk</h3>
+        <div class="price-card featured">
+          <div class="tag">Cały rok · rekomendowane</div>
+          <div class="amount">3390 zł</div>
+          <div class="per">32 lekcje · ok. 106 zł za lekcję</div>
+          <ul>
+            <li>Pierwszeństwo miejsca we wszystkich modułach</li>
+            <li>Wersja online w cenie</li>
+            <li>Możliwość płatności w 4 ratach</li>
+          </ul>
+          <a class="btn btn-primary" href="#zapisy">Zgłaszam się do cyklu</a>
+        </div>
+        <div class="price-card mini">
+          <div class="tag">Jeden moduł</div>
+          <div class="amount">990 zł</div>
+          <div class="per">8 lekcji · ok. 124 zł za lekcję</div>
+          <ul>
+            <li>Dobra opcja, jeśli nie chcesz od razu deklarować całego roku</li>
+          </ul>
+          <a class="btn btn-ghost" href="#zapisy">Zgłaszam się na moduł</a>
+        </div>
+      </div>
+
+      <div class="path on">
+        <h3>Online</h3>
+        <div class="price-card featured">
+          <div class="tag">Cały rok · rekomendowane</div>
+          <div class="amount">1890 zł</div>
+          <div class="per">32 lekcje · ok. 59 zł za lekcję</div>
+          <ul>
+            <li>Wszystkie nagrania i udział hybrydowy na żywo</li>
+            <li>Możliwość płatności w 2 ratach</li>
+          </ul>
+          <a class="btn btn-primary" href="#zapisy">Zgłaszam się do cyklu</a>
+        </div>
+        <div class="price-card mini">
+          <div class="tag">Jeden moduł</div>
+          <div class="amount">540 zł</div>
+          <div class="per">8 tygodni praktyki</div>
+          <ul>
+            <li>Dobra opcja na sprawdzenie, jak Ci się pracuje w tej formie</li>
+          </ul>
+          <a class="btn btn-ghost" href="#zapisy">Zgłaszam się na moduł</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="note">Moduł 4 - Repertuar łatwości - składa umiejętności z wcześniejszych modułów w całość, dlatego polecam go osobom, które przeszły co najmniej dwa z nich.</p>
+  </div>
+</section>
+
+<section class="org" id="organizacja">
+  <div class="wrap">
+    <h2>Informacje organizacyjne</h2>
+    <dl>
+      <div class="cell"><dt>Start</dt><dd>wrzesień 2026</dd></div>
+      <div class="cell"><dt>Miejsce w Gdańsku</dt><dd><span class="ph">[UZUPEŁNIJ: adres sali]</span></dd></div>
+      <div class="cell"><dt>Dzień i godzina</dt><dd><span class="ph">[UZUPEŁNIJ: dzień i godzina]</span></dd></div>
+      <div class="cell"><dt>Dokładne daty modułów</dt><dd><span class="ph">[UZUPEŁNIJ: daty]</span></dd></div>
+      <div class="cell"><dt>Liczba miejsc w grupie</dt><dd><span class="ph">[UZUPEŁNIJ: liczba miejsc]</span></dd></div>
+      <div class="cell"><dt>Zapisy do</dt><dd><span class="ph">[UZUPEŁNIJ: termin zapisów]</span></dd></div>
+      <div class="cell"><dt>Płatność</dt><dd>przelew, możliwość rat · <span class="ph">[UZUPEŁNIJ: szczegóły]</span></dd></div>
+      <div class="cell"><dt>Rezygnacja</dt><dd><span class="ph">[UZUPEŁNIJ: zasady rezygnacji]</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="about" id="prowadzacy">
+  <div class="wrap">
+    <div class="inner">
+      <div class="photo">[WSTAW ZDJĘCIE:<br>Artur Chruszcz]</div>
+      <div>
+        <h2>Kto prowadzi</h2>
+        <p>Nazywam się Artur Chruszcz.</p>
+        <ul>
+          <li>certyfikowany praktyk Metody Feldenkraisa</li>
+          <li>trzynaście lat pracy - indywidualnej, grupowej i warsztatowej</li>
+          <li>absolwent dwuletniego programu zaawansowanego Jeffa Hallera</li>
+        </ul>
+        <p>Łączę doświadczenie ruchowe z wiedzą o uczeniu się, bólu, psychologii behawioralnej i elastyczności działania. Nie obiecuję stanu, w którym nic już nie boli i nic nie stresuje. Pracuję nad czymś innym: żeby w miejscach, w których do tej pory była jedna reakcja, pojawił się wybór.</p>
+        <p class="sig">Spokój, jeśli przychodzi, przychodzi przy okazji.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="voices">
+  <div class="wrap">
+    <h2>Głosy uczestników</h2>
+    <div class="grid">
+      <div class="voice">[WSTAW PRAWDZIWĄ OPINIĘ UCZESTNIKA]</div>
+      <div class="voice">[WSTAW PRAWDZIWĄ OPINIĘ UCZESTNIKA]</div>
+      <div class="voice">[WSTAW PRAWDZIWĄ OPINIĘ UCZESTNIKA]</div>
+    </div>
+  </div>
+</section>
+
+<section class="practical" id="pytania">
+  <div class="wrap">
+    <h2>Pytania</h2>
+    <details>
+      <summary>Nie mam doświadczenia w pracy z ruchem. Czy to dla mnie?</summary>
+      <p>Tak. Lekcje są powolne i nie wymagają sprawności ani rozciągnięcia. Większość odbywa się w leżeniu lub siedzeniu. W każdej chwili możesz zmniejszyć zakres ruchu, zatrzymać się albo odpocząć - i nie musisz wykonywać ruchu, który powoduje wyraźny ból lub dyskomfort.</p>
+    </details>
+    <details>
+      <summary>Czy mogę dołączyć od drugiego lub trzeciego modułu?</summary>
+      <p>Tak, moduły 1-3 można przechodzić osobno. Moduł 4 składa umiejętności z wcześniejszych w całość, więc polecam go po przejściu co najmniej dwóch z nich.</p>
+    </details>
+    <details>
+      <summary>Co jeśli opuszczę lekcję?</summary>
+      <p>Każda lekcja ma swoje nagranie, więc możesz nadrobić w domu przed kolejnym tygodniem. Przy dłuższej nieobecności umawiamy się indywidualnie.</p>
+    </details>
+    <details>
+      <summary>Czym różni się wersja online od stacjonarnej?</summary>
+      <p>To ta sama lekcja. Stacjonarnie jesteś w sali i pracuję z tym, co widzę - z Twoim konkretnym sposobem ruszania się. Online możesz dołączyć na żywo przez kamerkę (kamera nie jest obowiązkowa) albo praktykować z nagraniem w dogodnym momencie. Obie wersje prowadzą przez ten sam program, w tym samym tempie.</p>
+    </details>
+    <details>
+      <summary>Kiedy startujemy i jak wygląda kalendarz?</summary>
+      <p>Moduł 1 zaczyna się we wrześniu 2026. Kolejne moduły: listopad, luty, kwiecień. Przerwy wypadają w okolicach świąt i ferii - dokładny kalendarz dostajesz przed startem.</p>
+    </details>
+  </div>
+</section>
+
+<section class="signup" id="zapisy">
+  <div class="wrap">
+    <h2>Zapisy</h2>
+    <p class="sub">Wypełnij formularz - odezwę się z informacją o dostępności miejsc i dalszych krokach.</p>
+    <form method="POST" id="signup-form" name="zgloszenie-mozna-inaczej" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="zgloszenie-mozna-inaczej">
+      <p style="position:absolute;left:-9999px;" aria-hidden="true">
+        <label>Nie wypełniaj tego pola <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
+      <div class="field">
+        <label for="f-name">Imię</label>
+        <input type="text" id="f-name" name="imie" autocomplete="given-name" required>
+      </div>
+      <div class="field">
+        <label for="f-email">E-mail</label>
+        <input type="email" id="f-email" name="email" autocomplete="email" required>
+      </div>
+      <fieldset>
+        <legend>Forma udziału</legend>
+        <div class="radio-row">
+          <label><input type="radio" name="forma" value="gdansk" checked> Gdańsk</label>
+          <label><input type="radio" name="forma" value="online"> Online</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Zakres</legend>
+        <div class="radio-row">
+          <label><input type="radio" name="zakres" value="rok" checked> Cały rok</label>
+          <label><input type="radio" name="zakres" value="modul"> Pojedynczy moduł</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="f-question">Pytanie (opcjonalnie)</label>
+        <textarea id="f-question" name="pytanie" placeholder="Jeśli coś jest niejasne albo chcesz o coś zapytać przed zapisem - to dobre miejsce."></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Zgłaszam się do cyklu</button>
+        <a class="btn btn-ghost" href="#f-question">Mam pytanie przed zapisem</a>
+      </div>
+      <p class="form-status" id="form-status">Dziękuję! Zgłoszenie dotarło. Odezwę się z informacją o dostępności miejsc i dalszych krokach.</p>
+      <p class="form-note">Wysłanie formularza nie zobowiązuje do płatności. Odpowiem z informacją o dostępności miejsc i dalszych krokach.</p>
+    </form>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Artur Chruszcz · Gdańsk</span>
+    <span>Można inaczej · roczny program oparty na Metodzie Feldenkraisa</span>
+  </footer>
+</div>
+
+<div class="mobile-cta" aria-hidden="false">
+  <a class="btn btn-primary" href="#zapisy">Zgłaszam się</a>
+</div>
+
+<script>
+(function(){
+  var svg = document.getElementById('brain');
+  if(!svg) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  // exact dot positions, sizes and colors extracted from the original artwork
+  var PTS=[[148.0,14.0,9.6,"#96CFC2"],[113.9,15.9,9.6,"#7FBED7"],[185.2,17.6,8.4,"#FED480"],[81.5,25.9,9.9,"#7FBED7"],[215.8,28.9,9.5,"#FBAC99"],[169.5,43.2,9.9,"#FED480"],[244.2,43.5,8.6,"#7FBED7"],[50.6,44.9,9.6,"#FED480"],[136.6,47.5,8.4,"#FED480"],[99.9,53.4,9.1,"#96CFC2"],[266.9,60.8,8.6,"#96CFC2"],[192.6,61.7,8.3,"#96CFC2"],[28.3,67.7,9.0,"#96CFC2"],[224.5,69.5,8.5,"#7FBED7"],[69.4,71.1,7.9,"#FBAC99"],[157.6,79.7,9.5,"#96CFC2"],[122.8,79.2,8.1,"#FED480"],[285.8,83.7,9.8,"#FED480"],[94.4,87.2,8.1,"#FBAC99"],[248.9,94.5,9.6,"#FED480"],[46.3,94.3,8.5,"#7FBED7"],[14.0,95.0,8.5,"#7FBED7"],[196.4,95.2,8.6,"#FBAC99"],[166.5,110.4,8.5,"#7FBED7"],[79.6,111.1,9.0,"#96CFC2"],[223.8,111.2,8.9,"#7FBED7"],[300.4,111.0,8.3,"#7FBED7"],[125.1,116.1,9.8,"#7FBED7"],[271.5,116.0,8.4,"#FBAC99"],[53.2,123.9,8.6,"#FED480"],[16.7,127.3,9.6,"#FBAC99"],[193.0,131.1,8.6,"#96CFC2"],[244.3,136.3,8.5,"#96CFC2"],[95.8,139.5,7.8,"#96CFC2"],[153.1,140.7,8.3,"#FED480"],[306.0,144.5,9.5,"#96CFC2"],[276.1,148.6,8.6,"#7FBED7"],[39.4,150.1,8.5,"#96CFC2"],[74.0,153.0,8.4,"#FBAC99"],[127.0,153.1,8.5,"#FBAC99"],[215.6,158.2,8.8,"#FBAC99"],[174.5,162.7,8.3,"#7FBED7"],[249.4,170.9,8.4,"#FED480"],[294.1,177.2,9.5,"#FBAC99"],[102.4,178.6,9.6,"#7FBED7"],[142.0,181.7,8.0,"#96CFC2"],[196.8,185.1,8.3,"#96CFC2"],[225.3,188.1,8.0,"#7FBED7"],[267.1,195.0,8.9,"#96CFC2"],[169.5,196.7,9.3,"#FED480"],[124.3,199.5,7.1,"#FED480"],[196.1,214.0,7.8,"#FBAC99"],[240.7,214.0,7.9,"#FBAC99"],[215.2,234.0,7.6,"#96CFC2"],[182.7,235.3,8.5,"#96CFC2"],[200.8,261.0,7.5,"#7FBED7"],[222.4,261.4,6.4,"#FED480"]];var EDG=[[0,1],[0,2],[0,5],[0,8],[1,3],[1,8],[2,4],[2,5],[3,7],[3,9],[4,6],[4,11],[5,8],[5,11],[5,15],[6,10],[6,13],[7,12],[7,14],[8,16],[9,16],[9,18],[10,17],[10,19],[11,13],[11,22],[12,20],[12,21],[13,19],[14,18],[14,20],[15,16],[15,23],[16,18],[16,27],[17,26],[17,28],[18,24],[19,25],[19,28],[20,21],[20,29],[21,30],[22,23],[22,25],[22,31],[23,31],[23,34],[24,29],[24,33],[25,32],[26,28],[26,35],[27,34],[27,39],[28,32],[28,36],[29,30],[29,37],[29,38],[30,37],[31,40],[32,36],[33,38],[33,39],[34,39],[34,41],[35,36],[35,43],[36,42],[36,43],[37,38],[38,44],[39,44],[39,45],[40,46],[40,47],[41,46],[41,49],[42,47],[42,48],[43,48],[44,50],[45,49],[45,50],[46,47],[46,49],[46,51],[47,52],[48,52],[49,50],[49,51],[51,53],[51,54],[52,53],[53,54],[53,55],[53,56],[54,55],[54,56],[55,56]];
+  var seed=7;
+  function rnd(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646;}
+  for(var e=0;e<EDG.length;e++){
+    var p1=PTS[EDG[e][0]], p2=PTS[EDG[e][1]];
+    var ln=document.createElementNS(NS,'line');
+    ln.setAttribute('x1',p1[0]);ln.setAttribute('y1',p1[1]);
+    ln.setAttribute('x2',p2[0]);ln.setAttribute('y2',p2[1]);
+    ln.setAttribute('stroke','#E3E0DA');ln.setAttribute('stroke-width','1.6');
+    ln.style.animationDelay=(0.3+rnd()*1.2)+'s';
+    svg.appendChild(ln);
+  }
+  for(var k=0;k<PTS.length;k++){
+    var c=document.createElementNS(NS,'circle');
+    c.setAttribute('cx',PTS[k][0]);c.setAttribute('cy',PTS[k][1]);
+    c.setAttribute('r',PTS[k][2]);
+    c.setAttribute('fill',PTS[k][3]);
+    c.style.animationDelay=(rnd()*1.4)+'s';
+    svg.appendChild(c);
+  }
+
+  // form: wysyłka do Netlify Forms bez przeładowania strony
+  var form=document.getElementById('signup-form');
+  if(form){
+    form.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var btn=form.querySelector('button[type=submit]');
+      btn.disabled=true;
+      fetch('/',{
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:new URLSearchParams(new FormData(form)).toString()
+      }).then(function(r){
+        if(!r.ok) throw new Error(r.status);
+        form.reset();
+        var st=document.getElementById('form-status');
+        if(st) st.style.display='block';
+      }).catch(function(){
+        alert('Nie udało się wysłać zgłoszenia. Spróbuj ponownie albo napisz: kontakt@arturchruszcz.pl');
+      }).finally(function(){
+        btn.disabled=false;
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
