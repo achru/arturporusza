@@ -64,3 +64,4 @@ w `wydarzenia.json` (daty/statusy/linki do potwierdzenia).
 Jeden site na Netlify, domena główna `arturporusza.pl`; stare subdomeny
 `*.arturchruszcz.pl` jako aliasy z host-based 301 w `netlify.toml`;
 Search Console: sitemap + Zmiana adresu; przekierowania zostają na stałe.
+# arturporusza
