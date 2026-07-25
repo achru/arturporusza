@@ -4,9 +4,9 @@
 export const SITE = {
   url: 'https://arturporusza.pl',
   name: 'Artur Porusza',
-  title: 'Feldenkrais Gdańsk i online — zajęcia, warsztaty i sesje | Artur Porusza',
+  title: 'Feldenkrais Gdańsk i online — zajęcia i sesje | Artur Porusza',
   description:
-    'Warsztaty, cykle i indywidualne lekcje Feldenkraisa w Gdańsku i online. Ucz się poruszać z mniejszym wysiłkiem, zauważać więcej możliwości i łatwiej znajdować nowe rozwiązania.',
+    'Warsztaty, cykle i sesje indywidualne Feldenkraisa w Gdańsku i online. Ucz się poruszać z mniejszym wysiłkiem i znajdować więcej możliwości.',
   locale: 'pl_PL',
 };
 
