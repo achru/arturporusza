@@ -11,7 +11,7 @@ export const SITE = {
 };
 
 export const CONTACT = {
-  email: 'kontakt@arturchruszcz.pl',
+  email: 'ja@arturchruszcz.pl',
   instagram: 'https://instagram.com/artur_porusza',
   youtube: '', // TODO: link do kanału YouTube (puste = link się nie wyświetla)
   platforma: 'https://feldenkraisonline.pl',
@@ -39,8 +39,8 @@ export const NEWSLETTER_BONUS = '';
 // https://assets.mailerlite.com/jsonp/<accountId>/forms/<formId>/subscribe
 // Dopóki pola są puste, formularz pokazuje komunikat z prośbą o maila.
 export const MAILERLITE = {
-  accountId: '', // TODO
-  formId: '', // TODO
+  accountId: '264440',
+  formId: '118946079194481801', // numeryczne ID formularza embedded „9ZhspW"
 };
 
 // Dane JDG do stopki i polityki prywatności. Puste pola się nie renderują.

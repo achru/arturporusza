@@ -1,180 +1,56 @@
 ---
-import { Image } from 'astro:assets';
-import foto from '../assets/photos/artur-feldenkrais-warsztat-ruch-gdansk.jpg';
+import Figura from './Figura.astro';
 ---
 
 <section class="hero" aria-label="Wstęp">
-  <div class="wrap hero-siatka">
-    <div class="hero-tekst">
-      <p class="kicker" data-anim>Feldenkrais w Gdańsku i online</p>
-      <h1 data-anim>
-        Świat zmienia się szybciej niż twoje sposoby na niego.<br />
-        <em>A sposobów można się <span class="akcent">uczyć</span>.</em>
-      </h1>
-      <p class="lead" data-anim>
-        Prowadzę warsztaty, cykle i sesje indywidualne, podczas których uczysz
-        się poruszać z mniejszym wysiłkiem, zauważać więcej możliwości
-        i&nbsp;łatwiej znajdować rozwiązania, kiedy dotychczasowy sposób
-        przestaje działać.
-      </p>
-      <div class="hero-cta" data-anim>
-        <a class="btn-cta" href="#zajecia" data-track="cta-hero-zajecia"
-          >Zobacz aktualne zajęcia <span class="strzalka">→</span></a
-        >
-        <a class="btn" href="#sesje" data-track="cta-hero-sesja">Umów sesję indywidualną</a>
-      </div>
-      <p class="hero-drobny" data-anim>
-        Nie wiesz, od czego zacząć?
-        <a href="#droga">Zobacz możliwości pracy.</a>
-      </p>
-    </div>
-
-    <figure class="hero-foto" data-anim>
-      <Image
-        src={foto}
-        alt="Artur podczas zajęć: pochylony w wykroku, z ręką wyciągniętą w bok, w jasnej sali"
-        width={900}
-        widths={[420, 640, 900]}
-        sizes="(max-width: 900px) 92vw, 44vw"
-        loading="eager"
-        fetchpriority="high"
-      />
-    </figure>
-  </div>
-
-  <!-- diagram marki: linia błądzi, potem rozgałęzia się w wiele dróg -->
   <div class="wrap">
-    <svg
-      class="linia-hero"
-      viewBox="0 0 1200 240"
-      role="img"
-      aria-label="Rysunek linii, która błądzi, a potem rozgałęzia się w kilka wyraźnych dróg"
-      data-anim
-    >
-      <path
-        class="rys glowna"
-        d="M -10 165 C 90 162, 130 110, 205 114 C 265 118, 302 168, 252 182 C 206 195, 194 150, 250 138 C 322 124, 378 168, 458 155 C 538 142, 560 112, 640 106 C 698 102, 730 103, 758 103"
-        stroke="#5b5950"
-        stroke-width="2.4"></path>
-      <path class="rys galaz" d="M 758 103 C 880 76, 1000 44, 1138 26" stroke="#6E6390" stroke-width="2.2" opacity=".95"></path>
-      <path class="rys galaz" d="M 758 103 C 882 96, 1012 84, 1142 76" stroke="#6F8DA2" stroke-width="2.2" opacity=".95"></path>
-      <path class="rys galaz" d="M 758 103 C 882 112, 1012 124, 1142 130" stroke="#A79BC7" stroke-width="2.2" opacity=".95"></path>
-      <path class="rys galaz" d="M 758 103 C 880 132, 1000 158, 1138 176" stroke="#B8860B" stroke-width="2.2" opacity=".9"></path>
-      <circle class="kropka" cx="1138" cy="26" r="4.5" fill="#6E6390"></circle>
-      <circle class="kropka" cx="1142" cy="76" r="4.5" fill="#6F8DA2"></circle>
-      <circle class="kropka" cx="1142" cy="130" r="4.5" fill="#A79BC7"></circle>
-      <circle class="kropka" cx="1138" cy="176" r="4.5" fill="#B8860B"></circle>
-    </svg>
+    <h1>
+      Świat zmienia się szybciej niż twoje sposoby na niego.<br />
+      <em>A sposobów można się uczyć.</em>
+    </h1>
+    <p class="lead">
+      Nazywam się Artur Chruszcz. Uczę metody Feldenkraisa — w&nbsp;Gdańsku
+      i&nbsp;online. Prowadzę zajęcia, na których uczysz się poruszać
+      z&nbsp;mniejszym wysiłkiem, zauważać więcej możliwości i łatwiej znajdować
+      rozwiązania, kiedy dotychczasowy sposób przestaje działać.
+    </p>
+
+    <Figura />
+
+    <nav class="drogi" aria-label="Od czego zacząć">
+      <a href="#terminy">Warsztaty, cykle i wyjazdy — najbliższe terminy</a>
+      <a href="#sesje">Sesje indywidualne — Gdańsk i online</a>
+      <a href="/kreatywnynauczyciel/">Dla uczących ruchu — Kreatywny Nauczyciel</a>
+    </nav>
   </div>
 </section>
 
-<script>
-  // Rysowanie linii po załadowaniu strony.
-  const zredukowanyRuch = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!zredukowanyRuch) {
-    try {
-      const sciezki = document.querySelectorAll<SVGPathElement>('.linia-hero .rys');
-      const kropki = document.querySelectorAll<SVGCircleElement>('.linia-hero .kropka');
-      sciezki.forEach((p) => {
-        const L = p.getTotalLength();
-        p.style.strokeDasharray = String(L);
-        p.style.strokeDashoffset = String(L);
-      });
-      kropki.forEach((k) => (k.style.opacity = '0'));
-      requestAnimationFrame(() => {
-        sciezki.forEach((p, i) => {
-          const glowna = p.classList.contains('glowna');
-          p.style.transition = `stroke-dashoffset ${glowna ? 1500 : 800}ms ease ${glowna ? 300 : 1500 + i * 130}ms`;
-          p.style.strokeDashoffset = '0';
-        });
-        kropki.forEach((k, i) => {
-          k.style.transition = `opacity 450ms ease ${2200 + i * 130}ms`;
-          k.style.opacity = '1';
-        });
-      });
-    } catch {
-      /* zostaw linię statycznie */
-    }
-  }
-</script>
-
 <style>
   .hero {
-    padding: clamp(6.5rem, 13vh, 9rem) 0 clamp(2rem, 4vw, 3rem);
-  }
-
-  .hero-siatka {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: clamp(2rem, 5vw, 4.5rem);
-    align-items: center;
+    padding-block: clamp(3.5rem, 9vh, 6rem) clamp(2.5rem, 6vw, 4rem);
   }
 
   .hero h1 {
-    max-width: 15em;
-    margin-bottom: 1.3rem;
+    max-width: 21em;
+    margin-bottom: 1.4rem;
   }
 
   .hero .lead {
-    margin-bottom: 1.8rem;
+    margin-bottom: 1rem;
   }
 
-  .hero-cta {
+  .hero :global(.figura) {
+    margin-block: 0.5rem 1.8rem;
+  }
+
+  .drogi {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+    flex-direction: column;
+    gap: 0.55rem;
+    align-items: flex-start;
   }
 
-  .hero-drobny {
-    margin-top: 1.1rem;
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-  }
-
-  .hero-drobny a {
-    color: var(--akcent);
-    text-underline-offset: 0.2em;
-  }
-
-  .hero-foto {
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1px solid var(--linia);
-  }
-
-  .hero-foto :global(img) {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    object-position: 68% 30%;
-  }
-
-  .linia-hero {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-top: clamp(1.5rem, 4vw, 3rem);
-  }
-
-  .linia-hero path {
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  @media (max-width: 900px) {
-    .hero-siatka {
-      grid-template-columns: 1fr;
-    }
-
-    .hero-foto {
-      order: -1;
-      max-width: 26rem;
-    }
-
-    .hero-foto :global(img) {
-      aspect-ratio: 16 / 11;
-    }
+  .drogi a {
+    font-size: 0.95rem;
   }
 </style>

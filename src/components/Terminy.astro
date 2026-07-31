@@ -1,0 +1,167 @@
+---
+import { aktualne, NAZWY_TYPOW, linkWydarzenia } from '../lib/wydarzenia';
+import { CONTACT } from '../config';
+
+const eventsLd = aktualne
+  .filter((w) => w.data)
+  .map((w) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: w.tytul,
+    startDate: w.data,
+    location: { '@type': 'Place', name: w.miejsce },
+    organizer: { '@type': 'Person', name: 'Artur Chruszcz' },
+    ...(w.link ? { url: w.link } : {}),
+  }));
+
+/* Terminy z bliskim końcem zapisów dostają żywe oznaczenie sangwiną. */
+function zywyStatus(s: string): boolean {
+  const t = (s || '').toLowerCase();
+  return t.includes('ostatni') || t.includes('brak') || t.includes('do ');
+}
+---
+
+<section id="terminy" class="sekcja-krecha" aria-label="Terminy">
+  <span id="zajecia" class="kotwica" aria-hidden="true"></span>
+  <span id="kalendarz" class="kotwica" aria-hidden="true"></span>
+  <div class="wrap">
+    <h2>Terminy</h2>
+
+    <ol class="lista" id="listaWydarzen">
+      {
+        aktualne.map((w) => (
+          <li class="termin" data-data={w.data}>
+            <div class="kiedy">
+              <p class="data">{w.dataTekst}</p>
+              <p class="gdzie">{w.miejsce} · {NAZWY_TYPOW[w.typ].toLowerCase()}</p>
+            </div>
+            <div class="co">
+              <h3>
+                <a href={linkWydarzenia(w)} data-track="cta-terminy-wiersz">{w.tytul}</a>
+                {w.podtytul && <span class="podtytul"> — {w.podtytul}</span>}
+              </h3>
+              <p class="opis">{w.opis}</p>
+              {zywyStatus(w.status) && <p class="status">{w.status}</p>}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+    <p class="pusto" hidden>
+      Nowe terminy wkrótce. Najpierw piszę o nich w <a href="#newsletter">newsletterze</a>.
+    </p>
+
+    <p class="nota">
+      Cykle i lekcje online zbieram na
+      <a href={CONTACT.platforma} target="_blank" rel="noopener">FeldenkraisOnline.pl</a>.
+    </p>
+  </div>
+</section>
+
+{eventsLd.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(eventsLd)} />}
+
+<script>
+  // Chowanie wpisów, których data minęła od czasu builda.
+  const dzis = new Date();
+  const wiersze = document.querySelectorAll<HTMLElement>('.termin[data-data]');
+  let widoczne = 0;
+  wiersze.forEach((el) => {
+    const d = el.dataset.data;
+    if (d && new Date(`${d}T23:59:59`) < dzis) el.hidden = true;
+    else widoczne++;
+  });
+  if (widoczne === 0) {
+    document.getElementById('listaWydarzen')!.hidden = true;
+    document.querySelector<HTMLElement>('.pusto')!.hidden = false;
+  }
+</script>
+
+<style>
+  .kotwica {
+    position: relative;
+    top: -2rem;
+  }
+
+  .lista {
+    list-style: none;
+  }
+
+  .termin {
+    padding-block: 1.5rem;
+    border-top: 1px solid var(--linia);
+  }
+
+  .termin:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  /* Data jest kotwicą skanowania — wracający szukają terminów. */
+  @media (min-width: 561px) {
+    .termin {
+      display: grid;
+      grid-template-columns: 11rem minmax(0, 1fr);
+      gap: 0.2rem 1.6rem;
+      align-items: start;
+    }
+  }
+
+  .kiedy .data {
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    font-variant-numeric: oldstyle-nums;
+  }
+
+  .kiedy .gdzie {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin-top: 0.15rem;
+  }
+
+  @media (max-width: 560px) {
+    .kiedy {
+      margin-bottom: 0.45rem;
+    }
+  }
+
+  .termin h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .podtytul {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .opis {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-top: 0.35rem;
+    max-width: 60ch;
+  }
+
+  /* Status pojawia się tylko, kiedy coś wnosi (termin, ostatnie miejsca). */
+  .status {
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+    color: var(--akcent);
+    font-style: italic;
+  }
+
+  .pusto {
+    color: var(--ink-soft);
+    padding-block: 1.2rem;
+  }
+
+  .nota {
+    margin-top: 1.6rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--linia);
+    padding-top: 1.2rem;
+  }
+</style>

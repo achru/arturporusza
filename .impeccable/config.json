@@ -1,0 +1,20 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "helvetica neue",
+        "createdAt": "2026-07-31T08:46:50.199Z",
+        "reason": "Oryginalny krój logotypu Artura (znak marki wklejony przez użytkownika 2026-07-30) — wyjątek brandowy, poza drabiną Literaty"
+      },
+      {
+        "rule": "overused-font",
+        "value": "helvetica",
+        "createdAt": "2026-07-31T08:47:12.591Z",
+        "reason": "Oryginalny krój logotypu Artura — wyjątek brandowy (stack Helvetica Neue/Helvetica/Arial tylko w lockupie logo)"
+      }
+    ]
+  }
+}

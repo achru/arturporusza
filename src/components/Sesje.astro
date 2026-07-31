@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { CONTACT, SESJE } from '../config';
+import fotoSesja from '../assets/photos/integracja-funkcjonalna-sesja-indywidualna-gdansk.jpg';
 
 const sesjeHref =
   CONTACT.sesjeLink ||
@@ -7,7 +9,7 @@ const sesjeHref =
 
 const formaty = [
   {
-    tytul: 'Sesje w Gdańsku',
+    tytul: 'W Gdańsku',
     opis: 'Indywidualna lekcja Feldenkraisa prowadzona przez ruch, uwagę i delikatny dotyk. Pracujemy w ubraniu, zwykle na specjalnym stole, bez forsowania i narzucania jednej poprawnej formy.',
     dlaKogo: 'Dobry wybór, jeśli wolisz uczyć się przez dotyk i mieć przestrzeń przygotowaną do pracy.',
     miejsce: 'Gdańsk',
@@ -15,7 +17,7 @@ const formaty = [
     track: 'cta-sesja-gdansk',
   },
   {
-    tytul: 'Sesje online',
+    tytul: 'Online',
     opis: 'Indywidualna lekcja ruchowa prowadzona słowami. Pracujemy wokół konkretnego pytania, a ruch wykonujesz we własnej przestrzeni i tempie.',
     dlaKogo: 'Dobry wybór, jeśli jesteś poza Trójmiastem albo chcesz pracować u siebie.',
     miejsce: 'online',
@@ -25,57 +27,47 @@ const formaty = [
 ];
 ---
 
-<section id="sesje" class="pas" aria-label="Sesje indywidualne">
+<section id="sesje" class="sekcja-krecha" aria-label="Sesje indywidualne">
   <div class="wrap">
-    <p class="kicker" data-reveal>Praca indywidualna</p>
-    <h2 data-reveal>Sesje <em>indywidualne</em></h2>
-    <p class="lead sesje-lead" data-reveal>
+    <h2>Sesje indywidualne</h2>
+    <p class="lead">
       Praca wokół pytania, które przynosisz: ruchu, który stał się trudny,
       przewlekłego wysiłku albo sposobu działania, który przestał pomagać.
-      Pierwsze spotkanie kończy się konkretem: co dalej i po czym poznasz zmianę.
+      Zmiana zazwyczaj wymaga regularnej praktyki i przynajmniej kilku spotkań.
     </p>
+
+    <figure class="foto">
+      <Image
+        src={fotoSesja}
+        alt="Sesja Integracji Funkcjonalnej: osoba leży na stole, a Artur delikatnie prowadzi jej uniesione ramię"
+        width={1200}
+        widths={[480, 760, 1200]}
+        sizes="(max-width: 44rem) 92vw, 40rem"
+        loading="lazy"
+      />
+    </figure>
 
     <div class="formaty">
       {
-        formaty.map((f, i) => (
-          <article class="format" data-reveal style={`--reveal-delay:${i * 90}ms`}>
+        formaty.map((f) => (
+          <article class="format">
             <h3>{f.tytul}</h3>
-            <p class="format-opis">{f.opis}</p>
-            <p class="format-dla">{f.dlaKogo}</p>
-            <dl class="format-info">
-              <div class="rzad">
-                <dt>Gdzie</dt>
-                <dd>{f.miejsce}</dd>
-              </div>
-              <div class="rzad">
-                <dt>Czas</dt>
-                <dd>{SESJE.czas}</dd>
-              </div>
-              {f.cena && (
-                <div class="rzad">
-                  <dt>Cena</dt>
-                  <dd>{f.cena}</dd>
-                </div>
-              )}
-              {!f.cena && SESJE.cennikUrl && (
-                <div class="rzad">
-                  <dt>Cena</dt>
-                  <dd>
-                    <a href={SESJE.cennikUrl}>zobacz cennik</a>
-                  </dd>
-                </div>
-              )}
-            </dl>
-            <a class="btn-cta" href={sesjeHref} data-track={f.track}>
-              Umów sesję <span class="strzalka">→</span>
-            </a>
+            <p class="opis">{f.opis}</p>
+            <p class="dla">{f.dlaKogo}</p>
+            <p class="meta">
+              {f.miejsce} · {SESJE.czas}
+              {f.cena && ` · ${f.cena}`}
+              {' · '}
+              <a href={sesjeHref} data-track={f.track}>umów sesję</a>
+            </p>
           </article>
         ))
       }
     </div>
 
-    <p class="sesje-nota" data-reveal>
-      Napisz, z czym przychodzisz. Odpowiadam zwykle w ciągu 1–2 dni roboczych.
+    <p class="nota">
+      <a href={`mailto:${CONTACT.email}?subject=${encodeURIComponent('Sesja indywidualna')}`}>Napisz</a>,
+      z czym przychodzisz. Odpowiadam zwykle w ciągu 1–2 dni roboczych.
       Więcej o tym, jak wygląda praca indywidualna:
       <a href="/indywidualnie/">Integracja Funkcjonalna</a>.
     </p>
@@ -83,85 +75,52 @@ const formaty = [
 </section>
 
 <style>
-  .pas {
-    background: var(--paper-deep);
-    border-block: 1px solid var(--linia);
+  .foto {
+    margin-top: 2rem;
   }
 
-  .sesje-lead {
-    margin-top: 0.3rem;
+  .foto :global(img) {
+    width: 100%;
+    height: auto;
+    filter: grayscale(1) contrast(1.04);
+    border-radius: var(--radius);
   }
 
   .formaty {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.4rem;
-    margin-top: 2.4rem;
-  }
-
-  .format {
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid var(--linia);
-    border-radius: var(--radius);
-    padding: 1.7rem 1.7rem 1.8rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.95rem;
+    gap: 1.8rem;
   }
 
-  .format-opis {
+  .format h3 {
+    margin-bottom: 0.4rem;
+  }
+
+  .format .opis {
     color: var(--ink-soft);
-    font-size: 0.97rem;
+    max-width: 62ch;
   }
 
-  .format-dla {
+  .format .dla {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-top: 0.4rem;
+    max-width: 62ch;
+  }
+
+  .format .meta {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+
+  .nota {
+    margin-top: 2rem;
     font-size: 0.9rem;
-    color: var(--akcent);
-  }
-
-  .format-info {
-    margin-top: 0.2rem;
-  }
-
-  .format-info .rzad {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.6rem 0;
+    color: var(--ink-soft);
     border-top: 1px solid var(--linia);
-    font-size: 0.94rem;
-  }
-
-  .format-info dt {
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    align-self: center;
-  }
-
-  .format-info a {
-    color: var(--akcent);
-  }
-
-  .format .btn-cta {
-    margin-top: auto;
-    align-self: flex-start;
-  }
-
-  .sesje-nota {
-    margin-top: 1.6rem;
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-  }
-
-  .sesje-nota a {
-    color: var(--akcent);
-  }
-
-  @media (max-width: 860px) {
-    .formaty {
-      grid-template-columns: 1fr;
-    }
+    padding-top: 1.2rem;
+    max-width: 62ch;
   }
 </style>

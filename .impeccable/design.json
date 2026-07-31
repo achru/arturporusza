@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-31T08:45:24.021941+00:00",
+  "title": "Design System: Artur Porusza",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#fbfaf7",
+        "tonalRamp": [
+          "oklch(20% 0.008 85)",
+          "oklch(32% 0.008 85)",
+          "oklch(45% 0.008 85)",
+          "oklch(58% 0.008 85)",
+          "oklch(70% 0.008 85)",
+          "oklch(82% 0.008 85)",
+          "oklch(92% 0.008 85)",
+          "oklch(98% 0.005 85)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1d1b17",
+        "tonalRamp": [
+          "oklch(15% 0.01 80)",
+          "oklch(24% 0.01 80)",
+          "oklch(35% 0.01 80)",
+          "oklch(47% 0.01 80)",
+          "oklch(59% 0.01 80)",
+          "oklch(71% 0.01 80)",
+          "oklch(83% 0.008 80)",
+          "oklch(94% 0.006 80)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "#575349",
+        "tonalRamp": [
+          "oklch(18% 0.015 85)",
+          "oklch(28% 0.015 85)",
+          "oklch(40% 0.015 85)",
+          "oklch(50% 0.015 85)",
+          "oklch(60% 0.015 85)",
+          "oklch(72% 0.012 85)",
+          "oklch(84% 0.01 85)",
+          "oklch(94% 0.006 85)"
+        ]
+      },
+      "sanguine": {
+        "role": "primary",
+        "displayName": "Sanguine",
+        "canonical": "#9c4231",
+        "tonalRamp": [
+          "oklch(18% 0.06 32)",
+          "oklch(28% 0.09 32)",
+          "oklch(38% 0.11 32)",
+          "oklch(47% 0.115 32)",
+          "oklch(57% 0.11 32)",
+          "oklch(68% 0.09 32)",
+          "oklch(80% 0.06 32)",
+          "oklch(93% 0.025 32)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(29, 27, 23, 0.16)",
+        "tonalRamp": [
+          "rgba(29, 27, 23, 0.9)",
+          "rgba(29, 27, 23, 0.72)",
+          "rgba(29, 27, 23, 0.56)",
+          "rgba(29, 27, 23, 0.42)",
+          "rgba(29, 27, 23, 0.3)",
+          "rgba(29, 27, 23, 0.22)",
+          "rgba(29, 27, 23, 0.16)",
+          "rgba(29, 27, 23, 0.08)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display (h1)",
+        "purpose": "The one prose statement in the hero; a sentence, not a slogan. text-wrap: balance; italic em at weight 450."
+      },
+      "headline": {
+        "displayName": "Headline (h2)",
+        "purpose": "Section titles, usually single words."
+      },
+      "subtitle": {
+        "displayName": "Subtitle (event h3)",
+        "purpose": "Event titles in the Terminy list: 1.2rem/600, between title and headline."
+      },
+      "title": {
+        "displayName": "Title (h3)",
+        "purpose": "Event titles (often the link itself) and inline headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text at 1.68 line-height; supporting prose in Ink Soft at 58-65ch. Oldstyle numerals throughout."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Secondary prose: opisy wydarzeń, wayfinding links, format notes (0.95rem)."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav links, metadata, statuses, notes (0.9rem). Never uppercase, never letterspaced."
+      },
+      "micro": {
+        "displayName": "Micro",
+        "purpose": "Legal line and RODO note (0.8rem)."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "figure-draw",
+        "value": "stroke-dashoffset 2200ms cubic-bezier(0.16, 1, 0.3, 1) 250ms",
+        "purpose": "The hero figure drawing itself once on load — the only animation in the world. Pre-drawn under prefers-reduced-motion or without JS."
+      },
+      {
+        "name": "link-transition",
+        "value": "color 0.18s ease, text-decoration-color 0.18s ease",
+        "purpose": "Default state transition for links and text buttons."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "The world's only call to action: ink text with a 1px sanguine underline; hover turns the text sanguine.",
+      "html": "<a class=\"ds-link\" href=\"#\">Sesje indywidualne — Gdańsk i online</a>",
+      "css": ".ds-link { font-family: 'Literata Variable', Georgia, serif; font-size: 0.98rem; color: var(--ink, #1d1b17); text-decoration-line: underline; text-decoration-color: var(--akcent, #9c4231); text-decoration-thickness: 1px; text-underline-offset: 0.18em; transition: color 0.18s ease, text-decoration-color 0.18s ease; } .ds-link:hover { color: var(--akcent, #9c4231); } .ds-link:focus-visible { outline: 2px solid var(--akcent, #9c4231); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Quiet Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header navigation: soft ink, no underline at rest, underline and sanguine on hover.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-logo\" href=\"#\">Artur Porusza</a><span class=\"ds-nav-links\"><a href=\"#\">Terminy</a><a href=\"#\">Praktyka</a><a href=\"#\">Sesje</a><a href=\"#\">O mnie</a></span></nav>",
+      "css": ".ds-nav { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem 1.5rem; flex-wrap: wrap; font-family: 'Literata Variable', Georgia, serif; } .ds-nav a { color: var(--ink-soft, #575349); text-decoration-line: none; text-decoration-color: var(--akcent, #9c4231); text-decoration-thickness: 1px; text-underline-offset: 0.18em; transition: color 0.18s ease; } .ds-nav a:hover { color: var(--akcent, #9c4231); text-decoration-line: underline; } .ds-nav-logo { font-style: italic; font-weight: 500; font-size: 1.0625rem; color: var(--ink, #1d1b17) !important; } .ds-nav-links { display: flex; gap: 1.4rem; flex-wrap: wrap; font-size: 0.9rem; }"
+    },
+    {
+      "name": "Newsletter Form",
+      "kind": "input",
+      "refersTo": "newsletter-input",
+      "description": "Writing on a line: transparent input with a 1px ink baseline; submit is a text button styled as a link.",
+      "html": "<form class=\"ds-ml-form\"><input type=\"email\" placeholder=\"twój adres e-mail\" aria-label=\"E-mail\" /><button type=\"button\">Zapisz mnie</button></form>",
+      "css": ".ds-ml-form { display: flex; gap: 1.4rem; align-items: flex-end; flex-wrap: wrap; font-family: 'Literata Variable', Georgia, serif; } .ds-ml-form input { flex: 1 1 230px; font: 400 1rem/1.4 'Literata Variable', Georgia, serif; color: var(--ink, #1d1b17); background: transparent; border: none; border-bottom: 1px solid var(--ink, #1d1b17); border-radius: 0; padding: 0.5em 0.1em; } .ds-ml-form input::placeholder { color: var(--ink-soft, #575349); opacity: 0.7; font-style: italic; } .ds-ml-form input:focus-visible { outline: 2px solid var(--akcent, #9c4231); outline-offset: 3px; border-radius: 2px; } .ds-ml-form button { font: 500 1rem/1.4 'Literata Variable', Georgia, serif; color: var(--ink, #1d1b17); background: none; border: none; cursor: pointer; padding: 0.5em 0.1em; text-decoration-line: underline; text-decoration-color: var(--akcent, #9c4231); text-decoration-thickness: 1px; text-underline-offset: 0.18em; transition: color 0.18s ease; } .ds-ml-form button:hover { color: var(--akcent, #9c4231); }"
+    },
+    {
+      "name": "Termin Row",
+      "kind": "card",
+      "refersTo": "link",
+      "description": "Hairline-divided event row: date column as scanning anchor, title as the link, sanguine italic status only when live.",
+      "html": "<div class=\"ds-termin\"><div class=\"ds-termin-kiedy\"><p class=\"ds-termin-data\">14–15 marca 2026</p><p class=\"ds-termin-gdzie\">Gdańsk · warsztat</p></div><div><h3 class=\"ds-termin-tytul\"><a href=\"#\">Wolne biodra</a> <span class=\"ds-termin-pod\">— weekend z metodą Feldenkraisa</span></h3><p class=\"ds-termin-opis\">Dwa dni lekcji świadomości przez ruch wokół miednicy i bioder.</p><p class=\"ds-termin-status\">Ostatnie miejsca</p></div></div>",
+      "css": ".ds-termin { font-family: 'Literata Variable', Georgia, serif; font-variant-numeric: oldstyle-nums; display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 0.2rem 1.6rem; align-items: start; padding-block: 1.5rem; border-top: 1px solid rgba(29, 27, 23, 0.16); color: var(--ink, #1d1b17); } .ds-termin-data { font-weight: 500; font-size: 0.98rem; line-height: 1.45; margin: 0; } .ds-termin-gdzie { font-size: 0.85rem; color: var(--ink-soft, #575349); margin: 0.15rem 0 0; } .ds-termin-tytul { font-size: 1.2rem; font-weight: 600; line-height: 1.35; margin: 0; } .ds-termin-tytul a { color: inherit; text-decoration-line: underline; text-decoration-color: var(--akcent, #9c4231); text-decoration-thickness: 1px; text-underline-offset: 0.18em; transition: color 0.18s ease; } .ds-termin-tytul a:hover { color: var(--akcent, #9c4231); } .ds-termin-pod { font-weight: 400; font-style: italic; color: var(--ink-soft, #575349); } .ds-termin-opis { color: var(--ink-soft, #575349); font-size: 0.98rem; margin: 0.35rem 0 0; max-width: 60ch; } .ds-termin-status { font-size: 0.88rem; margin: 0.4rem 0 0; color: var(--akcent, #9c4231); font-style: italic; }"
+    },
+    {
+      "name": "Drawn Figure",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "The world's signature: the page rule rises into a reclining one-line figure and returns to a rule. Ink stroke at the one drawn weight (2.25px).",
+      "html": "<svg class=\"ds-figura\" viewBox=\"0 0 880 190\" preserveAspectRatio=\"xMidYMid slice\" role=\"img\" aria-label=\"Jedna ciągła linia w kształcie leżącej postaci\"><path vector-effect=\"non-scaling-stroke\" d=\"M 0 150 L 280 150 C 277 128, 280 104, 297 96 C 313 88, 332 96, 335 113 C 337 127, 327 137, 315 137 C 321 143, 329 146, 339 142 C 363 130, 389 124, 415 128 C 433 131, 449 132, 465 128 C 487 122, 509 102, 525 90 C 531 84, 541 84, 547 90 C 559 104, 573 128, 583 144 C 587 149, 593 150, 602 150 L 880 150\"></path></svg>",
+      "css": ".ds-figura { width: 100%; display: block; aspect-ratio: 880 / 190; } .ds-figura path { fill: none; stroke: var(--ink, #1d1b17); stroke-width: var(--kreska, 2.25px); stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Grayscale Photo",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "All photography rendered as ink-wash material: full grayscale with a slight contrast lift, 2px radius.",
+      "html": "<figure class=\"ds-foto\"><img src=\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='300'%3E%3Crect width='240' height='300' fill='%23b9b2a5'/%3E%3C/svg%3E\" alt=\"Portret\" /></figure>",
+      "css": ".ds-foto { margin: 0; width: 220px; } .ds-foto img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(1) contrast(1.04); border-radius: 2px; display: block; }"
+    },
+    {
+      "name": "logo-lockup",
+      "purpose": "Brand lockup ARTUR ⟨brain mark⟩ PORUSZA; mark traced from the original logo (Znak.astro, currentColor); wordmark in Helvetica Neue stack as a brand-asset exception to the one-family rule."
+    }
+  ],
+  "narrative": {
+    "northStar": "One Ink Line",
+    "overview": "The whole site behaves like a figure study on paper: warm paper white, warm near-black ink, and one continuous drawn line (--kreska) that rises out of the page rule to become a reclining figure — the classic ATM lesson position — and returns to being a rule. Everything else is reading matter set in a single serif family at a single narrow measure. The world deliberately refuses the practitioner-site default: no pastel hero, no CTA buttons, no card grids, no urgency chips. Reading and finding replace persuading. Color is almost entirely achromatic. The one accent, a sanguine red-chalk (--akcent), is reserved for links and live markers — the things a hand would touch or a teacher would circle. Photography is grayscale, so images live in the same ink-on-paper material as the type and the drawn line. Depth, elevation, and motion are all near-zero: the page is flat, still, and structured by hairline rules.",
+    "keyCharacteristics": [
+      "Paper-and-ink palette with a single sanguine accent, used only where something is interactive or alive",
+      "One type family (Literata, optical axis) carrying the entire hierarchy via size, weight, and italic",
+      "One narrow reading column (44rem) — no grids, no cards, no sidebars",
+      "Two line weights only: the 2.25px drawn stroke (expressive) and 1px hairlines (structural)",
+      "Grayscale photography; flat surfaces; a single load-time drawing animation as the only motion"
+    ],
+    "rules": [
+      {
+        "name": "The Sanguine Rule",
+        "body": "The accent appears only on links and live markers (status text, focus, selection). It is never a surface, never a heading color, never decoration. If a new element wants sanguine, ask whether it is interactive or carrying live information; if not, it stays ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Inks Rule",
+        "body": "Prose speaks in two voices only: Ink for what the visitor came to read, Ink Soft for everything supporting it. No grays are invented between them.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Every glyph on the site is Literata. Hierarchy comes from optical size, weight (400/450/500/600), and italic — never from a second family, uppercase, or tracking.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Kicker Rule",
+        "body": "No kickers, eyebrows, or small-caps section labels anywhere. A section is introduced by its h2 and nothing above it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Paper Rule",
+        "body": "No box-shadows, no overlays, no fixed or sticky elements, and never backdrop-filter (it froze Chrome's compositor on fixed nav in a prior build — see PRODUCT.md). If an element seems to need elevation, it belongs in the flow instead.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Stroke Rule",
+        "body": "--kreska (2.25px) is the only weight for expressive drawn SVG lines. Any new drawn mark uses it exactly; anything structural is a 1px hairline. A third line weight does not exist.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do set everything in Literata Variable; make hierarchy with optical size, weight (400–600), and italic only.",
+      "Do keep all content inside the single 44rem .wrap column and open new sections with a 1px hairline (.sekcja-krecha).",
+      "Do style every call to action as a text link (sanguine underline, hover sanguine); the quiet .cichy-link variant is for structural navigation only.",
+      "Do render photos with filter: grayscale(1) contrast(1.04) and 2px radius, always.",
+      "Do use --kreska (2.25px, round caps) for any drawn SVG mark and 1px --linia for any structural rule — nothing in between.",
+      "Do show status text only when it carries live information, and set it in sanguine italic.",
+      "Do honor prefers-reduced-motion: the drawn figure appears pre-drawn; smooth scroll turns off."
+    ],
+    "donts": [
+      "Don't add buttons, cards, chips, badges, pastel surfaces, or urgency UI — the world refuses the practitioner-site default.",
+      "Don't use sanguine as a background, heading color, or decoration; it belongs to links and live markers only.",
+      "Don't add kickers, eyebrows, uppercase labels, or letterspaced small caps.",
+      "Don't use shadows, fixed/sticky positioning, or backdrop-filter anywhere (documented Chrome compositor freeze on fixed elements).",
+      "Don't add scroll-triggered reveal animations; the figure drawing itself once on load is the only motion in the world.",
+      "Don't introduce a second font family, a second accent color, or a third line weight."
+    ]
+  }
+}

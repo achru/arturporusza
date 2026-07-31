@@ -1196,7 +1196,7 @@ details > summary:focus-visible { outline: none; }
           <label for="dlaczego">Dlaczego ta grupa?<span class="req">*</span></label>
           <textarea id="dlaczego" name="dlaczego" required rows="4" placeholder="Co cię tutaj przyprowadziło. Krótko, swoimi słowami."></textarea>
         </div>
-        <button type="submit" id='submitBtn'class="btn btn-primary">
+        <button type="submit" id="submitBtn" class="btn btn-primary">
           <span>Wyślij zgłoszenie</span>
           <span class="arrow" aria-hidden="true">→</span>
         </button>
@@ -1376,21 +1376,29 @@ details > summary:focus-visible { outline: none; }
 
   const myForm = event.target;
   const formData = new FormData(myForm);
-  console.log('Submitting form with data:', Object.fromEntries(formData.entries()));
 
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(formData).toString()
   })
-    .then(() => {
+    .then(response => {
+      // fetch odrzuca tylko przy błędzie sieci — bez tego sprawdzenia 404 z
+      // niewykrytego formularza pokazałby ekran sukcesu, a zgłoszenie przepadłoby.
+      if (!response.ok) throw new Error(response.status);
       const name = form.imie.value.trim().split(' ')[0];
       successName.textContent = (name ? ', ' + name : '');
       form.style.display = 'none';
       success.classList.add('show');
       success.scrollIntoView && success.scrollIntoView({ behavior: 'smooth', block: 'center' });
     })
-    .catch(error => alert(error));
+    .catch(error => {
+      console.error('Błąd wysyłki formularza:', error);
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+      submitBtn.querySelector('span').textContent = 'Wyślij zgłoszenie';
+      alert('Nie udało się wysłać zgłoszenia. Spróbuj ponownie albo napisz: kontakt@arturchruszcz.pl');
+    });
 };
   const validate = (showAll = false) => {
     let ok = true;

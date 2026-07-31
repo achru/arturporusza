@@ -1,40 +1,36 @@
 /* ============================================================
-   Tokeny design systemu „Artur Porusza".
-   Estetyka: nowoczesny magazyn / niezależne studio edukacyjne.
-   Ciepłe off-white + prawie czarny atrament + przygaszony fiolet
-   i lawenda jako akcent. Złoto służy WYŁĄCZNIE CTA i statusom.
+   Tokeny design systemu „Artur Porusza" — świat: figura z jednej linii.
+   Papier, atrament, jedna kreska. Sangwina (czerwona kredka do
+   studiów postaci) WYŁĄCZNIE dla linków i żywych oznaczeń.
+   Typografia: jedna rodzina (Literata, oś optyczna) niesie całą
+   hierarchię. Zdjęcia w skali szarości — świat tuszu na papierze.
    ============================================================ */
 
 :root {
   color-scheme: light;
 
   /* — papier i atrament — */
-  --paper: #efede6;
-  --paper-deep: #e6e3da;
-  --ink: #23221d;
-  --ink-soft: #5b5950;
+  --paper: #fbfaf7;
+  --ink: #1d1b17;
+  --ink-soft: #575349;
 
-  /* — akcenty (detale, linie, diagramy, typy wydarzeń) — */
-  --akcent: #6e6390; /* przygaszony fiolet */
-  --akcent-deep: #524a75; /* panel newslettera, mocniejsze tło */
-  --lawenda: #a79bc7;
-  --blekit: #6f8da2; /* chłodny błękit wspierający */
+  /* — sangwina: linki i żywe oznaczenia, nic więcej — */
+  --akcent: #9c4231;
 
-  /* — kolor działania: WYŁĄCZNIE CTA i statusy zapisów — */
-  --cta: #b8860b;
-  --cta-hover: #cf9c1f;
-  --cta-tekst: #241d05;
+  /* — linia — */
+  --linia: rgba(29, 27, 23, 0.16); /* linia papieru (hairline) */
+  --kreska: 2.25px; /* jedna grubość rysowanej kreski */
 
-  --linia: rgba(35, 34, 29, 0.16);
+  /* — typografia: jedna rodzina — */
+  --f-serif: 'Literata Variable', Georgia, 'Times New Roman', serif;
+  /* aliasy zgodności dla podstron pisanych w starym świecie */
+  --f-display: var(--f-serif);
+  --f-tekst: var(--f-serif);
 
-  /* — typografia — */
-  --f-display: 'Fraunces Variable', 'Fraunces', Georgia, serif;
-  --f-tekst: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
-
-  /* — rytm — */
-  --maxw: 1100px;
-  --pad: clamp(1.25rem, 4vw, 2.5rem);
+  /* — rytm: jedna wąska kolumna czytania — */
+  --maxw: 44rem;
+  --pad: clamp(1.25rem, 5vw, 2rem);
 
   /* — detale — */
-  --radius: 10px; /* oszczędnie z zaokrągleniami */
+  --radius: 2px;
 }

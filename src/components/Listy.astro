@@ -1,0 +1,42 @@
+---
+import NewsletterForm from './NewsletterForm.astro';
+import { NEWSLETTER_BONUS } from '../config';
+---
+
+<section id="newsletter" class="sekcja-krecha" aria-label="Newsletter">
+  <div class="wrap">
+    <h2>Newsletter</h2>
+    <p class="lead">
+      Piszę, kiedy mam coś do powiedzenia — o&nbsp;ruchu, uczeniu się
+      i&nbsp;adaptacyjności. Konkretnie i po polsku, bez motywacyjnej waty
+      i&nbsp;obietnic naprawienia życia.
+    </p>
+    {NEWSLETTER_BONUS && <p class="bonus">{NEWSLETTER_BONUS}</p>}
+    <div class="formularz">
+      <NewsletterForm maxWidth="34rem" />
+    </div>
+    <p class="czytaja">
+      Czytają mnie nauczyciele ruchu i ludzie, którzy chcą reagować adekwatnie
+      do sytuacji, a&nbsp;nie z przyzwyczajenia.
+    </p>
+  </div>
+</section>
+
+<style>
+  .bonus {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-top: 0.8rem;
+  }
+
+  .formularz {
+    margin-top: 1.8rem;
+  }
+
+  .czytaja {
+    margin-top: 1.6rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+</style>

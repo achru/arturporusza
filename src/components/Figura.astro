@@ -1,0 +1,75 @@
+---
+/* Sygnatura świata: linia papieru unosi się w leżącą postać
+   (klasyczna pozycja lekcji ATM — na plecach, kolana ugięte)
+   i wraca do bycia linią. Jedna ciągła kreska, jedna grubość.
+   Rysuje się raz po załadowaniu; przy ograniczonym ruchu i bez JS
+   jest po prostu narysowana. */
+---
+
+<svg
+  class="figura"
+  viewBox="0 0 880 190"
+  preserveAspectRatio="xMidYMid slice"
+  role="img"
+  aria-label="Jedna ciągła linia: prosta linia unosi się w zarys osoby leżącej na plecach z ugiętymi kolanami i wraca do bycia prostą linią"
+>
+  <path
+    class="figura-kreska"
+    vector-effect="non-scaling-stroke"
+    d="M 0 150 L 280 150
+       C 277 128, 280 104, 297 96
+       C 313 88, 332 96, 335 113
+       C 337 127, 327 137, 315 137
+       C 321 143, 329 146, 339 142
+       C 363 130, 389 124, 415 128
+       C 433 131, 449 132, 465 128
+       C 487 122, 509 102, 525 90
+       C 531 84, 541 84, 547 90
+       C 559 104, 573 128, 583 144
+       C 587 149, 593 150, 602 150
+       L 880 150"
+  ></path>
+</svg>
+
+<script>
+  const kreska = document.querySelector<SVGPathElement>('.figura-kreska');
+  const zredukowanyRuch = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (kreska && !zredukowanyRuch) {
+    try {
+      const L = kreska.getTotalLength();
+      kreska.style.strokeDasharray = String(L);
+      kreska.style.strokeDashoffset = String(L);
+      requestAnimationFrame(() => {
+        kreska.style.transition = 'stroke-dashoffset 2200ms cubic-bezier(0.16, 1, 0.3, 1) 250ms';
+        kreska.style.strokeDashoffset = '0';
+      });
+    } catch {
+      /* zostaw kreskę narysowaną */
+    }
+  }
+</script>
+
+<style>
+  .figura {
+    width: 100%;
+    display: block;
+    aspect-ratio: 880 / 190;
+  }
+
+  /* Na wąskich ekranach kadrujemy proste odcinki linii,
+     żeby postać nie malała razem z viewportem. */
+  @media (max-width: 560px) {
+    .figura {
+      aspect-ratio: auto;
+      height: 108px;
+    }
+  }
+
+  .figura-kreska {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: var(--kreska);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+</style>

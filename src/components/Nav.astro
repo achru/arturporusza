@@ -1,136 +1,65 @@
 ---
-import { NAUCZYCIELE_URL } from '../config';
+/* Statyczna, cicha nawigacja — tekstowe linki, bez przycisków,
+   bez pozycji fixed (i bez backdrop-filter — patrz PRODUCT.md). */
+import Znak from './Znak.astro';
 ---
 
-<header class="nav" id="gora">
-  <div class="nav-wrap">
-    <a class="logo" href="#gora">Artur Porusza</a>
+<header class="nav">
+  <div class="wrap nav-wrap">
+    <a class="logo cichy-link" href="/" aria-label="Artur Porusza — strona główna">
+      <span>Artur</span>
+      <Znak />
+      <span>Porusza</span>
+    </a>
     <nav class="nav-linki" aria-label="Główna nawigacja">
-      <a href="#zajecia">Aktualne zajęcia</a>
-      <a href="#praktyka">Jak pracuję</a>
-      <a href="#sesje">Indywidualnie</a>
-      <a href={NAUCZYCIELE_URL} target="_blank" rel="noopener">Dla nauczycieli</a>
-      <a href="#omnie">O mnie</a>
-      <a class="btn-cta" href="#zajecia" data-track="cta-nav-terminy">Zobacz terminy</a>
+      <a class="cichy-link" href="/#terminy">Terminy</a>
+      <a class="cichy-link" href="/#praktyka">Praktyka</a>
+      <a class="cichy-link" href="/#sesje">Sesje</a>
+      <a class="cichy-link" href="/o-mnie/">O mnie</a>
     </nav>
   </div>
 </header>
 
-<!-- dyskretne sticky CTA na mobile — pojawia się po zjechaniu z hero -->
-<a class="sticky-cta" href="#zajecia" data-track="cta-sticky-terminy" aria-hidden="true" tabindex="-1">
-  Zobacz terminy <span class="strzalka">→</span>
-</a>
-
-<script>
-  const nav = document.querySelector('.nav')!;
-  const sticky = document.querySelector('.sticky-cta')!;
-  function stan() {
-    nav.classList.toggle('przewinieta', window.scrollY > 24);
-    const pokazSticky = window.scrollY > 700;
-    sticky.classList.toggle('widoczny', pokazSticky);
-    sticky.setAttribute('aria-hidden', String(!pokazSticky));
-    (sticky as HTMLElement).tabIndex = pokazSticky ? 0 : -1;
-  }
-  stan();
-  window.addEventListener('scroll', stan, { passive: true });
-</script>
-
 <style>
   .nav {
-    position: fixed;
-    inset: 0 0 auto 0;
-    z-index: 50;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  /* Uwaga: bez backdrop-filter — blur na fixed elemencie potrafi zawiesić
-     kompozytor Chrome. Kryjące tło daje ten sam efekt wizualny. */
-  .nav:global(.przewinieta) {
-    background: rgba(239, 237, 230, 0.95);
-    box-shadow: 0 1px 0 var(--linia);
+    padding-block: 1.4rem 0;
   }
 
   .nav-wrap {
-    max-width: var(--maxw);
-    margin-inline: auto;
-    padding: 16px var(--pad);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 1rem 1.5rem;
+    flex-wrap: wrap;
   }
 
+  /* Logotyp z oryginalnego znaku Artura: ARTUR ⟨mózg⟩ PORUSZA.
+     Krój groteskowy jest częścią marki (wyjątek od zasady jednej
+     rodziny — patrz DESIGN.md), reszta strony zostaje przy Literacie. */
   .logo {
-    font-family: var(--f-display);
-    font-style: italic;
-    font-size: 19px;
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.55em;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
   }
 
   .nav-linki {
     display: flex;
-    align-items: center;
-    gap: 24px;
+    gap: 1.4rem;
+    flex-wrap: wrap;
   }
 
-  .nav-linki a:not(.btn-cta) {
-    font-size: 14px;
-    text-decoration: none;
-    color: var(--ink);
-    border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
-    transition: border-color 0.2s ease;
+  .nav-linki a {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
   }
 
-  .nav-linki a:not(.btn-cta):hover {
-    border-color: var(--ink);
-  }
-
-  .nav .btn-cta {
-    padding: 0.7em 1.2em;
-    font-size: 14px;
-  }
-
-  .sticky-cta {
-    display: none;
-  }
-
-  @media (max-width: 860px) {
-    .nav-linki a:not(.btn-cta) {
-      display: none;
-    }
-
-    .sticky-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5em;
-      position: fixed;
-      right: 1rem;
-      bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
-      z-index: 49;
-      background: var(--cta);
-      color: var(--cta-tekst);
-      font: 500 14px/1.2 var(--f-tekst);
-      padding: 0.8em 1.25em;
-      border-radius: 999px;
-      text-decoration: none;
-      box-shadow: 0 6px 20px -8px rgba(35, 34, 29, 0.45);
-      opacity: 0;
-      translate: 0 12px;
-      pointer-events: none;
-      transition: opacity 0.3s ease, translate 0.3s ease;
-    }
-
-    .sticky-cta:global(.widoczny) {
-      opacity: 1;
-      translate: 0 0;
-      pointer-events: auto;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .sticky-cta {
-      transition: none;
-    }
+  .nav-linki a:hover {
+    color: var(--akcent);
   }
 </style>

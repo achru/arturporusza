@@ -8,27 +8,27 @@ import portret from '../assets/photos/artur-chruszcz-ruch-siad-skret.jpg';
 
 <Base
   title="O mnie — Artur Chruszcz, metoda Feldenkraisa | Artur Porusza"
-  description="Artur Chruszcz: trzynaście lat uczenia metodą Feldenkraisa w Gdańsku i online, ponad pięciuset klientów indywidualnych, tło w inżynierii oprogramowania."
+  description="Artur Chruszcz: trzynaście lat pracy z człowiekiem poprzez ruch, głęboko zakorzenionej w metodzie Feldenkraisa. Gdańsk i online, ponad pięciuset klientów indywidualnych, tło w inżynierii oprogramowania."
 >
   <Nav />
   <main id="tresc" class="wrap omnie-strona">
-    <p class="kicker">O mnie</p>
     <h1>Artur Chruszcz</h1>
 
     <div class="omnie-uklad">
       <div class="omnie-tresc">
         <p>
-          Uczę metodą Feldenkraisa od trzynastu lat. Pracowałem indywidualnie
-          z ponad pięciuset osobami, poprowadziłem ponad sto warsztatów
-          i kilkanaście wyjazdów — w Gdańsku, w Polsce i online.
+          Pracuję z człowiekiem poprzez ruch od trzynastu lat — moja praca
+          głęboko zakorzeniona jest w metodzie Feldenkraisa. Pracowałem
+          indywidualnie z ponad pięciuset osobami, poprowadziłem ponad sto
+          warsztatów i kilkanaście wyjazdów — w Gdańsku, w Polsce i online.
         </p>
         <p>
           Do ruchu trafiłem z inżynierii oprogramowania i to tło zostało ze mną
-          do dziś. Mniej interesują mnie gotowe recepty, a bardziej systemy,
-          które potrafią się uczyć: zauważać błędy, porównywać warianty
-          i znajdować inne rozwiązania, kiedy pierwsze przestaje działać.
-          Metoda Feldenkraisa jest dla mnie właśnie takim systemem —
-          stosowanym do codziennego poruszania się i działania.
+          do dziś. Nauczyłem się tam myśleć w sprzężeniach zwrotnych: rzadko
+          jest jedna przyczyna, prawie nigdy jedno rozwiązanie. Mniej interesują
+          mnie gotowe recepty, a bardziej systemy rezylientne, łatwo adaptujące
+          się do zmian. Metoda Feldenkraisa jest dla mnie właśnie takim
+          systemem — stosowanym do codziennego poruszania się i działania.
         </p>
         <p>
           W sposobie myślenia o uczeniu się inspiruję się również terapią
@@ -39,15 +39,44 @@ import portret from '../assets/photos/artur-chruszcz-ruch-siad-skret.jpg';
         </p>
 
         <h2>Przygotowanie</h2>
-        <p class="do-uzupelnienia">
-          [DO UZUPEŁNIENIA — pełna ścieżka szkolenia: nazwa i lata treningu
-          Feldenkraisa, nauczyciele (m.in. Jeff Haller), kursy uzupełniające,
-          superwizje. Bez danych od Artura ta sekcja celowo pozostaje pusta.]
-        </p>
+        <ul class="szkolenia">
+          <li>
+            <span class="lata">2009–2013</span>
+            <span>Studia na Politechnice Gdańskiej: elektronika i telekomunikacja, specjalizacja elektroniczne systemy komputerowe.</span>
+          </li>
+          <li>
+            <span class="lata">2016–2017</span>
+            <span>Dwa kursy nauczycielskie, po 200 godzin każdy, u Richarda Freemana i Mary Taylor, Boulder (Kolorado).</span>
+          </li>
+          <li>
+            <span class="lata">2018</span>
+            <span>Asysta podczas 200-godzinnego kursu nauczycielskiego u Richarda Freemana i Mary Taylor, Boulder (Kolorado).</span>
+          </li>
+          <li>
+            <span class="lata">2019–2022</span>
+            <span>Czteroletni trening metody Feldenkraisa, Malaga.</span>
+          </li>
+          <li>
+            <span class="lata">2022–2023</span>
+            <span>Ukończenie czteroletniego szkolenia metody Feldenkraisa Milano–Levico&nbsp;6 z Marą Fusero.</span>
+          </li>
+          <li>
+            <span class="lata">2024</span>
+            <span>Trzymodułowe szkolenie zaawansowane z Jeremym Kraussem (Bawaria): procesy zmiany w sesjach indywidualnych.</span>
+          </li>
+          <li>
+            <span class="lata">2024–2025</span>
+            <span>Dwuletnie szkolenie zaawansowane IOPS z Jeffem Hallerem, Seattle.</span>
+          </li>
+          <li>
+            <span class="lata">2020</span>
+            <span>Dodatkowo: ACT Immersion (online) u Stevena Hayesa.</span>
+          </li>
+        </ul>
 
         <p>
           Najszybciej znajdziesz mnie na
-          <a href="/#kalendarz">aktualnych zajęciach</a> albo na
+          <a href="/#terminy">aktualnych zajęciach</a> albo na
           <a href="/#sesje">sesji indywidualnej</a>.
         </p>
       </div>
@@ -69,7 +98,7 @@ import portret from '../assets/photos/artur-chruszcz-ruch-siad-skret.jpg';
 
 <style>
   .omnie-strona {
-    padding-block: clamp(7rem, 13vh, 9rem) clamp(4rem, 8vw, 6.5rem);
+    padding-block: clamp(2.5rem, 6vw, 4rem) clamp(4rem, 8vw, 6.5rem);
   }
 
   .omnie-strona h1 {
@@ -94,7 +123,6 @@ import portret from '../assets/photos/artur-chruszcz-ruch-siad-skret.jpg';
   }
 
   .omnie-tresc h2 {
-    font-size: 1.5rem;
     margin-top: 2.2rem;
   }
 
@@ -102,11 +130,42 @@ import portret from '../assets/photos/artur-chruszcz-ruch-siad-skret.jpg';
     color: var(--akcent);
   }
 
-  .do-uzupelnienia {
-    border: 1px dashed var(--akcent);
-    border-radius: var(--radius);
-    padding: 0.9rem 1.1rem;
-    font-size: 0.9rem;
+  /* Lista szkoleń: rok jako kotwica skanowania, jak daty w Terminach. */
+  .szkolenia {
+    list-style: none;
+    margin-top: 1.1rem;
+    max-width: 42em;
+  }
+
+  .szkolenia li {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 0.2rem 1.4rem;
+    padding-block: 0.75rem;
+    border-top: 1px solid var(--linia);
+  }
+
+  .szkolenia li:first-child {
+    border-top: none;
+    padding-top: 0.2rem;
+  }
+
+  .szkolenia .lata {
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-variant-numeric: oldstyle-nums;
+  }
+
+  .szkolenia li > span:last-child {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 560px) {
+    .szkolenia li {
+      grid-template-columns: 1fr;
+      gap: 0.1rem;
+    }
   }
 
   .omnie-foto {
@@ -119,6 +178,7 @@ import portret from '../assets/photos/artur-chruszcz-ruch-siad-skret.jpg';
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
+    filter: grayscale(1) contrast(1.04);
   }
 
   @media (max-width: 860px) {

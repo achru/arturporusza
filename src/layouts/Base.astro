@@ -1,7 +1,6 @@
 ---
-import '@fontsource-variable/space-grotesk';
-import '@fontsource-variable/fraunces/opsz.css';
-import '@fontsource-variable/fraunces/opsz-italic.css';
+import '@fontsource-variable/literata/opsz.css';
+import '@fontsource-variable/literata/opsz-italic.css';
 import '../styles/global.css';
 import { SITE, CONTACT, LEGAL } from '../config';
 
@@ -48,6 +47,14 @@ const jsonLd = {
     },
   ],
 };
+
+const kontrakt = `impeccable-direction c03bb407/9ebfa753
+THESIS: A quiet informational home drawn with one ink line; refuses the practitioner-site default (pastel hero, CTA buttons, card grids, urgency chips) — reading and finding replace persuading.
+OWN-WORLD: Paper white #fbfaf7, warm near-black ink, sanguine red-chalk accent on links and live markers only; one family (Literata, optical axis) at every size; hairline paper rules; one continuous ink line that becomes a reclining figure; grayscale photography.
+STORY: A visitor reads who Artur is and what the practice is, finds terminy and sesje within seconds, and follows quiet links to sign up — nothing pushes.
+FIRST VIEWPORT: Slim static header (name + text links); one prose statement as h1 with a short lead; the ruled line rises into the one-line figure and returns to a rule; three wayfinding links; terminy directly below.
+FORM: Single-line contour-figure world — user-steered rendition of the dealt plane-portrait figure (steer: "Figura but more minimalistic"); staging: one narrow reading column; seeds c03bb407, 9ebfa753.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md`;
 ---
 
 <!doctype html>
@@ -73,41 +80,10 @@ const jsonLd = {
     <meta name="twitter:card" content="summary_large_image" />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-    <script is:inline>
-      // Znacznik działającego JS — dopiero wtedy CSS ukrywa sekcje do animacji.
-      document.documentElement.classList.add('js');
-    </script>
   </head>
   <body>
+    <Fragment set:html={`<!--\n${kontrakt}\n-->`} />
     <a class="skip" href="#tresc">Przejdź do treści</a>
     <slot />
-
-    <script>
-      // Hero: wejście elementów z lekkim opóźnieniem kaskadowym.
-      document.querySelectorAll<HTMLElement>('[data-anim]').forEach((el, i) => {
-        el.setAttribute('data-reveal', '');
-        el.style.setProperty('--reveal-delay', `${100 + i * 90}ms`);
-        requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('in')));
-      });
-
-      // Pozostałe sekcje: wejście przy przewinięciu.
-      const revealed = document.querySelectorAll('[data-reveal]:not([data-anim])');
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(
-          (entries) => {
-            for (const e of entries) {
-              if (e.isIntersecting) {
-                e.target.classList.add('in');
-                io.unobserve(e.target);
-              }
-            }
-          },
-          { rootMargin: '0px 0px -10% 0px', threshold: 0.12 }
-        );
-        revealed.forEach((el) => io.observe(el));
-      } else {
-        revealed.forEach((el) => el.classList.add('in'));
-      }
-    </script>
   </body>
 </html>

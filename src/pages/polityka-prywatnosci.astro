@@ -9,7 +9,7 @@ import { CONTACT, LEGAL } from '../config';
   description="Polityka prywatności serwisu arturporusza.pl - zasady przetwarzania danych zapisanych do newslettera."
 >
   <main id="tresc" class="wrap policy">
-    <p class="kicker"><a href="/">← arturporusza.pl</a></p>
+    <p class="powrot"><a href="/">← arturporusza.pl</a></p>
     <h1>Polityka prywatności</h1>
     <p class="policy-note">
       Szkic do uzupełnienia przed startem produkcyjnym - fragmenty w nawiasach
@@ -62,12 +62,15 @@ import { CONTACT, LEGAL } from '../config';
     padding-block: clamp(3rem, 7vw, 6rem);
   }
 
+  .powrot {
+    font-size: 0.9rem;
+  }
+
   .policy h1 {
     margin-block: 1rem 1.5rem;
   }
 
   .policy h2 {
-    font-size: 1.4rem;
     margin-block: 2.2rem 0.7rem;
   }
 
@@ -83,7 +86,7 @@ import { CONTACT, LEGAL } from '../config';
     font-size: 0.9rem;
     color: var(--akcent);
     border: 1px dashed var(--akcent);
-    border-radius: 12px;
+    border-radius: var(--radius);
     padding: 0.8rem 1.1rem;
   }
 </style>

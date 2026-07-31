@@ -1,135 +1,157 @@
 ---
+import { Image } from 'astro:assets';
+import fotoLekcja from '../assets/photos/lekcja-grupowa-feldenkrais-warsztat.jpg';
+
 const kroki = [
   {
-    tytul: 'Zaczynamy od prostego ruchu lub pytania',
+    tytul: 'Zaczynamy od prostego ruchu lub pytania.',
     opis: 'Na przykład: jak sięgasz, jak się obracasz, jak wstajesz. Nic, do czego trzeba się przygotowywać.',
   },
   {
-    tytul: 'Zmieniamy warunki',
+    tytul: 'Zmieniamy warunki.',
     opis: 'Tempo, kierunek, organizację ruchu albo sposób kierowania uwagi. Ten sam ruch przestaje być oczywisty.',
   },
   {
-    tytul: 'Porównujesz możliwości',
-    opis: 'Zauważasz, co daje większą swobodę lub klarowność — i to porównanie, nie instrukcja, robi robotę.',
+    tytul: 'Porównujesz możliwości.',
+    opis: 'Zauważasz, co daje większą swobodę lub klarowność. To Ty robisz robotę — zauważając, poszerzasz pole swojej percepcji i repertuar możliwości.',
   },
+];
+
+const zmiany = [
+  'łatwiejsze chodzenie, obracanie się i wstawanie,',
+  'szybsze zauważanie, że używasz więcej wysiłku, niż potrzebujesz,',
+  'większa zdolność znalezienia innego rozwiązania, kiedy pierwszy sposób nie działa.',
 ];
 ---
 
 <section id="praktyka" class="sekcja-krecha" aria-label="Jak wygląda praktyka">
   <div class="wrap">
-    <p class="kicker" data-reveal>Jak pracuję</p>
-    <h2 data-reveal>Jak wygląda <em>praktyka</em></h2>
+    <h2>Jak wygląda praktyka</h2>
 
     <ol class="kroki">
       {
-        kroki.map((k, i) => (
-          <li class="krok" data-reveal style={`--reveal-delay:${i * 90}ms`}>
-            <span class="krok-numer" aria-hidden="true">{i + 1}</span>
-            <h3>{k.tytul}</h3>
-            <p>{k.opis}</p>
+        kroki.map((k) => (
+          <li>
+            <strong>{k.tytul}</strong> {k.opis}
           </li>
         ))
       }
     </ol>
 
-    <div class="praktyka-info" data-reveal>
-      <p class="wazne">Nie musisz być sprawny, rozciągnięty ani mieć doświadczenia w ruchu.</p>
-      <p>
-        Większość zajęć grupowych odbywa się w spokojnym tempie, często na
-        podłodze, w wygodnym ubraniu. To lekcje uczenia się, nie trening —
-        i&nbsp;nie gimnastyka korekcyjna, fizjoterapia ani psychoterapia.
-      </p>
-    </div>
+    <figure class="foto">
+      <Image
+        src={fotoLekcja}
+        alt="Lekcja grupowa Feldenkraisa w jasnej sali: Artur siedzi z boku i mówi, uczestnicy leżą na matach z ugiętymi kolanami"
+        width={1200}
+        widths={[480, 760, 1200]}
+        sizes="(max-width: 44rem) 92vw, 40rem"
+        loading="lazy"
+      />
+    </figure>
 
-    <aside class="act" data-reveal>
-      <h3>Feldenkrais i ACT</h3>
-      <p>
-        W sposobie myślenia o uczeniu się inspiruję się również terapią
-        akceptacji i zaangażowania — szczególnie jej rozumieniem elastyczności
-        psychologicznej. Nie prowadzę psychoterapii. Interesuje mnie to, jak
-        w&nbsp;ruchu możemy ćwiczyć zauważanie możliwości i wybieranie
-        odpowiedzi odpowiedniej do sytuacji.
-      </p>
-    </aside>
+    <p class="wazne">Nie musisz być sprawny, rozciągnięty ani mieć doświadczenia w ruchu.</p>
+    <p class="info">
+      Większość zajęć grupowych odbywa się w spokojnym tempie, często na
+      podłodze, w wygodnym ubraniu. To lekcje uczenia się, nie trening —
+      i&nbsp;nie gimnastyka korekcyjna, fizjoterapia ani psychoterapia.
+    </p>
+
+    <h3>Co może się zmienić</h3>
+    <p class="info">Nie chodzi o idealny ruch — chodzi o więcej możliwości. Na przykład:</p>
+    <ul class="zmiany">
+      {zmiany.map((z) => <li>{z}</li>)}
+    </ul>
+    <p class="info">
+      Zmiana nie zawsze wygląda spektakularnie. Czasem jest nią możliwość
+      obrócenia głowy bez przygotowywania całego ciała. Czasem moment,
+      w&nbsp;którym zauważasz, że nie musisz ciągle trzymać brzucha, barków
+      albo oddechu.
+    </p>
+
+    <h3>Feldenkrais i ACT</h3>
+    <p class="info">
+      W sposobie myślenia o uczeniu się inspiruję się również terapią
+      akceptacji i zaangażowania — szczególnie jej rozumieniem elastyczności
+      psychologicznej. Nie prowadzę psychoterapii. Interesuje mnie to, jak
+      w&nbsp;ruchu możemy ćwiczyć zauważanie możliwości i wybieranie
+      odpowiedzi odpowiedniej do sytuacji.
+    </p>
   </div>
 </section>
 
 <style>
   .kroki {
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.4rem;
-    margin-top: 2.4rem;
     counter-reset: krok;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    max-width: 62ch;
   }
 
-  .krok {
-    padding: 1.5rem 1.6rem 1.6rem;
-    background: rgba(255, 255, 255, 0.45);
-    border: 1px solid var(--linia);
+  .kroki li {
+    counter-increment: krok;
+    padding-left: 2rem;
+    position: relative;
+  }
+
+  .kroki li::before {
+    content: counter(krok) '.';
+    position: absolute;
+    left: 0;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-variant-numeric: oldstyle-nums;
+  }
+
+  .kroki strong {
+    font-weight: 600;
+  }
+
+  .foto {
+    margin-top: 2.2rem;
+  }
+
+  .foto :global(img) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.04);
     border-radius: var(--radius);
   }
 
-  .krok-numer {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    border: 1.5px solid var(--akcent);
-    color: var(--akcent);
-    font: 500 0.95rem var(--f-tekst);
-    margin-bottom: 0.9rem;
-  }
-
-  .krok h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .krok p {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-  }
-
-  .praktyka-info {
-    margin-top: 2.2rem;
-    max-width: 46em;
-  }
-
-  .praktyka-info .wazne {
-    font-family: var(--f-display);
+  .wazne {
     font-style: italic;
-    font-size: 1.25rem;
-    margin-bottom: 0.7rem;
+    margin-top: 2rem;
+    max-width: 62ch;
   }
 
-  .praktyka-info p:not(.wazne) {
+  .info {
+    color: var(--ink-soft);
+    margin-top: 0.7rem;
+    max-width: 62ch;
+  }
+
+  h3 {
+    margin-top: 2.2rem;
+  }
+
+  .zmiany {
+    list-style: none;
+    margin-top: 0.7rem;
+    max-width: 62ch;
     color: var(--ink-soft);
   }
 
-  .act {
-    margin-top: 2.4rem;
-    max-width: 46em;
-    border-left: 2px solid var(--akcent);
-    padding-left: 1.6rem;
+  .zmiany li {
+    padding-left: 1.4rem;
+    position: relative;
   }
 
-  .act h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .act p {
-    color: var(--ink-soft);
-    font-size: 0.97rem;
-  }
-
-  @media (max-width: 860px) {
-    .kroki {
-      grid-template-columns: 1fr;
-    }
+  .zmiany li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
   }
 </style>

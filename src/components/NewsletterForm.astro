@@ -7,9 +7,23 @@ interface Props {
   maxWidth?: string;
 }
 const { maxWidth } = Astro.props;
+
+/* Bez identyfikatorów MailerLite formularz nie zbiera adresów donikąd —
+   zamiast niego od razu pokazujemy uczciwą informację z adresem e-mail. */
+const skonfigurowany = Boolean(MAILERLITE.accountId && MAILERLITE.formId);
 ---
 
+{
+  !skonfigurowany && (
+    <p class="ml-zaraz">
+      Zapisy do newslettera ruszą lada moment. Do tego czasu napisz do mnie:
+      <a href={`mailto:${CONTACT.email}?subject=${encodeURIComponent('Newsletter')}`}>{CONTACT.email}</a>.
+    </p>
+  )
+}
+
 <form
+  hidden={!skonfigurowany}
   class="ml-form"
   novalidate
   style={maxWidth ? `max-width:${maxWidth}` : undefined}
@@ -31,7 +45,7 @@ const { maxWidth } = Astro.props;
   />
   <button class="btn" type="submit">Zapisuję się <span class="strzalka">→</span></button>
 </form>
-<p class="ml-komunikat" role="status" aria-live="polite"></p>
+<p class="ml-komunikat" role="status" aria-live="polite" hidden={!skonfigurowany}></p>
 
 <script>
   document.querySelectorAll<HTMLFormElement>('.ml-form').forEach((form) => {
