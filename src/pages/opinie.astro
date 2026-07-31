@@ -1,0 +1,159 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+/* Najlepsze 10 z 49 opinii z Booksy (wybór 2026-07-31, źródło: panel
+   Booksy Biz). Cytowane w całości; poprawione tylko literówki
+   i brakujące polskie znaki. Imiona tak, jak podali autorzy. */
+const BOOKSY_URL =
+  'https://booksy.com/pl-pl/99886_artur-chruszcz-metoda-feldenkraisa_masaz_20383_gdansk';
+
+const opinie = [
+  {
+    tekst:
+      'To niesamowite, jak wpojone od małego zasady typu „Nie garb się!", „Siedź prosto!" potrafią niekorzystnie wpływać na nasze samopoczucie. Do Artura trafiłem właśnie z potrzeby nauczenia się normalnej, wyprostowanej postawy, bez spiny i w zgodzie z własnym ciałem. Po godzinie pracy, przy moim minimalnym wysiłku, poczułem głębokie odprężenie i taką właśnie ucieleśnioną lekkość między miednicą a czubkiem głowy. Artur jest bardzo uważny, w prosty, intuicyjny sposób komunikował, co robić — jestem pod wrażeniem. Wrócę na pewno.',
+    autor: 'Tomasz',
+    data: 'czerwiec 2022',
+  },
+  {
+    tekst:
+      'Dla mnie jest to dobra i bezpieczna przestrzeń do oswajania się z ruchem i pogłębiania kontaktu ze sobą. Każda lekcja jest okazją do innego niż nawykowe doświadczenia siebie w ruchu. W uważnej, bezpiecznej i pełnej życzliwości przestrzeni, którą Artur tworzy, pojawia się miejsce na zaciekawienie, radość, zauważenie swoich nawyków oraz przekonań na temat ruchu, ciała, siebie. Lekcje rozwijają czucie ciała, kontakt z emocjami i zasobami, co wpływa na ogólny dobrostan, brak znanego bólu, wyraźnie poprawiony zakres ruchu i większą przyjemność w poruszaniu się. Nie do przecenienia jest też regulacyjny i kojący wpływ lekcji. Bardzo poprawił się mój sen — rano wstaję już bez znajomych napięć. Ciepło polecam i dziękuję!',
+    autor: 'Jowita',
+    data: 'maj 2024',
+  },
+  {
+    tekst:
+      'Serdecznie polecam pracę z Arturem, szczególnie osobom z różnego rodzaju bólami o niejasnej etiologii, gdzie medycyna konwencjonalna i fizjoterapia standardowa nie dają oczekiwanych rezultatów. Warto otworzyć się na inne metody i spróbować nawet pomimo wątpliwości „jak to działa???". Artura cechuje pełen profesjonalizm, przeogromna wiedza, cierpliwość, empatia i uważność na drugiego człowieka, dlatego zajęcia są w pełni dopasowane do indywidualnych potrzeb każdej osoby.',
+    autor: 'Monika',
+    data: 'grudzień 2025',
+  },
+  {
+    tekst:
+      'Artur to przede wszystkim profesjonalista. Jest to też empatyczny i ciepły człowiek, który wskazał inną perspektywę na moją motorykę. Nic nie bolało, ba, wręcz po godzinie terapii uwolniłem się od pewnego dyskomfortu w plecach :) Zdecydowanie polecam spróbować każdemu, kto dba o jakość swojego ruchu i potrafi skupić się na swoim ciele, trochę z niego „wychodząc". Warto też zaznaczyć, że na początku taka praktyka może niektórym wydać się krępująca, ale gdy to minie, efekty są świetne.',
+    autor: 'Jan',
+    data: 'kwiecień 2023',
+  },
+  {
+    tekst:
+      'Metoda Feldenkraisa z każdym kolejnym spotkaniem pozytywnie zaskakuje. I zadziwia, że można traktować siebie z wyczuciem i delikatnością, by osiągać pozytywne efekty. Kto nie patyczkował się ze sobą w życiu i poniósł tego konsekwencje zdrowotne, ten wie, co mam na myśli. Artura wyróżniają przenikliwość i wiedza. Posiada wyjątkowy zmysł obserwacji. Polecam serdecznie tym osobom, które pogłębiają samoświadomość ciała w zintegrowaniu z umysłem. A także tym, które uważność na siebie zatraciły gdzieś po drodze, borykają się ze spięciami, bólem czy innymi problemami i potrzebują wskazówek cudzego, czujnego oka, które patrzy trochę jak przez lupę :)',
+    autor: 'Katarzyna',
+    data: 'lipiec 2023',
+  },
+  {
+    tekst:
+      'Jako fan amatorskiego biegania, sportu i poznawania swojego ciała i umysłu chciałbym polecić Artura i metodę Feldenkraisa. Jeżeli chcesz lepiej poznać swoje ciało, zrozumieć zależności, na których wszystko się kształtuje — są to zajęcia dla ciebie. Do Artura zaprowadziła mnie chęć szybszego, efektywniejszego i zdrowszego biegania. Już po trzech zajęciach czułem, że moja postawa, ale przede wszystkim moje myślenie i zachowania związane z ruchem się poprawiają.',
+    autor: 'Dariusz',
+    data: 'marzec 2023',
+  },
+  {
+    tekst:
+      'Bardzo polecam Integrację Funkcjonalną z Panem Arturem. Na każdej sesji dowiadywałam się czegoś nowego o swoim ciele, o tym, jak ono się układa i dlaczego tak jest. Z każdej sesji wychodziłam z mniejszym bólem w miejscach, które towarzyszyły mi już od dawna. Co więcej, spokój i zrównoważenie Pana Artura pozwalają na poczucie się bezpiecznie podczas pracy nad ciałem.',
+    autor: 'Katarzyna',
+    data: 'maj 2024',
+  },
+  {
+    tekst:
+      'Jestem bardzo zadowolony z wizyty indywidualnej u Pana Artura. Uważam, że to fachowiec wysokiej klasy — z głębokim zrozumieniem ciała, jego budowy i funkcji. Pan Artur jest osobą ciepłą, cierpliwą, uważnie słuchającą i nienarzucającą swojego zdania. Wskazuje kierunki, zachęca do doświadczania własnego ciała i do poszukiwania najbardziej naturalnych, wygodnych i optymalnych dla siebie rozwiązań. Jest też otwarty na pomysły z zewnątrz — przyniosłem własną poduszkę, którą wspólnie wypróbowaliśmy i dopasowaliśmy wypełnienie — bez żadnego problemu. Jestem naprawdę zadowolony. Polecam.',
+    autor: 'Andrzej',
+    data: 'grudzień 2025',
+  },
+  {
+    tekst:
+      'Metoda Feldenkraisa pomogła mi pousuwać napięcia w ciele, ruch jest lżejszy, ciało swobodniejsze, a postawa stabilniejsza. Po serii zajęć indywidualnych polecam je z pełnym przekonaniem. Artur jest rzetelny, wie, co robi, a to, co robi, robi z pełnym zaangażowaniem :-) Pełny profesjonalizm i do tego fajne poczucie humoru :-) Naprawdę warto. To dobrze wydane, a tak naprawdę dobrze zainwestowane pieniądze w siebie.',
+    autor: 'Marlena',
+    data: 'czerwiec 2023',
+  },
+  {
+    tekst:
+      'Brałam udział w prowadzonych przez Artura zajęciach zarówno indywidualnych, jak i grupowych — każda z form okazała się ciekawym doświadczeniem pozwalającym mi poczuć siebie w ciele w sposób bardziej świadomy, z zaangażowaniem, ale bez presji i napięcia, w atmosferze akceptacji i szacunku. Polecam każdemu!',
+    autor: 'Renata',
+    data: 'grudzień 2025',
+  },
+];
+---
+
+<Base
+  title="Opinie — sesje indywidualne | Artur Porusza"
+  description="Opinie potwierdzonych klientów o sesjach Integracji Funkcjonalnej u Artura Chruszcza w Gdańsku, zebrane przez Booksy."
+>
+  <Nav />
+  <main id="tresc" class="wrap opinie-strona">
+    <h1>Opinie</h1>
+    <p class="zrodlo">
+      Wszystkie pochodzą z <a href={BOOKSY_URL} target="_blank" rel="noopener">profilu Booksy</a> —
+      od potwierdzonych klientów sesji indywidualnych. Przytaczam je w całości,
+      poprawiając tylko literówki.
+    </p>
+
+    <ul class="lista">
+      {
+        opinie.map((o) => (
+          <li>
+            <blockquote>
+              <p>{o.tekst}</p>
+              <footer>{o.autor} · {o.data}</footer>
+            </blockquote>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="nota">
+      Chcesz sprawdzić, czy to praca dla Ciebie?
+      <a href="/#sesje">Sesje indywidualne — szczegóły</a>.
+    </p>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .opinie-strona {
+    padding-block: clamp(2.5rem, 6vw, 4rem) clamp(4rem, 8vw, 6.5rem);
+  }
+
+  .opinie-strona h1 {
+    margin-bottom: 1.2rem;
+  }
+
+  .zrodlo {
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+
+  .lista {
+    list-style: none;
+    margin-top: 2.4rem;
+    max-width: 42em;
+  }
+
+  .lista li {
+    border-top: 1px solid var(--linia);
+    padding-block: 1.5rem;
+  }
+
+  .lista li:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  blockquote p {
+    color: var(--ink);
+  }
+
+  blockquote footer {
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .nota {
+    margin-top: 2.4rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--linia);
+    padding-top: 1.4rem;
+    max-width: 42em;
+  }
+</style>
