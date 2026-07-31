@@ -38,7 +38,7 @@ Artur teaches learning, not exercises: lessons create conditions where you notic
 
 ## Brand Commitments
 
-- Name: **Artur Porusza** (person: Artur Chruszcz). Line: „Od niejasności do klarowności."
+- Name: **Artur Porusza** (person: Artur Chruszcz). Line (updated 2026-07-31): „Klarowne działanie w niepewnym świecie."
 - Language: Polish, in Artur's voice — concrete, observational, no motivational filler, no AI-phrases (full style guide: `~/coding/lekcje/artur_styl_pisania.md`).
 - Confirmed direction constraint (user, 2026-07-30): minimal, typography-first, information-design-led, less flashy, trust-building. References volunteered: dhh.dk-style prose personal page, minimal designer portfolios, calm editorial blogs.
 - Real photography exists and is good (`src/assets/photos/` — workshop and portrait shots).
