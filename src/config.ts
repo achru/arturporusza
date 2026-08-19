@@ -15,7 +15,7 @@ export const CONTACT = {
   instagram: 'https://instagram.com/artur_porusza',
   youtube: '', // TODO: link do kanału YouTube (puste = link się nie wyświetla)
   platforma: 'https://feldenkraisonline.pl',
-  sesjeLink: 'https://arturchruszcz.booksy.com', // link do umawiania sesji (np. kalendarz rezerwacji); puste = przycisk otwiera e-mail
+  sesjeLink: 'https://pracownia.arturporusza.pl/rezerwacja/feldenkrais-indywidualnie-gdansk', // link do umawiania sesji (rezerwacja w Pracowni); puste = przycisk otwiera e-mail
   city: 'Gdańsk',
 };
 

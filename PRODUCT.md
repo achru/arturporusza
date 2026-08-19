@@ -23,7 +23,7 @@ Artur teaches learning, not exercises: lessons create conditions where you notic
 ## Operating Context
 
 - Events live in `src/data/wydarzenia.json` (single edit point; entries auto-hide after their date). Current: „Można inaczej" (roczny cykl, od 15.09.2026), „Przepływy" (wyjazd, Mazury, 26–29.11.2026), „Kreatywny Nauczyciel" (kurs dla nauczycieli, 2027).
-- Individual sessions (Gdańsk + online, ~50 min) book via Booksy (`CONTACT.sesjeLink`); price fields intentionally empty.
+- Individual sessions (Gdańsk + online, ~50 min) book via Pracownia (`CONTACT.sesjeLink` → pracownia.arturporusza.pl); price fields intentionally empty.
 - Cycles and online lessons live on FeldenkraisOnline.pl; teacher program at `/kreatywnynauczyciel/`.
 - Newsletter via MailerLite (account/form IDs still TODO — form shows an email fallback message until filled).
 - Astro 5 static site, deployed on Netlify. Subpages: `/o-mnie/`, `/polityka-prywatnosci/`.
