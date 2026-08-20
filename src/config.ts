@@ -46,8 +46,8 @@ export const MAILERLITE = {
 // Dane JDG do stopki i polityki prywatności. Puste pola się nie renderują.
 export const LEGAL = {
   owner: 'Artur Chruszcz',
-  company: '', // TODO: pełna nazwa działalności z CEIDG
-  nip: '', // TODO
-  address: '', // TODO: adres siedziby
+  company: 'Artur Chruszcz Porusza',
+  nip: '5833100159',
+  address: 'ul. Dulina 1/9, 80-180 Gdańsk',
   regulaminUrl: '', // TODO: zasady zapisów i rezygnacji z wydarzeń (jeśli są)
 };

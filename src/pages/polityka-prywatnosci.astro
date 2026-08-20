@@ -2,6 +2,17 @@
 import Base from '../layouts/Base.astro';
 import Footer from '../components/Footer.astro';
 import { CONTACT, LEGAL } from '../config';
+
+// Jedno zdanie, składane w kodzie: puste pola JDG mają zniknąć razem ze
+// swoimi spacjami i przecinkami, nie zostawić „Porusza  , ul.".
+const administrator =
+  [
+    LEGAL.owner,
+    LEGAL.company && `prowadzący działalność gospodarczą ${LEGAL.company}`,
+    LEGAL.nip && `(NIP ${LEGAL.nip})`,
+  ]
+    .filter(Boolean)
+    .join(' ') + (LEGAL.address ? `, ${LEGAL.address}` : '');
 ---
 
 <Base
@@ -11,18 +22,10 @@ import { CONTACT, LEGAL } from '../config';
   <main id="tresc" class="wrap policy">
     <p class="powrot"><a href="/">← arturporusza.pl</a></p>
     <h1>Polityka prywatności</h1>
-    <p class="policy-note">
-      Szkic do uzupełnienia przed startem produkcyjnym - fragmenty w nawiasach
-      kwadratowych wymagają danych (JDG, ewentualna analityka).
-    </p>
-
     <h2>1. Administrator danych</h2>
     <p>
-      Administratorem danych osobowych jest {LEGAL.owner}
-      {LEGAL.company && ` prowadzący działalność gospodarczą ${LEGAL.company}`}
-      {LEGAL.nip && ` (NIP ${LEGAL.nip})`}
-      {LEGAL.address ? `, ${LEGAL.address}.` : ` [adres do uzupełnienia].`}
-      Kontakt: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
+      Administratorem danych osobowych jest {administrator}. Kontakt:{' '}
+      <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
     </p>
 
     <h2>2. Newsletter</h2>
@@ -43,8 +46,8 @@ import { CONTACT, LEGAL } from '../config';
 
     <h2>4. Cookies i analityka</h2>
     <p>
-      Strona nie używa cookies ani narzędzi śledzących. [Jeśli dojdzie analityka
-      bezcookiesowa (Plausible/Umami) - opisać tutaj.]
+      {/* Gdyby doszła analityka bezcookiesowa (Plausible/Umami) — opisać ją tutaj. */}
+      Strona nie używa cookies ani narzędzi śledzących.
     </p>
 
     <h2>5. Twoje prawa</h2>
@@ -80,13 +83,5 @@ import { CONTACT, LEGAL } from '../config';
 
   .policy a {
     color: var(--akcent);
-  }
-
-  .policy-note {
-    font-size: 0.9rem;
-    color: var(--akcent);
-    border: 1px dashed var(--akcent);
-    border-radius: var(--radius);
-    padding: 0.8rem 1.1rem;
   }
 </style>
