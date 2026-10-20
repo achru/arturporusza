@@ -1,0 +1,47 @@
+---
+/* Blok zapisów na koniec strony: fakty, terminy pogrupowane w dni,
+   zasady Pracowni wprost i spokojna droga dla tych, którzy wolą zapytać. */
+import Terminy from './Terminy.astro';
+import Strzalka from './Strzalka.astro';
+import { FAKTY, INSTAGRAM_DM, MAIL, MAIL_HREF, TERMINY_ILE_ZAPISY } from '../../data/sesja';
+
+interface Props {
+  kalendarz: string;
+}
+
+const { kalendarz } = Astro.props;
+---
+
+<section id="zapisy" class="s-sekcja s-zapisy" aria-labelledby="zapisy-h">
+  <div class="s-wrap s-sekcja-uklad">
+    <h2 id="zapisy-h" class="s-h2">Umów pierwszą sesję</h2>
+
+    <div class="s-zapisy-tresc">
+      <ul class="s-fakty" aria-label="Sesja w skrócie">
+        <li>{FAKTY.czas}</li>
+        <li>{FAKTY.cena}</li>
+        <li>{FAKTY.miejsce}</li>
+        {FAKTY.adres && <li>{FAKTY.adres}</li>}
+      </ul>
+
+      <Terminy ile={TERMINY_ILE_ZAPISY} uklad="dni" miejsce="koniec" kalendarz={kalendarz} />
+
+      <a class="s-cta" href={kalendarz} data-cta="koniec-umow" data-kalendarz>
+        <span data-cta-tekst>Zobacz wszystkie terminy</span>
+        <Strzalka />
+      </a>
+
+      <p class="s-drobne">
+        Rezerwujesz w&nbsp;Pracowni, moim systemie zapisów. Wybierasz termin i&nbsp;zakładasz konto: e-mail, telefon
+        i&nbsp;hasło.
+      </p>
+
+      <p id="kontakt" class="s-kontakt">
+        <strong>Masz pytanie?</strong> Napisz na <a href={INSTAGRAM_DM} data-cta="koniec-instagram" rel="noopener"
+          >Instagramie</a
+        > albo na <a href={MAIL_HREF} data-cta="koniec-mail">{MAIL}</a>. Odpowiadam zwykle w&nbsp;ciągu 1–2 dni
+        roboczych. Prowadzę też sesje online, za {FAKTY.cenaOnline}.
+      </p>
+    </div>
+  </div>
+</section>

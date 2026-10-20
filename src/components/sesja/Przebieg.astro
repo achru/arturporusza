@@ -1,0 +1,60 @@
+---
+/* „Jak wygląda pierwsza sesja”: konspekt lekcji. Kolumna minut jest kotwicą
+   skanowania, uwagi stoją na marginesie (na telefonie pod krokiem),
+   pozycje pokazują trzy prawdziwe kadry, a w ostatnim kroku linia papieru
+   wstaje w idącą postać, z sumą „50 min razem” pod kolumną minut. */
+import Obraz from './Obraz.astro';
+import Idzie from './Idzie.astro';
+import { POZYCJE, PRZEBIEG } from '../../data/sesja';
+import type { ImageMetadata } from 'astro';
+
+const pliki = import.meta.glob<{ default: ImageMetadata }>('../../assets/sesja/*-4x5.jpg', { eager: true });
+const zdj = (nazwa: string) => pliki[`../../assets/sesja/sesja-${nazwa}-4x5.jpg`].default;
+const razem = PRZEBIEG.reduce((s, k) => s + Number(k.min), 0);
+---
+
+<section id="przebieg" class="s-sekcja s-przebieg" aria-labelledby="przebieg-h">
+  <div class="s-wrap s-sekcja-uklad">
+    <h2 id="przebieg-h" class="s-h2">Jak wygląda pierwsza sesja</h2>
+
+    <ol class="s-przebieg-lista">
+      {
+        PRZEBIEG.map((k, i) => (
+          <li class={i === PRZEBIEG.length - 1 ? 's-krok s-krok--ostatni' : 's-krok'}>
+            <p class="s-krok-min">
+              <strong>{k.min}</strong>
+              <span>min</span>
+            </p>
+            <h3>{k.tytul}</h3>
+            <p class="s-krok-tekst" set:html={k.tekst} />
+            {k.pozycje && (
+              <ul class="s-pozycje" aria-label="Lekcja w różnych pozycjach">
+                {POZYCJE.map((p) => (
+                  <li>
+                    <figure>
+                      <Obraz
+                        kadr={{ src: zdj(p.key), widths: [240, 360, 480], sizes: '(min-width: 1024px) 10rem, 28vw' }}
+                        alt={p.alt}
+                      />
+                      <figcaption>{p.podpis}</figcaption>
+                    </figure>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {k.uwaga && <p class="s-uwaga" set:html={k.uwaga} />}
+            {i === PRZEBIEG.length - 1 && (
+              <>
+                <Idzie />
+                <p class="s-krok-suma">
+                  <strong>{razem}</strong>
+                  <span>min razem</span>
+                </p>
+              </>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

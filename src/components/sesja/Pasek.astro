@@ -1,0 +1,23 @@
+---
+/* Pasek rezerwacji na telefonie: pojawia się, gdy przycisk z pierwszego ekranu
+   zniknie u góry, chowa się przy bloku zapisów. Kryjące tło, bez backdrop-filter. */
+import Strzalka from './Strzalka.astro';
+import { FAKTY } from '../../data/sesja';
+
+interface Props {
+  kalendarz: string;
+}
+
+const { kalendarz } = Astro.props;
+---
+
+<div class="s-pasek" data-pasek aria-hidden="true" inert>
+  <p class="s-pasek-tekst">
+    <span class="s-pasek-etykieta" data-pasek-etykieta>Integracja Funkcjonalna</span>
+    <span class="s-pasek-wartosc" data-pasek-wartosc>{FAKTY.czas} · {FAKTY.cena}</span>
+  </p>
+  <a class="s-cta" href={kalendarz} data-cta="pasek-umow" data-kalendarz>
+    <span data-cta-tekst>Umów sesję</span>
+    <Strzalka />
+  </a>
+</div>

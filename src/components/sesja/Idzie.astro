@@ -1,0 +1,54 @@
+---
+/* Linia papieru, która na koniec lekcji wstaje i idzie: ta sama kreska co figura
+   na stronie głównej (--kreska, okrągłe końce), tym razem postać w kroku,
+   jako jedna gładka sylwetka. Rysuje się raz, gdy wejdzie w widok;
+   bez JS i przy ograniczonym ruchu jest po prostu narysowana. */
+
+// sylwetka w układzie lokalnym: podłoga y = 0, w górę ujemnie, wysokość ≈ 176
+const x0 = 760;
+const y0 = 214;
+const T = (x: number, y: number) => `${(x0 + x).toFixed(1)} ${(y0 + y).toFixed(1)}`;
+const d = [
+  `M 0 ${y0} L ${T(-58, 0)}`,
+  // tylna stopa: palce na podłodze, pięta w górze, łydka w ugiętym kolanie
+  `C ${T(-50, 0)}, ${T(-48, -3)}, ${T(-50, -9)}`,
+  `C ${T(-48, -24)}, ${T(-40, -42)}, ${T(-33, -54)}`,
+  `C ${T(-27, -66)}, ${T(-22, -84)}, ${T(-20, -100)}`,
+  // pośladek, plecy lekko pochylone do przodu
+  `C ${T(-20, -112)}, ${T(-16, -121)}, ${T(-15, -132)}`,
+  `C ${T(-14, -143)}, ${T(-8, -149)}, ${T(-2, -153)}`,
+  // głowa: tył, czubek, twarz, broda zawinięta do szyi
+  `C ${T(-8, -160)}, ${T(-6, -175)}, ${T(7, -176)}`,
+  `C ${T(19, -177)}, ${T(23, -166)}, ${T(19, -159)}`,
+  `C ${T(17, -155)}, ${T(13, -153)}, ${T(8, -152)}`,
+  // szyja, bark, ręka w wymachu (dłoń przed biodrem), powrót do biodra
+  `C ${T(13, -147)}, ${T(22, -142)}, ${T(24, -130)}`,
+  `C ${T(27, -116)}, ${T(35, -101)}, ${T(40, -90)}`,
+  `C ${T(43, -84)}, ${T(38, -77)}, ${T(32, -80)}`,
+  `C ${T(25, -84)}, ${T(19, -90)}, ${T(16, -93)}`,
+  // przednia noga: udo, kolano, goleń
+  `C ${T(19, -74)}, ${T(27, -56)}, ${T(33, -40)}`,
+  `C ${T(37, -27)}, ${T(40, -14)}, ${T(42, -6)}`,
+  // stopa: po wierzchu do palców i na podłogę
+  `C ${T(46, -5)}, ${T(53, -3)}, ${T(56, 0)}`,
+  // pod stopą do pięty, łydka od tyłu, w górę do kroku
+  `L ${T(38, 0)}`,
+  `C ${T(34, -10)}, ${T(28, -28)}, ${T(22, -46)}`,
+  `C ${T(17, -60)}, ${T(9, -74)}, ${T(1, -78)}`,
+  // wewnętrzna strona tylnej nogi do palców tylnej stopy
+  `C ${T(-6, -66)}, ${T(-14, -50)}, ${T(-22, -36)}`,
+  `C ${T(-28, -24)}, ${T(-34, -10)}, ${T(-36, 0)}`,
+  `L 880 ${y0}`,
+].join(' ');
+---
+
+<div class="s-idzie">
+  <svg
+    viewBox="0 0 880 230"
+    preserveAspectRatio="xMaxYMax slice"
+    role="img"
+    aria-label="Jedna ciągła linia: linia podłogi wstaje w postać, która idzie kilka kroków, i wraca do bycia linią"
+  >
+    <path data-rysuj d={d}></path>
+  </svg>
+</div>

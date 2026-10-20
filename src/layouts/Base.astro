@@ -8,15 +8,21 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  /** Ścieżka kanoniczna, gdy inna niż bieżący adres (np. warianty landingu → /sesja/). */
+  canonical?: string;
+  /** Kontrakt kierunku projektu dla tej podstrony (komentarz na początku <body>). */
+  kontrakt?: string;
 }
 
 const {
   title = SITE.title,
   description = SITE.description,
   ogImage = '/og.jpg',
+  canonical: canonicalPath,
+  kontrakt: kontraktStrony,
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, SITE.url).href;
 const ogImageAbs = new URL(ogImage, SITE.url).href;
 
 const jsonLd = {
@@ -80,9 +86,10 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <meta name="twitter:card" content="summary_large_image" />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <slot name="head" />
   </head>
   <body>
-    <Fragment set:html={`<!--\n${kontrakt}\n-->`} />
+    <Fragment set:html={`<!--\n${kontraktStrony ?? kontrakt}\n-->`} />
     <a class="skip" href="#tresc">Przejdź do treści</a>
     <slot />
   </body>

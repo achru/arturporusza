@@ -1,0 +1,45 @@
+---
+/* Wolne terminy z Pracowni. HTML zawiera szkielet (widoczny tylko z JS)
+   i zwykły link do kalendarza (bez JS, po błędzie albo pustej liście).
+   Przyciski terminów wstawia src/scripts/sesja.ts. */
+interface Props {
+  ile: number;
+  /** 'rzad' = jeden rząd przycisków (pierwszy ekran), 'dni' = terminy pogrupowane w dni. */
+  uklad?: 'rzad' | 'dni';
+  /** Przedrostek data-cta: hero / koniec. */
+  miejsce: string;
+  kalendarz: string;
+  etykieta?: string;
+}
+
+const { ile, uklad = 'rzad', miejsce, kalendarz, etykieta = 'Wolne terminy' } = Astro.props;
+const szkielety = uklad === 'rzad' ? ile : 2;
+---
+
+<div class="s-terminy" data-terminy data-ile={ile} data-uklad={uklad} data-miejsce={miejsce} aria-busy="true">
+  <p class="s-terminy-naglowek">
+    <span>{etykieta}</span>
+    <span class="s-terminy-status" data-status></span>
+  </p>
+  <div class="s-terminy-tresc">
+    <ul class="s-terminy-lista" data-lista>
+      {
+        Array.from({ length: szkielety }).map(() =>
+          uklad === 'rzad' ? (
+            <li class="s-termin s-termin--szkielet" aria-hidden="true" />
+          ) : (
+            <li class="s-dzien s-dzien--szkielet" aria-hidden="true">
+              <span class="s-termin s-termin--szkielet" />
+              <span class="s-termin s-termin--szkielet" />
+            </li>
+          ),
+        )
+      }
+    </ul>
+    <p class="s-terminy-zapas">
+      <span class="s-terminy-brak">W tej chwili kalendarz nie pokazuje wolnych terminów.</span>
+      <span class="s-terminy-info">Kalendarz otworzy się w&nbsp;Pracowni, moim systemie zapisów.</span>
+      <a href={kalendarz} data-cta={`${miejsce}-wszystkie`} data-kalendarz>Zobacz wolne terminy</a>
+    </p>
+  </div>
+</div>

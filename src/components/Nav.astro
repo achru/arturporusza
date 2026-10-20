@@ -11,12 +11,14 @@ import Znak from './Znak.astro';
       <Znak />
       <span>Porusza</span>
     </a>
-    <nav class="nav-linki" aria-label="Główna nawigacja">
-      <a class="cichy-link" href="/#terminy">Terminy</a>
-      <a class="cichy-link" href="/#praktyka">Praktyka</a>
-      <a class="cichy-link" href="/#sesje">Sesje</a>
-      <a class="cichy-link" href="/o-mnie/">O mnie</a>
-    </nav>
+    <slot name="prawo">
+      <nav class="nav-linki" aria-label="Główna nawigacja">
+        <a class="cichy-link" href="/#terminy">Terminy</a>
+        <a class="cichy-link" href="/#praktyka">Praktyka</a>
+        <a class="cichy-link" href="/#sesje">Sesje</a>
+        <a class="cichy-link" href="/o-mnie/">O mnie</a>
+      </nav>
+    </slot>
   </div>
 </header>
 

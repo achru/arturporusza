@@ -1,0 +1,59 @@
+---
+/* <picture> z AVIF/WebP/JPEG w kilku szerokościach, opcjonalnie z innym
+   kadrem na szerokie ekrany (art direction). Zdjęcia sesji: src/assets/sesja/. */
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Kadr {
+  src: ImageMetadata;
+  widths: number[];
+  sizes: string;
+}
+
+interface Props {
+  kadr: Kadr;
+  /** Kadr dla ekranów pasujących do `media` (np. 4:5 na desktopie). */
+  szeroki?: Kadr & { media: string };
+  alt: string;
+  loading?: 'eager' | 'lazy';
+  priorytet?: boolean;
+  class?: string;
+  style?: string;
+}
+
+const { kadr, szeroki, alt, loading = 'lazy', priorytet = false, class: klasa, style } = Astro.props;
+
+const JAKOSC = { avif: 58, webp: 72, jpeg: 76 } as const;
+
+async function zestaw(k: Kadr, format: 'avif' | 'webp' | 'jpeg') {
+  const szer = k.widths.filter((w) => w <= k.src.width);
+  const obrazy = await Promise.all(szer.map((width) => getImage({ src: k.src, width, format, quality: JAKOSC[format] })));
+  return obrazy.map((o, i) => `${o.src} ${szer[i]}w`).join(', ');
+}
+
+const waskie = { avif: await zestaw(kadr, 'avif'), webp: await zestaw(kadr, 'webp') };
+const szerokie = szeroki ? { avif: await zestaw(szeroki, 'avif'), webp: await zestaw(szeroki, 'webp') } : null;
+const zapas = await getImage({
+  src: kadr.src,
+  width: Math.min(kadr.widths[Math.floor(kadr.widths.length / 2)] ?? 800, kadr.src.width),
+  format: 'jpeg',
+  quality: JAKOSC.jpeg,
+});
+const wys = Math.round((kadr.src.height / kadr.src.width) * 1000);
+---
+
+<picture class={klasa} style={style}>
+  {szeroki && szerokie && <source type="image/avif" media={szeroki.media} srcset={szerokie.avif} sizes={szeroki.sizes} />}
+  {szeroki && szerokie && <source type="image/webp" media={szeroki.media} srcset={szerokie.webp} sizes={szeroki.sizes} />}
+  <source type="image/avif" srcset={waskie.avif} sizes={kadr.sizes} />
+  <source type="image/webp" srcset={waskie.webp} sizes={kadr.sizes} />
+  <img
+    src={zapas.src}
+    alt={alt}
+    width={1000}
+    height={wys}
+    loading={loading}
+    decoding={priorytet ? 'sync' : 'async'}
+    fetchpriority={priorytet ? 'high' : undefined}
+  />
+</picture>

@@ -1,0 +1,23 @@
+---
+/* Krótkie pytania przed rezerwacją: natywne <details>, bez skryptu. */
+import { PYTANIA } from '../../data/sesja';
+---
+
+<section id="pytania" class="s-sekcja" aria-labelledby="pytania-h">
+  <div class="s-wrap s-sekcja-uklad">
+    <h2 id="pytania-h" class="s-h2">Pytania</h2>
+    <div class="s-pytania">
+      {
+        PYTANIA.map((p) => (
+          <details>
+            <summary>
+              <span>{p.q}</span>
+              <span class="s-plus" aria-hidden="true" />
+            </summary>
+            <p class="s-odpowiedz" set:html={p.a} />
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

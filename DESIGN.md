@@ -203,3 +203,15 @@ The form language is the line, not the box. Two stroke weights exist and only tw
 - **Don't** use shadows, fixed/sticky positioning, or `backdrop-filter` anywhere (documented Chrome compositor freeze on fixed elements).
 - **Don't** add scroll-triggered reveal animations; the figure drawing itself once on load is the only motion in the world.
 - **Don't** introduce a second font family, a second accent color, or a third line weight.
+
+## Surface exception: /sesja (ad landing)
+
+`/sesja/` and its variants (`/sesja/cos-wraca/`, `/schody/`, `/sport/`, `/skreslone/`) take paid Meta traffic and have one job: a booked first session. They keep this world (paper, ink, ink-soft, hairlines, Literata, the 2.25px drawn line, sanguine only for live things) and break five rules on purpose. Do not "fix" them back without reading `docs/sesja-landing.md`.
+
+- **Colour photography** in the ads' warm-film grade (look B from `fi-reklama/build/grade.py`), not grayscale: the visitor arrives from a colour video of the same session.
+- **Buttons:** free slots are 1px-bordered time buttons (`--linia-mocna`, ≥ 3:1) and there is one solid ink CTA. Sanguine stays off surfaces: hover/focus borders, the slot status line and the red-pen strike only.
+- **One fixed element:** a mobile booking bar, opaque paper with a top hairline, never `backdrop-filter`; it hides at the booking block.
+- **A larger display ramp** (`--t-display*` in `src/styles/sesja.css`), because the h1 is the ad's own sentence and must land in five seconds.
+- **Literata subset** served as `'Literata Sesja'` (Polish glyphs, wght 400–600, opsz 12–72, ≈ 97 KB) for in-app browsers on 4G. Same face, different file.
+
+Signature for this surface: the step list is a lesson plan (minute column, margin notes, a ruled `50 min razem` total) and the paper line stands up and walks at the end, in one smooth silhouette.

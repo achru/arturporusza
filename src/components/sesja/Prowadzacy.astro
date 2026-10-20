@@ -1,0 +1,43 @@
+---
+/* Kto prowadzi: twarz, dwa zdania, trzy krótkie opinie z Booksy (pełne na /opinie/). */
+import Obraz from './Obraz.astro';
+import { BIO, OPINIE } from '../../data/sesja';
+import portret from '../../assets/sesja/sesja-artur-4x5.jpg';
+---
+
+<section id="prowadzacy" class="s-sekcja" aria-labelledby="prowadzacy-h">
+  <div class="s-wrap s-sekcja-uklad s-prowadzacy">
+    <h2 id="prowadzacy-h" class="s-h2">Artur Chruszcz</h2>
+    <p class="s-podpis">Nauczyciel metody Feldenkraisa</p>
+    <figure class="s-portret">
+      <Obraz
+        kadr={{ src: portret, widths: [240, 360, 480, 640], sizes: '(min-width: 1024px) 15rem, 6.5rem' }}
+        alt="Artur Chruszcz uśmiecha się, siedząc przy stole do pracy w trakcie lekcji."
+      />
+    </figure>
+    <div class="s-bio">
+      {BIO.map((p) => <p set:html={p} />)}
+      <p class="s-bio-link"><a href="/o-mnie/" data-cta="bio-o-mnie">Więcej o mnie</a></p>
+    </div>
+
+    <div class="s-opinie">
+      <ul class="s-opinie-lista" aria-label="Opinie klientów">
+        {
+          OPINIE.map((o) => (
+            <li>
+              <blockquote>
+                <p set:html={`„${o.tekst}”`} />
+                <footer>
+                  {o.autor}, {o.data}
+                </footer>
+              </blockquote>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="s-opinie-zrodlo">
+        Fragmenty opinii z&nbsp;Booksy. Całe teksty są na <a href="/opinie/" data-cta="opinie-wszystkie">stronie z&nbsp;opiniami</a>.
+      </p>
+    </div>
+  </div>
+</section>

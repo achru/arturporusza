@@ -1,0 +1,97 @@
+---
+/* Pierwszy ekran: zdanie z reklamy, czym jest sesja, prawdziwe zdjęcie z lekcji,
+   fakty, najbliższe terminy i główna akcja. Na telefonie mieści się w 390×844
+   bez przewijania; wariant B (?hero=b) to układ „konspektu” z mniejszym kadrem. */
+import Obraz from './Obraz.astro';
+import Terminy from './Terminy.astro';
+import Strzalka from './Strzalka.astro';
+import { ALT, CZYM_JEST, FAKTY, INSTAGRAM_DM, MAIL_HREF, type Wariant } from '../../data/sesja';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  wariant: Wariant;
+  kalendarz: string;
+}
+
+const { wariant, kalendarz } = Astro.props;
+
+const pliki = import.meta.glob<{ default: ImageMetadata }>('../../assets/sesja/*.jpg', { eager: true });
+const zdj = (nazwa: string) => {
+  const m = pliki[`../../assets/sesja/sesja-${nazwa}.jpg`];
+  if (!m) throw new Error(`Brak zdjęcia sesja-${nazwa}.jpg`);
+  return m.default;
+};
+
+/* punkt ostrości kadru 4:3 na telefonie (object-position); w niskim oknie pasek
+   zdjęcia jest węższy, więc „stojac” schodzi niżej, żeby dłonie zostały w kadrze */
+const FOKUS_NISKI: Record<string, string> = { stojac: '50% 62%' };
+const FOKUS: Record<string, string> = {
+  stojac: '50% 30%',
+  oczy: '58% 34%',
+  spacer: '50% 38%',
+  reka: '55% 62%',
+  lopatka: '55% 38%',
+};
+
+const dlugi = wariant.naglowekTekst.length > 34;
+const skreslony = wariant.naglowek.includes('class="skreslenie"');
+const naglowek = skreslony
+  ? wariant.naglowek.replace(
+      '</s>',
+      '<svg class="skreslenie-kreska" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M 1 6.2 C 22 4.6, 55 5.6, 99 3.4"/></svg></s>',
+    )
+  : wariant.naglowek;
+---
+
+<section class="s-hero" aria-labelledby="s-h1">
+  <div class="s-wrap s-hero-uklad">
+    <h1 id="s-h1" class="s-h1" data-dlugi={dlugi ? '' : undefined} aria-label={skreslony ? wariant.naglowekTekst : undefined}>
+      <Fragment set:html={naglowek} />
+    </h1>
+    <p class="s-dopowiedzenie" set:html={wariant.dopowiedzenie} />
+
+    <figure
+      class="s-hero-foto s-hero-foto--a"
+      style={`--fokus: ${FOKUS[wariant.zdjecie]}${FOKUS_NISKI[wariant.zdjecie] ? `; --fokus-niski: ${FOKUS_NISKI[wariant.zdjecie]}` : ''}`}
+    >
+      <Obraz
+        kadr={{ src: zdj(`${wariant.zdjecie}-4x3`), widths: [480, 720, 960, 1280], sizes: '100vw' }}
+        szeroki={{
+          src: zdj(`${wariant.zdjecie}-4x5`),
+          widths: [560, 840, 1120],
+          sizes: 'min(40vw, 37rem)',
+          media: '(min-width: 900px)',
+        }}
+        alt={ALT[wariant.zdjecie]}
+        loading="eager"
+        priorytet
+      />
+    </figure>
+    <figure class="s-hero-foto s-hero-foto--b">
+      <Obraz
+        kadr={{ src: zdj(`${wariant.zdjecie}-4x5`), widths: [360, 560, 840], sizes: '(min-width: 900px) 22vw, 42vw' }}
+        alt={ALT[wariant.zdjecie]}
+      />
+    </figure>
+
+    <p class="s-czym" set:html={CZYM_JEST} />
+
+    <ul class="s-fakty" aria-label="Sesja w skrócie">
+      <li>{FAKTY.czas}</li>
+      <li>{FAKTY.cena}</li>
+      <li>{FAKTY.miejsce}</li>
+    </ul>
+
+    <Terminy ile={3} miejsce="hero" kalendarz={kalendarz} />
+
+    <a class="s-cta" href={kalendarz} data-cta="hero-umow" data-kalendarz>
+      <span data-cta-tekst>Umów sesję</span>
+      <Strzalka />
+    </a>
+
+    <p class="s-pytanie">
+      Masz pytanie? Napisz na <a href={INSTAGRAM_DM} data-cta="hero-instagram" rel="noopener">Instagramie</a> albo
+      <a href={MAIL_HREF} data-cta="hero-mail">mailem</a>.
+    </p>
+  </div>
+</section>

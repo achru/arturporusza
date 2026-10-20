@@ -1,0 +1,16 @@
+---
+/* Warianty pod konkretne reklamy: /sesja/cos-wraca, /schody, /sport, /skreslone.
+   Różnią się tylko pierwszym ekranem; kanoniczny adres to /sesja/. */
+import SesjaStrona from '../../components/sesja/SesjaStrona.astro';
+import { WARIANTY } from '../../data/sesja';
+
+export function getStaticPaths() {
+  return Object.entries(WARIANTY)
+    .filter(([, w]) => w.slug)
+    .map(([klucz, w]) => ({ params: { wariant: w.slug }, props: { klucz } }));
+}
+
+const { klucz } = Astro.props as { klucz: keyof typeof WARIANTY };
+---
+
+<SesjaStrona wariant={klucz} />

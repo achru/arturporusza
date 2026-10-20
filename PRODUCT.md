@@ -33,7 +33,8 @@ Artur teaches learning, not exercises: lessons create conditions where you notic
 - Static site, no backend; all interactivity is small inline scripts.
 - **Never use `backdrop-filter` on the fixed nav** — SVG-noise + backdrop-blur combos have frozen the Chrome compositor on this site before (documented gotcha). Opaque backgrounds instead.
 - Empty config fields (prices, NIP, regulamin, YouTube, MailerLite IDs) simply don't render — never invent values for them.
-- No real testimonials exist yet. Decision (2026-07-30): do not show testimonials at all; also cut the stat grid, gold CTA buttons, status chips, and the sticky mobile CTA. Experience facts (13 lat, 500+ osób indywidualnie, 100+ warsztatów) are true and may appear as calm prose, not as a stat display.
+- Real testimonials exist since 2026-07-31: ten Booksy reviews, cited in full on `/opinie/`. The 2026-07-30 decision still holds for the informational site: no stat grid, no gold CTA buttons, no status chips, no sticky mobile CTA. Experience facts (13 lat, 500+ osób indywidualnie, 100+ warsztatów) are true and may appear as calm prose, not as a stat display.
+- Exception (2026-10-20): `/sesja/` and its ad variants are a paid-traffic conversion surface. There, and only there: short Booksy excerpts marked with (…), slot buttons, one ink CTA, a sticky mobile booking bar and colour stills in the ads' grade. Facts confirmed for it: 50 min, 250 zł, Gdańsk Wrzeszcz, online 300 zł. See DESIGN.md › Surface exception and `docs/sesja-landing.md`.
 - Screenshot QA via `scripts/shot.mjs` (Playwright).
 
 ## Brand Commitments

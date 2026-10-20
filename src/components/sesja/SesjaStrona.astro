@@ -1,0 +1,131 @@
+---
+/* Szablon landingu /sesja i jego wariantów (zdanie z reklamy w pierwszym ekranie).
+   Dokumentacja, kontrakt z Pracownią i TODO: docs/sesja-landing.md. */
+import Base from '../../layouts/Base.astro';
+import Nav from '../Nav.astro';
+import Footer from '../Footer.astro';
+import Hero from './Hero.astro';
+import Przebieg from './Przebieg.astro';
+import Prowadzacy from './Prowadzacy.astro';
+import Pytania from './Pytania.astro';
+import Zapisy from './Zapisy.astro';
+import Pasek from './Pasek.astro';
+import '../../styles/sesja.css';
+import latN from '../../fonts/literata-sesja-lat-normal.woff2?url';
+import latI from '../../fonts/literata-sesja-lat-italic.woff2?url';
+import plN from '../../fonts/literata-sesja-pl-normal.woff2?url';
+import plI from '../../fonts/literata-sesja-pl-italic.woff2?url';
+import { SITE } from '../../config';
+import {
+  KALENDARZ,
+  TERMINY_API,
+  TERMINY_API_DEV,
+  TERMINY_ILE,
+  TERMINY_TIMEOUT_MS,
+  USLUGA,
+  WARIANTY,
+  zParametrem,
+  zrodlo,
+} from '../../data/sesja';
+
+interface Props {
+  wariant: keyof typeof WARIANTY;
+}
+
+const w = WARIANTY[Astro.props.wariant];
+const kalendarz = zParametrem(KALENDARZ, w.slug);
+const dev = import.meta.env.DEV;
+const api = dev ? TERMINY_API_DEV : TERMINY_API;
+
+const kontrakt = `impeccable-direction ba3a9cae (surface /sesja, persuade, own list #7)
+THESIS: The first session as a teacher's lesson plan: what, how long, how much, where, what happens minute by minute, and the next free hour. Refuses slogan-over-video, benefit cards and testimonial carousels.
+OWN-WORLD: One Ink Line kept: paper, ink, ink-soft, 1px rules, Literata opsz only, the 2.25px drawn line; sanguine only for live or corrected things (slot status, the red-pen strike, links, focus); warm-film colour stills from the ads; one ink block for the action.
+STORY: An ad viewer recognises the ad's sentence and frame, learns in one line what a session is, sees 50 min, 250 zl, Wrzeszcz and the nearest hours, taps one; the unsure read the plan, Artur and the FAQ, or write.
+FIRST VIEWPORT: Logo; the ad's sentence as display h1; its italic second caption; full-bleed warm still; one plain line; ruled fact row; three slot buttons; ink CTA; question link.
+FORM: Konspekt lekcji, own list #7; staging: minute column, margin notes, a 50-minute total, the paper line standing up into a walking figure; seed ba3a9cae.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md`;
+
+const usluga = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Integracja Funkcjonalna: sesja indywidualna metodą Feldenkraisa',
+  serviceType: 'Lekcja metody Feldenkraisa',
+  provider: { '@id': `${SITE.url}/#artur` },
+  areaServed: { '@type': 'City', name: 'Gdańsk' },
+  offers: { '@type': 'Offer', price: '250', priceCurrency: 'PLN', url: KALENDARZ },
+  description: w.opis,
+};
+---
+
+<Base title={w.tytul} description={w.opis} ogImage={w.og} canonical="/sesja/" kontrakt={kontrakt}>
+  <Fragment slot="head">
+    <link rel="preload" href={latN} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={plN} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={latI} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={plI} as="font" type="font/woff2" crossorigin />
+    {!dev && <link rel="preconnect" href="https://pracownia.arturporusza.pl" crossorigin />}
+    <meta name="theme-color" content="#fbfaf7" />
+    <script type="application/ld+json" set:html={JSON.stringify(usluga)} />
+    <script is:inline define:vars={{ api, ile: TERMINY_ILE, limit: TERMINY_TIMEOUT_MS, dev }}>
+      // Zapytanie o terminy startuje przed resztą strony; wynik odbiera src/scripts/sesja.ts.
+      (function () {
+        var d = document.documentElement;
+        d.className += ' js';
+        var q = null;
+        try {
+          q = new URLSearchParams(location.search);
+        } catch (e) {}
+        if (q && q.get('hero') === 'b') d.setAttribute('data-hero', 'b');
+        var url = api + '?ile=' + ile;
+        if (dev && q && q.get('terminy')) url += '&stan=' + encodeURIComponent(q.get('terminy'));
+        var p;
+        if (!window.fetch || !window.Promise) {
+          p = { then: function () { return this; }, catch: function (f) { f(new Error('brak fetch')); return this; } };
+        } else {
+          var ctrl = window.AbortController ? new AbortController() : null;
+          var zegar;
+          var czas = new Promise(function (_, nie) {
+            zegar = setTimeout(function () {
+              if (ctrl) ctrl.abort();
+              nie(new Error('za długo'));
+            }, limit);
+          });
+          czas.catch(function () {});
+          var odp = fetch(url, {
+            credentials: 'omit',
+            headers: { Accept: 'application/json' },
+            signal: ctrl ? ctrl.signal : undefined,
+          }).then(function (r) {
+            clearTimeout(zegar);
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+          });
+          p = Promise.race([odp, czas]);
+          p.catch(function () {});
+        }
+        window.__sesjaTerminy = p;
+      })();
+    </script>
+  </Fragment>
+
+  <div class="s-strona">
+    <div class="s-naglowek">
+      <Nav>
+        <a slot="prawo" class="cichy-link nav-pytanie" href="#kontakt" data-cta="naglowek-pytanie">Masz pytanie?</a>
+      </Nav>
+    </div>
+    <main id="tresc" data-wariant={w.slug || 'domyslny'} data-zrodlo={zrodlo(w.slug)} data-usluga={USLUGA}>
+      <Hero wariant={w} kalendarz={kalendarz} />
+      <Przebieg />
+      <Prowadzacy />
+      <Pytania />
+      <Zapisy kalendarz={kalendarz} />
+    </main>
+    <Footer />
+    <Pasek kalendarz={kalendarz} />
+  </div>
+</Base>
+
+<script>
+  import '../../scripts/sesja';
+</script>
