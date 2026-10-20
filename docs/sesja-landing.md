@@ -168,7 +168,7 @@ Opisane w DESIGN.md › „Surface exception: /sesja” i w PRODUCT.md: kolorowe
 
 ## Do zrobienia i do decyzji (Artur)
 
-- [ ] **Adres gabinetu** we Wrzeszczu: `FAKTY.adres` w `src/data/sesja.ts` (puste = się nie wyświetla). Adres JDG z `config.ts` to nie gabinet.
+- [x] **Adres gabinetu**: ul. Politechniczna 9/5, Gdańsk Wrzeszcz (`FAKTY.adres`, podany przez Artura 2026-10-20).
 - [ ] **Zatwierdzić zdjęcia** (tabela wyżej), zwłaszcza `reka` na `/sesja/sport/` i `spacer` na `/sesja/schody/`, oraz kolor zamiast szarości.
 - [ ] **Zatwierdzić skróty opinii** (Tomasz, Andrzej, Dariusz) i to, że są pokazane z imieniem i miesiącem.
 - [ ] **Pracownia**: endpoint i parametr `termin` według kontraktu wyżej, CORS dla arturporusza.pl, opcjonalnie zapis `zrodlo`. Do tego czasu strona działa w stanie „błąd”.
