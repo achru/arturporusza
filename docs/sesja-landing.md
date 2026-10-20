@@ -169,13 +169,13 @@ Opisane w DESIGN.md › „Surface exception: /sesja” i w PRODUCT.md: kolorowe
 ## Do zrobienia i do decyzji (Artur)
 
 - [x] **Adres gabinetu**: ul. Politechniczna 9/5, Gdańsk Wrzeszcz (`FAKTY.adres`, podany przez Artura 2026-10-20).
-- [ ] **Zatwierdzić zdjęcia** (tabela wyżej), zwłaszcza `reka` na `/sesja/sport/` i `spacer` na `/sesja/schody/`, oraz kolor zamiast szarości.
-- [ ] **Zatwierdzić skróty opinii** (Tomasz, Andrzej, Dariusz) i to, że są pokazane z imieniem i miesiącem.
-- [ ] **Pracownia**: endpoint i parametr `termin` według kontraktu wyżej, CORS dla arturporusza.pl, opcjonalnie zapis `zrodlo`. Do tego czasu strona działa w stanie „błąd”.
-- [ ] **Sprawdzić w Pracowni zasady, które cytuje strona**: zmiana/odwołanie online do 24 h przed, potwierdzenie z plikiem kalendarza mailem, przypomnienia dzień i 2 h przed, konto (e-mail, telefon, hasło).
+- [x] **Zatwierdzić zdjęcia** (Artur zatwierdził 2026-10-20) (tabela wyżej), zwłaszcza `reka` na `/sesja/sport/` i `spacer` na `/sesja/schody/`, oraz kolor zamiast szarości.
+- [x] **Zatwierdzić skróty opinii** (Artur zatwierdził 2026-10-20) (Tomasz, Andrzej, Dariusz) i to, że są pokazane z imieniem i miesiącem.
+- [x] **Pracownia** (wdrożone 2026-10-20, commit 2f0f548, DECISIONS 008): endpoint i parametr `termin` według kontraktu wyżej, CORS dla arturporusza.pl, opcjonalnie zapis `zrodlo`. Do tego czasu strona działa w stanie „błąd”.
+- [x] **Sprawdzić w Pracowni zasady, które cytuje strona** (zgodne z tekstem strony rezerwacji w produkcji, 2026-10-20): zmiana/odwołanie online do 24 h przed, potwierdzenie z plikiem kalendarza mailem, przypomnienia dzień i 2 h przed, konto (e-mail, telefon, hasło).
 - [ ] **Reklamy**: przestawić linki v1/v8/v9/v10 na `/sesja/skreslone/`, `/cos-wraca/`, `/schody/`, `/sport/` (dziś wszystkie idą na `/indywidualnie/`). Teksty reklam z „Szczegóły i zapisy: arturporusza.pl/indywidualnie” też.
 - [ ] Zdecydować, co z `/indywidualnie/` (zostaje, przekierowanie 301 na `/sesja/`, czy link z jednej do drugiej) i czy strona główna (`Sesje.astro`) ma linkować do `/sesja/`.
-- [ ] Wybrać pierwszy ekran: A (domyślny) czy B (`?hero=b`).
+- [x] Wybrać pierwszy ekran: **A** (Artur, 2026-10-20). B zostaje tylko pod `?hero=b`.
 - [ ] „Sprawność, która zostaje na dłużej.” na `/schody/` to obietnica przeniesiona z reklamy v9: zostawić dla zgodności z reklamą albo złagodzić.
 - [ ] Ceny 250 zł / 300 zł są wpisane w `src/data/sesja.ts`; `SESJE.cenaGdansk` w `config.ts` nadal jest puste (strona główna nie pokazuje ceny), do decyzji.
 - [ ] Opcjonalnie: krótka pętla wideo w pierwszym ekranie (świadomie pominięta: odwiedzający właśnie obejrzał wideo, a zdjęcie jest LCP i waży 12–40 KB).
