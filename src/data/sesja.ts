@@ -27,9 +27,8 @@ export const FAKTY = {
   czas: '50 minut',
   cena: '250 zł',
   miejsce: 'Gdańsk Wrzeszcz',
-  // TODO(Artur): dokładny adres gabinetu we Wrzeszczu. Pusty = nie renderuje się.
-  // Adres JDG z config.ts (ul. Dulina) to NIE jest gabinet.
-  adres: '',
+  // Gabinet (podał Artur 2026-10-20). Adres JDG z config.ts (ul. Dulina) to NIE jest gabinet.
+  adres: 'ul. Politechniczna 9/5, Gdańsk Wrzeszcz',
   cenaOnline: '300 zł',
 };
 
