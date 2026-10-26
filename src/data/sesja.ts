@@ -157,6 +157,24 @@ export const POZYCJE = [
   { key: 'stojac-plecy', podpis: 'stojąc', alt: 'Osoba stoi, Artur stoi za nią z dłońmi na jej plecach.' },
 ] as const;
 
+/** Lista od Artura (26.10.2026), słowo w słowo; ta sama stoi w Pracowni na /rezerwacja.
+    Zwykła lista z kreską papieru, bez ikon i kart (patrz docs/sesja-landing.md). */
+export const KORZYSCI = {
+  naglowek: 'Praktyka metody Feldenkraisa może wspierać:',
+  lista: [
+    'Większą świadomość ciała i&nbsp;jego sygnałów.',
+    'Swobodniejsze, bardziej komfortowe poruszanie się.',
+    'Lepszą równowagę i&nbsp;sprawność chodzenia.',
+    'Łagodzenie przewlekłego bólu dolnej części pleców.',
+    'Większą pewność w&nbsp;ruchu i&nbsp;łatwiejsze codzienne funkcjonowanie.',
+    'Wyciszenie oraz zmniejszenie stresu i&nbsp;chwilowego niepokoju.',
+    'Poprawę nastroju i&nbsp;samopoczucia.',
+    'Twórcze odkrywanie ruchu i&nbsp;swobodę ekspresji.',
+    'Świadomą pracę nad nawykami ruchowymi jako uzupełnienie treningu sportowego.',
+  ],
+  zastrzezenie: 'Efekty są indywidualne. Praktyka nie zastępuje potrzebnego leczenia ani psychoterapii.',
+};
+
 export const BIO = [
   'Pracuję metodą Feldenkraisa od trzynastu lat, w&nbsp;Gdańsku i&nbsp;online. Pracowałem ze sportowcami, artystami, ludźmi w&nbsp;bólu i&nbsp;osobami, które zarządzają dużymi organizacjami.',
 ];

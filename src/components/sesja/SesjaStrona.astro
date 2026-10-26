@@ -6,6 +6,7 @@ import Nav from '../Nav.astro';
 import Footer from '../Footer.astro';
 import Hero from './Hero.astro';
 import Przebieg from './Przebieg.astro';
+import Korzysci from './Korzysci.astro';
 import Prowadzacy from './Prowadzacy.astro';
 import Pytania from './Pytania.astro';
 import Zapisy from './Zapisy.astro';
@@ -117,6 +118,7 @@ const usluga = {
     <main id="tresc" data-wariant={w.slug || 'domyslny'} data-zrodlo={zrodlo(w.slug)} data-usluga={USLUGA}>
       <Hero wariant={w} kalendarz={kalendarz} />
       <Przebieg />
+      <Korzysci />
       <Prowadzacy />
       <Pytania />
       <Zapisy kalendarz={kalendarz} />

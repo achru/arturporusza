@@ -1,0 +1,17 @@
+---
+/* Co praktyka może wspierać: lista od Artura, słowo w słowo. Zdanie wstępu jest
+   nagłówkiem (na szerokim ekranie stoi w lewej kolumnie i kończy się dwukropkiem,
+   a lista po prawej je dopowiada), pozycje dzieli kreska papieru jak pytania,
+   zastrzeżenie stoi pod spodem. Bez ikon i kart. */
+import { KORZYSCI } from '../../data/sesja';
+---
+
+<section id="korzysci" class="s-sekcja" aria-labelledby="korzysci-h">
+  <div class="s-wrap s-sekcja-uklad">
+    <h2 id="korzysci-h" class="s-h2">{KORZYSCI.naglowek}</h2>
+    <ul class="s-korzysci">
+      {KORZYSCI.lista.map((k) => <li set:html={k} />)}
+    </ul>
+    <p class="s-zastrzezenie">{KORZYSCI.zastrzezenie}</p>
+  </div>
+</section>

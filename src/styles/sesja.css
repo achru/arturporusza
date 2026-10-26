@@ -828,6 +828,29 @@ html[data-hero='b'] .s-hero-foto--b img {
   }
 }
 
+/* — korzyści: zwykła lista, kreska papieru między pozycjami jak w pytaniach;
+     nic tu nie jest klikalne, więc bez plusa i bez hovera — */
+.s-korzysci {
+  list-style: none;
+}
+
+.s-korzysci li {
+  padding-block: 0.7rem;
+  border-top: 1px solid var(--linia);
+  line-height: 1.45;
+}
+
+.s-korzysci li:last-child {
+  border-bottom: 1px solid var(--linia);
+}
+
+.s-zastrzezenie {
+  margin-top: 0.9rem;
+  font-size: var(--t-maly);
+  color: var(--ink-soft);
+  max-width: 36em;
+}
+
 /* — prowadzący: twarz obok nazwiska, potem dwa zdania i opinie — */
 .s-sekcja-uklad.s-prowadzacy {
   grid-template-columns: 6.5rem minmax(0, 1fr);
@@ -1398,8 +1421,13 @@ details[open] .s-plus::after {
     margin-top: 0.4rem;
   }
 
-  .s-pytania {
+  .s-pytania,
+  .s-korzysci {
     max-width: 44rem;
+  }
+
+  .s-korzysci li {
+    padding-block: 0.8rem;
   }
 
   .s-zapisy-tresc {

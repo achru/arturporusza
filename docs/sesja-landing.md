@@ -29,13 +29,14 @@ i miejsce pojawiały się późno, a jedynym ruchem była rezerwacja za 250 zł.
 
 1. **Pierwszy ekran** (390×844 bez przewijania): logo i „Masz pytanie?”, zdanie z reklamy, dopowiedzenie kursywą, zdjęcie na całą szerokość (wolny najazd 16 s jak w reklamie, wyłączony przy ograniczonym ruchu), jedno zdanie o tym, czym jest sesja, linijka faktów „50 minut · 250 zł · Gdańsk Wrzeszcz”, trzy najbliższe godziny jako przyciski, atramentowy przycisk „Umów sesję”, link „Masz pytanie? Napisz na Instagramie albo mailem.”
 2. **Jak wygląda pierwsza sesja**: konspekt lekcji. Kolumna minut (10 + 5 + 30 + 5, za starą stroną `/indywidualnie/`), uwagi na marginesie (na telefonie pod krokiem), trzy kadry „leżąc · siedząc · stojąc”, wiersz „50 min razem”, w którym linia papieru wstaje i idzie (rysuje się raz, gdy wejdzie w widok).
-3. **Artur Chruszcz**: twarz, podpis, dwa zdania z biogramu, link do `/o-mnie/`, trzy fragmenty opinii z Booksy (cięcia oznaczone „(…)”), link do `/opinie/`.
-4. **Pytania**: pięć natywnych `<details>`.
-5. **Umów pierwszą sesję**: fakty, do 5 terminów pogrupowanych w dni, „Zobacz wszystkie terminy”, zasady Pracowni wprost, kontakt (Instagram, e-mail) i wzmianka o sesjach online.
-6. Stopka strony (bez pierwszego rzędu linków, bo kontakt jest tuż nad nią).
-7. **Pasek na telefonie**: „Najbliższy wolny termin · pon. 2.11 · 12:00” + „Umów sesję”. Wysuwa się, gdy przycisk z pierwszego ekranu zniknie u góry, chowa przy bloku zapisów. Kryjące tło, bez `backdrop-filter`.
+3. **Praktyka metody Feldenkraisa może wspierać:** dziewięć pozycji od Artura (26.10.2026), słowo w słowo, i zastrzeżenie pod nimi („Efekty są indywidualne…”). Teza strony odrzuca karty korzyści, a Artur chciał mieć tę listę mimo to, więc stoi jako zwykła lista z kreską papieru jak pytania, bez ikon i kart (`Korzysci.astro`, `KORZYSCI` w `src/data/sesja.ts`). Ta sama lista jest w Pracowni pod usługami na `/rezerwacja` (`services.practice*` w `app/frontend/lib/i18n.ts`): zmiana w jednym miejscu wymaga zmiany w drugim.
+4. **Artur Chruszcz**: twarz, podpis, dwa zdania z biogramu, link do `/o-mnie/`, trzy fragmenty opinii z Booksy (cięcia oznaczone „(…)”), link do `/opinie/`.
+5. **Pytania**: pięć natywnych `<details>`.
+6. **Umów pierwszą sesję**: fakty, do 5 terminów pogrupowanych w dni, „Zobacz wszystkie terminy”, zasady Pracowni wprost, kontakt (Instagram, e-mail) i wzmianka o sesjach online.
+7. Stopka strony (bez pierwszego rzędu linków, bo kontakt jest tuż nad nią).
+8. **Pasek na telefonie**: „Najbliższy wolny termin · pon. 2.11 · 12:00” + „Umów sesję”. Wysuwa się, gdy przycisk z pierwszego ekranu zniknie u góry, chowa przy bloku zapisów. Kryjące tło, bez `backdrop-filter`.
 
-Telefon 390×844: 4018 px = 4,8 ekranu, w tym 220 px stopki (bez niej 4,5). Cel „~4 ekrany” nie jest w pełni osiągnięty; zostały wszystkie wymagane treści. Przy niskim oknie (do 760 px, typowe dla przeglądarki w aplikacji FB/IG) pierwszy ekran się zagęszcza: na 390×700 terminy i przycisk zostają w widoku.
+Telefon 390×844: 4931 px = 5,8 ekranu, w tym 220 px stopki (bez niej 5,6). Lista korzyści dodała 853 px, czyli około ekranu (wcześniej 4018 px = 4,8 ekranu). Cel „~4 ekrany” nie jest osiągnięty; zostały wszystkie wymagane treści. Przy niskim oknie (do 760 px, typowe dla przeglądarki w aplikacji FB/IG) pierwszy ekran się zagęszcza: na 390×700 terminy i przycisk zostają w widoku.
 
 ## Kontrakt z Pracownią: wolne terminy
 
