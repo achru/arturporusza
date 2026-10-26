@@ -165,7 +165,7 @@ export const KORZYSCI = {
     'Większą świadomość ciała i&nbsp;jego sygnałów.',
     'Swobodniejsze, bardziej komfortowe poruszanie się.',
     'Lepszą równowagę i&nbsp;sprawność chodzenia.',
-    'Łagodzenie przewlekłego bólu dolnej części pleców.',
+    'Łagodzenie przewlekłego bólu.',
     'Większą pewność w&nbsp;ruchu i&nbsp;łatwiejsze codzienne funkcjonowanie.',
     'Wyciszenie oraz zmniejszenie stresu i&nbsp;chwilowego niepokoju.',
     'Poprawę nastroju i&nbsp;samopoczucia.',
